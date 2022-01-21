@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite"><test verbose="2" preserve-order="true" name="D:/MavenProject">
+    <classes>
+<!--        <class name="Tests.LoginTest"><methods><include name="LoginTestFlow"/></methods></class>-->
+        <class name="Tests.FunctionalTabTest"><methods><include name="FunctionalFlow"/></methods></class>
+        <class name="Tests.ForgetPwdTest"><methods><include name="ForgotPwdFlow"/></methods></class>
+<!--        <class name="Tests.ProjectBREDataSetTest"><methods><include name="ProjectBREDataSetFlow"/></methods></class>-->
+<!--        <class name="Tests.ProjectBRETest"><methods><include name="ProjectBREFlow"/></methods></class>-->
+<!--        <class name="Tests.DataSetTest"><methods><include name="DataSetFlow"/></methods></class>-->
+<!--        <class name="Tests.EditProfileTest"><methods><include name="EditProfileFlow"/></methods></class>-->
+<!--        <class name="Tests.TemplateTest"><methods><include name="TemplateFlow"/></methods></class>-->
+<!--        <class name="Tests.CreateRoleAdminTest"><methods><include name="CreateRoleAdminFlow"/></methods></class>-->
+<!--        <class name="Tests.CreateRolePlatformAdminTest"><methods><include name="CreateRolePlatformAdminFlow"/></methods></class>-->
+<!--        <class name="Tests.CreateUserAdminTest"><methods><include name="CreateUserAdminFlow"/></methods></class>-->
+<!--        <class name="Tests.DocProcessFreeFormTest"><methods><include name="DocumentFlow"/></methods></class>-->
+<!--        <class name="Tests.DocProcessSemiStructuredTest"><methods><include name="DocumentFlow"/></methods></class>-->
+<!--        <class name="Tests.DocProcessStructuredTest"><methods><include name="DocumentFlow"/></methods></class>-->
+<!--        <class name="Tests.ProjectFlowFreeFormTest"><methods><include name="FreeFormProjectFlow"/></methods></class>-->
+<!--        <class name="Tests.ProjectFlowSemiStructureTest"><methods><include name="ProjectFlowSemiStructure"/></methods></class>-->
+<!--        <class name="Tests.RoleAccessTest"><methods><include name="RoleWiseFlow"/></methods></class>-->
+<!--        <class name="Tests.UpdateUserAdminTest"><methods><include name="UpdateUserAdminFlow"/></methods></class>-->
+<!--        <class name="Tests.UpdateUserPlatformAdminTest"><methods><include name="PlatformAdminUpdateUserFlow"/></methods></class>-->
+    </classes>
+</test>
+</suite>
