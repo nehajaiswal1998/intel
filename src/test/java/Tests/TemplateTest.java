@@ -8,15 +8,16 @@ import com.relevantcodes.extentreports.LogStatus;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import java.awt.*;
 import java.io.IOException;
+@Listeners(Utilities.TestListeners.class)
 public class TemplateTest extends BasePage {
 
     @Test
-    public void TemplateFlow() throws InterruptedException, IOException {
+    public void TemplateFlow() throws Exception {
 
-        try {
             BasePage.LoginTest();
             Robot r = new Robot();
             Thread.sleep(8000);
@@ -219,11 +220,6 @@ public class TemplateTest extends BasePage {
             TemplatePageObj.SoftAssertAll();
             Thread.sleep(4000);
             driver.close();
-        }
-        catch (Exception e) {
-            test.log(LogStatus.FAIL, e);
-        }
-
     }
 
 }

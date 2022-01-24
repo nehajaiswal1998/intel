@@ -6,17 +6,17 @@ import Pages.ProjectPage;
 import Utilities.ReadProps;
 import Utilities.TakesScreen;
 import com.relevantcodes.extentreports.LogStatus;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import org.openqa.selenium.JavascriptExecutor;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
-
+@Listeners(Utilities.TestListeners.class)
 public class ProjectBRETest extends BasePage {
 
     @Test
-    public void ProjectBREFlow() throws InterruptedException, IOException {
-        try {
+    public void ProjectBREFlow() throws Exception {
             BasePage.LoginTest();
             Robot r = new Robot();
             ProjectPage ProjectPageObj = new ProjectPage(driver);
@@ -465,10 +465,6 @@ public class ProjectBRETest extends BasePage {
             Thread.sleep(3000);
             //Upload the Document in this Project for the Results.
             driver.close();
-        }
-        catch (Exception e) {
-            test.log(LogStatus.FAIL, e);
-        }
     }
 
 }

@@ -10,15 +10,15 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import static org.testng.Assert.assertEquals;
-
+@Listeners(Utilities.TestListeners.class)
 public class LoginTest extends BasePage {
     WebDriver driver;
 
     @Test(priority = 1)
     public static void login_with_blank_() throws Exception {
-        try {
 
             test.log(LogStatus.INFO, "Login");
             test.log(LogStatus.PASS, "TestPassed");
@@ -320,9 +320,5 @@ public class LoginTest extends BasePage {
             loginPageObjects.ClickLogoutBtn();
             Thread.sleep(5000);
             driver.close();
-        }
-        catch (Exception e) {
-            test.log(LogStatus.FAIL, e);
-        }
     }
 }

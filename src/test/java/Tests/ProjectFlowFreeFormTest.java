@@ -6,16 +6,15 @@ import Pages.ProjectPage;
 import Utilities.ReadProps;
 import Utilities.TakesScreen;
 import com.relevantcodes.extentreports.LogStatus;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import java.awt.*;
 import java.awt.event.KeyEvent;
-
+@Listeners(Utilities.TestListeners.class)
 public class ProjectFlowFreeFormTest extends BasePage {
 
     @Test
-    public void FreeFormProjectFlow(){
-
-        try {
+    public void FreeFormProjectFlow() throws Exception {
 
             BasePage.LoginTest();
             Robot r = new Robot();
@@ -113,8 +112,4 @@ public class ProjectFlowFreeFormTest extends BasePage {
             TakesScreen.takeSnapShot(driver, "test-output//ProjectFlowFree-Form//ProjectCreatedSuccess.jpg");
             driver.close();
         }
-
-        catch (Exception e) {
-            test.log(LogStatus.FAIL, e);
-        }}
 }

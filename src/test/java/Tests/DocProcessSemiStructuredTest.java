@@ -6,17 +6,17 @@ import Utilities.ReadProps;
 import Utilities.TakesScreen;
 import com.relevantcodes.extentreports.LogStatus;
 import org.openqa.selenium.JavascriptExecutor;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
-
+@Listeners(Utilities.TestListeners.class)
 public class DocProcessSemiStructuredTest extends BasePage
 {
 
     @Test
-    public void DocProcessSemiStructuredTestFlow() throws InterruptedException, IOException {
-        try {
+    public void DocProcessSemiStructuredTestFlow() throws Exception {
             BasePage.LoginTest();
             Robot r = new Robot();
             DocumentPage DocPageObj = new DocumentPage(driver);
@@ -193,8 +193,5 @@ public class DocProcessSemiStructuredTest extends BasePage
             TakesScreen.takeSnapShot(driver, "test-output//SemiStructuredDocument//PreviousPage.jpg");
             Thread.sleep(4000);
             driver.close();
-        } catch (Exception e) {
-            test.log(LogStatus.FAIL, e);
-        }
     }
 }

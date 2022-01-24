@@ -7,13 +7,13 @@ import Utilities.TakesScreen;
 import com.relevantcodes.extentreports.LogStatus;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import java.io.IOException;
-
+@Listeners(Utilities.TestListeners.class)
 public class UpdateUserAdminTest extends BasePage {
     @Test
-    public void UpdateUserAdminFlow() throws InterruptedException, IOException {
-        try {
+    public void UpdateUserAdminFlow() throws Exception {
             test.log(LogStatus.INFO, "UpdateUserAdmin");
             test.log(LogStatus.PASS, "TestPassed");
             String projectPath = System.getProperty("user.dir");
@@ -111,8 +111,5 @@ public class UpdateUserAdminTest extends BasePage {
             UserPageObj1.LogOut();
             Thread.sleep(4000);
             driver.close();
-        } catch (Exception e) {
-            test.log(LogStatus.FAIL, e);
-        }
     }
 }

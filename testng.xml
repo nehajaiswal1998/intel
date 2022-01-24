@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd"><suite name="All Test Suite">
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd"><suite name="Regression Suite">
     <test verbose="2" preserve-order="true" name="D:/Product_Automation/IntelliDoc_Automation">
         <classes>
             <class name="Tests.DataSetTest"><methods><include name="DataSetFlow"/></methods></class>

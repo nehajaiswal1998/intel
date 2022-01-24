@@ -5,17 +5,17 @@ import Pages.ProjectPage;
 import Utilities.ReadProps;
 import Utilities.TakesScreen;
 import com.relevantcodes.extentreports.LogStatus;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
-
+@Listeners(Utilities.TestListeners.class)
 public class UpdateProjectTest extends BasePage{
 
     @Test
-    public void UpdateProjectFlow() throws InterruptedException, IOException {
-        try {
+    public void UpdateProjectFlow() throws Exception {
 
             BasePage.LoginTest();
             Robot r = new Robot();
@@ -412,9 +412,6 @@ public class UpdateProjectTest extends BasePage{
             ProjectPageObj.ClickLogout();
             Thread.sleep(4000);
             driver.close();
-        } catch (Exception e) {
-            test.log(LogStatus.FAIL, e);
-        }
 
     }
 }

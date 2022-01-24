@@ -7,16 +7,16 @@ import Utilities.ReadProps;
 import Utilities.TakesScreen;
 import com.relevantcodes.extentreports.LogStatus;
 import org.openqa.selenium.JavascriptExecutor;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
-
+@Listeners(Utilities.TestListeners.class)
 public class DocProcessMedicalChart extends BasePage
 {
     @Test
-    public void DocProcessMedicalChartTestFlow() throws InterruptedException, IOException {
-        try {
+    public void DocProcessMedicalChartTestFlow() throws Exception {
             BasePage.LoginTest();
             Robot r = new Robot();
             DocumentPage DocPageObj = new DocumentPage(driver);
@@ -186,8 +186,5 @@ public class DocProcessMedicalChart extends BasePage
             Thread.sleep(4000);
             driver.close();
 
-        } catch (Exception e) {
-            test.log(LogStatus.FAIL, e);
-        }
     }
 }
