@@ -15,8 +15,8 @@ import java.io.IOException;
 @Listeners(Utilities.TestListeners.class)
 public class CreateRoleAdminTest extends BasePage {
     @Test
-    public void CreateRoleAdminFlow() throws InterruptedException, IOException {
-        try {
+    public void CreateRoleAdminFlow() throws Exception {
+
             String projectPath = System.getProperty("user.dir");
             System.setProperty("webdriver.chrome.driver", projectPath + ".\\Drivers\\chromedriver.exe");
             WebDriver driver = new ChromeDriver();
@@ -179,8 +179,5 @@ public class CreateRoleAdminTest extends BasePage {
             driver.close();
             CreateRolePageObj.AssertAll();
 
-        } catch (Exception e) {
-            test.log(status.FAIL, e);
-        }
     }
 }

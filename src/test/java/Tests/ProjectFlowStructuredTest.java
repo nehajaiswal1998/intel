@@ -16,8 +16,7 @@ import java.io.IOException;
 public class ProjectFlowStructuredTest extends BasePage {
 
     @Test
-    public void ProjectFlow() throws InterruptedException, IOException {
-        try {
+    public void ProjectFlow() throws Exception {
 
             BasePage.LoginTest();
             Robot r = new Robot();
@@ -520,8 +519,5 @@ public class ProjectFlowStructuredTest extends BasePage {
             r.keyPress(KeyEvent.VK_ESCAPE);
             Thread.sleep(3000);
             driver.close();
-        } catch (Exception e) {
-            test.log(LogStatus.FAIL, e);
-        }
     }
 }

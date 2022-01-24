@@ -16,9 +16,8 @@ import java.io.IOException;
 public class TemplateTest extends BasePage {
 
     @Test
-    public void TemplateFlow() throws InterruptedException, IOException {
+    public void TemplateFlow() throws Exception {
 
-        try {
             BasePage.LoginTest();
             Robot r = new Robot();
             Thread.sleep(8000);
@@ -221,11 +220,6 @@ public class TemplateTest extends BasePage {
             TemplatePageObj.SoftAssertAll();
             Thread.sleep(4000);
             driver.close();
-        }
-        catch (Exception e) {
-            test.log(LogStatus.FAIL, e);
-        }
-
     }
 
 }

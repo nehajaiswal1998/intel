@@ -15,8 +15,7 @@ import java.io.IOException;
 public class DocProcessStructuredTest extends BasePage {
 
     @Test
-    public void DocProcessStructuredTestFlow() throws InterruptedException, IOException {
-        try {
+    public void DocProcessStructuredTestFlow() throws Exception {
             BasePage.LoginTest();
             Robot r = new Robot();
             DocumentPage DocPageObj = new DocumentPage(driver);
@@ -201,8 +200,5 @@ public class DocProcessStructuredTest extends BasePage {
             Thread.sleep(4000);
             driver.close();
 
-        } catch (Exception e) {
-            test.log(LogStatus.FAIL, e);
-        }
     }
 }

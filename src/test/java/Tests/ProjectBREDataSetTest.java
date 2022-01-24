@@ -17,8 +17,7 @@ import java.io.IOException;
 public class ProjectBREDataSetTest extends BasePage {
 
     @Test
-    public void ProjectBREDataSetFlow() throws InterruptedException, IOException {
-        try {
+    public void ProjectBREDataSetFlow() throws Exception {
             BasePage.LoginTest();
             Robot r = new Robot();
             ProjectPage ProjectPageObj = new ProjectPage(driver);
@@ -178,11 +177,5 @@ public class ProjectBREDataSetTest extends BasePage {
              // driver.close();
             //Document should be uploaded from backend to check the output.
 
-
-
-        }
-        catch (Exception e) {
-            test.log(LogStatus.FAIL, e);
-        }
     }
 }

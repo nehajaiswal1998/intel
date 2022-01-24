@@ -14,8 +14,7 @@ import java.io.IOException;
 @Listeners(Utilities.TestListeners.class)
 public class ProjectFlowSemiStructureTest extends BasePage{
     @Test
-    public void ProjectFlowSemiStructure() throws InterruptedException, IOException {
-        try {
+    public void ProjectFlowSemiStructure() throws Exception {
 
             BasePage.LoginTest();
             Robot r = new Robot();
@@ -102,9 +101,5 @@ public class ProjectFlowSemiStructureTest extends BasePage{
             Thread.sleep(9000);
             TakesScreen.takeSnapShot(driver, "test-output//ProjectFlowSemi-Structured//ProjectCreatedSuccess.jpg");
             driver.close();
-        }
-        catch (Exception e) {
-            test.log(LogStatus.FAIL, e);
-        }
     }
 }

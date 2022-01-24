@@ -15,8 +15,7 @@ import java.io.IOException;
 public class UpdateProjectTest extends BasePage{
 
     @Test
-    public void UpdateProjectFlow() throws InterruptedException, IOException {
-        try {
+    public void UpdateProjectFlow() throws Exception {
 
             BasePage.LoginTest();
             Robot r = new Robot();
@@ -413,9 +412,6 @@ public class UpdateProjectTest extends BasePage{
             ProjectPageObj.ClickLogout();
             Thread.sleep(4000);
             driver.close();
-        } catch (Exception e) {
-            test.log(LogStatus.FAIL, e);
-        }
 
     }
 }

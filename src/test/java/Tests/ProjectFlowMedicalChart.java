@@ -16,8 +16,7 @@ import java.io.IOException;
 public class ProjectFlowMedicalChart extends BasePage {
 
     @Test
-    public void ProjectFlow() throws InterruptedException, IOException {
-        try {
+    public void ProjectFlow() throws Exception {
 
             BasePage.LoginTest();
             Robot r = new Robot();
@@ -113,9 +112,6 @@ public class ProjectFlowMedicalChart extends BasePage {
             Thread.sleep(9000);
             TakesScreen.takeSnapShot(driver, "test-output//ProjectFlowMedicalChart//ProjectCreatedSuccess.jpg");
             driver.close();
-        } catch (Exception e) {
-            test.log(LogStatus.FAIL, e);
-        }
 
     }
 }

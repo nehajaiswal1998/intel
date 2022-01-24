@@ -16,8 +16,7 @@ public class DocProcessSemiStructuredTest extends BasePage
 {
 
     @Test
-    public void DocProcessSemiStructuredTestFlow() throws InterruptedException, IOException {
-        try {
+    public void DocProcessSemiStructuredTestFlow() throws Exception {
             BasePage.LoginTest();
             Robot r = new Robot();
             DocumentPage DocPageObj = new DocumentPage(driver);
@@ -194,8 +193,5 @@ public class DocProcessSemiStructuredTest extends BasePage
             TakesScreen.takeSnapShot(driver, "test-output//SemiStructuredDocument//PreviousPage.jpg");
             Thread.sleep(4000);
             driver.close();
-        } catch (Exception e) {
-            test.log(LogStatus.FAIL, e);
-        }
     }
 }

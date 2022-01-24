@@ -17,8 +17,7 @@ public class ProjectBREMedicalChartTest extends BasePage
 {
 
     @Test
-    public void ProjectBREMedicalChartFlow() throws InterruptedException, IOException {
-        try {
+    public void ProjectBREMedicalChartFlow() throws Exception {
 
             BasePage.LoginTest();
             Robot r = new Robot();
@@ -230,9 +229,6 @@ public class ProjectBREMedicalChartTest extends BasePage
             Thread.sleep(2000);
             //for the Result please upload the Document from Backend.
             driver.close();
-        } catch (Exception e) {
-            test.log(LogStatus.FAIL, e);
-        }
 
     }
 }

@@ -16,8 +16,7 @@ import java.io.IOException;
 public class DocProcessMedicalChart extends BasePage
 {
     @Test
-    public void DocProcessMedicalChartTestFlow() throws InterruptedException, IOException {
-        try {
+    public void DocProcessMedicalChartTestFlow() throws Exception {
             BasePage.LoginTest();
             Robot r = new Robot();
             DocumentPage DocPageObj = new DocumentPage(driver);
@@ -187,8 +186,5 @@ public class DocProcessMedicalChart extends BasePage
             Thread.sleep(4000);
             driver.close();
 
-        } catch (Exception e) {
-            test.log(LogStatus.FAIL, e);
-        }
     }
 }

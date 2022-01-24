@@ -19,7 +19,6 @@ public class LoginTest extends BasePage {
 
     @Test(priority = 1)
     public static void login_with_blank_() throws Exception {
-        try {
 
             test.log(LogStatus.INFO, "Login");
             test.log(LogStatus.PASS, "TestPassed");
@@ -321,9 +320,5 @@ public class LoginTest extends BasePage {
             loginPageObjects.ClickLogoutBtn();
             Thread.sleep(5000);
             driver.close();
-        }
-        catch (Exception e) {
-            test.log(LogStatus.FAIL, e);
-        }
     }
 }

@@ -11,15 +11,11 @@ import java.io.IOException;
 @Listeners(Utilities.TestListeners.class)
 public class ProjectFlowStructuredTest1 extends BasePage {
     @BeforeTest
-    public void login() {
-        try {
+    public void login() throws Exception {
             BasePage.LoginTest();
-        } catch (Exception e) {
-            test.log(LogStatus.FAIL, e);
-        }}
+    }
     @Test(priority = 1)
-    public void disable_active_project_on_Project_page() throws InterruptedException, IOException {
-        try {
+    public void disable_active_project_on_Project_page() throws Exception {
             ProjectFlowStructuredPage1 ProjectPageObj = new ProjectFlowStructuredPage1(driver);
             //TC 1.1 Disable Project.
             ProjectPageObj.ClickOnSearchBox(ReadProps.readAttr("StructuredProjectName1"));
@@ -45,12 +41,9 @@ public class ProjectFlowStructuredTest1 extends BasePage {
             Thread.sleep(2000);
             test.log(LogStatus.INFO, "ProjectStructuredTC1");
             test.log(LogStatus.PASS, "TestPassed");
-        } catch (Exception e) {
-            test.log(LogStatus.FAIL, e);
-        }}
+        }
     @Test(priority = 2)
-    public void verify_disabled_project_on_Project_page() throws InterruptedException, IOException {
-        try {
+    public void verify_disabled_project_on_Project_page() throws Exception {
             //TC 1.2 Verify Disable Project in List View.
             ProjectFlowStructuredPage1 ProjectPageObj = new ProjectFlowStructuredPage1(driver);
             ProjectPageObj.TableStructure();
@@ -74,6 +67,5 @@ public class ProjectFlowStructuredTest1 extends BasePage {
             test.log(LogStatus.INFO, "ProjectStructuredTC2");
             test.log(LogStatus.PASS, "TestPassed");
             driver.close();
-        } catch (Exception e) {
-            test.log(LogStatus.FAIL, e);
-        }}}
+    }
+}

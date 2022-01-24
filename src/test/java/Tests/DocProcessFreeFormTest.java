@@ -16,8 +16,7 @@ public class DocProcessFreeFormTest extends BasePage {
 
 
     @Test
-    public void DocProcessFreeFormFlow() throws InterruptedException, IOException {
-        try {
+    public void DocProcessFreeFormFlow() throws Exception {
             BasePage.LoginTest();
             Robot r = new Robot();
             DocumentPage DocPageObj = new DocumentPage(driver);
@@ -193,8 +192,5 @@ public class DocProcessFreeFormTest extends BasePage {
             Thread.sleep(3000);
             driver.close();
 
-        } catch (Exception e) {
-            test.log(LogStatus.FAIL, e);
-        }
     }
 }

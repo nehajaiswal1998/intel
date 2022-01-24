@@ -14,9 +14,7 @@ import java.awt.event.KeyEvent;
 public class ProjectFlowFreeFormTest extends BasePage {
 
     @Test
-    public void FreeFormProjectFlow(){
-
-        try {
+    public void FreeFormProjectFlow() throws Exception {
 
             BasePage.LoginTest();
             Robot r = new Robot();
@@ -114,8 +112,4 @@ public class ProjectFlowFreeFormTest extends BasePage {
             TakesScreen.takeSnapShot(driver, "test-output//ProjectFlowFree-Form//ProjectCreatedSuccess.jpg");
             driver.close();
         }
-
-        catch (Exception e) {
-            test.log(LogStatus.FAIL, e);
-        }}
 }

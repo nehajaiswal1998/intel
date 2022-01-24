@@ -15,8 +15,7 @@ import java.io.IOException;
 public class EditProfileTest extends BasePage {
 
     @Test
-    public void EditProfileFlow() throws InterruptedException, IOException {
-        try {
+    public void EditProfileFlow() throws Exception {
 
             String projectPath = System.getProperty("user.dir");
             System.setProperty("webdriver.chrome.driver", projectPath + ".\\Drivers\\chromedriver.exe");
@@ -73,10 +72,6 @@ public class EditProfileTest extends BasePage {
             TakesScreen.takeSnapShot(driver, "test-output//EditProfileTest//Cancel.jpg");
             Thread.sleep(4000);
             driver.close();
-        }
-        catch (Exception e) {
-            test.log(LogStatus.FAIL, e);
-        }
 
     }
 }

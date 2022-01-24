@@ -13,8 +13,7 @@ import java.util.concurrent.TimeUnit;
 @Listeners(Utilities.TestListeners.class)
 public class RoleAccessTest extends BasePage {
     @Test
-    public void RoleWiseFlow() throws InterruptedException, IOException {
-        try {
+    public void RoleWiseFlow() throws Exception {
             String projectPath = System.getProperty("user.dir");
             System.setProperty("webdriver.chrome.driver", projectPath + ".\\Drivers\\chromedriver.exe");
             WebDriver driver = new ChromeDriver();
@@ -116,11 +115,6 @@ public class RoleAccessTest extends BasePage {
             TakesScreen.takeSnapShot(driver, "test-output//RoleWiseTest//OperatorRoleLogout.jpg");
             Thread.sleep(2000);
             driver.close();
-
-
-        } catch (Exception e) {
-            test.log(status.FAIL, e);
-        }
 
     }
 }

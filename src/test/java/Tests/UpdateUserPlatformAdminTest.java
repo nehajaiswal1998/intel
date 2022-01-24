@@ -12,8 +12,7 @@ import java.io.IOException;
 @Listeners(Utilities.TestListeners.class)
 public class UpdateUserPlatformAdminTest extends BasePage {
     @Test
-    public void PlatformAdminUpdateUserFlow() throws InterruptedException, IOException {
-        try {
+    public void PlatformAdminUpdateUserFlow() throws Exception {
             BasePage.LoginTest();
             CreateUserPage UserPageObj1 = new CreateUserPage(driver);
             test.log(LogStatus.INFO, "PlatformAdminUpdateUser");
@@ -326,8 +325,5 @@ public class UpdateUserPlatformAdminTest extends BasePage {
 //            UserPageObj1.LogOut();
             Thread.sleep(4000);
             driver.close();
-        } catch (Exception e) {
-            test.log(LogStatus.FAIL, e);
-        }
     }
 }

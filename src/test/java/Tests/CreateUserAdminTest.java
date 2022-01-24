@@ -15,8 +15,7 @@ public class CreateUserAdminTest extends BasePage {
     WebDriver driver;
 
     @Test
-    public void CreateUserAdminFlow() throws InterruptedException, IOException {
-        try {
+    public void CreateUserAdminFlow() throws Exception {
             test.log(LogStatus.INFO, "CreateUserAdmin");
             test.log(LogStatus.PASS, "TestPassed");
             String projectPath = System.getProperty("user.dir");
@@ -100,8 +99,5 @@ public class CreateUserAdminTest extends BasePage {
             UserPageObj.LogOut();
             Thread.sleep(5000);
             driver.close();
-        } catch (Exception e) {
-            test.log(LogStatus.FAIL, e);
-        }
     }
 }

@@ -13,9 +13,7 @@ import java.io.IOException;
 public class CreateRolePlatformAdminTest extends BasePage
 {
     @Test
-    public void CreateRolePlatformAdminFlow() throws InterruptedException, IOException
-    {
-        try {
+    public void CreateRolePlatformAdminFlow() throws Exception {
             BasePage.LoginTest();
             CreateRolePage CreateRolePageObj = new CreateRolePage(driver);
             test.log(status.INFO, "TestInformation");
@@ -230,10 +228,5 @@ public class CreateRolePlatformAdminTest extends BasePage
             Thread.sleep(5000);
             driver.close();
             CreateRolePageObj.AssertAll();
-        }
-        catch (Exception e)
-        {
-            test.log(status.FAIL, e);
-        }
     }
 }

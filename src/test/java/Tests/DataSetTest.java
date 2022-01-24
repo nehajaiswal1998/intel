@@ -14,9 +14,8 @@ import java.io.IOException;
 public class DataSetTest extends BasePage {
 
     @Test
-    public void DataSetFlow() throws InterruptedException, IOException {
+    public void DataSetFlow() throws Exception {
 
-        try {
             BasePage.LoginTest();
             DatasetPage DatasetPageObj = new DatasetPage(driver);
             test.log(LogStatus.INFO, "DataSet");
@@ -129,9 +128,6 @@ public class DataSetTest extends BasePage {
             TakesScreen.takeSnapShot(driver, "test-output//Datasets//DatasetDisabled.jpg");
             Thread.sleep(3000);
             driver.close();
-        } catch (Exception e) {
-            test.log(LogStatus.FAIL, e);
-        }
     }
 
 }
