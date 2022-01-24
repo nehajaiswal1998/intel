@@ -3,8 +3,8 @@
 <suite name="All Test Suite"><test verbose="2" preserve-order="true" name="D:/MavenProject">
     <classes>
 <!--        <class name="Tests.LoginTest"><methods><include name="LoginTestFlow"/></methods></class>-->
-        <class name="Tests.FunctionalTabTest"><methods><include name="FunctionalFlow"/></methods></class>
-        <class name="Tests.ForgetPwdTest"><methods><include name="ForgotPwdFlow"/></methods></class>
+<!--        <class name="Tests.FunctionalTabTest"><methods><include name="FunctionalFlow"/></methods></class>-->
+<!--        <class name="Tests.ForgetPwdTest"><methods><include name="ForgotPwdFlow"/></methods></class>-->
 <!--        <class name="Tests.ProjectBREDataSetTest"><methods><include name="ProjectBREDataSetFlow"/></methods></class>-->
 <!--        <class name="Tests.ProjectBRETest"><methods><include name="ProjectBREFlow"/></methods></class>-->
 <!--        <class name="Tests.DataSetTest"><methods><include name="DataSetFlow"/></methods></class>-->
