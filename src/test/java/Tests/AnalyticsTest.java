@@ -4,21 +4,21 @@ import Pages.AnalyticsPage;
 import Utilities.TakesScreen;
 import com.relevantcodes.extentreports.LogStatus;
 import org.openqa.selenium.JavascriptExecutor;
+import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import java.io.IOException;
+
+@Listeners(Utilities.TestListeners.class)
 public class AnalyticsTest extends BasePage
 {
     @BeforeTest
-    public void login() {
-        try {
-            BasePage.LoginTest();
-        } catch (Exception e) {
-            test.log(LogStatus.FAIL, e);
-        }}
+    public void login() throws Exception {
+        BasePage.LoginTest();
+    }
     @Test(priority = 1)
-    public void test_organization_arrows_on_Analytics_page() throws InterruptedException, IOException {
-        try {
+    public void test_organization_arrows_on_Analytics_page() throws Exception {
 
             //Object Creation
             AnalyticsPage AnalyticsPageObj = new AnalyticsPage(driver);
@@ -36,25 +36,20 @@ public class AnalyticsTest extends BasePage
             Thread.sleep(3000);
             test.log(LogStatus.INFO, "AnalyticsTC1");
             test.log(LogStatus.PASS, "TestPassed");
-        } catch (Exception e) {
-            test.log(LogStatus.FAIL, e);
-        }}
+    }
     @Test(priority = 2)
-    public void hover_total_users_on_Analytics_page() throws InterruptedException, IOException {
-        try {
+    public void hover_total_users_on_Analytics_page() throws Exception {
             AnalyticsPage AnalyticsPageObj = new AnalyticsPage(driver);
             // 1.2 Hover on Total Users.
             AnalyticsPageObj.HoverTotalUser();
             Thread.sleep(3000);
             TakesScreen.takeSnapShot(driver, "test-output//Analytics//HoverTotalUsers.jpg");
+            Assert.fail();
             test.log(LogStatus.INFO, "AnalyticsTC2");
             test.log(LogStatus.PASS, "TestPassed");
-        } catch (Exception e) {
-            test.log(LogStatus.FAIL, e);
-        }}
+    }
     @Test(priority = 3)
-    public void hover_total_documents_on_Analytics_page() throws InterruptedException, IOException {
-        try {
+    public void hover_total_documents_on_Analytics_page() throws Exception {
             AnalyticsPage AnalyticsPageObj = new AnalyticsPage(driver);
             // 1.3 Hover on Total Documents.
             AnalyticsPageObj.HoverDocuments();
@@ -62,12 +57,9 @@ public class AnalyticsTest extends BasePage
             Thread.sleep(3000);
             test.log(LogStatus.INFO, "AnalyticsTC3");
             test.log(LogStatus.PASS, "TestPassed");
-        } catch (Exception e) {
-            test.log(LogStatus.FAIL, e);
-        }}
+    }
     @Test(priority = 4)
-    public void hover_processed_documents_on_Analytics_page() throws InterruptedException, IOException {
-        try {
+    public void hover_processed_documents_on_Analytics_page() throws Exception {
             AnalyticsPage AnalyticsPageObj = new AnalyticsPage(driver);
             // 1.4 Hover on Processed Documents.
             AnalyticsPageObj.HoverProcessed();
@@ -75,12 +67,9 @@ public class AnalyticsTest extends BasePage
             Thread.sleep(3000);
             test.log(LogStatus.INFO, "AnalyticsTC4");
             test.log(LogStatus.PASS, "TestPassed");
-        } catch (Exception e) {
-            test.log(LogStatus.FAIL, e);
-        }}
+    }
     @Test(priority = 5)
-    public void hover_ready_to_process_on_Analytics_page() throws InterruptedException, IOException {
-        try {
+    public void hover_ready_to_process_on_Analytics_page() throws Exception {
             AnalyticsPage AnalyticsPageObj = new AnalyticsPage(driver);
             // 1.5 Hover on Ready to Process Documents.
             AnalyticsPageObj.HoverReadyToProcess();
@@ -88,12 +77,9 @@ public class AnalyticsTest extends BasePage
             Thread.sleep(3000);
             test.log(LogStatus.INFO, "AnalyticsTC5");
             test.log(LogStatus.PASS, "TestPassed");
-        } catch (Exception e) {
-            test.log(LogStatus.FAIL, e);
-        }}
+    }
     @Test(priority = 6)
-    public void hover_ready_to_rejected_documents_on_Analytics_page() throws InterruptedException, IOException {
-        try {
+    public void hover_ready_to_rejected_documents_on_Analytics_page() throws Exception {
             AnalyticsPage AnalyticsPageObj = new AnalyticsPage(driver);
             // 1.6 Hover on Ready to Rejected Documents.
             AnalyticsPageObj.HoverRejected();
@@ -101,12 +87,9 @@ public class AnalyticsTest extends BasePage
             Thread.sleep(3000);
             test.log(LogStatus.INFO, "AnalyticsTC6");
             test.log(LogStatus.PASS, "TestPassed");
-        } catch (Exception e) {
-            test.log(LogStatus.FAIL, e);
-        }}
+    }
     @Test(priority = 7)
-    public void hover_validation_time_on_Analytics_page() throws InterruptedException, IOException {
-        try {
+    public void hover_validation_time_on_Analytics_page() throws Exception {
             AnalyticsPage AnalyticsPageObj = new AnalyticsPage(driver);
             // 1.7 Hover on Validation Time.
             AnalyticsPageObj.HoverValidationTime();
@@ -114,12 +97,9 @@ public class AnalyticsTest extends BasePage
             Thread.sleep(3000);
             test.log(LogStatus.INFO, "AnalyticsTC7");
             test.log(LogStatus.PASS, "TestPassed");
-        } catch (Exception e) {
-            test.log(LogStatus.FAIL, e);
-        }}
+    }
     @Test(priority = 8)
-    public void hover_on_structured_on_Analytics_page() throws InterruptedException, IOException {
-        try {
+    public void hover_on_structured_on_Analytics_page() throws Exception {
             AnalyticsPage AnalyticsPageObj = new AnalyticsPage(driver);
             // 1.8 Hover on Structured.
             AnalyticsPageObj.HoverStructuredBar();
@@ -128,12 +108,9 @@ public class AnalyticsTest extends BasePage
             Thread.sleep(2000);
             test.log(LogStatus.INFO, "AnalyticsTC8");
             test.log(LogStatus.PASS, "TestPassed");
-        } catch (Exception e) {
-            test.log(LogStatus.FAIL, e);
-        }}
+    }
     @Test(priority = 9)
-    public void hover_on_semistructured_on_Analytics_page() throws InterruptedException, IOException {
-        try {
+    public void hover_on_semistructured_on_Analytics_page() throws Exception {
             AnalyticsPage AnalyticsPageObj = new AnalyticsPage(driver);
             // 1.9 Hover on Semi-Structured.
             AnalyticsPageObj.HoverSemiStructured();
@@ -142,12 +119,10 @@ public class AnalyticsTest extends BasePage
             Thread.sleep(3000);
             test.log(LogStatus.INFO, "AnalyticsTC9");
             test.log(LogStatus.PASS, "TestPassed");
-        } catch (Exception e) {
-            test.log(LogStatus.FAIL, e);
-        }}
+            Assert.fail();
+    }
     @Test(priority = 10)
-    public void hover_on_freeform_on_Analytics_page() throws InterruptedException, IOException {
-        try {
+    public void hover_on_freeform_on_Analytics_page() throws Exception {
             AnalyticsPage AnalyticsPageObj = new AnalyticsPage(driver);
             // 1.10 Hover on Free-Form.
             AnalyticsPageObj.HoverFreeForm();
@@ -156,12 +131,9 @@ public class AnalyticsTest extends BasePage
             Thread.sleep(3000);
             test.log(LogStatus.INFO, "AnalyticsTC10");
             test.log(LogStatus.PASS, "TestPassed");
-        } catch (Exception e) {
-            test.log(LogStatus.FAIL, e);
-        }}
+    }
     @Test(priority = 11)
-    public void hover_on_medicalchart_on_Analytics_page() throws InterruptedException, IOException {
-        try {
+    public void hover_on_medicalchart_on_Analytics_page() throws Exception {
             AnalyticsPage AnalyticsPageObj = new AnalyticsPage(driver);
             // 1.11 Hover on Medical-Chart.
             AnalyticsPageObj.HoverMedicalChart();
@@ -177,12 +149,9 @@ public class AnalyticsTest extends BasePage
             Thread.sleep(3000);
             test.log(LogStatus.INFO, "AnalyticsTC11");
             test.log(LogStatus.PASS, "TestPassed");
-        } catch (Exception e) {
-            test.log(LogStatus.FAIL, e);
-        }}
+    }
     @Test(priority = 12)
-    public void search_project_on_Analytics_page() throws InterruptedException, IOException {
-        try {
+    public void search_project_on_Analytics_page() throws Exception {
             AnalyticsPage AnalyticsPageObj = new AnalyticsPage(driver);
             //1.12 Search Project.
             AnalyticsPageObj.ClickSearchProject();
@@ -195,12 +164,9 @@ public class AnalyticsTest extends BasePage
             Thread.sleep(3000);
             test.log(LogStatus.INFO, "AnalyticsTC12");
             test.log(LogStatus.PASS, "TestPassed");
-        } catch (Exception e) {
-            test.log(LogStatus.FAIL, e);
-        }}
+    }
     @Test(priority = 13)
-    public void select_overall_data_on_Analytics_page() throws InterruptedException, IOException {
-        try {
+    public void select_overall_data_on_Analytics_page() throws InterruptedException {
             AnalyticsPage AnalyticsPageObj = new AnalyticsPage(driver);
             //1.13 OverAll Data.
             AnalyticsPageObj.ClickSelectOverall();
@@ -209,12 +175,9 @@ public class AnalyticsTest extends BasePage
             Thread.sleep(2000);
             test.log(LogStatus.INFO, "AnalyticsTC13");
             test.log(LogStatus.PASS, "TestPassed");
-        } catch (Exception e) {
-            test.log(LogStatus.FAIL, e);
-        }}
+    }
     @Test(priority = 14)
-    public void select_monthly_data_on_Analytics_page() throws InterruptedException, IOException {
-        try {
+    public void select_monthly_data_on_Analytics_page() throws Exception {
             AnalyticsPage AnalyticsPageObj = new AnalyticsPage(driver);
             //1.14 Monthly Data.
             AnalyticsPageObj.ClickSelectMonthly();
@@ -228,12 +191,9 @@ public class AnalyticsTest extends BasePage
             Thread.sleep(3000);
             test.log(LogStatus.INFO, "AnalyticsTC14");
             test.log(LogStatus.PASS, "TestPassed");
-        } catch (Exception e) {
-            test.log(LogStatus.FAIL, e);
-        }}
+    }
     @Test(priority = 15)
-    public void select_weekly_data_on_Analytics_page() throws InterruptedException, IOException {
-        try {
+    public void select_weekly_data_on_Analytics_page() throws Exception {
             AnalyticsPage AnalyticsPageObj = new AnalyticsPage(driver);
             //1.15 Weekly Data.
             AnalyticsPageObj.ClickSelectWeekly();
@@ -247,13 +207,9 @@ public class AnalyticsTest extends BasePage
             Thread.sleep(3000);
             test.log(LogStatus.INFO, "AnalyticsTC15");
             test.log(LogStatus.PASS, "TestPassed");
-        } catch (Exception e) {
-            test.log(LogStatus.FAIL, e);
-        }
     }
     @Test(priority = 16)
-    public void select_daily_data_on_Analytics_page() throws InterruptedException, IOException {
-        try {
+    public void select_daily_data_on_Analytics_page() throws Exception {
             AnalyticsPage AnalyticsPageObj = new AnalyticsPage(driver);
             //1.16 Daily Data.
             AnalyticsPageObj.ClickSelectDaily();
@@ -274,7 +230,5 @@ public class AnalyticsTest extends BasePage
             driver.close();
             test.log(LogStatus.INFO, "AnalyticsTC16");
             test.log(LogStatus.PASS, "TestPassed");
-        } catch (Exception e) {
-            test.log(LogStatus.FAIL, e);
-        }}
+        }
 }
