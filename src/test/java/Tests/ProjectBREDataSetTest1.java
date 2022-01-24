@@ -7,18 +7,24 @@ import Pages.ProjectPage;
 import Utilities.ReadProps;
 import Utilities.TakesScreen;
 import com.relevantcodes.extentreports.LogStatus;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import org.openqa.selenium.JavascriptExecutor;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
 
-public class ProjectBREDataSetTest extends BasePage {
-
+public class ProjectBREDataSetTest1 extends BasePage {
+    @BeforeTest
+    public void login() {
+        try {
+            BasePage.LoginTest();
+        } catch (Exception e) {
+            test.log(LogStatus.FAIL, e);
+        }}
     @Test
     public void ProjectBREDataSetFlow() throws InterruptedException, IOException {
         try {
-            BasePage.LoginTest();
             Robot r = new Robot();
             ProjectPage ProjectPageObj = new ProjectPage(driver);
             test.log(LogStatus.INFO, "ProjectBREDataSet");
@@ -26,7 +32,7 @@ public class ProjectBREDataSetTest extends BasePage {
             //Object creation
             ProjectBREDataSetPage ProjectBREDataSetPageObj = new ProjectBREDataSetPage(driver);
 
-            //TC-1.1 BRE Applied to NAME RULE Using DataSet = Fail.
+            //TC
             ProjectPageObj.ClickOnCreateProjectBtn();
             Thread.sleep(3000);
             //Navigate to Project Page.
@@ -92,7 +98,7 @@ public class ProjectBREDataSetTest extends BasePage {
             Thread.sleep(1000);
             ProjectBREDataSetPageObj.ClickOnChooseDataSet();
             Thread.sleep(1000);
-            ProjectBREDataSetPageObj.SelectDataSet();
+            ProjectBREDataSetPageObj.SelectDataSet1();
             Thread.sleep(1000);
             TakesScreen.takeSnapShot(driver, "test-output//ProjectBREDataSetTest//DataSetAdded.jpg");
             Thread.sleep(2000);
@@ -174,7 +180,7 @@ public class ProjectBREDataSetTest extends BasePage {
 //            ProjectBREPageObj.ClickOnCreateProjectButton();
 //            Thread.sleep(6000);
 //            TakesScreen.takeSnapShot(driver, "test-output//ProjectBRETest//ProjectCreatedSuccessfully.jpg");
-             // driver.close();
+            // driver.close();
             //Document should be uploaded from backend to check the output.
 
 

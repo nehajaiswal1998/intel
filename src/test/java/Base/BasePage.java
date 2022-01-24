@@ -27,7 +27,7 @@ public class BasePage {
             test = report.startTest("IntelliDoc");
         }
 
-        public static void LoginTest() throws InterruptedException, IOException, Exception {
+        public static void LoginTest() throws Exception {
             String projectPath = System.getProperty("user.dir");
             System.setProperty("webdriver.chrome.driver", projectPath + ".\\Drivers\\chromedriver.exe");
             driver = new ChromeDriver();
