@@ -6,12 +6,13 @@ import Utilities.ReadProps;
 import Utilities.TakesScreen;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
 
-
+@Listeners(Utilities.TestListeners.class)
 public class CreateRoleAdminTest extends BasePage {
     @Test
     public void CreateRoleAdminFlow() throws InterruptedException, IOException {

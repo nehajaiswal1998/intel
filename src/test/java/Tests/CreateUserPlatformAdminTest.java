@@ -5,9 +5,10 @@ import Pages.CreateUserPage;
 import Utilities.ReadProps;
 import Utilities.TakesScreen;
 import com.relevantcodes.extentreports.LogStatus;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import java.io.IOException;
-
+@Listeners(Utilities.TestListeners.class)
 public class CreateUserPlatformAdminTest extends BasePage {
     @Test
     public void CreateUserPlatformAdminFlow() throws InterruptedException, IOException {

@@ -4,8 +4,10 @@ import Pages.FunctionalTab;
 import Utilities.TakesScreen;
 import com.relevantcodes.extentreports.LogStatus;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import java.io.IOException;
+@Listeners(Utilities.TestListeners.class)
 public class FunctionalTabTest extends BasePage
 {
        @BeforeTest

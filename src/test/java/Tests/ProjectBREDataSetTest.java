@@ -7,12 +7,13 @@ import Pages.ProjectPage;
 import Utilities.ReadProps;
 import Utilities.TakesScreen;
 import com.relevantcodes.extentreports.LogStatus;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import org.openqa.selenium.JavascriptExecutor;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
-
+@Listeners(Utilities.TestListeners.class)
 public class ProjectBREDataSetTest extends BasePage {
 
     @Test

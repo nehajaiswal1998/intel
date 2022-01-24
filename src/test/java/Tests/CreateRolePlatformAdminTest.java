@@ -3,11 +3,13 @@ import Base.BasePage;
 import Pages.CreateRolePage;
 import Utilities.ReadProps;
 import Utilities.TakesScreen;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
 
+@Listeners(Utilities.TestListeners.class)
 public class CreateRolePlatformAdminTest extends BasePage
 {
     @Test

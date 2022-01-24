@@ -10,9 +10,10 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import static org.testng.Assert.assertEquals;
-
+@Listeners(Utilities.TestListeners.class)
 public class LoginTest extends BasePage {
     WebDriver driver;
 

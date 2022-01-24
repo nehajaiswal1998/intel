@@ -6,11 +6,12 @@ import Utilities.ReadProps;
 import Utilities.TakesScreen;
 import com.relevantcodes.extentreports.LogStatus;
 import org.openqa.selenium.JavascriptExecutor;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
-
+@Listeners(Utilities.TestListeners.class)
 public class DocProcessFreeFormTest extends BasePage {
 
 

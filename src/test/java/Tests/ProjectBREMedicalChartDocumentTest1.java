@@ -5,10 +5,11 @@ import Pages.ProjectBREMedicalChartDocumentPage;
 import Utilities.ReadProps;
 import Utilities.TakesScreen;
 import com.relevantcodes.extentreports.LogStatus;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import java.io.IOException;
 import org.testng.annotations.BeforeTest;
-
+@Listeners(Utilities.TestListeners.class)
 public class ProjectBREMedicalChartDocumentTest1 extends BasePage {
     @BeforeTest
     public void login() {

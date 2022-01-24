@@ -7,10 +7,11 @@ import Utilities.TakesScreen;
 import com.relevantcodes.extentreports.LogStatus;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
-
+@Listeners(Utilities.TestListeners.class)
 public class RoleWiseTest extends BasePage {
     @Test
     public void RoleWiseFlow() throws InterruptedException, IOException {

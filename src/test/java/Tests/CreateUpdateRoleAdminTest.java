@@ -7,12 +7,13 @@ import Utilities.TakesScreen;
 import com.relevantcodes.extentreports.LogStatus;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
 
-
+@Listeners(Utilities.TestListeners.class)
 public class CreateUpdateRoleAdminTest extends BasePage {
     @Test
     public void CreateRoleAdminFlow() throws InterruptedException, IOException {

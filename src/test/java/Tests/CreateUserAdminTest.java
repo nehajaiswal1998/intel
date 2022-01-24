@@ -7,9 +7,10 @@ import Utilities.TakesScreen;
 import com.relevantcodes.extentreports.LogStatus;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import java.io.IOException;
-
+@Listeners(Utilities.TestListeners.class)
 public class CreateUserAdminTest extends BasePage {
     WebDriver driver;
 

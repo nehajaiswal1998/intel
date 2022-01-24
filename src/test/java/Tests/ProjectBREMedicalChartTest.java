@@ -6,11 +6,13 @@ import Pages.ProjectBREPage;
 import Pages.ProjectPage;
 import Utilities.ReadProps;
 import com.relevantcodes.extentreports.LogStatus;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
 import Utilities.TakesScreen;
+@Listeners(Utilities.TestListeners.class)
 public class ProjectBREMedicalChartTest extends BasePage
 {
 
