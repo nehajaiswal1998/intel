@@ -17,19 +17,25 @@ public class ProjectPage {
     By ProjectName = By.xpath("//input[@formcontrolname='project']");
     By Lead = By.xpath("//*[@formcontrolname='lead']");
     By SearchLead = By.xpath("//input[@placeholder='Search']");
-    By SelectLeadSample = By.xpath("//span[contains(text(),'autosamplebb@test.com')]");
+    By SelectLeadSample = By.xpath("//span[contains(text(),'j1@gmail.com')]");
     By SelectLeadAdmin = By.xpath("//span[contains(text(),' admin@test.com ')]");
     By SelectLead = By.xpath("//span[contains(text(),'qa1@email.com')]");
     By ClickStartDate = By.cssSelector("button[aria-label='Open calendar'][tabindex='0']");
     By ClearStartDate = By.xpath("//input[@id='mat-input-3']");
-    By SelectStartDate = By.xpath("//div[contains(text(),'21')]");//Change this before running
+    By SelectStartDate = By.xpath("//div[contains(text(),'7')]");//Change this before running
     By ClickEndDate = By.xpath("/html/body/app-root/div/app-landing/div/div/main/div/app-create-project/div[2]/div/form/mat-card/div/div[4]/mat-form-field/div/div[1]/div[4]/mat-datepicker-toggle/button");
     By ClearEndDate = By.xpath("//input[@id='mat-input-4']");
     By SelectEndDate = By.xpath("//div[contains(text(),'30')]");
     By ClickDocumentStructure = By.xpath("//*[@formcontrolname='documentStructure']");
-    By SelectDocumentStructure = By.xpath("//span[contains(text(),'Structured ')]");
-    By SelectSemiStructure = By.xpath("//span[contains(text(),'Semi-Structured ')]");
+    By SelectStructure = By.xpath("//span[contains(text(),'Structured ')]");
+    By SelectMedical = By.xpath("//span[contains(text(),'Medical Chart')]");
     By SelectFreeForm = By.xpath("//span[contains(text(),'Free-Form ')]");
+    By SelectSemiStructure = By.xpath("//span[contains(text(),'Semi-Structured ')]");
+    By AddEntity = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[2]/div[1]/form[1]/project-info-section[1]/mat-accordion[1]/project-entitys[1]/mat-expansion-panel[1]/div[1]/div[1]/div[2]/button[1]/span[1]");
+
+    By PatientDemoGraphics = By.xpath("//body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/button[1]");
+    By ChronicConditions = By.xpath("//body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/button[1]");
+
     By ClickProcessingEngine = By.xpath("//*[@formcontrolname='processingEngine']/div[1]/div[2]");
     By SelectProcessingEngine = By.xpath("//span[contains(text(),'NN High')]");
     By SelectProcessingEngineNNLow = By.xpath("//span[contains(text(),'NN Low')]");
@@ -48,7 +54,7 @@ public class ProjectPage {
     By SelectRoleSuperVisor = By.xpath("//button[contains(text(),'AE Supervisor')]");
     By AddUser = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[2]/div[1]/form[1]/project-info-section[1]/mat-accordion[1]/project-roles[1]/mat-expansion-panel[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[2]/button[1]/span[1]/mat-icon[1]");
     By AddUserAdmin = By.xpath("//button[@class='mat-focus-indicator disabled-font-color mat-icon-button mat-button-base primary-font-color']");       //esc method
-    By SelectUserAdmin = By.xpath("//span[contains(text(),'admin@test.com')]");
+    By SelectUserAdmin = By.xpath("//span[contains(text(),'j1@gmail.com')]");
     By UpdateProject = By.xpath("//span[contains(text(),'Update')]");
     By RoleUserDisableEnable = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[2]/div[1]/form[1]/project-info-section[1]/mat-accordion[1]/project-roles[1]/mat-expansion-panel[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/mat-slide-toggle[1]/label[1]/div[1]");
     By SupervisorRoleDisable = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[2]/div[1]/form[1]/project-info-section[1]/mat-accordion[1]/project-roles[1]/mat-expansion-panel[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/mat-slide-toggle[1]/label[1]/div[1]/div[1]/div[1]");
@@ -59,7 +65,7 @@ public class ProjectPage {
     By DocumentChanel = By.xpath("//span[contains(text(),'Document Ingestion Channels')]");
     By ChannelType = By.xpath("//*[@id='testa1']/div/div[2]/div");
     By SelectChannelType = By.xpath("//*[@id='mat-option-9']/span");
-    By ClickNext = By.xpath("//span[contains(text(),'Next')]");
+    By RulesPage = By.xpath("//body[1]/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[3]/div[1]/div[1]/button[4]");
 
     //Rules Workbench
     By CLickVariable = By.xpath("//span[contains(text(),'Variables')]");
@@ -74,12 +80,12 @@ public class ProjectPage {
     By RuleName = By.xpath("//body[1]/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/mat-horizontal-stepper[1]/div[2]/div[2]/form[1]/div[1]/div[2]/mat-accordion[1]/mat-expansion-panel[2]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/mat-form-field[1]/div[1]/div[1]/div[1]/input[1]");
     By DeleteRule = By.xpath("//mat-icon[contains(text(),'delete')]");
     By ClickCancelOnRuleWorkbench = By.xpath("//*[@id='cdk-step-content-0-1']/form/div/div[2]/div/button[3]/span[1]");
-    By CreateButton = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[2]/div[1]/form[1]/div[1]/button[1]");
-    //Project Homepage
+    By CreateButtonOnProjectPage = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[2]/div[1]/form[1]/div[1]/button[1]/span[1]");
+
     By ClickTableStructure = By.xpath("//*[@class='main']/div/app-project-management/div/div/div/ul/li[2]");
     By ClickGridStructure = By.xpath("//mat-icon[contains(text(),'grid_on')]");
     By ClickEdit = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-project-management[1]/div[2]/div[1]/div[2]/mat-card[1]/div[1]/div[1]/div[2]/button[1]/span[1]/mat-icon[1]");
-    //navigate back
+
     By ClickSearchBox = By.xpath("//input[@placeholder='Search']");
     By ClickSearchBox1 = By.xpath("/html[1]/body[1]/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-project-management[1]/div[1]/div[1]/div[2]/mat-form-field[1]/div[1]/div[1]/div[3]/input[1]");
 
@@ -103,11 +109,13 @@ public class ProjectPage {
     By TableStructure = By.xpath("//*[contains(text(),' list ')]");
     By SearchProject = By.xpath("//input[@data-placeholder='Search']");
 
+    By CreateButtonOnRulesPage = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[4]/div[1]/div[1]/button[2]/span[1]");
+
     By RoleManagementBtn = By.xpath("//i[@class='mat-tooltip-trigger fa fa-id-card m-0 side-icon ng-star-inserted']");
     By SearchRole = By.xpath("//body[1]/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-role-management[1]/div[1]/div[1]/div[1]/mat-form-field[1]/div[1]/div[1]/div[3]/input[1]");
     By EditRole = By.xpath("//span[contains(text(),' AutoAdmin1 ')]");
     By ActiveRole = By.xpath("//div[@class='mat-slide-toggle-thumb']");
-    By ClickUpdateBtn = By.xpath("//span[contains(text(),'Update' )]");
+
     By SearchRoleInProject = By.xpath("//input[@placeholder='Search']");
     By Logout = By.xpath("//i[@class='fa fa-power-off']");
     By LoginBtn = By.xpath("//button[@type='submit']");
@@ -121,8 +129,9 @@ public class ProjectPage {
     By SearchBtn = By.xpath("//body[1]/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-user-management[1]/div[1]/div[1]/div[1]/mat-form-field[1]/div[1]/div[1]/div[3]/input[1]");
     By DisableUser = By.xpath("//div[@class='mat-slide-toggle-thumb']");
     By UpdateUser = By.xpath("//button[@class='mat-focus-indicator float-right button-cls mat-raised-button mat-button-base mat-primary']");
-
-
+    By BackButtonRulePage = By.xpath("/html/body/app-root/div/app-landing/div/div/main/div/app-create-project/div[4]/div/div/button[1]/span[1]");
+    By BackButtonDataPage = By.xpath("/html/body/app-root/div/app-landing/div/div/main/div/app-create-project/div[3]/div/div/button[1]");
+    By ErrorMsgEntities = By.xpath("//span[contains(text(),'Please add the entities before creating the project.')]");
     public ProjectPage(WebDriver driver) {
         this.driver = driver;
     }
@@ -151,6 +160,19 @@ public class ProjectPage {
 
     public void ClickOnAttributes() {
         driver.findElement(Attributes).click();
+    }
+
+    public void SelectPatientGraphics() {
+        driver.findElement(PatientDemoGraphics).click();
+    }
+
+    public void SelectChronicConditions() {
+        driver.findElement(ChronicConditions).click();
+    }
+
+
+    public void ClickOnAddEntity() {
+        driver.findElement(AddEntity).click();
     }
 
     public void ClickSearchLead(String text) {
@@ -187,8 +209,14 @@ public class ProjectPage {
     }
 
     public void SelectDocumentStructureBtn() {
-        driver.findElement(SelectDocumentStructure).click();
+        driver.findElement(SelectStructure).click();
     }
+
+
+    public void SelectDocumentStructureMedicalBtn() {
+        driver.findElement(SelectMedical).click();
+    }
+
 
     public void SelectOnSemiStructure() {
         driver.findElement(SelectSemiStructure).click();
@@ -280,6 +308,12 @@ public class ProjectPage {
     }
 
 
+
+    public void ClickOnCreate1() {
+        driver.findElement(CreateButtonOnRulesPage).click();
+
+    }
+
     public void ClickOnDatasetBtn() {
         driver.findElement(ClickDataset).click();
     }
@@ -309,9 +343,7 @@ public class ProjectPage {
         driver.findElement(SelectChannelType).click();
     }
 
-    public void ClickOnClickNextBtn() {
-        driver.findElement(ClickNext).click();
-    }
+
 
     //Rule Workbench
     public void ClickOnVariableBtn() {
@@ -404,6 +436,10 @@ public class ProjectPage {
         driver.findElement(LastPage).click();
     }
 
+    public void ClickRulesPage() {
+        driver.findElement(RulesPage).click();
+    }
+
     public void ClickPreviousPage() {
         driver.findElement(PreviousPage).click();
     }
@@ -417,8 +453,8 @@ public class ProjectPage {
     }
 
     public void ClickOnCreate() {
-        driver.findElement(CreateButton).click();
-    } //Method for Create Button on Project page
+        driver.findElement(CreateButtonOnProjectPage).click();
+    }
 
     public void ClickOnCancelProject() {
         driver.findElement(CancelOnProject).click();
@@ -469,6 +505,12 @@ public class ProjectPage {
     public void VerifyAssertForRoleDisable() {
         String actual_msg = driver.findElement(ErrorMsgDisableRole).getText();
         String expect = "AE Supervisor role is Disabled";
+        softAssert.assertEquals(actual_msg, expect);
+    }
+
+    public void VerifyAssertForEntities() {
+        String actual_msg = driver.findElement(ErrorMsgEntities).getText();
+        String expect = "Please add the entities before creating the project.";
         softAssert.assertEquals(actual_msg, expect);
     }
 
@@ -532,9 +574,7 @@ public class ProjectPage {
         driver.findElement(ActiveRole).click();
     }
 
-    public void ClickUpdateBtn() {
-        driver.findElement(ClickUpdateBtn).click();
-    }
+
 
     public void SearchRoleProject() {
         driver.findElement(SearchRoleInProject).sendKeys("Auto Admin");
@@ -584,5 +624,15 @@ public class ProjectPage {
 
     public void ClickUpdateUser() {
         driver.findElement(UpdateUser).click();
+    }
+
+    public void ClickBackRulePage()
+    {
+        driver.findElement(BackButtonRulePage).click();
+    }
+
+    public void CLickBackDataPage()
+    {
+        driver.findElement(BackButtonDataPage).click();
     }
 }

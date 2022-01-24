@@ -13,9 +13,17 @@ public class DocumentPage {
         By SelectSemiStructuredProject = By.xpath("//span[contains(text(),'QA-AutoProject-SemiStructured')]");
         By SelectFreeFormProject = By.xpath("//span[contains(text(),'QA-AutoProject-FreeForm')]");
         By SemiStructureDocument= By.xpath("//span[contains(text(),'QA-Automation-SemiStructured')]");
+        By SelectMedicalChartProject = By.xpath("//span[contains(text(),'QA-AutoProject-MedicalChart')]");
+        By SelectMedicalChartProjectICD = By.xpath("//span[contains(text(),'J17012022')]");
         By SearchDocument = By.xpath("//mat-icon[contains(text(),'search')]");
         By CancelDoc2 = By.xpath("//span[contains(text(),'Cancel')]");
-        By ViewDoc = By.xpath("//tbody/tr[1]/td[9]/button[1]/span[1]/mat-icon[1]");
+        By ViewDoc = By.xpath("//span[contains(text(),'BRE US Citizen.jpg')]");
+        By ViewDoc1 = By.xpath("//span[contains(text(),'form 1040.pdf')]");
+        By ViewDoc2 = By.xpath("//span[contains(text(),'AN - OOLU2604599081.pdf')]");
+        By ViewDoc3 = By.xpath("//span[contains(text(),'4.tif')]");
+        By ViewDoc4 = By.xpath("//span[contains(text(),'3.tif')]");
+        By ViewDoc5 = By.xpath("//span[contains(text(),'Processed.pdf')]");
+
         By ExpansionPanel = By.xpath("//mat-expansion-panel-header/span[2]");
         By ChangeEmail = By.xpath("/html[1]/body[1]/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-processed-forms[1]/div[1]/div[1]/div[2]/div[4]/mat-expansion-panel[1]/div[1]/div[1]/mat-table[1]/mat-row[1]/mat-cell[2]/div[1]/mat-form-field[1]/div[1]/div[1]/div[1]/input[1]");
         By SubmitDoc = By.xpath("//span[contains(text(),'Submit')]");
@@ -62,14 +70,22 @@ public class DocumentPage {
         By ClickPercentage = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-documents[1]/div[1]/mat-accordion[1]/mat-expansion-panel[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/circle-progress[1]/*[1]");
         By ClickAntiClkWise = By.xpath("//*[@id='rotate_left']/span[1]/i");
         By ClickClkWise = By.xpath("//*[@mattooltip='Clockwise']");
-        By ClickZoonIn = By.xpath("//*[@mattooltip='Zoom In']");
+        By ClickZoomIn = By.xpath("//*[@mattooltip='Zoom In']");
         By ClickZoomOut = By.xpath("//*[@class='fa fa-search-minus']");
         By ClickNavigateRight = By.xpath("//*[@mattooltip='Navigate Right']");
         By ClickNavigateLeft = By.xpath("//*[@mattooltip='Navigate Left']");
 
+        By ChronicCondition = By.xpath("//div[contains(text(),' Chronic Conditions ')]");
+        By AddCondition = By.xpath("//mat-icon[contains(text(),'add')]");
+        By NPINo = By.xpath("//input[@formcontrolname='npiNo']");
+        By PhysicianName = By.xpath("//input[@formcontrolname='physicianName']");
+        By StartDate = By.xpath("//*[@id='mat-dialog-0']/app-rcm-edit-header/div/form/div/div[2]/div[3]/div[1]/mat-form-field/div/div[1]/div[4]/mat-datepicker-toggle/button");
+        By SelectStartDate = By.xpath("//div[contains(text(),'11')]");
+        By EndDate = By.xpath("//*[@id='mat-dialog-0']/app-rcm-edit-header/div/form/div/div[2]/div[3]/div[2]/mat-form-field/div/div[1]/div[4]/mat-datepicker-toggle/button");
+        By SelectEndDate = By.xpath("//div[contains(text(),'25')]");
+        By SaveCondition = By.xpath("//*[@id='mat-dialog-0']/app-rcm-edit-header/div/form/div/div[2]/div[4]/button[2]/span[1]");
 
-
-
+        //Constructor
         public DocumentPage(WebDriver driver) { this.driver = driver;}
 
         public void ClickDocumentBtn(){ driver.findElement(DocumentBtn).click();}
@@ -78,11 +94,19 @@ public class DocumentPage {
         public void ClickSelectStructuredProject(){driver.findElement(SelectStructuredProject).click();}
         public void ClickSelectFreeFormProject(){driver.findElement(SelectFreeFormProject).click();}
         public void ClickSelectSemiStructuredProject(){driver.findElement(SelectSemiStructuredProject).click();}
+        public void ClickSelectMedicalChartProject(){driver.findElement(SelectMedicalChartProject).click();}
+        public void ClickSelectMedicalChartProjectICD(){driver.findElement(SelectMedicalChartProjectICD).click();}
         public void ClickSearchBox(String text){ driver.findElement(SearchBox).sendKeys(text);}
         public void  ClickSearchDocument(){driver.findElement(SearchDocument).click();}
         public void ClickClearSearch(){driver.findElement(ClearSearchDocument);}
         public void ClickCancelDoc2(){ driver.findElement(CancelDoc2).click();}
         public void ClickViewDocIcon(){ driver.findElement(ViewDoc).click();}
+        public void ClickViewDocIcon1(){ driver.findElement(ViewDoc1).click();}
+        public void ClickViewDocIcon2(){ driver.findElement(ViewDoc2).click();}
+        public void ClickViewDocIcon3(){ driver.findElement(ViewDoc3).click();}
+        public void ClickViewDocIcon4(){ driver.findElement(ViewDoc4).click();}
+        public void ClickViewDocIcon5(){ driver.findElement(ViewDoc5).click();}
+
         public void ClickDiscardUpdate(){driver.findElement(DiscardUpdate).click();}
         public void ClickExpansionPanel(){driver.findElement(ExpansionPanel).click();}
         public void ClickClearEmail(){driver.findElement(ChangeEmail).clear();}
@@ -90,7 +114,7 @@ public class DocumentPage {
         public void ClickUpdateDoc(){driver.findElement(SubmitDoc).click();}
         public void ClickCancelEditDoc2(){ driver.findElement(CancelEditDoc2).click();}
         public void ClickHideAnalytics(){ driver.findElement(HideAnalytics).click();}
-        public void ClickUnhideAnalytics(){ driver.findElement(UnHideAnalytics).click();}
+        public void ClickUnHideAnalytics(){ driver.findElement(UnHideAnalytics).click();}
         public void ClickRefreshDocument(){driver.findElement(RefreshDocuments).click();}
 
         //Script Enhancement
@@ -122,8 +146,53 @@ public class DocumentPage {
         public void ClickPercentageIcon(){driver.findElement(ClickPercentage).click();}
         public void ClickAntiWiseIcon(){driver.findElement(ClickAntiClkWise).click();}
         public void ClickClockWiseIcon(){driver.findElement(ClickClkWise).click();}
-        public void ClickZoomIn(){driver.findElement(ClickZoonIn).click();}
+        public void ClickZoomIN(){driver.findElement(ClickZoomIn).click();}
         public void ClickZoomOut(){driver.findElement(ClickZoomOut).click();}
         public void ClickNvgtRt(){driver.findElement(ClickNavigateRight).click();}
         public void ClickNvgtLft(){driver.findElement(ClickNavigateLeft).click();}
+        public void ClickChronicCondition()
+        {
+                driver.findElement(ChronicCondition).click();
+        }
+
+        public void ClickAddCondition()
+        {
+                driver.findElement(AddCondition).click();
+        }
+
+        public void AddNPINumber ()
+        {
+                driver.findElement(NPINo).sendKeys("3216549871");
+        }
+
+        public void AddPhysicianName ()
+        {
+                driver.findElement(PhysicianName).sendKeys("Dr. Andrew");
+        }
+        public void  ClickStartDate()
+        {
+                driver.findElement(StartDate).click();
+        }
+
+        public  void SelectStartDate()
+        {
+                driver.findElement(SelectStartDate).click();
+        }
+
+        public void ClickEndDate()
+        {
+                driver.findElement(EndDate).click();
+        }
+
+        public void SelectEndDate()
+        {
+                driver.findElement(SelectEndDate).click();
+        }
+
+        public void SaveChronicCondition()
+        {
+                driver.findElement(SaveCondition).click();
+        }
+
+
 }
