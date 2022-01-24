@@ -91,7 +91,7 @@ public class TemplatePage {
     }
 
     public void AssertCreatTemplate() {
-        String TemplateName[] = driver.findElement(ExpandTemplate).getText().split(" ");
+        String[] TemplateName = driver.findElement(ExpandTemplate).getText().split(" ");
         String ActualTemplate = TemplateName[1].trim();
         String ExpectedTemplate = "Demo-New3";
         softAssert.assertEquals(ActualTemplate, ExpectedTemplate);

@@ -12,14 +12,13 @@ public class CreateUserPage extends BasePage
     By EnterUserName = By.xpath("//body[1]/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-edit-user[1]/div[1]/form[1]/mat-card[1]/div[1]/div[1]/mat-form-field[1]/div[1]/div[1]/div[3]/input[1]");
     By EnterEmail  = By.xpath("//body[1]/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-edit-user[1]/div[1]/form[1]/mat-card[1]/div[1]/div[2]/mat-form-field[1]/div[1]/div[1]/div[3]/input[1]");
     By ActiveUser = By.xpath("//div[@class='mat-slide-toggle-thumb']");
-   // By CancelBtn = By.xpath("//span[contains(text(),'Cancel')]");
     By SearchBtn  = By.xpath("//body[1]/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-user-management[1]/div[1]/div[1]/div[1]/mat-form-field[1]/div[1]/div[1]/div[3]/input[1]");
     By DisableUser = By.xpath("//div[@class='mat-slide-toggle-thumb']");
     By UpdateUser  = By.xpath("//button[@class='mat-focus-indicator float-right button-cls mat-raised-button mat-button-base mat-primary']");
     By Password  = By.xpath("//input[@type='password']");
     By PlatformUser = By.xpath("//td[contains(text(),' AutoSampleBB ')]");
     By UserUpdated = By.xpath("//td[contains(text(),' AutoSampleUpdate ')]");
-    By AdminUser = By.xpath("//td[contains(text(),' AutoAdminUserD ')]");//Change everytime before u ran
+    By AdminUser = By.xpath("//td[contains(text(),' AutoAdminUserK ')]");//Change everytime before u run.
     By UpdatedTime = By.xpath("//tbody[@role='rowgroup']/tr[1]/td[3]");
     By CreatedTime = By.xpath("//tbody[@role='rowgroup']/tr[1]/td[4]");
     By logout = By.xpath("//span[@mattooltip='Logout']");
@@ -31,7 +30,7 @@ public class CreateUserPage extends BasePage
     By ExistErrorMsg = By.xpath("//span[contains(text(),'User exists with email sampleemail@email.com')]");
 
     public CreateUserPage(WebDriver driver) {
-        this.driver = driver;
+        BasePage.driver = driver;
     }
     public  void ClickUserBtn(){driver.findElement(UserBtn).click();}
     public  void ClickOnCancelBtn(){driver.findElement(CancelButton).click();}
@@ -44,7 +43,7 @@ public class CreateUserPage extends BasePage
 
     public  void SearchCreatedUser(String text){driver.findElement(SearchBtn).sendKeys(text);}
     public  void SelectSearchedUser(){driver.findElement(PlatformUser).click();}
-    public  void SelectSearchedAdminUser(){driver.findElement(AdminUser).click();}
+    public  void SelectSearchedAdminUser(){driver.findElement(AdminUser).click();}//change this value
     public void ClickDisableUser(){driver.findElement(DisableUser).click();}
     public void ClickEnableUser(){driver.findElement(DisableUser).click();}
     public void ClickUpdateUser(){driver.findElement(UpdateUser).click();}
@@ -55,7 +54,7 @@ public class CreateUserPage extends BasePage
     SoftAssert softAssert = new SoftAssert();
 
     public void CreateUserAssert() {
-        String User[] = driver.findElement(PlatformUser).getText().split(" ");
+        String[] User = driver.findElement(PlatformUser).getText().split(" ");
         String ActualUser = User[1].trim();
         String ExpectedUser = "AutoSampleBB";
         softAssert.assertEquals(ActualUser, ExpectedUser);

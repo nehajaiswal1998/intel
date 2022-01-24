@@ -39,6 +39,7 @@ public class AnalyticsPage {
     By SortByDocuments = By.xpath("//thead/tr[1]/th[1]/div[1]/div[1]");
     By SortByReceived = By.xpath("//div[contains(text(),'Received')]");
 
+    //Constructor for Analytics Page.
     public AnalyticsPage(WebDriver driver) {
         this.driver = driver;
     }

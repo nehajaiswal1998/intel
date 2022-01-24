@@ -4,6 +4,7 @@ import Base.BasePage;
 import Pages.DatasetPage;
 import Utilities.ReadProps;
 import Utilities.TakesScreen;
+import com.relevantcodes.extentreports.LogStatus;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
@@ -17,16 +18,18 @@ public class DataSetTest extends BasePage {
         try {
             BasePage.LoginTest();
             DatasetPage DatasetPageObj = new DatasetPage(driver);
-            test.log(status.INFO, "TestInformation");
-            test.log(status.PASS, "TestPassed");
+            test.log(LogStatus.INFO, "DataSet");
+            test.log(LogStatus.PASS, "TestPassed");
             DatasetPageObj.ClickDatasetBtn();
             Thread.sleep(4000);
-            // TC 1.1 - Create category with blank name
+
+            //TC 6.1 - Create category with blank name.
             DatasetPageObj.ClickAddCategoryBtn();
-            Thread.sleep(1000);
+            Thread.sleep(2000);
             TakesScreen.takeSnapShot(driver, "test-output//Datasets//Category-BlankName.jpg");
             Thread.sleep(2000);
-            // TC 1.2 - Create Category with Invalid Name
+
+            //TC 6.2 - Create Category with Invalid Name.
             DatasetPageObj.ClickCategoryName(ReadProps.readAttr("Invalid_Name"));
             Thread.sleep(1000);
             TakesScreen.takeSnapShot(driver, "test-output//Datasets//Category-InvalidName.jpg");
@@ -34,17 +37,17 @@ public class DataSetTest extends BasePage {
             DatasetPageObj.ClickCategoryCancelBtn();
             Thread.sleep(2000);
 
-            // TC 1.3 - Create category with Valid name
+            //TC 6.3 - Create category with Valid name.
            DatasetPageObj.ClickAddCategoryBtn();
             Thread.sleep(2000);
-            DatasetPageObj.ClickCategoryName(ReadProps.readAttr("DName"));//Change before executing
+            DatasetPageObj.ClickCategoryName(ReadProps.readAttr("DName"));//Change Dataset Name before executing
             Thread.sleep(2000);
             DatasetPageObj.ClickCreateCategory();
             Thread.sleep(1000);
             TakesScreen.takeSnapShot(driver, "test-output//Datasets//CategoryCreated.jpg");
             Thread.sleep(2000);
 
-            // TC 1.4 - Perform action to add dataset with blank name and no chosen file
+            //TC 6.4 - Perform action to add dataset with blank name and no chosen file.
             DatasetPageObj.ClickActionBtn();
             Thread.sleep(1000);
             TakesScreen.takeSnapShot(driver, "test-output//Datasets//Action-NoInput.jpg");
@@ -52,39 +55,39 @@ public class DataSetTest extends BasePage {
             DatasetPageObj.ClickAddDatasetCancelBtn();
             Thread.sleep(2000);
 
-            // TC 1.5 - Perform action to add dataset with name and no chosen file
+            //TC 6.5 - Perform action to add dataset with name and no chosen file.
             DatasetPageObj.ClickActionBtn();
             Thread.sleep(1000);
-            DatasetPageObj.ClickDatasetName(ReadProps.readAttr("DName"));//Change before executing
+            DatasetPageObj.ClickDatasetName(ReadProps.readAttr("DName"));//Change before executing.
             Thread.sleep(1000);
             TakesScreen.takeSnapShot(driver, "test-output//Datasets//Action-Name+NoFile.jpg");
             Thread.sleep(1000);
             DatasetPageObj.ClickAddDatasetCancelBtn();
             Thread.sleep(2000);
 
-            // TC 1.6 - Perform action to add dataset with name, chosen file (.csv) but no validation type
+            //TC 6.6 - Perform action to add dataset with name, chosen file (.csv) but no validation type.
             DatasetPageObj.ClickActionBtn();
             Thread.sleep(1000);
-            DatasetPageObj.ClickDatasetName(ReadProps.readAttr("DName"));//Change before executing
+            DatasetPageObj.ClickDatasetName(ReadProps.readAttr("DName"));//Change before executing.
             Thread.sleep(1000);
             WebElement upload_file = driver.findElement(By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-dataset-editor[1]/div[4]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/div[1]/input[1]"));
-            upload_file.sendKeys("C:\\Users\\kumar\\Downloads\\sampledata.csv");
+            upload_file.sendKeys("C:\\Users\\kishor_ghadge\\IdeaProjects\\sampledata.csv");
             Thread.sleep(1000);
             TakesScreen.takeSnapShot(driver, "test-output//Datasets//Action-Name+File_NoValidation.jpg");
             Thread.sleep(1000);
             DatasetPageObj.ClickAddDatasetCancelBtn();
             Thread.sleep(2000);
 
-            // TC 1.7 - Perform action to add dataset file in the created category with name, chosen file and validation type
+            //TC 6.7 - Perform action to add dataset file in the created category with name, chosen file and validation type.
             DatasetPageObj.ClickActionBtn();
             Thread.sleep(1000);
             DatasetPageObj.ClickDatasetName(ReadProps.readAttr("DName"));//Change before executing
             Thread.sleep(1000);
             WebElement upload_file1 = driver.findElement(By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-dataset-editor[1]/div[4]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/div[1]/input[1]"));
-            upload_file1.sendKeys("C:\\Users\\kumar\\Downloads\\sampledata.csv");
+            upload_file1.sendKeys("C:\\Users\\kishor_ghadge\\IdeaProjects\\sampledata.csv");
             Thread.sleep(2000);
 
-            //validation type as "name" for dataset to create a new dataset
+            //TC 6.8 - Validation type as "name" for dataset to create a new dataset.
             DatasetPageObj.ClickValidationDropDown();
             Thread.sleep(2000);
             DatasetPageObj.ClickValidationName();
@@ -92,7 +95,7 @@ public class DataSetTest extends BasePage {
             TakesScreen.takeSnapShot(driver, "test-output//Datasets//DatasetDetails.jpg");
             Thread.sleep(2000);
 
-            //validation type as "phone" for roles to create a new dataset
+            //TC 6.9 - Validation type as "phone" for roles to create a new dataset.
             DatasetPageObj.ClickValidationDropDown2();
             Thread.sleep(2000);
             DatasetPageObj.ClickValidationRoles();
@@ -103,12 +106,13 @@ public class DataSetTest extends BasePage {
             TakesScreen.takeSnapShot(driver, "test-output//Datasets//DatasetAdded.jpg");
             Thread.sleep(4000);
 
-            // TC 1.8 - Search created category and click to expand it
+            //TC 6.10 - Search created category and click to expand it.
             DatasetPageObj.ClickSearchBox(ReadProps.readAttr("DName"));//Change before executing
             Thread.sleep(2000);
             DatasetPageObj.ClickExpand1();
             Thread.sleep(2000);
-            // TC 1.9 - Select file to open it and cancel
+
+            //TC 6.11 - Select file to open it and cancel.
             DatasetPageObj.ClickDatasetFileName();
             Thread.sleep(2000);
             TakesScreen.takeSnapShot(driver, "test-output//Datasets//OpenDataset.jpg");
@@ -116,17 +120,16 @@ public class DataSetTest extends BasePage {
             DatasetPageObj.ClickCancelDatasetFileName();
             Thread.sleep(2000);
 
-            // TC 1.10 - Disable Dataset
+            //TC 6.12 - Disable Dataset.
             DatasetPageObj.ClickExpand1();
             Thread.sleep(2000);
             DatasetPageObj.ClickDisableUser();
-            Thread.sleep(2000);
+            Thread.sleep(1000);
             TakesScreen.takeSnapShot(driver, "test-output//Datasets//DatasetDisabled.jpg");
             Thread.sleep(3000);
             driver.close();
-
         } catch (Exception e) {
-            test.log(status.FAIL, e);
+            test.log(LogStatus.FAIL, e);
         }
     }
 
