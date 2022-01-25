@@ -20,12 +20,6 @@ public class BasePage {
         public static ExtentTest test;
         public static ExtentReports report;
 
-        @BeforeClass
-        public void startTest()
-        {   String timestamp = new SimpleDateFormat("yyyy_MM_dd__hh_mm_ss").format(new Date());
-            report = new ExtentReports("ExtentReportResults"+timestamp+".html");
-            test = report.startTest("IntelliDoc");
-        }
 
         public static void LoginTest() throws Exception {
             String projectPath = System.getProperty("user.dir");
@@ -40,10 +34,5 @@ public class BasePage {
             Thread.sleep(12000);
         }
 
-        @AfterClass
-        public void endTest()
-        {
-            report.endTest(test);
-            report.flush();
-        }
+
     }

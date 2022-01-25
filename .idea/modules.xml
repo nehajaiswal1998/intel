@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/IntelliDocLatest.iml" filepath="$PROJECT_DIR$/.idea/IntelliDocLatest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/IntelliDoc.iml" filepath="$PROJECT_DIR$/IntelliDoc.iml" />
     </modules>
   </component>
 </project>
