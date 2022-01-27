@@ -1,6 +1,8 @@
 package Pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
+
 public class DocumentPage {
 
         WebDriver driver = null;
@@ -23,6 +25,8 @@ public class DocumentPage {
         By ViewDoc3 = By.xpath("//span[contains(text(),'4.tif')]");
         By ViewDoc4 = By.xpath("//span[contains(text(),'3.tif')]");
         By ViewDoc5 = By.xpath("//span[contains(text(),'Processed.pdf')]");
+        By ViewFreeFormRejectedDoc = By.xpath("//span[contains(text(),'Pfizer4.jpg')]");
+        By ViewStructuredReadyDoc = By.xpath("//span[contains(text(),'Pfizer4.jpg')]");
 
         By ExpansionPanel = By.xpath("//mat-expansion-panel-header/span[2]");
         By ChangeEmail = By.xpath("/html[1]/body[1]/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-processed-forms[1]/div[1]/div[1]/div[2]/div[4]/mat-expansion-panel[1]/div[1]/div[1]/mat-table[1]/mat-row[1]/mat-cell[2]/div[1]/mat-form-field[1]/div[1]/div[1]/div[1]/input[1]");
@@ -84,6 +88,19 @@ public class DocumentPage {
         By EndDate = By.xpath("//*[@id='mat-dialog-0']/app-rcm-edit-header/div/form/div/div[2]/div[3]/div[2]/mat-form-field/div/div[1]/div[4]/mat-datepicker-toggle/button");
         By SelectEndDate = By.xpath("//div[contains(text(),'25')]");
         By SaveCondition = By.xpath("//*[@id='mat-dialog-0']/app-rcm-edit-header/div/form/div/div[2]/div[4]/button[2]/span[1]");
+
+        By AddData = By.xpath("//mat-label[contains(text(),'Data')]");
+        By AddAttribute = By.xpath("//span[contains(text(),'Attribute')]");
+        By AddPatientName = By.xpath("//span[contains(text(),' PatientName ')]");
+        By AddDOB = By.xpath("//span[contains(text(),' DOB ')]");
+        By clickAdd = By.xpath("//span[contains(text(),' Add ')]");
+        By addAttributeValue = By.xpath("//body[1]/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-processed-forms[1]/div[1]/div[1]/div[1]/as-split[1]/as-split-area[2]/div[4]/div[1]/mat-expansion-panel[1]/div[1]/div[1]/div[2]/mat-table[1]/mat-row[1]/mat-cell[2]/div[1]/mat-form-field[1]/div[1]/div[1]/div[1]/input[1]");
+        By SaveDraft = By.xpath("//span[contains(text(),'Save Draft')]");
+        By Submit = By.xpath("//span[contains(text(),'Submit')]");
+        By SubmitChanges = By.xpath("//*[@id='mat-dialog-0']/app-confirmation-dialog/div/div/div[2]/button[1]");
+        By StatusFreeFormDoc = By.xpath("//tbody[@role='rowgroup']/tr[1]/td[3]");
+        By UpdtAttributeValue = By.xpath("//mat-row[@id='tableRow'][2]/mat-cell[2]");
+        By SelectAddress = By.xpath("//span[contains(text(),' 2472 Rose Peak Drive Dietz ')]");
 
         //Constructor
         public DocumentPage(WebDriver driver) { this.driver = driver;}
@@ -193,6 +210,41 @@ public class DocumentPage {
         {
                 driver.findElement(SaveCondition).click();
         }
+
+        public void ViewFreeFormRejectedDocument(){ driver.findElement(ViewFreeFormRejectedDoc).click();}
+        public void clickAddData() {driver.findElement(AddData).click();}
+        public void clickAddAttributes() { driver.findElement(AddAttribute).click();}
+        public void addAttributes() {driver.findElement(AddPatientName).click();}
+        public void clickADD() {driver.findElement(clickAdd).click();}
+        public void addAttributeValue() {driver.findElement(addAttributeValue).sendKeys("John Dey");}
+        public void clickSaveDraft() {driver.findElement(SaveDraft).click();}
+        public void clickSubmit() {driver.findElement(Submit).click();}
+        public void clickSubmitChanges () {driver.findElement(SubmitChanges).click();}
+        public void assertFreeFormDocument()
+        {String FreeFormDocStatus = driver.findElement(StatusFreeFormDoc).getText();
+               String ActualStatus = FreeFormDocStatus;
+               String ExpectedStatus = "Processed";
+                Assert.assertEquals(ActualStatus,ExpectedStatus);
+        }
+
+        public void assertAttributValue () {
+                String AttributeValue = driver.findElement(addAttributeValue).getText();
+                System.out.println(AttributeValue);
+                //String ActualValue = AttributeValue;
+                //String ExpectedValue = "John Dey";
+                // Assert.assertEquals(ActualValue,ExpectedValue);
+        }
+        public void viewStructuredReadyDoc()
+        {
+                driver.findElement(ViewStructuredReadyDoc).click();
+        }
+        public void updateAttributeValue(){
+                driver.findElement(UpdtAttributeValue).click();
+                driver.findElement(SelectAddress).click();
+
+        }
+
+
 
 
 }
