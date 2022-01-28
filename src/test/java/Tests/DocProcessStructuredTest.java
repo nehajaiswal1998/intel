@@ -22,7 +22,7 @@ public class DocProcessStructuredTest extends BasePage {
             test.log(LogStatus.INFO, "DocProcessStructuredTest");
             test.log(LogStatus.PASS, "TestPassed");
             DocPageObj.ClickDocumentBtn();
-            Thread.sleep(5000);
+            Thread.sleep(8000);
 
             //TC 10.1 Search Project.
             DocPageObj.ClickDropDownBtn();
