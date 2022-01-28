@@ -5,13 +5,13 @@ import Pages.CreateUserPage;
 import Utilities.ReadProps;
 import Utilities.TakesScreen;
 import com.relevantcodes.extentreports.LogStatus;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import java.io.IOException;
-
+@Listeners(Utilities.TestListeners.class)
 public class CreateUserPlatformAdminTest extends BasePage {
     @Test
-    public void CreateUserPlatformAdminFlow() throws InterruptedException, IOException {
-        try {
+    public void CreateUserPlatformAdminFlow() throws Exception {
             BasePage.LoginTest();
             CreateUserPage UserPageObj = new CreateUserPage(driver);
             test.log(LogStatus.INFO, "CreateUserPlatformAdmin");
@@ -198,10 +198,6 @@ public class CreateUserPlatformAdminTest extends BasePage {
             UserPageObj.LogOut();
             Thread.sleep(5000);
             driver.close();
-
-        } catch (Exception e) {
-            test.log(LogStatus.FAIL, e);
-        }
     }
 }
 

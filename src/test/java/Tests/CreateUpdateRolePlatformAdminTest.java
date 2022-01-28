@@ -4,17 +4,17 @@ import Pages.CreateRolePage;
 import Utilities.ReadProps;
 import Utilities.TakesScreen;
 import com.relevantcodes.extentreports.LogStatus;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
 
+@Listeners(Utilities.TestListeners.class)
 public class CreateUpdateRolePlatformAdminTest extends BasePage
 {
     @Test
-    public void CreateRolePlatformAdminFlow() throws InterruptedException, IOException
-    {
-        try {
+    public void CreateRolePlatformAdminFlow() throws Exception {
             BasePage.LoginTest();
             CreateRolePage CreateRolePageObj = new CreateRolePage(driver);
             test.log(LogStatus.INFO, "CreateRolePlatformAdmin");
@@ -223,10 +223,5 @@ public class CreateUpdateRolePlatformAdminTest extends BasePage
             CreateRolePageObj.ClickLogout();
             Thread.sleep(5000);
             driver.close();
-        }
-        catch (Exception e)
-        {
-            test.log(LogStatus.FAIL, e);
-        }
     }
 }

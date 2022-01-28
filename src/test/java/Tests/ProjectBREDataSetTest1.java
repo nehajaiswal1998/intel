@@ -8,23 +8,21 @@ import Utilities.ReadProps;
 import Utilities.TakesScreen;
 import com.relevantcodes.extentreports.LogStatus;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import org.openqa.selenium.JavascriptExecutor;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
-
+@Listeners(Utilities.TestListeners.class)
 public class ProjectBREDataSetTest1 extends BasePage {
     @BeforeTest
-    public void login() {
-        try {
+    public void login() throws Exception {
             BasePage.LoginTest();
-        } catch (Exception e) {
-            test.log(LogStatus.FAIL, e);
-        }}
+    }
+
     @Test
-    public void ProjectBREDataSetFlow() throws InterruptedException, IOException {
-        try {
+    public void ProjectBREDataSetFlow() throws Exception {
             Robot r = new Robot();
             ProjectPage ProjectPageObj = new ProjectPage(driver);
             test.log(LogStatus.INFO, "ProjectBREDataSet");
@@ -183,11 +181,5 @@ public class ProjectBREDataSetTest1 extends BasePage {
             // driver.close();
             //Document should be uploaded from backend to check the output.
 
-
-
-        }
-        catch (Exception e) {
-            test.log(LogStatus.FAIL, e);
-        }
     }
 }

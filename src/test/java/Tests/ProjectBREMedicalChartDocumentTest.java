@@ -6,15 +6,15 @@ import Pages.ProjectBREMedicalChartDocumentPage;
 import Utilities.ReadProps;
 import Utilities.TakesScreen;
 import com.relevantcodes.extentreports.LogStatus;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import java.io.IOException;
 
-
+@Listeners(Utilities.TestListeners.class)
 public class ProjectBREMedicalChartDocumentTest extends BasePage {
 
     @Test
-    public void ProjectBREMedicalChartDocumentFlow() throws InterruptedException, IOException {
-        try {
+    public void ProjectBREMedicalChartDocumentFlow() throws Exception {
             BasePage.LoginTest();
             //Object Creation.
             ProjectBREMedicalChartDocumentPage ProjectBREMedicalChartDocumentPageObj = new ProjectBREMedicalChartDocumentPage(driver);
@@ -122,9 +122,6 @@ public class ProjectBREMedicalChartDocumentTest extends BasePage {
             TakesScreen.takeSnapShot(driver, "test-output//ProjectBREMedicalChartDocumentTest//DeleteChronicCondition.jpg");
             Thread.sleep(2000);
             driver.close();
-        } catch (Exception e) {
-            test.log(LogStatus.FAIL, e);
-        }
     }
 }
 

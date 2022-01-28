@@ -6,17 +6,18 @@ import Pages.ProjectBREPage;
 import Pages.ProjectPage;
 import Utilities.ReadProps;
 import com.relevantcodes.extentreports.LogStatus;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
 import Utilities.TakesScreen;
+@Listeners(Utilities.TestListeners.class)
 public class ProjectBREMedicalChartTest extends BasePage
 {
 
     @Test
-    public void ProjectBREMedicalChartFlow() throws InterruptedException, IOException {
-        try {
+    public void ProjectBREMedicalChartFlow() throws Exception {
 
             BasePage.LoginTest();
             Robot r = new Robot();
@@ -228,9 +229,6 @@ public class ProjectBREMedicalChartTest extends BasePage
             Thread.sleep(2000);
             //for the Result please upload the Document from Backend.
             driver.close();
-        } catch (Exception e) {
-            test.log(LogStatus.FAIL, e);
-        }
 
     }
 }

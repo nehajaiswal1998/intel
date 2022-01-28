@@ -8,6 +8,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+
 @Listeners(Utilities.TestListeners.class)
 public class AnalyticsTest extends BasePage
 {
@@ -16,6 +17,7 @@ public class AnalyticsTest extends BasePage
     public void login() throws Exception {
         BasePage.LoginTest();
     }
+
     @AfterTest
     public void cleanUp() throws Exception {
         driver.quit();

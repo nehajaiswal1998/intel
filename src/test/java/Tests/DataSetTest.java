@@ -7,15 +7,15 @@ import Utilities.TakesScreen;
 import com.relevantcodes.extentreports.LogStatus;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import java.io.IOException;
-
+@Listeners(Utilities.TestListeners.class)
 public class DataSetTest extends BasePage {
 
     @Test
-    public void DataSetFlow() throws InterruptedException, IOException {
+    public void DataSetFlow() throws Exception {
 
-        try {
             BasePage.LoginTest();
             DatasetPage DatasetPageObj = new DatasetPage(driver);
             test.log(LogStatus.INFO, "DataSet");
@@ -128,9 +128,6 @@ public class DataSetTest extends BasePage {
             TakesScreen.takeSnapShot(driver, "test-output//Datasets//DatasetDisabled.jpg");
             Thread.sleep(3000);
             driver.close();
-        } catch (Exception e) {
-            test.log(LogStatus.FAIL, e);
-        }
     }
 
 }
