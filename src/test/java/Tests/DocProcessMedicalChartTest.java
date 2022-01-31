@@ -1,15 +1,15 @@
 package Tests;
-
 import Base.BasePage;
 import Pages.DocumentPage;
-import Utilities.ReadProps;
+import Pages.ProjectBREMedicalChartDocumentPage;
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 @Listeners(Utilities.TestListeners.class)
 
-public class DocProcessStructuredTest extends BasePage {
+public class DocProcessMedicalChartTest extends BasePage
+{
     static DocumentPage DocPageObj;
     @BeforeClass
     public void login() throws Exception {
@@ -22,17 +22,14 @@ public class DocProcessStructuredTest extends BasePage {
     }
     @Test(priority = 1)
     public void search_project() throws Exception {
-        DocPageObj = new DocumentPage(driver);
         Robot r = new Robot();
-        DocumentPage DocPageObj = new DocumentPage(driver);
+        DocPageObj = new DocumentPage(driver);
         DocPageObj.ClickDocumentBtn();
         Thread.sleep(5000);
-        //TC 10.1 Search Project.
+        //TC 8.1 Search Project.
         DocPageObj.ClickDropDownBtn();
         Thread.sleep(2000);
-        DocPageObj.ClickSearchProject(ReadProps.readAttr("StructuredProjectName"));
-        Thread.sleep(2000);
-        DocPageObj.ClickSelectStructuredProject();
+        DocPageObj.ClickSelectMedicalChartProject();
         Thread.sleep(2000);
         DocPageObj.ClickStatusFilter();
         Thread.sleep(2000);
@@ -43,16 +40,16 @@ public class DocProcessStructuredTest extends BasePage {
     }
     @Test(priority = 2)
     public void searchbox_document() throws Exception {
-        //TC 10.2 SearchBox Document.
-        DocPageObj.ClickSearchBox("BRE US Citizen.jpg");
+        //TC 8.2 SearchBox Document.
+        DocPageObj.ClickSearchBox("Processed");
         Thread.sleep(2000);
         DocPageObj.ClickSearchDocument();
         Thread.sleep(2000);
     }
     @Test(priority = 3)
     public void update_document_cancel() throws Exception {
-        //TC 10.3 Update Document and Cancel it.
-        DocPageObj.ClickViewDocIcon();
+        //TC 8.3 Update Document and Cancel it.
+        DocPageObj.ClickViewDocIcon5();
         Thread.sleep(10000);
         DocPageObj.ClickExpansionPanel();
         Thread.sleep(2000);
@@ -65,7 +62,7 @@ public class DocProcessStructuredTest extends BasePage {
     }
     @Test(priority = 4)
     public void hide_unhide_analytics() throws Exception {
-        //TC 10.4 Hide and UnHide Analytics.
+        //TC 8.4 Hide and UnHide Analytics.
         DocPageObj.ClickHideAnalytics();
         Thread.sleep(2000);
         DocPageObj.ClickUnHideAnalytics();
@@ -73,10 +70,10 @@ public class DocProcessStructuredTest extends BasePage {
     }
     @Test(priority = 5)
     public void documents_filter() throws Exception {
-        //TC 10.5 Documents filter.
+        //TC 8.5 Documents filter.
         DocPageObj.ClickFilterDoc();
         Thread.sleep(2000);
-        DocPageObj.ClickSearchFilterDoc("BRE");
+        DocPageObj.ClickSearchFilterDoc("Processed");
         Thread.sleep(2000);
         DocPageObj.ClickFilterSearchIcon();
         Thread.sleep(2000);
@@ -92,7 +89,7 @@ public class DocProcessStructuredTest extends BasePage {
     }
     @Test(priority = 6)
     public void sorting() throws Exception {
-        //TC 10.6 sorting.
+        //TC 8.6 sorting.
         DocPageObj.ClickDocSort();
         Thread.sleep(2000);
         DocPageObj.ClickAssigneeSort();
@@ -107,15 +104,13 @@ public class DocProcessStructuredTest extends BasePage {
         Thread.sleep(2000);
         DocPageObj.ClickUpdateSort();
         Thread.sleep(2000);
-        DocPageObj.ClickReceivedSort();
-        Thread.sleep(2000);
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollBy(0,10000)", "");
+        js.executeScript("window.scrollBy(0,5000)", "");
         Thread.sleep(3000);
     }
     @Test(priority = 7)
     public void items_page() throws Exception {
-        //TC 10.7 Items Per Page.
+        //TC 8.7 Items Per Page.
         DocPageObj.ClickItemsPerPage();
         Thread.sleep(2000);
         DocPageObj.SelectItemsPerPage();
@@ -123,46 +118,43 @@ public class DocProcessStructuredTest extends BasePage {
     }
     @Test(priority = 8)
     public void next_page_previous_page_first_page_last_page() throws Exception {
-        //TC 10.8 Next Page, Previous Page, Last Page and First Page.
+        //TC 8.8 Next Page, Previous Page, Last Page and First Page.
         DocPageObj.ClickNextPage();
         Thread.sleep(2000);
         DocPageObj.ClickPreviousPage();
         Thread.sleep(2000);
         DocPageObj.ClickLastPage();
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         DocPageObj.ClickFirstPage();
-        Thread.sleep(1000);
+        Thread.sleep(2000);
     }
     @Test(priority = 9)
-    public void anticlockwise_clockwise_zoomin_zoomout_navigate_right_left() throws Exception {
-            //TC 10.9 Anti-Clock Wise, Clock Wise, Zoom IN, Zoom Out, Navigate Right and Navigate Left.
-            DocPageObj.ClickSearchBox("form 1040.pdf");
-            Thread.sleep(1000);
-            DocPageObj.ClickSearchDocument();
-            Thread.sleep(1000);
-            DocPageObj.ClickViewDocIcon1();
-            Thread.sleep(15000);
-            DocPageObj.ClickAntiWiseIcon();
-            Thread.sleep(2000);
-
-            //Clockwise.
-            DocPageObj.ClickClockWiseIcon();
-            Thread.sleep(2000);
-
-            //Zoom In.
-            DocPageObj.ClickZoomIN();
-            Thread.sleep(2000);
-
-            //ZoomOut.
-            DocPageObj.ClickZoomOut();
-            Thread.sleep(2000);
-
-            //Navigate Right.
-            DocPageObj.ClickNvgtRt();
-            Thread.sleep(2000);
-
-            //Navigate Back.
-            DocPageObj.ClickNvgtLft();
-            Thread.sleep(2000);
+    public void create_chronic_condition() throws Exception {
+        //TC 8.9 Create Chronic condition.
+        DocPageObj.ClickViewDocIcon2();
+        Thread.sleep(5000);
+        ProjectBREMedicalChartDocumentPage ProjectBREMedicalChartDocumentPageObj = new ProjectBREMedicalChartDocumentPage(driver);
+        ProjectBREMedicalChartDocumentPageObj.ClickOnChartData();
+        Thread.sleep(3000);
+        DocPageObj.ClickChronicCondition();
+        Thread.sleep(3000);
+        DocPageObj.ClickAddCondition();
+        Thread.sleep(3000);
+        DocPageObj.AddNPINumber();
+        Thread.sleep(2000);
+        DocPageObj.AddPhysicianName();
+        Thread.sleep(2000);
+        DocPageObj.ClickStartDate();
+        Thread.sleep(2000);
+        DocPageObj.SelectStartDate();
+        Thread.sleep(2000);
+        DocPageObj.ClickEndDate();
+        Thread.sleep(2000);
+        DocPageObj.SelectEndDate();
+        Thread.sleep(2000);
+        DocPageObj.SaveChronicCondition();
+        Thread.sleep(3000);
+        ProjectBREMedicalChartDocumentPageObj.ClickOnSaveDraft();
+        Thread.sleep(4000);
     }
 }

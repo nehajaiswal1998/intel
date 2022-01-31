@@ -63,7 +63,7 @@ public class ProjectBREPage {
     By ClickOnAddBREDataSet = By.xpath("//span[contains(text(),'Auto-DataSet - Auto-SampleDataSet')]");
     By ClickOnAddBREDataSet1 = By.xpath("//body/div[1]/div[2]/div[1]/div[1]/div[1]/mat-option[1]/span[1]");
     By ClickOnBREDataHeader = By.xpath("//span[contains(text(),'Dataset Header')]");
-    By SelectBREDatasetHeaderPN = By.xpath("//body/div[1]/div[2]/div[1]/div[1]/div[1]/mat-option[1]/span[1]");
+    By SelectBREDatasetHeaderDXCode = By.xpath("//body/div[1]/div[2]/div[1]/div[1]/div[1]/mat-option[1]/span[1]");
     By SelectBREDatasetHeaderDOB = By.xpath("//span[contains(text(),'DOB')]");
     By ExpandVariables = By.xpath("//span[contains(text(),'Variables')]");
     By AddVariablesButton = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[3]/div[1]/project-data-section[1]/mat-accordion[1]/project-variables[1]/mat-expansion-panel[1]/div[1]/div[1]/div[1]/button[1]/span[1]");
@@ -174,7 +174,7 @@ public class ProjectBREPage {
     public  void ClickOnChooseBREDataSet1(){driver.findElement(ClickOnAddBREDataSet1).click();}
 
     public  void ClickOnBREDataHeader(){driver.findElement(ClickOnBREDataHeader).click();}
-    public  void SelectBREDataHeaderPN(){driver.findElement(SelectBREDatasetHeaderPN).click();}
+    public  void SelectBREDataHeaderDXCode(){driver.findElement(SelectBREDatasetHeaderDXCode).click();}
     public  void SelectBREDataHeaderDOB(){driver.findElement(SelectBREDatasetHeaderDOB).click();}
 
 

@@ -6,13 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="IntelliDoc" />
-        <module name="IntelliDocLatest" />
+        <module name="Maven_Project" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="IntelliDoc" target="16" />
-      <module name="IntelliDocLatest" target="16" />
-    </bytecodeTargetLevel>
   </component>
 </project>

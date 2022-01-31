@@ -1,324 +1,317 @@
 package Tests;
-
 import Base.BasePage;
 import Pages.LoginPage;
+import Pages.ProjectPage;
 import Utilities.ReadProps;
-import Utilities.TakesScreen;
-import com.relevantcodes.extentreports.LogStatus;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.Listeners;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import static org.testng.Assert.assertEquals;
 @Listeners(Utilities.TestListeners.class)
 public class LoginTest extends BasePage {
-    WebDriver driver;
+        static ProjectPage ProjectPageObj;
+        static LoginPage loginPageObjects;
 
-    @Test(priority = 1)
-    public static void login_with_blank_() throws Exception {
+        @BeforeClass
+        public void login() throws Exception {
+                BasePage.driverInit();
+        }
 
-            test.log(LogStatus.INFO, "Login");
-            test.log(LogStatus.PASS, "TestPassed");
-            String projectPath = System.getProperty("user.dir");
-            System.setProperty("webdriver.chrome.driver", projectPath + ".\\Drivers\\chromedriver.exe");
-            WebDriver driver = new ChromeDriver();
-            //Object creation
-            LoginPage loginPageObjects = new LoginPage(driver);
+        @AfterClass
+        public void cleanUp() throws Exception {
+                driver.quit();
+        }
 
-            driver.get(ReadProps.readAttr("URL"));
-            Thread.sleep(2000);
-            String actualTitle = driver.getTitle();
-            String expectedTitle = "IntelliDoc";
-            assertEquals(expectedTitle, actualTitle);
-            System.out.println("Title Match");
-            driver.manage().window().maximize();
-            //Identify Logo
-            WebElement i = driver.findElement(By.xpath("//img[contains(@class,'img-fluid login-logo')]"));
-            Boolean p = (Boolean) ((JavascriptExecutor) driver).executeScript("return arguments[0].complete " + "&& typeof arguments[0].naturalWidth != \"undefined\" " + "&& arguments[0].naturalWidth > 0", i);
-            //Verify logo Matched or not.
-            if (p) {
-                System.out.println("Logo Matched!");
-            } else {
-                System.out.println("Logo Unmatched!");
-            }
-            Thread.sleep(2000);
-            //TC 14.1 - Login with Blank Username and Blank Password for Platform Admin.
-            loginPageObjects.clickLoginButton();
-            loginPageObjects.VerifyAssertError();
-            TakesScreen.takeSnapShot(driver, "test-output//LoginPage//BlankID&Pwd.jpg");
-            System.out.println("Please Enter Valid Data!");
-            Thread.sleep(2000);
+        @Test(priority = 1)
+        public static void verification_of_title_logo_and_login_with_blank_details() throws Exception {
+                //Object creation
+                loginPageObjects = new LoginPage(driver);
+                ProjectPageObj = new ProjectPage(driver);
+                driver.get(ReadProps.readAttr("URL"));
+                Thread.sleep(2000);
+                String actualTitle = driver.getTitle();
+                String expectedTitle = "IntelliDoc";
+                assertEquals(expectedTitle, actualTitle);
+                System.out.println("Title Match");
+                driver.manage().window().maximize();
+                // Identify Logo
+                WebElement i = driver.findElement(By.xpath("//img[contains(@class,'img-fluid login-logo')]"));
+                Boolean p = (Boolean) ((JavascriptExecutor) driver).executeScript("return arguments[0].complete " + "&& typeof arguments[0].naturalWidth != \"undefined\" " + "&& arguments[0].naturalWidth > 0", i);
+                //Verify logo Matched or not.
+                if (p) {
+                        System.out.println("Logo Matched!");
+                } else {
+                        System.out.println("Logo Unmatched!");
+                }
+                Thread.sleep(2000);
+                //TC 14.1 - Login with Blank Username and Blank Password for Platform Admin.
+                loginPageObjects.clickLoginButton();
+                loginPageObjects.VerifyAssertError();
+                Thread.sleep(2000);
+        }
 
-            //TC 14.2 - Login with Invalid Username and Blank Password for Platform Admin.
-            loginPageObjects.setUsername(ReadProps.readAttr("InvalidUsername"));
-            Thread.sleep(2000);
-            loginPageObjects.clickLoginButton();
-            loginPageObjects.VerifyAssertError();
-            TakesScreen.takeSnapShot(driver, "test-output//LoginPage//InvalidID&BlankPwd.jpg");
-            System.out.println("Login Failed - Invalid Username and Blank Password");
-            Thread.sleep(2000);
+        @Test(priority = 2)
+        public static void login_with_invalid_username_and_blank_password() throws Exception {
+                //TC 14.2 - Login with Invalid Username and Blank Password for Platform Admin.
+                ProjectPageObj.EnterUsername(ReadProps.readAttr("InvalidUsername"));
+                Thread.sleep(2000);
+                loginPageObjects.clickLoginButton();
+                loginPageObjects.VerifyAssertError();
+        }
 
-            //TC 14.3 - Login with Blank Username and Valid Password for Platform Admin.
-            loginPageObjects.ClearUserID();
-            Thread.sleep(2000);
-            loginPageObjects.setPassword(ReadProps.readAttr("Password"));
-            Thread.sleep(1000);
-            loginPageObjects.clickLoginButton();
-            Thread.sleep(3000);
-            TakesScreen.takeSnapShot(driver, "test-output//LoginPage//BlankID&ValidPwd.jpg");
-            System.out.println("Login Failed - Blank Username and Valid Password");
-            Thread.sleep(2000);
+        @Test(priority = 3)
+        public static void login_with_blank_username_and_valid_password() throws Exception {
+                //TC 14.3 - Login with Blank Username and Valid Password for Platform Admin.
+                loginPageObjects.ClearUserID();
+                Thread.sleep(2000);
+                loginPageObjects.setPassword(ReadProps.readAttr("Password"));
+                Thread.sleep(1000);
+                loginPageObjects.clickLoginButton();
+                Thread.sleep(3000);
+        }
 
-            //TC 14.4 - Login with Blank Username and Invalid Password for Platform Admin.
-            loginPageObjects.ClearPWD();
-            Thread.sleep(2000);
-            loginPageObjects.setPassword(ReadProps.readAttr("InvalidPassword"));
-            Thread.sleep(1000);
-            loginPageObjects.clickLoginButton();
-            Thread.sleep(2000);
-            TakesScreen.takeSnapShot(driver, "test-output//LoginPage//BlankID&InvalidPwd.jpg");
-            System.out.println("Login Failed - Blank Username and Invalid Password");
-            Thread.sleep(2000);
+        @Test(priority = 4)
+        public static void login_with_blank_username_and_invalid_password() throws Exception {
+                //TC 14.4 - Login with Blank Username and Invalid Password for Platform Admin.
+                loginPageObjects.ClearPWD();
+                Thread.sleep(2000);
+                loginPageObjects.setPassword(ReadProps.readAttr("InvalidPassword"));
+                Thread.sleep(1000);
+                loginPageObjects.clickLoginButton();
+                Thread.sleep(2000);
+        }
 
-            //TC 14.5 - Login with Valid Username and Blank Password for Platform Admin.
-            loginPageObjects.ClearPWD();
-            Thread.sleep(2000);
-            loginPageObjects.setUsername(ReadProps.readAttr("UserID"));
-            Thread.sleep(1000);
-            loginPageObjects.clickLoginButton();
-            Thread.sleep(2000);
-            TakesScreen.takeSnapShot(driver, "test-output//LoginPage//ValidID&BlankPwd.jpg");
-            System.out.println("Login Failed - Valid Username and Blank Password");
-            Thread.sleep(2000);
+        @Test(priority = 5)
+        public static void login_with_valid_username_and_blank_password() throws Exception {
+                //TC 14.5 - Login with Valid Username and Blank Password for Platform Admin.
+                loginPageObjects.ClearPWD();
+                Thread.sleep(2000);
+                ProjectPageObj.EnterUsername(ReadProps.readAttr("UserID"));
+                Thread.sleep(1000);
+                loginPageObjects.clickLoginButton();
+                Thread.sleep(2000);
+                driver.navigate().refresh();
+                Thread.sleep(3000);
+        }
+
+        @Test(priority = 6)
+        public static void login_with_invalid_username_and_password() throws Exception {
+                //TC 14.6 - Login with Invalid Username and Password for Platform Admin.
+                ProjectPageObj.EnterUsername(ReadProps.readAttr("InvalidUsername"));
+                Thread.sleep(1000);
+                loginPageObjects.setPassword(ReadProps.readAttr("InvalidPassword"));
+                Thread.sleep(1000);
+                loginPageObjects.clickLoginButton();
+                Thread.sleep(2000);
+        }
+
+        @Test(priority = 7)
+        public static void login_with_invalid_username_and_valid_password() throws Exception {
+                //TC 14.7 - Login with Invalid Username and Valid Password for Platform Admin.
+                driver.navigate().refresh();
+                Thread.sleep(3000);
+                ProjectPageObj.EnterUsername(ReadProps.readAttr("InvalidUsername"));
+                Thread.sleep(1000);
+                loginPageObjects.setPassword(ReadProps.readAttr("Password"));
+                Thread.sleep(1000);
+                loginPageObjects.clickLoginButton();
+                Thread.sleep(2000);
+        }
+
+        @Test(priority = 8)
+        public static void login_with_valid_username_and_invalid_password() throws Exception {
+                //TC 14.8 - Login with Valid Username and Invalid Password for Platform Admin.
+                driver.navigate().refresh();
+                Thread.sleep(3000);
+                ProjectPageObj.EnterUsername(ReadProps.readAttr("UserID"));
+                Thread.sleep(1000);
+                loginPageObjects.setPassword(ReadProps.readAttr("InvalidPassword"));
+                Thread.sleep(1000);
+                loginPageObjects.clickLoginButton();
+                Thread.sleep(2000);
+        }
+
+        @Test(priority = 9)
+        public static void login_with_valid_username_and_password() throws Exception {
+                //TC 14.9 Login with Valid Username and Password for Platform Admin.
+                driver.navigate().refresh();
+                Thread.sleep(3000);
+                ProjectPageObj.EnterUsername(ReadProps.readAttr("UserID"));
+                Thread.sleep(1000);
+                loginPageObjects.setPassword(ReadProps.readAttr("Password"));
+                Thread.sleep(1000);
+                loginPageObjects.clickLoginButton();
+                Thread.sleep(12000);
+                loginPageObjects.VerifyHomePage();
+        }
+
+        @Test(priority = 10)
+        public static void navigate_backward() throws Exception {
+                //TC 14.10 - Navigate Backward for Platform Admin.
+                driver.navigate().back();
+                loginPageObjects.VerifyAssertBack();
+                Thread.sleep(2000);
+        }
+
+        @Test(priority = 11)
+        public static void logout_for_platform_admin() throws Exception {
+                //TC 14.11 - Logout for Platform Admin.
+                loginPageObjects.ClickLogoutBtn();
+                Thread.sleep(5000);
+        }
+
+        @Test(priority = 12)
+        public static void login_with_invalid_username_password() throws Exception {
+                //TC 14.2 - Admin Login with Invalid Username and Password.
+                ProjectPageObj.EnterUsername(ReadProps.readAttr("AdminInvalidUser"));
+                Thread.sleep(1000);
+                loginPageObjects.setPassword(ReadProps.readAttr("AdminInvalidPwd"));
+                Thread.sleep(1000);
+                loginPageObjects.clickLoginButton();
+                Thread.sleep(2000);
+        }
+
+        @Test(priority = 13)
+        public static void login_with_invalid_username_and_valid_password_for_admin() throws Exception {
+                //TC 14.13 - Admin Login with Invalid Username and Valid Password.
+                driver.navigate().refresh();
+                Thread.sleep(3000);
+                ProjectPageObj.EnterUsername(ReadProps.readAttr("AdminInvalidUser"));
+                Thread.sleep(1000);
+                loginPageObjects.setPassword(ReadProps.readAttr("AdminPwd"));
+                Thread.sleep(1000);
+                loginPageObjects.clickLoginButton();
+                Thread.sleep(2000);
+        }
+
+        @Test(priority = 14)
+        public static void login_with_valid_username_and_invalid_password_admin() throws Exception {
+                //TC 14.14 - Admin Login with Valid Username and Invalid Password.
+                driver.navigate().refresh();
+                Thread.sleep(3000);
+                ProjectPageObj.EnterUsername(ReadProps.readAttr("AdminUser"));
+                Thread.sleep(1000);
+                loginPageObjects.setPassword(ReadProps.readAttr("AdminInvalidPwd"));
+                Thread.sleep(1000);
+                loginPageObjects.clickLoginButton();
+                Thread.sleep(2000);
+        }
+
+        @Test(priority = 15)
+        public static void login_with_valid_username_and_password_admin() throws Exception {
+                //TC 14.15 Admin Role Login with Valid Username and Password.
+                driver.navigate().refresh();
+                Thread.sleep(3000);
+                ProjectPageObj.EnterUsername(ReadProps.readAttr("AdminUser"));
+                Thread.sleep(1000);
+                loginPageObjects.setPassword(ReadProps.readAttr("AdminPwd"));
+                Thread.sleep(1000);
+                loginPageObjects.clickLoginButton();
+                Thread.sleep(10000);
+                loginPageObjects.ClickLogoutBtn();
+                Thread.sleep(4000);
+        }
+
+        @Test(priority =16)
+        public static void login_with_invalid_username_and_password_supervisor() throws Exception {
+                //TC 14.16 Supervisor Role Login with InValid Username and Password.
+                driver.navigate().refresh();
+                Thread.sleep(3000);
+                ProjectPageObj.EnterUsername(ReadProps.readAttr("SupervisorInvalidUser"));
+                Thread.sleep(1000);
+                loginPageObjects.setPassword(ReadProps.readAttr("SupervisorInvalidPwd"));
+                Thread.sleep(1000);
+                loginPageObjects.clickLoginButton();
+                Thread.sleep(2000);
+        }
+
+        @Test(priority = 17)
+        public static void login_with_invalid_username_and_valid_password_supervisor() throws Exception {
+                //TC 14.17 - Supervisor Role  Login with Invalid Username and Valid Password.
+                driver.navigate().refresh();
+                Thread.sleep(3000);
+                ProjectPageObj.EnterUsername(ReadProps.readAttr("SupervisorInvalidUser"));
+                Thread.sleep(1000);
+                loginPageObjects.setPassword(ReadProps.readAttr("SupervisorPwd"));
+                Thread.sleep(1000);
+                loginPageObjects.clickLoginButton();
+                Thread.sleep(2000);
+        }
+        @Test(priority = 18)
+        public static void login_with_valid_username_and_invalid_password_supervisor() throws Exception {
+        //TC 14.18 - Supervisor Role  Login with Valid Username and Invalid Password.
             driver.navigate().refresh();
             Thread.sleep(3000);
-
-            //TC 14.6 - Login with Invalid Username and Password for Platform Admin.
-            loginPageObjects.setUsername(ReadProps.readAttr("InvalidUsername"));
-            Thread.sleep(1000);
-            loginPageObjects.setPassword(ReadProps.readAttr("InvalidPassword"));
-            Thread.sleep(1000);
-            loginPageObjects.clickLoginButton();
-            Thread.sleep(1000);
-            TakesScreen.takeSnapShot(driver, "test-output//LoginPage//InvalidID&InvalidPwd.jpg");
-            System.out.println("Login Failed - Invalid Username and Invalid Password");
-            Thread.sleep(2000);
-
-            //TC 14.7 - Login with Invalid Username and Valid Password for Platform Admin.
-            driver.navigate().refresh();
-            Thread.sleep(3000);
-            loginPageObjects.setUsername(ReadProps.readAttr("InvalidUsername"));
-            Thread.sleep(1000);
-            loginPageObjects.setPassword(ReadProps.readAttr("Password"));
-            Thread.sleep(1000);
-            loginPageObjects.clickLoginButton();
-            Thread.sleep(2000);
-            TakesScreen.takeSnapShot(driver, "test-output//LoginPage//InvalidID&ValidPwd.jpg");
-            System.out.println("Login Failed - Invalid Username and Valid Password");
-            Thread.sleep(2000);
-
-            //TC 14.8 - Login with Valid Username and Invalid Password for Platform Admin.
-            driver.navigate().refresh();
-            Thread.sleep(3000);
-            loginPageObjects.setUsername(ReadProps.readAttr("UserID"));
-            Thread.sleep(1000);
-            loginPageObjects.setPassword(ReadProps.readAttr("InvalidPassword"));
-            Thread.sleep(1000);
-            loginPageObjects.clickLoginButton();
-            Thread.sleep(1000);
-            TakesScreen.takeSnapShot(driver, "test-output//LoginPage//ValidID&InvalidPwd.jpg");
-            System.out.println("Login Failed - Valid Username and Invalid Password");
-            Thread.sleep(2000);
-
-            //TC 14.9 Login with Valid Username and Password for Platform Admin.
-            driver.navigate().refresh();
-            Thread.sleep(3000);
-            loginPageObjects.setUsername(ReadProps.readAttr("UserID"));
-            Thread.sleep(1000);
-            loginPageObjects.setPassword(ReadProps.readAttr("Password"));
-            Thread.sleep(1000);
-            loginPageObjects.clickLoginButton();
-            Thread.sleep(12000);
-            loginPageObjects.VerifyHomePage();
-            TakesScreen.takeSnapShot(driver, "test-output//LoginPage//LoginSuccess.jpg");
-            System.out.println("Login Success - Valid Username and Valid Password");
-            Thread.sleep(4000);
-
-            //TC 14.10 - Navigate Backward for Platform Admin.
-            driver.navigate().back();
-            loginPageObjects.VerifyAssertBack();
-            Thread.sleep(2000);
-            TakesScreen.takeSnapShot(driver, "test-output//LoginPage//NavigateBack.jpg");
-            System.out.println("Navigated to backward successfully");
-            Thread.sleep(2000);
-
-            //TC 14.11 - Logout for Platform Admin.
-            loginPageObjects.ClickLogoutBtn();
-            Thread.sleep(5000);
-            TakesScreen.takeSnapShot(driver, "test-output//LoginPage//Logout.jpg");
-            System.out.println("Logout Success");
-            Thread.sleep(2000);
-
-            //TC 14.12 - Admin Login with Invalid Username and Password.
-            loginPageObjects.setUsername(ReadProps.readAttr("AdminInvalidUser"));
-            Thread.sleep(1000);
-            loginPageObjects.setPassword(ReadProps.readAttr("AdminInvalidPwd"));
-            Thread.sleep(1000);
-            loginPageObjects.clickLoginButton();
-            Thread.sleep(2000);
-            TakesScreen.takeSnapShot(driver, "test-output//LoginPage//AdminInvalidID&InvalidPwd.jpg");
-            System.out.println("Login Failed - Admin Invalid Username and Invalid Password");
-            Thread.sleep(2000);
-
-            //TC 14.13 - Admin Login with Invalid Username and Valid Password.
-            driver.navigate().refresh();
-            Thread.sleep(3000);
-            loginPageObjects.setUsername(ReadProps.readAttr("AdminInvalidUser"));
-            Thread.sleep(1000);
-            loginPageObjects.setPassword(ReadProps.readAttr("AdminPwd"));
-            Thread.sleep(1000);
-            loginPageObjects.clickLoginButton();
-            Thread.sleep(2000);
-            TakesScreen.takeSnapShot(driver, "test-output//LoginPage//AdminInvalidID&ValidPwd.jpg");
-            System.out.println("Login Failed - Admin Invalid Username and Valid Password");
-            Thread.sleep(2000);
-
-            //TC 14.14 - Admin Login with Valid Username and Invalid Password.
-            driver.navigate().refresh();
-            Thread.sleep(3000);
-            loginPageObjects.setUsername(ReadProps.readAttr("AdminUser"));
-            Thread.sleep(1000);
-            loginPageObjects.setPassword(ReadProps.readAttr("AdminInvalidPwd"));
-            Thread.sleep(1000);
-            loginPageObjects.clickLoginButton();
-            Thread.sleep(2000);
-            TakesScreen.takeSnapShot(driver, "test-output//LoginPage//AdminValidID&InvalidPwd.jpg");
-            System.out.println("Login Failed - Admin Valid Username and Invalid Password");
-            Thread.sleep(2000);
-
-            //TC 14.15 Admin Role Login with Valid Username and Password.
-            driver.navigate().refresh();
-            Thread.sleep(3000);
-            loginPageObjects.setUsername(ReadProps.readAttr("AdminUser"));
-            Thread.sleep(1000);
-            loginPageObjects.setPassword(ReadProps.readAttr("AdminPwd"));
-            Thread.sleep(1000);
-            loginPageObjects.clickLoginButton();
-            Thread.sleep(12000);
-            TakesScreen.takeSnapShot(driver, "test-output//LoginPage//AdminLoginSuccess.jpg");
-            System.out.println("Login Success - Admin Valid Username and Valid Password");
-            Thread.sleep(2000);
-            loginPageObjects.ClickLogoutBtn();
-            Thread.sleep(4000);
-
-            //TC 14.16 Supervisor Role Login with InValid Username and Password.
-            driver.navigate().refresh();
-            Thread.sleep(3000);
-            loginPageObjects.setUsername(ReadProps.readAttr("SupervisorInvalidUser"));
+                ProjectPageObj.EnterUsername(ReadProps.readAttr("SupervisorUser"));
             Thread.sleep(1000);
             loginPageObjects.setPassword(ReadProps.readAttr("SupervisorInvalidPwd"));
             Thread.sleep(1000);
             loginPageObjects.clickLoginButton();
             Thread.sleep(2000);
-            TakesScreen.takeSnapShot(driver, "test-output//LoginPage//SupervisorInvalidID&InvalidPwd.jpg");
-            System.out.println("Login Failed - Supervisor Invalid Username and Invalid Password");
-            Thread.sleep(2000);
-
-            //TC 14.17 - Supervisor Role  Login with Invalid Username and Valid Password.
-            driver.navigate().refresh();
-            Thread.sleep(3000);
-            loginPageObjects.setUsername(ReadProps.readAttr("SupervisorInvalidUser"));
-            Thread.sleep(1000);
-            loginPageObjects.setPassword(ReadProps.readAttr("SupervisorPwd"));
-            Thread.sleep(1000);
-            loginPageObjects.clickLoginButton();
-            Thread.sleep(2000);
-            TakesScreen.takeSnapShot(driver, "test-output//LoginPage//SupervisorInvalidID&ValidPwd.jpg");
-            System.out.println("Login Failed - Supervisor Invalid Username and Valid Password");
-            Thread.sleep(2000);
-
-            //TC 14.18 - Supervisor Role  Login with Valid Username and Invalid Password.
-            driver.navigate().refresh();
-            Thread.sleep(3000);
-            loginPageObjects.setUsername(ReadProps.readAttr("SupervisorUser"));
-            Thread.sleep(1000);
-            loginPageObjects.setPassword(ReadProps.readAttr("SupervisorInvalidPwd"));
-            Thread.sleep(1000);
-            loginPageObjects.clickLoginButton();
-            Thread.sleep(2000);
-            TakesScreen.takeSnapShot(driver, "test-output//LoginPage//SupervisorValidID&InvalidPwd.jpg");
-            System.out.println("Login Failed - Supervisor Valid Username and Invalid Password");
-            Thread.sleep(2000);
-
-            //TC 14.19 Supervisor Role Valid Username and Password.
-            driver.navigate().refresh();
-            Thread.sleep(3000);
-            loginPageObjects.setUsername(ReadProps.readAttr("SupervisorUser"));
-            Thread.sleep(1000);
-            loginPageObjects.setPassword(ReadProps.readAttr("SupervisorPwd"));
-            Thread.sleep(1000);
-            loginPageObjects.clickLoginButton();
-            Thread.sleep(10000);
-            TakesScreen.takeSnapShot(driver, "test-output//LoginPage//SupervisorValidLogin.jpg");
-            System.out.println("Login Success - Supervisor Valid Username and Valid Password");
-            Thread.sleep(2000);
-            loginPageObjects.ClickLogoutBtn();
-            Thread.sleep(2000);
-
-            //TC 14.20 - Operator Role  Login with Invalid Username and Password.
-            driver.navigate().refresh();
-            Thread.sleep(3000);
-            loginPageObjects.setUsername(ReadProps.readAttr("OperatorInvalidUser"));
-            Thread.sleep(1000);
-            loginPageObjects.setPassword(ReadProps.readAttr("OperatorInvalidPwd"));
-            Thread.sleep(1000);
-            loginPageObjects.clickLoginButton();
-            Thread.sleep(2000);
-            TakesScreen.takeSnapShot(driver, "test-output//LoginPage//OperatorInvalidID&InvalidPWD.jpg");
-            System.out.println("Login Failed - Operator Invalid Username and Invalid Password");
-            Thread.sleep(2000);
-
-            //TC 14.21 - Operator Role  Login with Invalid Username and Valid Password.
-            driver.navigate().refresh();
-            Thread.sleep(3000);
-            loginPageObjects.setUsername(ReadProps.readAttr("OperatorInvalidUser"));
-            Thread.sleep(1000);
-            loginPageObjects.setPassword(ReadProps.readAttr("OperatorPwd"));
-            Thread.sleep(1000);
-            loginPageObjects.clickLoginButton();
-            Thread.sleep(2000);
-            TakesScreen.takeSnapShot(driver, "test-output//LoginPage//OperatorInvalidIDValidPWD.jpg");
-            System.out.println("Login Failed - Invalid Username and Valid Password");
-
-            //TC 14.22 - Operator ROle  Login with Valid Username and Invalid Password.
-            driver.navigate().refresh();
-            Thread.sleep(3000);
-            loginPageObjects.setUsername(ReadProps.readAttr("OperatorUser"));
-            Thread.sleep(1000);
-            loginPageObjects.setPassword(ReadProps.readAttr("OperatorInvalidPwd"));
-            Thread.sleep(1000);
-            loginPageObjects.clickLoginButton();
-            Thread.sleep(2000);
-            TakesScreen.takeSnapShot(driver, "test-output//LoginPage//OperatorValidID&InvalidPWD.jpg");
-            System.out.println("Login Failed - Valid Username and Invalid Password");
-            Thread.sleep(2000);
-
+}
+        @Test(priority = 19)
+        public static void login_with_valid_username_and_password_supervisor() throws Exception {
+                //TC 14.19 Supervisor Role Valid Username and Password.
+                driver.navigate().refresh();
+                Thread.sleep(3000);
+                ProjectPageObj.EnterUsername(ReadProps.readAttr("SupervisorUser"));
+                Thread.sleep(1000);
+                loginPageObjects.setPassword(ReadProps.readAttr("SupervisorPwd"));
+                Thread.sleep(1000);
+                loginPageObjects.clickLoginButton();
+                Thread.sleep(10000);
+                loginPageObjects.ClickLogoutBtn();
+                Thread.sleep(2000);
+        }
+        @Test(priority = 20)
+        public static void login_with_invalid_username_and_password_for_operator() throws Exception {
+                //TC 14.20 - Operator Role  Login with Invalid Username and Password.
+                driver.navigate().refresh();
+                Thread.sleep(3000);
+                ProjectPageObj.EnterUsername(ReadProps.readAttr("OperatorInvalidUser"));
+                Thread.sleep(1000);
+                loginPageObjects.setPassword(ReadProps.readAttr("OperatorInvalidPwd"));
+                Thread.sleep(1000);
+                loginPageObjects.clickLoginButton();
+                Thread.sleep(2000);
+        }
+        @Test(priority = 21)
+        public static void login_with_invalid_username_and_valid_password_for_operator() throws Exception {
+                //TC 14.21 - Operator Role  Login with Invalid Username and Valid Password.
+                driver.navigate().refresh();
+                Thread.sleep(3000);
+                ProjectPageObj.EnterUsername(ReadProps.readAttr("OperatorInvalidUser"));
+                Thread.sleep(1000);
+                loginPageObjects.setPassword(ReadProps.readAttr("OperatorPwd"));
+                Thread.sleep(1000);
+                loginPageObjects.clickLoginButton();
+                Thread.sleep(2000);
+        }
+        @Test(priority = 22)
+        public static void login_with_valid_username_and_invalid_password_for_operator() throws Exception {
+                //TC 14.22 - Operator ROle  Login with Valid Username and Invalid Password.
+                driver.navigate().refresh();
+                Thread.sleep(3000);
+                ProjectPageObj.EnterUsername(ReadProps.readAttr("OperatorUser"));
+                Thread.sleep(1000);
+                loginPageObjects.setPassword(ReadProps.readAttr("OperatorInvalidPwd"));
+                Thread.sleep(1000);
+                loginPageObjects.clickLoginButton();
+                Thread.sleep(2000);
+        }
+        @Test(priority = 23)
+        public static void login_with_valid_username_and_password_for_operator() throws Exception {
             //TC 14.23 Operator Role Login with Valid Username and Password.
             driver.navigate().refresh();
             Thread.sleep(3000);
-            loginPageObjects.setUsername(ReadProps.readAttr("OperatorUser"));
+                ProjectPageObj.EnterUsername(ReadProps.readAttr("OperatorUser"));
             Thread.sleep(1000);
             loginPageObjects.setPassword(ReadProps.readAttr("OperatorPwd"));
             Thread.sleep(1000);
             loginPageObjects.clickLoginButton();
             Thread.sleep(10000);
-            TakesScreen.takeSnapShot(driver, "test-output//LoginPage//OperatorValidLogin.jpg");
-            System.out.println("Login Success - Operator Valid Username and Invalid Password");
             loginPageObjects.ClickLogoutBtn();
             Thread.sleep(5000);
-            driver.close();
+        }
     }
-}

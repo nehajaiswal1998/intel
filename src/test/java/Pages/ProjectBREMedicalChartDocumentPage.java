@@ -29,7 +29,7 @@ public class ProjectBREMedicalChartDocumentPage {
     By DeleteCC = By.xpath("//mat-icon[contains(text(),'delete')]");
     By CancelCC = By.xpath("//app-rcm-edit-header/div[1]/form[1]/div[1]/div[2]/div[4]/button[1]");
     By EditEncounterDetails = By.xpath("//mat-expansion-panel-header/span[1]/mat-panel-description[1]/button[1]/span[1]/mat-icon[1]");
-    By EditEncounterDetailsCC = By.xpath("//body[1]/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-processed-forms[1]/div[1]/div[1]/div[1]/as-split[1]/as-split-area[2]/div[4]/mat-expansion-panel[1]/div[1]/div[1]/div[1]/mat-tab-group[1]/div[1]/mat-tab-body[2]/div[1]/div[1]/mat-accordion[1]/mat-expansion-panel[1]/div[1]/div[1]/div[1]/mat-table[1]/mat-row[1]/mat-cell[5]/button[1]/mat-icon[1]");
+    By EditEncounterDetailsCC = By.xpath("//mat-icon[contains(text(),'create')]");
     By SaveEditEncounterDetails = By.xpath("//app-rcm-edit-header/div[1]/form[1]/div[1]/div[2]/div[4]/button[2]/span[1]");
     By CancelEditEncounterDetails = By.xpath("//app-rcm-edit-header/div[1]/form[1]/div[1]/div[2]/div[4]/button[1]/span[1]");
     By AddDiagnosisDetails = By.xpath("//mat-expansion-panel-header/span[1]/mat-panel-description[1]/button[2]/span[1]/mat-icon[1]");

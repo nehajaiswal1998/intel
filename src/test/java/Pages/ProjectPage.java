@@ -17,12 +17,12 @@ public class ProjectPage {
     By ProjectName = By.xpath("//input[@formcontrolname='project']");
     By Lead = By.xpath("//*[@formcontrolname='lead']");
     By SearchLead = By.xpath("//input[@placeholder='Search']");
-    By SelectLeadSample = By.xpath("//span[contains(text(),'j1@gmail.com')]");
+    By SelectLeadSample = By.xpath("//span[contains(text(),'new@gmail.com')]");
     By SelectLeadAdmin = By.xpath("//span[contains(text(),' admin@test.com ')]");
     By SelectLead = By.xpath("//span[contains(text(),'qa1@email.com')]");
     By ClickStartDate = By.cssSelector("button[aria-label='Open calendar'][tabindex='0']");
     By ClearStartDate = By.xpath("//input[@id='mat-input-3']");
-    By SelectStartDate = By.xpath("//div[contains(text(),'7')]");//Change this before running
+    By SelectStartDate = By.xpath("//div[contains(text(),'30')]");//Change this before running
     By ClickEndDate = By.xpath("/html/body/app-root/div/app-landing/div/div/main/div/app-create-project/div[2]/div/form/mat-card/div/div[4]/mat-form-field/div/div[1]/div[4]/mat-datepicker-toggle/button");
     By ClearEndDate = By.xpath("//input[@id='mat-input-4']");
     By SelectEndDate = By.xpath("//div[contains(text(),'30')]");
@@ -391,9 +391,9 @@ public class ProjectPage {
     }
 
     //Project Homepage
-    public void ClickOnTableStructure() {
-        driver.findElement(ClickTableStructure).click();
-    }
+//    public void ClickOnTableStructure() {
+//        driver.findElement(ClickTableStructure).click();
+//    }
 
     public void ClickOnGridStructure() {
         driver.findElement(ClickGridStructure).click();

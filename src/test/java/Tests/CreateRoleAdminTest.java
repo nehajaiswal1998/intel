@@ -6,17 +6,16 @@ import Utilities.ReadProps;
 import Utilities.TakesScreen;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
 
-@Listeners(Utilities.TestListeners.class)
+
 public class CreateRoleAdminTest extends BasePage {
     @Test
-    public void CreateRoleAdminFlow() throws Exception {
-
+    public void CreateRoleAdminFlow() throws InterruptedException, IOException {
+        try {
             String projectPath = System.getProperty("user.dir");
             System.setProperty("webdriver.chrome.driver", projectPath + ".\\Drivers\\chromedriver.exe");
             WebDriver driver = new ChromeDriver();
@@ -179,5 +178,8 @@ public class CreateRoleAdminTest extends BasePage {
             driver.close();
             CreateRolePageObj.AssertAll();
 
+        } catch (Exception e) {
+            test.log(status.FAIL, e);
+        }
     }
 }

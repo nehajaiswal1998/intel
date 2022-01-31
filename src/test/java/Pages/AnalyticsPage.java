@@ -30,7 +30,7 @@ public class AnalyticsPage {
     By MCRejectedBar = By.xpath("//div[@class='row ng-star-inserted']/div[4]/div[1]/div[2]/div[3]");
     By ProjectDownArrow=By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-analytics[1]/div[2]/mat-accordion[1]/mat-expansion-panel[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/button[1]/span[1]/i[1]");
     By SearchProject=By.xpath("//input[@placeholder='Search']");
-    By SelectProject=By.xpath("//span[contains(text(),'Abcd new')]");
+    By SelectProject=By.xpath("//span[contains(text(),'QA-AutoProject-Structured')]");
     By SelectDropDown= By.xpath("//body[1]/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-analytics[1]/div[2]/mat-accordion[1]/mat-expansion-panel[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/mat-form-field[1]/div[1]/div[1]/div[1]/mat-select[1]/div[1]/div[2]");
     By SelectMonthly = By.xpath("//span[contains(text(),'Monthly')]");
     By SelectWeekly = By.xpath("//span[contains(text(),'Weekly')]");

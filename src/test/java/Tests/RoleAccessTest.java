@@ -6,14 +6,14 @@ import Utilities.ReadProps;
 import Utilities.TakesScreen;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
-@Listeners(Utilities.TestListeners.class)
+
 public class RoleAccessTest extends BasePage {
     @Test
-    public void RoleWiseFlow() throws Exception {
+    public void RoleWiseFlow() throws InterruptedException, IOException {
+        try {
             String projectPath = System.getProperty("user.dir");
             System.setProperty("webdriver.chrome.driver", projectPath + ".\\Drivers\\chromedriver.exe");
             WebDriver driver = new ChromeDriver();
@@ -115,6 +115,11 @@ public class RoleAccessTest extends BasePage {
             TakesScreen.takeSnapShot(driver, "test-output//RoleWiseTest//OperatorRoleLogout.jpg");
             Thread.sleep(2000);
             driver.close();
+
+
+        } catch (Exception e) {
+            test.log(status.FAIL, e);
+        }
 
     }
 }

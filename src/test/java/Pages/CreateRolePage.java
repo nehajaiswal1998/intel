@@ -16,8 +16,8 @@ public class CreateRolePage {
     By ViewDocumentPermission = By.xpath("//span[contains(text(),'View Document' )]");
     By ClickCancel = By.xpath("//span[contains(text(),'Cancel')]");
     By SearchRole = By.xpath("//body[1]/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-role-management[1]/div[1]/div[1]/div[1]/mat-form-field[1]/div[1]/div[1]/div[3]/input[1]");
-    By EditRole = By.xpath("//span[contains(text(),'AutoAdmin13')]");//Change This
-    By EditRolePA = By.xpath("//span[contains(text(),'AutoAdminPA13')]");//Change This
+    By EditRole = By.xpath("//span[contains(text(),'AutoAdmin23')]");//Update This.
+    By EditRolePA = By.xpath("//span[contains(text(),'AutoAdminPA24')]");//Update This.
     By ProcessDocumentPermission = By.xpath("//span[contains(text(),' Process Document ')]");
     By CreateUserPermission = By.xpath("//span[contains(text(),'Create User')]");
     By CreateProject = By.xpath("//span[contains(text(),'Create Project')]");
