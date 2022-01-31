@@ -1,6 +1,8 @@
 package Pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
+
 public class DocumentPage {
 
         WebDriver driver = null;
@@ -23,6 +25,8 @@ public class DocumentPage {
         By ViewDoc3 = By.xpath("//span[contains(text(),'4.tif')]");
         By ViewDoc4 = By.xpath("//span[contains(text(),'3.tif')]");
         By ViewDoc5 = By.xpath("//span[contains(text(),'Processed.pdf')]");
+        By ViewFreeFormRejectedDoc = By.xpath("//span[contains(text(),'Pfizer7.jpg')]");//rejected
+        By ViewStructuredReadyDoc = By.xpath("//span[contains(text(),'Pfizer.jpg')]");//ready
 
         By ExpansionPanel = By.xpath("//mat-expansion-panel-header/span[2]");
         By ChangeEmail = By.xpath("/html[1]/body[1]/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-processed-forms[1]/div[1]/div[1]/div[2]/div[4]/mat-expansion-panel[1]/div[1]/div[1]/mat-table[1]/mat-row[1]/mat-cell[2]/div[1]/mat-form-field[1]/div[1]/div[1]/div[1]/input[1]");
@@ -80,10 +84,23 @@ public class DocumentPage {
         By NPINo = By.xpath("//input[@formcontrolname='npiNo']");
         By PhysicianName = By.xpath("//input[@formcontrolname='physicianName']");
         By StartDate = By.xpath("//*[@id='mat-dialog-0']/app-rcm-edit-header/div/form/div/div[2]/div[3]/div[1]/mat-form-field/div/div[1]/div[4]/mat-datepicker-toggle/button");
-        By SelectStartDate = By.xpath("//div[contains(text(),'11')]");
+        By SelectStartDate = By.xpath("//div[contains(text(),'26')]");//check in future
         By EndDate = By.xpath("//*[@id='mat-dialog-0']/app-rcm-edit-header/div/form/div/div[2]/div[3]/div[2]/mat-form-field/div/div[1]/div[4]/mat-datepicker-toggle/button");
-        By SelectEndDate = By.xpath("//div[contains(text(),'25')]");
+        By SelectEndDate = By.xpath("//div[contains(text(),'26')]");//check in future
         By SaveCondition = By.xpath("//*[@id='mat-dialog-0']/app-rcm-edit-header/div/form/div/div[2]/div[4]/button[2]/span[1]");
+
+        By AddData = By.xpath("//mat-label[contains(text(),'Data')]");
+        By AddAttribute = By.xpath("//span[contains(text(),'Attribute')]");
+        By AddPatientName = By.xpath("//span[contains(text(),' PatientName ')]");
+        By AddDOB = By.xpath("//span[contains(text(),' DOB ')]");
+        By clickAdd = By.xpath("//span[contains(text(),' Add ')]");
+        By addAttributeValue = By.xpath("//body[1]/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-processed-forms[1]/div[1]/div[1]/div[1]/as-split[1]/as-split-area[2]/div[4]/div[1]/mat-expansion-panel[1]/div[1]/div[1]/div[2]/mat-table[1]/mat-row[1]/mat-cell[2]/div[1]/mat-form-field[1]/div[1]/div[1]/div[1]/input[1]");
+        By SaveDraft = By.xpath("//span[contains(text(),'Save Draft')]");
+        By Submit = By.xpath("//span[contains(text(),'Submit')]");
+        By SubmitChanges = By.xpath("//body/div[1]/div[2]/div[1]/mat-dialog-container[1]/app-confirmation-dialog[1]/div[1]/div[1]/div[2]/button[1]/span[1]");
+        By StatusFreeFormDoc = By.xpath("//tbody[@role='rowgroup']/tr[1]/td[3]");
+        By UpdtAttributeValue = By.xpath("//mat-row[@id='tableRow'][2]/mat-cell[2]");
+        By SelectAddress = By.xpath("//span[contains(text(),' 2472 Rose Peak Drive Dietz ')]");
 
         //Constructor
         public DocumentPage(WebDriver driver) { this.driver = driver;}
@@ -106,7 +123,6 @@ public class DocumentPage {
         public void ClickViewDocIcon3(){ driver.findElement(ViewDoc3).click();}
         public void ClickViewDocIcon4(){ driver.findElement(ViewDoc4).click();}
         public void ClickViewDocIcon5(){ driver.findElement(ViewDoc5).click();}
-
         public void ClickDiscardUpdate(){driver.findElement(DiscardUpdate).click();}
         public void ClickExpansionPanel(){driver.findElement(ExpansionPanel).click();}
         public void ClickClearEmail(){driver.findElement(ChangeEmail).clear();}
@@ -133,17 +149,13 @@ public class DocumentPage {
 
         //status filter
         public void ClickStatusFilter(){driver.findElement(StatusFilter).click();}
-        public void ClickUncheckRejected(){driver.findElement(UncheckRejected).click();}
         public void ClickCheckProcessed(){driver.findElement(CheckProcessed).click();}
-        public void ClickArrowRight(){driver.findElement(ArrowRight).click();}
-        public void ClickArrowLeft(){driver.findElement(ArrowLeft).click();}
         public void ClickItemsPerPage(){driver.findElement(ItemsPerPage).click();}
         public void SelectItemsPerPage(){driver.findElement(SelectItems).click();}
         public void ClickNextPage(){driver.findElement(NextPage).click();}
         public void ClickLastPage(){driver.findElement(LastPage).click();}
         public void ClickPreviousPage(){driver.findElement(PreviousPage).click();}
         public void ClickFirstPage(){driver.findElement(FirstPage).click();}
-        public void ClickPercentageIcon(){driver.findElement(ClickPercentage).click();}
         public void ClickAntiWiseIcon(){driver.findElement(ClickAntiClkWise).click();}
         public void ClickClockWiseIcon(){driver.findElement(ClickClkWise).click();}
         public void ClickZoomIN(){driver.findElement(ClickZoomIn).click();}
@@ -183,7 +195,6 @@ public class DocumentPage {
         {
                 driver.findElement(EndDate).click();
         }
-
         public void SelectEndDate()
         {
                 driver.findElement(SelectEndDate).click();
@@ -193,6 +204,41 @@ public class DocumentPage {
         {
                 driver.findElement(SaveCondition).click();
         }
+
+        public void ViewFreeFormRejectedDocument(){ driver.findElement(ViewFreeFormRejectedDoc).click();}
+        public void clickAddData() {driver.findElement(AddData).click();}
+        public void clickAddAttributes() { driver.findElement(AddAttribute).click();}
+        public void addAttributes() {driver.findElement(AddPatientName).click();}
+        public void clickADD() {driver.findElement(clickAdd).click();}
+        public void addAttributeValue() {driver.findElement(addAttributeValue).sendKeys("John Dey");}
+        public void clickSaveDraft() {driver.findElement(SaveDraft).click();}
+        public void clickSubmit() {driver.findElement(Submit).click();}
+        public void clickSubmitChanges () {driver.findElement(SubmitChanges).click();}
+        public void assertFreeFormDocument()
+        {String FreeFormDocStatus = driver.findElement(StatusFreeFormDoc).getText();
+               String ActualStatus = FreeFormDocStatus;
+               String ExpectedStatus = "Processed";
+                Assert.assertEquals(ActualStatus,ExpectedStatus);
+        }
+
+        public void assertAttributValue () {
+                String AttributeValue = driver.findElement(addAttributeValue).getText();
+                System.out.println(AttributeValue);
+                //String ActualValue = AttributeValue;
+                //String ExpectedValue = "John Dey";
+                // Assert.assertEquals(ActualValue,ExpectedValue);
+        }
+        public void viewStructuredReadyDoc()
+        {
+                driver.findElement(ViewStructuredReadyDoc).click();
+        }
+        public void updateAttributeValue(){
+                driver.findElement(UpdtAttributeValue).click();
+                driver.findElement(SelectAddress).click();
+
+        }
+
+
 
 
 }

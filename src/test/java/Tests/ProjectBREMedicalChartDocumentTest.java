@@ -1,25 +1,26 @@
 package Tests;
-
 import Base.BasePage;
 import Pages.DocumentPage;
 import Pages.ProjectBREMedicalChartDocumentPage;
 import Utilities.ReadProps;
-import Utilities.TakesScreen;
-import com.relevantcodes.extentreports.LogStatus;
-import org.testng.annotations.Test;
-import java.io.IOException;
-
+import org.testng.annotations.*;
+@Listeners(Utilities.TestListeners.class)
 
 public class ProjectBREMedicalChartDocumentTest extends BasePage {
-
-    @Test
-    public void ProjectBREMedicalChartDocumentFlow() throws InterruptedException, IOException {
-        try {
-            BasePage.LoginTest();
+        static  ProjectBREMedicalChartDocumentPage ProjectBREMedicalChartDocumentPageObj;
+    @BeforeClass
+    public void login() throws Exception {
+        BasePage.driverInit();
+        BasePage.LoginTest();
+    }
+    @AfterClass
+    public void cleanUp() throws Exception {
+        driver.quit();
+    }
+    @Test(priority = 1)
+    public void verify_save_draft_option_for_patient_demographics() throws Exception {
             //Object Creation.
-            ProjectBREMedicalChartDocumentPage ProjectBREMedicalChartDocumentPageObj = new ProjectBREMedicalChartDocumentPage(driver);
-            test.log(LogStatus.INFO, "ProjectBREMedicalChartDocument");
-            test.log(LogStatus.PASS, "TestPassed");
+            ProjectBREMedicalChartDocumentPageObj = new ProjectBREMedicalChartDocumentPage(driver);
             DocumentPage DocPageObj = new DocumentPage(driver);
             DocPageObj.ClickDocumentBtn();
             Thread.sleep(6000);
@@ -29,20 +30,12 @@ public class ProjectBREMedicalChartDocumentTest extends BasePage {
             //Search Medical Chart Project.
             DocPageObj.ClickSearchProject(ReadProps.readAttr("MedicalChartProjectName"));
             Thread.sleep(2000);
-            TakesScreen.takeSnapShot(driver, "test-output//ProjectBREMedicalChartDocumentTest//ProjectSearch.jpg");
-            Thread.sleep(2000);
             DocPageObj.ClickSelectMedicalChartProject();
             Thread.sleep(2000);
-            TakesScreen.takeSnapShot(driver, "test-output//ProjectBREMedicalChartDocumentTest//ProjectSelected.jpg");
-            Thread.sleep(1000);
             //Open Ready Document.
             ProjectBREMedicalChartDocumentPageObj.ClickOnReadyDocument();
             Thread.sleep(8000);
-            TakesScreen.takeSnapShot(driver, "test-output//ProjectBREMedicalChartDocumentTest//ViewReadyDocument.jpg");
-            Thread.sleep(1000);
             ProjectBREMedicalChartDocumentPageObj.ClickOnChartData();
-            Thread.sleep(2000);
-            TakesScreen.takeSnapShot(driver, "test-output//ProjectBREMedicalChartDocumentTest//ViewChartData.jpg");
             Thread.sleep(2000);
             //Clear the Address.
             ProjectBREMedicalChartDocumentPageObj.ClickOnClearAddress();
@@ -50,34 +43,24 @@ public class ProjectBREMedicalChartDocumentTest extends BasePage {
             //Enter New Address.
             ProjectBREMedicalChartDocumentPageObj.ClickOnEnterAddress(ReadProps.readAttr("BREAddress"));
             Thread.sleep(2000);
-            TakesScreen.takeSnapShot(driver, "test-output//ProjectBREMedicalChartDocumentTest//AddressEntered.jpg");
-            Thread.sleep(2000);
             //Click on Save Draft.
             ProjectBREMedicalChartDocumentPageObj.ClickOnSaveDraft();
             Thread.sleep(4000);
-            TakesScreen.takeSnapShot(driver, "test-output//ProjectBREMedicalChartDocumentTest//AddressSavedSuccessfully.jpg");
-            Thread.sleep(2000);
             //Open the Same Ready document.
             ProjectBREMedicalChartDocumentPageObj.ClickOnReadyDocument();
             Thread.sleep(8000);
-            TakesScreen.takeSnapShot(driver, "test-output//ProjectBREMedicalChartDocumentTest//OpenReadyDocument.jpg");
-            Thread.sleep(1000);
             //Verify the Saved Data.
             ProjectBREMedicalChartDocumentPageObj.ClickOnChartData();
             Thread.sleep(2000);
-            TakesScreen.takeSnapShot(driver, "test-output//ProjectBREMedicalChartDocumentTest//OpenChartData.jpg");
-            Thread.sleep(2000);
-
+    }
+        @Test(priority = 2)
+        public void verify_save_draft_option_for_chronic_conditions() throws Exception {
             //TC 2 Verifying the Save Draft Option for Chronic Conditions.
             ProjectBREMedicalChartDocumentPageObj.ClickOnChronicConditions();
             Thread.sleep(2000);
             ProjectBREMedicalChartDocumentPageObj.ClickOnAddChronicCondition();
             Thread.sleep(2000);
-            TakesScreen.takeSnapShot(driver, "test-output//ProjectBREMedicalChartDocumentTest//ChronicCondition.jpg");
-            Thread.sleep(2000);
             ProjectBREMedicalChartDocumentPageObj.ClickOnCancelChronicCondition();
-            Thread.sleep(2000);
-            TakesScreen.takeSnapShot(driver, "test-output//ProjectBREMedicalChartDocumentTest//CancelChronicCondition.jpg");
             Thread.sleep(2000);
             ProjectBREMedicalChartDocumentPageObj.ClickOnAddChronicCondition();
             Thread.sleep(2000);
@@ -89,42 +72,21 @@ public class ProjectBREMedicalChartDocumentTest extends BasePage {
             Thread.sleep(2000);
             ProjectBREMedicalChartDocumentPageObj.ClickOnEnterEndDate(ReadProps.readAttr("EndDate"));//Change this Date
             Thread.sleep(2000);
-            TakesScreen.takeSnapShot(driver, "test-output//ProjectBREMedicalChartDocumentTest//ChronicConditionDetails.jpg");
-            Thread.sleep(2000);
             ProjectBREMedicalChartDocumentPageObj.ClickOnSaveChronicCondition();
-            Thread.sleep(2000);
-            TakesScreen.takeSnapShot(driver, "test-output//ProjectBREMedicalChartDocumentTest//ChronicConditionSavedSuccessfully.jpg");
             Thread.sleep(2000);
             ProjectBREMedicalChartDocumentPageObj.ClickOnAddedChronicCondition();
             Thread.sleep(2000);
-            TakesScreen.takeSnapShot(driver, "test-output//ProjectBREMedicalChartDocumentTest//ChronicConditionExpanded.jpg");
-            Thread.sleep(2000);
             ProjectBREMedicalChartDocumentPageObj.ClickOnEditChronicCondition();
-            Thread.sleep(2000);
-            TakesScreen.takeSnapShot(driver, "test-output//ProjectBREMedicalChartDocumentTest//ChronicConditionEditView.jpg");
             Thread.sleep(2000);
             ProjectBREMedicalChartDocumentPageObj.ClickOnSaveEditEncounterDetails();
             Thread.sleep(2000);
-            TakesScreen.takeSnapShot(driver, "test-output//ProjectBREMedicalChartDocumentTest//SaveEditEncounterDetails.jpg");
-            Thread.sleep(1000);
             ProjectBREMedicalChartDocumentPageObj.ClickOnAddedChronicCondition();
             Thread.sleep(2000);
             ProjectBREMedicalChartDocumentPageObj.ClickOnEditChronicCondition();
             Thread.sleep(2000);
             ProjectBREMedicalChartDocumentPageObj.ClickOnCancelEditEncounterDetails();
             Thread.sleep(2000);
-            TakesScreen.takeSnapShot(driver, "test-output//ProjectBREMedicalChartDocumentTest//CancelEditEncounterDetails.jpg");
-            Thread.sleep(2000);
-            TakesScreen.takeSnapShot(driver, "test-output//ProjectBREMedicalChartDocumentTest//AddDiagnosisDetails.jpg");
-            Thread.sleep(2000);
             ProjectBREMedicalChartDocumentPageObj.ClickOnDeleteChronicCondition();
             Thread.sleep(2000);
-            TakesScreen.takeSnapShot(driver, "test-output//ProjectBREMedicalChartDocumentTest//DeleteChronicCondition.jpg");
-            Thread.sleep(2000);
-            driver.close();
-        } catch (Exception e) {
-            test.log(LogStatus.FAIL, e);
-        }
     }
 }
-

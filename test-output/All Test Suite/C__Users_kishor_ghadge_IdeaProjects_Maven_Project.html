@@ -1,0 +1,1551 @@
+<html>
+<head>
+<title>TestNG:  C:/Users/kishor_ghadge/IdeaProjects/Maven_Project</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>C:/Users/kishor_ghadge/IdeaProjects/Maven_Project</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>272/1/0</td>
+</tr><tr>
+<td>Started on:</td><td>Sun Jan 30 22:13:21 GMT 2022</td>
+</tr>
+<tr><td>Total time:</td><td>4562 seconds (4562152 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='Tests.DocProcessMedicalChartTest.create_chronic_condition()'><b>create_chronic_condition</b><br>Test class: Tests.DocProcessMedicalChartTest</td>
+<td><div><pre>org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element &lt;div _ngcontent-serverapp-c277=&quot;&quot; style=&quot;font-size: 13px;&quot; class=&quot;ng-tns-c277-62&quot;&gt;...&lt;/div&gt; is not clickable at point (1089, 462). Other element would receive the click: &lt;div class=&quot;cdk-overlay-backdrop mat-overlay-transparent-backdrop mat-datepicker-0-backdrop cdk-overlay-backdrop-showing&quot;&gt;&lt;/div&gt;
+  (Session info: chrome=97.0.4692.99)
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;PELG01&apos;, ip: &apos;10.128.0.13&apos;, os.name: &apos;Windows Server 2019&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\KISHOR~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:60050}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 1bd53602ca23cf3f805b7c58fa733af1
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)
+	at Pages.DocumentPage.SelectStartDate(DocumentPage.java:191)
+	at Tests.DocProcessMedicalChartTest.create_chronic_condition(DocProcessMedicalChartTest.java:149)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:109)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1795804759", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1795804759'><pre>org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element &lt;div _ngcontent-serverapp-c277=&quot;&quot; style=&quot;font-size: 13px;&quot; class=&quot;ng-tns-c277-62&quot;&gt;...&lt;/div&gt; is not clickable at point (1089, 462). Other element would receive the click: &lt;div class=&quot;cdk-overlay-backdrop mat-overlay-transparent-backdrop mat-datepicker-0-backdrop cdk-overlay-backdrop-showing&quot;&gt;&lt;/div&gt;
+  (Session info: chrome=97.0.4692.99)
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;PELG01&apos;, ip: &apos;10.128.0.13&apos;, os.name: &apos;Windows Server 2019&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\KISHOR~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:60050}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 1bd53602ca23cf3f805b7c58fa733af1
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)
+	at Pages.DocumentPage.SelectStartDate(DocumentPage.java:191)
+	at Tests.DocProcessMedicalChartTest.create_chronic_condition(DocProcessMedicalChartTest.java:149)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:109)
+</pre></div></td>
+<td>22</td>
+<td>Tests.DocProcessMedicalChartTest@4313f5bc</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='Tests.RoleWiseTest.admin_role_access_logout()'><b>admin_role_access_logout</b><br>Test class: Tests.RoleWiseTest</td>
+<td></td>
+<td>7</td>
+<td>Tests.RoleWiseTest@20d28811</td></tr>
+<tr>
+<td title='Tests.UpdateProjectTest.user_should_not_able_to_add_user_when_role_is_disabled_SP()'><b>user_should_not_able_to_add_user_when_role_is_disabled_SP</b><br>Test class: Tests.UpdateProjectTest</td>
+<td></td>
+<td>24</td>
+<td>Tests.UpdateProjectTest@60d8c9b7</td></tr>
+<tr>
+<td title='Tests.EditProfileTest.visible_password_on()'><b>visible_password_on</b><br>Test class: Tests.EditProfileTest</td>
+<td></td>
+<td>14</td>
+<td>Tests.EditProfileTest@2b6faea6</td></tr>
+<tr>
+<td title='Tests.LoginTest.login_with_valid_username_and_invalid_password()'><b>login_with_valid_username_and_invalid_password</b><br>Test class: Tests.LoginTest</td>
+<td></td>
+<td>7</td>
+<td>Tests.LoginTest@1f0f1111</td></tr>
+<tr>
+<td title='Tests.CreateUserPlatformAdminTest.valid_username_blank_password()'><b>valid_username_blank_password</b><br>Test class: Tests.CreateUserPlatformAdminTest</td>
+<td></td>
+<td>10</td>
+<td>Tests.CreateUserPlatformAdminTest@6d2a209c</td></tr>
+<tr>
+<td title='Tests.ProjectFlowFreeFormTest.create_project_without_adding_role()'><b>create_project_without_adding_role</b><br>Test class: Tests.ProjectFlowFreeFormTest</td>
+<td></td>
+<td>8</td>
+<td>Tests.ProjectFlowFreeFormTest@1f3f4916</td></tr>
+<tr>
+<td title='Tests.ProjectFlowMedicalChart.verify_add_user()'><b>verify_add_user</b><br>Test class: Tests.ProjectFlowMedicalChart</td>
+<td></td>
+<td>6</td>
+<td>Tests.ProjectFlowMedicalChart@794cb805</td></tr>
+<tr>
+<td title='Tests.DocProcessSemiStructuredTest.search_project()'><b>search_project</b><br>Test class: Tests.DocProcessSemiStructuredTest</td>
+<td></td>
+<td>14</td>
+<td>Tests.DocProcessSemiStructuredTest@7f010382</td></tr>
+<tr>
+<td title='Tests.ProjectFlowMedicalChart.create_project_without_user()'><b>create_project_without_user</b><br>Test class: Tests.ProjectFlowMedicalChart</td>
+<td></td>
+<td>6</td>
+<td>Tests.ProjectFlowMedicalChart@794cb805</td></tr>
+<tr>
+<td title='Tests.TemplateTest.delete_more_page_template()'><b>delete_more_page_template</b><br>Test class: Tests.TemplateTest</td>
+<td></td>
+<td>20</td>
+<td>Tests.TemplateTest@3967e60c</td></tr>
+<tr>
+<td title='Tests.UpdateProjectTest.user_should_not_add_user_when_role_disabled()'><b>user_should_not_add_user_when_role_disabled</b><br>Test class: Tests.UpdateProjectTest</td>
+<td></td>
+<td>33</td>
+<td>Tests.UpdateProjectTest@60d8c9b7</td></tr>
+<tr>
+<td title='Tests.LoginTest.login_with_invalid_username_and_password_for_operator()'><b>login_with_invalid_username_and_password_for_operator</b><br>Test class: Tests.LoginTest</td>
+<td></td>
+<td>7</td>
+<td>Tests.LoginTest@1f0f1111</td></tr>
+<tr>
+<td title='Tests.LoginTest.login_with_invalid_username_and_valid_password_for_admin()'><b>login_with_invalid_username_and_valid_password_for_admin</b><br>Test class: Tests.LoginTest</td>
+<td></td>
+<td>7</td>
+<td>Tests.LoginTest@1f0f1111</td></tr>
+<tr>
+<td title='Tests.FunctionalTabTest.vertical_analytics_tab()'><b>vertical_analytics_tab</b><br>Test class: Tests.FunctionalTabTest</td>
+<td></td>
+<td>10</td>
+<td>Tests.FunctionalTabTest@670002</td></tr>
+<tr>
+<td title='Tests.AnalyticsTest.hover_on_structured_on_Analytics_page()'><b>hover_on_structured_on_Analytics_page</b><br>Test class: Tests.AnalyticsTest</td>
+<td></td>
+<td>3</td>
+<td>Tests.AnalyticsTest@159f197</td></tr>
+<tr>
+<td title='Tests.EditProfileTest.profile_icon()'><b>profile_icon</b><br>Test class: Tests.EditProfileTest</td>
+<td></td>
+<td>2</td>
+<td>Tests.EditProfileTest@2b6faea6</td></tr>
+<tr>
+<td title='Tests.CreateUpdateRoleAdminTest.enable_status_role_update()'><b>enable_status_role_update</b><br>Test class: Tests.CreateUpdateRoleAdminTest</td>
+<td></td>
+<td>15</td>
+<td>Tests.CreateUpdateRoleAdminTest@48fa0f47</td></tr>
+<tr>
+<td title='Tests.LoginTest.logout_for_platform_admin()'><b>logout_for_platform_admin</b><br>Test class: Tests.LoginTest</td>
+<td></td>
+<td>5</td>
+<td>Tests.LoginTest@1f0f1111</td></tr>
+<tr>
+<td title='Tests.AnalyticsTest.hover_total_documents_on_Analytics_page()'><b>hover_total_documents_on_Analytics_page</b><br>Test class: Tests.AnalyticsTest</td>
+<td></td>
+<td>3</td>
+<td>Tests.AnalyticsTest@159f197</td></tr>
+<tr>
+<td title='Tests.ProjectFlowStructuredTest.next_button_with_blank_info_for_platform_admin()'><b>next_button_with_blank_info_for_platform_admin</b><br>Test class: Tests.ProjectFlowStructuredTest</td>
+<td></td>
+<td>12</td>
+<td>Tests.ProjectFlowStructuredTest@59d016c9</td></tr>
+<tr>
+<td title='Tests.TemplateTest.create_template_with_more_pages()'><b>create_template_with_more_pages</b><br>Test class: Tests.TemplateTest</td>
+<td></td>
+<td>46</td>
+<td>Tests.TemplateTest@3967e60c</td></tr>
+<tr>
+<td title='Tests.CreateUserAdminTest.enable_disabled_user()'><b>enable_disabled_user</b><br>Test class: Tests.CreateUserAdminTest</td>
+<td></td>
+<td>16</td>
+<td>Tests.CreateUserAdminTest@5e316c74</td></tr>
+<tr>
+<td title='Tests.ProjectBREMedicalChartTest.check_all_functions_on_project_page()'><b>check_all_functions_on_project_page</b><br>Test class: Tests.ProjectBREMedicalChartTest</td>
+<td></td>
+<td>56</td>
+<td>Tests.ProjectBREMedicalChartTest@5ccddd20</td></tr>
+<tr>
+<td title='Tests.TemplateTest.create_template_with_invalid_name()'><b>create_template_with_invalid_name</b><br>Test class: Tests.TemplateTest</td>
+<td></td>
+<td>16</td>
+<td>Tests.TemplateTest@3967e60c</td></tr>
+<tr>
+<td title='Tests.UpdateProjectTest.update_project_when_role_and_status_disable()'><b>update_project_when_role_and_status_disable</b><br>Test class: Tests.UpdateProjectTest</td>
+<td></td>
+<td>30</td>
+<td>Tests.UpdateProjectTest@60d8c9b7</td></tr>
+<tr>
+<td title='Tests.UpdateProjectTest.update_project_button_when_role_and_user_status_enabled()'><b>update_project_button_when_role_and_user_status_enabled</b><br>Test class: Tests.UpdateProjectTest</td>
+<td></td>
+<td>18</td>
+<td>Tests.UpdateProjectTest@60d8c9b7</td></tr>
+<tr>
+<td title='Tests.DocProcessFreeFormTest.sorting()'><b>sorting</b><br>Test class: Tests.DocProcessFreeFormTest</td>
+<td></td>
+<td>19</td>
+<td>Tests.DocProcessFreeFormTest@161479c6</td></tr>
+<tr>
+<td title='Tests.CreateUpdateRoleAdminTest.update_role_with_valid_data()'><b>update_role_with_valid_data</b><br>Test class: Tests.CreateUpdateRoleAdminTest</td>
+<td></td>
+<td>20</td>
+<td>Tests.CreateUpdateRoleAdminTest@48fa0f47</td></tr>
+<tr>
+<td title='Tests.CreateUserAdminTest.create_user_with_valid_data()'><b>create_user_with_valid_data</b><br>Test class: Tests.CreateUserAdminTest</td>
+<td></td>
+<td>14</td>
+<td>Tests.CreateUserAdminTest@5e316c74</td></tr>
+<tr>
+<td title='Tests.LoginTest.login_with_blank_username_and_invalid_password()'><b>login_with_blank_username_and_invalid_password</b><br>Test class: Tests.LoginTest</td>
+<td></td>
+<td>5</td>
+<td>Tests.LoginTest@1f0f1111</td></tr>
+<tr>
+<td title='Tests.UpdateUserPlatformAdminTest.invalid_username_invalid_password()'><b>invalid_username_invalid_password</b><br>Test class: Tests.UpdateUserPlatformAdminTest</td>
+<td></td>
+<td>16</td>
+<td>Tests.UpdateUserPlatformAdminTest@7c0c77c7</td></tr>
+<tr>
+<td title='Tests.DataSetTest.disable_dataset()'><b>disable_dataset</b><br>Test class: Tests.DataSetTest</td>
+<td></td>
+<td>4</td>
+<td>Tests.DataSetTest@75329a49</td></tr>
+<tr>
+<td title='Tests.ProjectBREDataSetTest.bre_applied_to_name_using_dataset_fail()'><b>bre_applied_to_name_using_dataset_fail</b><br>Test class: Tests.ProjectBREDataSetTest</td>
+<td></td>
+<td>113</td>
+<td>Tests.ProjectBREDataSetTest@56528192</td></tr>
+<tr>
+<td title='Tests.AnalyticsTest.hover_validation_time_on_Analytics_page()'><b>hover_validation_time_on_Analytics_page</b><br>Test class: Tests.AnalyticsTest</td>
+<td></td>
+<td>3</td>
+<td>Tests.AnalyticsTest@159f197</td></tr>
+<tr>
+<td title='Tests.ProjectBREMedicalChartTest.add_condition()'><b>add_condition</b><br>Test class: Tests.ProjectBREMedicalChartTest</td>
+<td></td>
+<td>29</td>
+<td>Tests.ProjectBREMedicalChartTest@5ccddd20</td></tr>
+<tr>
+<td title='Tests.LoginTest.login_with_valid_username_and_password_supervisor()'><b>login_with_valid_username_and_password_supervisor</b><br>Test class: Tests.LoginTest</td>
+<td></td>
+<td>17</td>
+<td>Tests.LoginTest@1f0f1111</td></tr>
+<tr>
+<td title='Tests.ProjectFlowStructuredTest.create_project_without_template_for_admin()'><b>create_project_without_template_for_admin</b><br>Test class: Tests.ProjectFlowStructuredTest</td>
+<td></td>
+<td>42</td>
+<td>Tests.ProjectFlowStructuredTest@59d016c9</td></tr>
+<tr>
+<td title='Tests.CreateUpdateRolePlatformAdminTest.create_role_with_blank_rolename_valid_permission()'><b>create_role_with_blank_rolename_valid_permission</b><br>Test class: Tests.CreateUpdateRolePlatformAdminTest</td>
+<td></td>
+<td>18</td>
+<td>Tests.CreateUpdateRolePlatformAdminTest@6ac13091</td></tr>
+<tr>
+<td title='Tests.UpdateUserAdminTest.update_with_invalid_username()'><b>update_with_invalid_username</b><br>Test class: Tests.UpdateUserAdminTest</td>
+<td></td>
+<td>13</td>
+<td>Tests.UpdateUserAdminTest@48aaecc3</td></tr>
+<tr>
+<td title='Tests.UpdateProjectTest.update_project_when_role_status_disabled()'><b>update_project_when_role_status_disabled</b><br>Test class: Tests.UpdateProjectTest</td>
+<td></td>
+<td>29</td>
+<td>Tests.UpdateProjectTest@60d8c9b7</td></tr>
+<tr>
+<td title='Tests.DocProcessMedicalChartTest.items_page()'><b>items_page</b><br>Test class: Tests.DocProcessMedicalChartTest</td>
+<td></td>
+<td>4</td>
+<td>Tests.DocProcessMedicalChartTest@4313f5bc</td></tr>
+<tr>
+<td title='Tests.DocProcessMedicalChartTest.searchbox_document()'><b>searchbox_document</b><br>Test class: Tests.DocProcessMedicalChartTest</td>
+<td></td>
+<td>4</td>
+<td>Tests.DocProcessMedicalChartTest@4313f5bc</td></tr>
+<tr>
+<td title='Tests.FunctionalTabTest.horizontal_projects_tab()'><b>horizontal_projects_tab</b><br>Test class: Tests.FunctionalTabTest</td>
+<td></td>
+<td>13</td>
+<td>Tests.FunctionalTabTest@670002</td></tr>
+<tr>
+<td title='Tests.LoginTest.login_with_valid_username_and_invalid_password_for_operator()'><b>login_with_valid_username_and_invalid_password_for_operator</b><br>Test class: Tests.LoginTest</td>
+<td></td>
+<td>7</td>
+<td>Tests.LoginTest@1f0f1111</td></tr>
+<tr>
+<td title='Tests.LoginTest.navigate_backward()'><b>navigate_backward</b><br>Test class: Tests.LoginTest</td>
+<td></td>
+<td>2</td>
+<td>Tests.LoginTest@1f0f1111</td></tr>
+<tr>
+<td title='Tests.CreateUserAdminTest.create_user_with_blank_data()'><b>create_user_with_blank_data</b><br>Test class: Tests.CreateUserAdminTest</td>
+<td></td>
+<td>11</td>
+<td>Tests.CreateUserAdminTest@5e316c74</td></tr>
+<tr>
+<td title='Tests.RoleWiseTest.admin_role_access_users_tab()'><b>admin_role_access_users_tab</b><br>Test class: Tests.RoleWiseTest</td>
+<td></td>
+<td>5</td>
+<td>Tests.RoleWiseTest@20d28811</td></tr>
+<tr>
+<td title='Tests.UpdateUserPlatformAdminTest.blank_name_valid_password()'><b>blank_name_valid_password</b><br>Test class: Tests.UpdateUserPlatformAdminTest</td>
+<td></td>
+<td>13</td>
+<td>Tests.UpdateUserPlatformAdminTest@7c0c77c7</td></tr>
+<tr>
+<td title='Tests.TemplateTest.delete_created_template_single_page()'><b>delete_created_template_single_page</b><br>Test class: Tests.TemplateTest</td>
+<td></td>
+<td>9</td>
+<td>Tests.TemplateTest@3967e60c</td></tr>
+<tr>
+<td title='Tests.ProjectBRETest.bre_applied_to_name_pass()'><b>bre_applied_to_name_pass</b><br>Test class: Tests.ProjectBRETest</td>
+<td></td>
+<td>247</td>
+<td>Tests.ProjectBRETest@1ed1993a</td></tr>
+<tr>
+<td title='Tests.ProjectBREMedicalChartDocumentTest.verify_save_draft_option_for_patient_demographics()'><b>verify_save_draft_option_for_patient_demographics</b><br>Test class: Tests.ProjectBREMedicalChartDocumentTest</td>
+<td></td>
+<td>42</td>
+<td>Tests.ProjectBREMedicalChartDocumentTest@6e0dec4a</td></tr>
+<tr>
+<td title='Tests.DocProcessMedicalChartTest.search_project()'><b>search_project</b><br>Test class: Tests.DocProcessMedicalChartTest</td>
+<td></td>
+<td>15</td>
+<td>Tests.DocProcessMedicalChartTest@4313f5bc</td></tr>
+<tr>
+<td title='Tests.LoginTest.login_with_valid_username_and_password()'><b>login_with_valid_username_and_password</b><br>Test class: Tests.LoginTest</td>
+<td></td>
+<td>17</td>
+<td>Tests.LoginTest@1f0f1111</td></tr>
+<tr>
+<td title='Tests.UpdateUserPlatformAdminTest.password_field_must_have_at_least_one_upper_lower_alphabet()'><b>password_field_must_have_at_least_one_upper_lower_alphabet</b><br>Test class: Tests.UpdateUserPlatformAdminTest</td>
+<td></td>
+<td>11</td>
+<td>Tests.UpdateUserPlatformAdminTest@7c0c77c7</td></tr>
+<tr>
+<td title='Tests.DocProcessFreeFormTest.search_project()'><b>search_project</b><br>Test class: Tests.DocProcessFreeFormTest</td>
+<td></td>
+<td>18</td>
+<td>Tests.DocProcessFreeFormTest@161479c6</td></tr>
+<tr>
+<td title='Tests.CreateUpdateRoleAdminTest.disable_the_status_of_role_update()'><b>disable_the_status_of_role_update</b><br>Test class: Tests.CreateUpdateRoleAdminTest</td>
+<td></td>
+<td>11</td>
+<td>Tests.CreateUpdateRoleAdminTest@48fa0f47</td></tr>
+<tr>
+<td title='Tests.FunctionalTabTest.horizontal_analytics_tab()'><b>horizontal_analytics_tab</b><br>Test class: Tests.FunctionalTabTest</td>
+<td></td>
+<td>11</td>
+<td>Tests.FunctionalTabTest@670002</td></tr>
+<tr>
+<td title='Tests.DataSetTest.create_category_with_blank_name()'><b>create_category_with_blank_name</b><br>Test class: Tests.DataSetTest</td>
+<td></td>
+<td>6</td>
+<td>Tests.DataSetTest@75329a49</td></tr>
+<tr>
+<td title='Tests.UpdateProjectTest.disabled_roles_are_not_displayed_in_add_role_list()'><b>disabled_roles_are_not_displayed_in_add_role_list</b><br>Test class: Tests.UpdateProjectTest</td>
+<td></td>
+<td>35</td>
+<td>Tests.UpdateProjectTest@60d8c9b7</td></tr>
+<tr>
+<td title='Tests.CreateUpdateRolePlatformAdminTest.update_role_with_valid_data()'><b>update_role_with_valid_data</b><br>Test class: Tests.CreateUpdateRolePlatformAdminTest</td>
+<td></td>
+<td>17</td>
+<td>Tests.CreateUpdateRolePlatformAdminTest@6ac13091</td></tr>
+<tr>
+<td title='Tests.FunctionalTabTest.vertical_roles_tab()'><b>vertical_roles_tab</b><br>Test class: Tests.FunctionalTabTest</td>
+<td></td>
+<td>11</td>
+<td>Tests.FunctionalTabTest@670002</td></tr>
+<tr>
+<td title='Tests.UpdateProjectTest.enabled_roles_()'><b>enabled_roles_</b><br>Test class: Tests.UpdateProjectTest</td>
+<td></td>
+<td>18</td>
+<td>Tests.UpdateProjectTest@60d8c9b7</td></tr>
+<tr>
+<td title='Tests.UpdateUserPlatformAdminTest.invalid_name_blank_password()'><b>invalid_name_blank_password</b><br>Test class: Tests.UpdateUserPlatformAdminTest</td>
+<td></td>
+<td>20</td>
+<td>Tests.UpdateUserPlatformAdminTest@7c0c77c7</td></tr>
+<tr>
+<td title='Tests.DataSetTest.validation_type_as_name_to_create_new_dataset()'><b>validation_type_as_name_to_create_new_dataset</b><br>Test class: Tests.DataSetTest</td>
+<td></td>
+<td>4</td>
+<td>Tests.DataSetTest@75329a49</td></tr>
+<tr>
+<td title='Tests.DocProcessFreeFormTest.items_per_page()'><b>items_per_page</b><br>Test class: Tests.DocProcessFreeFormTest</td>
+<td></td>
+<td>4</td>
+<td>Tests.DocProcessFreeFormTest@161479c6</td></tr>
+<tr>
+<td title='Tests.DocProcessStructuredTest.search_project()'><b>search_project</b><br>Test class: Tests.DocProcessStructuredTest</td>
+<td></td>
+<td>18</td>
+<td>Tests.DocProcessStructuredTest@1e802ef9</td></tr>
+<tr>
+<td title='Tests.ProjectBRETest.bre_applied_to_address_pass()'><b>bre_applied_to_address_pass</b><br>Test class: Tests.ProjectBRETest</td>
+<td></td>
+<td>40</td>
+<td>Tests.ProjectBRETest@1ed1993a</td></tr>
+<tr>
+<td title='Tests.DocProcessStructuredTest.update_document_cancel()'><b>update_document_cancel</b><br>Test class: Tests.DocProcessStructuredTest</td>
+<td></td>
+<td>21</td>
+<td>Tests.DocProcessStructuredTest@1e802ef9</td></tr>
+<tr>
+<td title='Tests.AnalyticsTest.hover_ready_to_rejected_documents_on_Analytics_page()'><b>hover_ready_to_rejected_documents_on_Analytics_page</b><br>Test class: Tests.AnalyticsTest</td>
+<td></td>
+<td>3</td>
+<td>Tests.AnalyticsTest@159f197</td></tr>
+<tr>
+<td title='Tests.ProjectFlowSemiStructureTest.check_all_the_functions_on_project_page()'><b>check_all_the_functions_on_project_page</b><br>Test class: Tests.ProjectFlowSemiStructureTest</td>
+<td></td>
+<td>30</td>
+<td>Tests.ProjectFlowSemiStructureTest@4b5a5ed1</td></tr>
+<tr>
+<td title='Tests.LoginTest.login_with_valid_username_and_password_for_operator()'><b>login_with_valid_username_and_password_for_operator</b><br>Test class: Tests.LoginTest</td>
+<td></td>
+<td>20</td>
+<td>Tests.LoginTest@1f0f1111</td></tr>
+<tr>
+<td title='Tests.UpdateUserPlatformAdminTest.valid_name_and_blank_password()'><b>valid_name_and_blank_password</b><br>Test class: Tests.UpdateUserPlatformAdminTest</td>
+<td></td>
+<td>11</td>
+<td>Tests.UpdateUserPlatformAdminTest@7c0c77c7</td></tr>
+<tr>
+<td title='Tests.CreateUpdateRoleAdminTest.valid_role_and_permission()'><b>valid_role_and_permission</b><br>Test class: Tests.CreateUpdateRoleAdminTest</td>
+<td></td>
+<td>18</td>
+<td>Tests.CreateUpdateRoleAdminTest@48fa0f47</td></tr>
+<tr>
+<td title='Tests.ProjectFlowFreeFormTest.create_project_with_valid_details()'><b>create_project_with_valid_details</b><br>Test class: Tests.ProjectFlowFreeFormTest</td>
+<td></td>
+<td>9</td>
+<td>Tests.ProjectFlowFreeFormTest@1f3f4916</td></tr>
+<tr>
+<td title='Tests.UpdateUserPlatformAdminTest.blank_username_invalid_password()'><b>blank_username_invalid_password</b><br>Test class: Tests.UpdateUserPlatformAdminTest</td>
+<td></td>
+<td>18</td>
+<td>Tests.UpdateUserPlatformAdminTest@7c0c77c7</td></tr>
+<tr>
+<td title='Tests.RoleWiseTest.admin_role_access_user_tab()'><b>admin_role_access_user_tab</b><br>Test class: Tests.RoleWiseTest</td>
+<td></td>
+<td>5</td>
+<td>Tests.RoleWiseTest@20d28811</td></tr>
+<tr>
+<td title='Tests.LoginTest.login_with_valid_username_and_password_admin()'><b>login_with_valid_username_and_password_admin</b><br>Test class: Tests.LoginTest</td>
+<td></td>
+<td>19</td>
+<td>Tests.LoginTest@1f0f1111</td></tr>
+<tr>
+<td title='Tests.ProjectBREMedicalChartTest.set_document_status_rejected()'><b>set_document_status_rejected</b><br>Test class: Tests.ProjectBREMedicalChartTest</td>
+<td></td>
+<td>26</td>
+<td>Tests.ProjectBREMedicalChartTest@5ccddd20</td></tr>
+<tr>
+<td title='Tests.DataSetTest.add_dataset_with_blank_and_name_chosen_file()'><b>add_dataset_with_blank_and_name_chosen_file</b><br>Test class: Tests.DataSetTest</td>
+<td></td>
+<td>6</td>
+<td>Tests.DataSetTest@75329a49</td></tr>
+<tr>
+<td title='Tests.DocProcessSemiStructuredTest.searchbox_document()'><b>searchbox_document</b><br>Test class: Tests.DocProcessSemiStructuredTest</td>
+<td></td>
+<td>4</td>
+<td>Tests.DocProcessSemiStructuredTest@7f010382</td></tr>
+<tr>
+<td title='Tests.CreateUpdateRolePlatformAdminTest.create_role_with_existing_name()'><b>create_role_with_existing_name</b><br>Test class: Tests.CreateUpdateRolePlatformAdminTest</td>
+<td></td>
+<td>20</td>
+<td>Tests.CreateUpdateRolePlatformAdminTest@6ac13091</td></tr>
+<tr>
+<td title='Tests.ProjectBREMedicalChartTest.set_document_status_ready()'><b>set_document_status_ready</b><br>Test class: Tests.ProjectBREMedicalChartTest</td>
+<td></td>
+<td>21</td>
+<td>Tests.ProjectBREMedicalChartTest@5ccddd20</td></tr>
+<tr>
+<td title='Tests.UpdateProjectTest.update_project_by_entering_valid_data()'><b>update_project_by_entering_valid_data</b><br>Test class: Tests.UpdateProjectTest</td>
+<td></td>
+<td>27</td>
+<td>Tests.UpdateProjectTest@60d8c9b7</td></tr>
+<tr>
+<td title='Tests.ProjectFlowMedicalChart.navigate_next_to_datapage_back_page()'><b>navigate_next_to_datapage_back_page</b><br>Test class: Tests.ProjectFlowMedicalChart</td>
+<td></td>
+<td>8</td>
+<td>Tests.ProjectFlowMedicalChart@794cb805</td></tr>
+<tr>
+<td title='Tests.DocProcessStructuredTest.next_page_previous_page_first_page_last_page()'><b>next_page_previous_page_first_page_last_page</b><br>Test class: Tests.DocProcessStructuredTest</td>
+<td></td>
+<td>6</td>
+<td>Tests.DocProcessStructuredTest@1e802ef9</td></tr>
+<tr>
+<td title='Tests.ProjectBREMedicalChartTest.add_dataset()'><b>add_dataset</b><br>Test class: Tests.ProjectBREMedicalChartTest</td>
+<td></td>
+<td>28</td>
+<td>Tests.ProjectBREMedicalChartTest@5ccddd20</td></tr>
+<tr>
+<td title='Tests.DocProcessFreeFormTest.search_document()'><b>search_document</b><br>Test class: Tests.DocProcessFreeFormTest</td>
+<td></td>
+<td>4</td>
+<td>Tests.DocProcessFreeFormTest@161479c6</td></tr>
+<tr>
+<td title='Tests.DataSetTest.add_dataset_with_csv_file_validation()'><b>add_dataset_with_csv_file_validation</b><br>Test class: Tests.DataSetTest</td>
+<td></td>
+<td>8</td>
+<td>Tests.DataSetTest@75329a49</td></tr>
+<tr>
+<td title='Tests.ProjectBREMedicalChartDocumentTest1.verify_rejected_document_no_data_extracted_on_medical_chart()'><b>verify_rejected_document_no_data_extracted_on_medical_chart</b><br>Test class: Tests.ProjectBREMedicalChartDocumentTest1</td>
+<td></td>
+<td>25</td>
+<td>Tests.ProjectBREMedicalChartDocumentTest1@96def03</td></tr>
+<tr>
+<td title='Tests.DocProcessSemiStructuredTest.sorting()'><b>sorting</b><br>Test class: Tests.DocProcessSemiStructuredTest</td>
+<td></td>
+<td>19</td>
+<td>Tests.DocProcessSemiStructuredTest@7f010382</td></tr>
+<tr>
+<td title='Tests.ProjectBRETest.bre_applied_to_state_pass()'><b>bre_applied_to_state_pass</b><br>Test class: Tests.ProjectBRETest</td>
+<td></td>
+<td>36</td>
+<td>Tests.ProjectBRETest@1ed1993a</td></tr>
+<tr>
+<td title='Tests.ProjectFlowStructuredTest.create_project_with_invalid_project_name()'><b>create_project_with_invalid_project_name</b><br>Test class: Tests.ProjectFlowStructuredTest</td>
+<td></td>
+<td>60</td>
+<td>Tests.ProjectFlowStructuredTest@59d016c9</td></tr>
+<tr>
+<td title='Tests.ProjectFlowStructuredTest.create_project_without_user_for_admin()'><b>create_project_without_user_for_admin</b><br>Test class: Tests.ProjectFlowStructuredTest</td>
+<td></td>
+<td>8</td>
+<td>Tests.ProjectFlowStructuredTest@59d016c9</td></tr>
+<tr>
+<td title='Tests.AnalyticsTest.hover_on_medicalchart_on_Analytics_page()'><b>hover_on_medicalchart_on_Analytics_page</b><br>Test class: Tests.AnalyticsTest</td>
+<td></td>
+<td>8</td>
+<td>Tests.AnalyticsTest@159f197</td></tr>
+<tr>
+<td title='Tests.AnalyticsTest.hover_on_semistructured_on_Analytics_page()'><b>hover_on_semistructured_on_Analytics_page</b><br>Test class: Tests.AnalyticsTest</td>
+<td></td>
+<td>3</td>
+<td>Tests.AnalyticsTest@159f197</td></tr>
+<tr>
+<td title='Tests.ProjectFlowSemiStructureTest.check_delete_attribute()'><b>check_delete_attribute</b><br>Test class: Tests.ProjectFlowSemiStructureTest</td>
+<td></td>
+<td>2</td>
+<td>Tests.ProjectFlowSemiStructureTest@4b5a5ed1</td></tr>
+<tr>
+<td title='Tests.LoginTest.login_with_invalid_username_and_valid_password_for_operator()'><b>login_with_invalid_username_and_valid_password_for_operator</b><br>Test class: Tests.LoginTest</td>
+<td></td>
+<td>7</td>
+<td>Tests.LoginTest@1f0f1111</td></tr>
+<tr>
+<td title='Tests.CreateUserPlatformAdminTest.invalid_username_blank_password()'><b>invalid_username_blank_password</b><br>Test class: Tests.CreateUserPlatformAdminTest</td>
+<td></td>
+<td>9</td>
+<td>Tests.CreateUserPlatformAdminTest@6d2a209c</td></tr>
+<tr>
+<td title='Tests.CreateUserPlatformAdminTest.invalid_credentials()'><b>invalid_credentials</b><br>Test class: Tests.CreateUserPlatformAdminTest</td>
+<td></td>
+<td>11</td>
+<td>Tests.CreateUserPlatformAdminTest@6d2a209c</td></tr>
+<tr>
+<td title='Tests.DocProcessStructuredTest.documents_filter()'><b>documents_filter</b><br>Test class: Tests.DocProcessStructuredTest</td>
+<td></td>
+<td>14</td>
+<td>Tests.DocProcessStructuredTest@1e802ef9</td></tr>
+<tr>
+<td title='Tests.FunctionalTabTest.vertical_users_tab()'><b>vertical_users_tab</b><br>Test class: Tests.FunctionalTabTest</td>
+<td></td>
+<td>11</td>
+<td>Tests.FunctionalTabTest@670002</td></tr>
+<tr>
+<td title='Tests.ProjectFlowSemiStructureTest.verify_create_project()'><b>verify_create_project</b><br>Test class: Tests.ProjectFlowSemiStructureTest</td>
+<td></td>
+<td>9</td>
+<td>Tests.ProjectFlowSemiStructureTest@4b5a5ed1</td></tr>
+<tr>
+<td title='Tests.DocProcessMedicalChartTest.sorting()'><b>sorting</b><br>Test class: Tests.DocProcessMedicalChartTest</td>
+<td></td>
+<td>17</td>
+<td>Tests.DocProcessMedicalChartTest@4313f5bc</td></tr>
+<tr>
+<td title='Tests.AnalyticsTest.hover_processed_documents_on_Analytics_page()'><b>hover_processed_documents_on_Analytics_page</b><br>Test class: Tests.AnalyticsTest</td>
+<td></td>
+<td>3</td>
+<td>Tests.AnalyticsTest@159f197</td></tr>
+<tr>
+<td title='Tests.LoginTest.login_with_invalid_username_password()'><b>login_with_invalid_username_password</b><br>Test class: Tests.LoginTest</td>
+<td></td>
+<td>4</td>
+<td>Tests.LoginTest@1f0f1111</td></tr>
+<tr>
+<td title='Tests.CreateUpdateRoleAdminTest.login_with_valid_details()'><b>login_with_valid_details</b><br>Test class: Tests.CreateUpdateRoleAdminTest</td>
+<td></td>
+<td>29</td>
+<td>Tests.CreateUpdateRoleAdminTest@48fa0f47</td></tr>
+<tr>
+<td title='Tests.ProjectBREMedicalChartDocumentTest1.run_rule_for_invalid_physicians_sign_on_medical_chart()'><b>run_rule_for_invalid_physicians_sign_on_medical_chart</b><br>Test class: Tests.ProjectBREMedicalChartDocumentTest1</td>
+<td></td>
+<td>13</td>
+<td>Tests.ProjectBREMedicalChartDocumentTest1@96def03</td></tr>
+<tr>
+<td title='Tests.EditProfileTest.edit_profile_cancel()'><b>edit_profile_cancel</b><br>Test class: Tests.EditProfileTest</td>
+<td></td>
+<td>2</td>
+<td>Tests.EditProfileTest@2b6faea6</td></tr>
+<tr>
+<td title='Tests.ProjectFlowStructuredTest.create_project_with_blank_info()'><b>create_project_with_blank_info</b><br>Test class: Tests.ProjectFlowStructuredTest</td>
+<td></td>
+<td>15</td>
+<td>Tests.ProjectFlowStructuredTest@59d016c9</td></tr>
+<tr>
+<td title='Tests.UpdateUserPlatformAdminTest.update_user_enable_disable()'><b>update_user_enable_disable</b><br>Test class: Tests.UpdateUserPlatformAdminTest</td>
+<td></td>
+<td>26</td>
+<td>Tests.UpdateUserPlatformAdminTest@7c0c77c7</td></tr>
+<tr>
+<td title='Tests.UpdateUserPlatformAdminTest.password_field_must_have_length_to_be_minimum_eight()'><b>password_field_must_have_length_to_be_minimum_eight</b><br>Test class: Tests.UpdateUserPlatformAdminTest</td>
+<td></td>
+<td>12</td>
+<td>Tests.UpdateUserPlatformAdminTest@7c0c77c7</td></tr>
+<tr>
+<td title='Tests.ProjectFlowFreeFormTest.create_project_without_adding_attributes_and_role()'><b>create_project_without_adding_attributes_and_role</b><br>Test class: Tests.ProjectFlowFreeFormTest</td>
+<td></td>
+<td>36</td>
+<td>Tests.ProjectFlowFreeFormTest@1f3f4916</td></tr>
+<tr>
+<td title='Tests.ProjectFlowMedicalChart.check_all_functionalities_on_project_page()'><b>check_all_functionalities_on_project_page</b><br>Test class: Tests.ProjectFlowMedicalChart</td>
+<td></td>
+<td>32</td>
+<td>Tests.ProjectFlowMedicalChart@794cb805</td></tr>
+<tr>
+<td title='Tests.RoleWiseTest.admin_role_access_analytics_tab()'><b>admin_role_access_analytics_tab</b><br>Test class: Tests.RoleWiseTest</td>
+<td></td>
+<td>5</td>
+<td>Tests.RoleWiseTest@20d28811</td></tr>
+<tr>
+<td title='Tests.UpdateProjectTest.status_is_disabled_for_admin_when_action_is_true()'><b>status_is_disabled_for_admin_when_action_is_true</b><br>Test class: Tests.UpdateProjectTest</td>
+<td></td>
+<td>24</td>
+<td>Tests.UpdateProjectTest@60d8c9b7</td></tr>
+<tr>
+<td title='Tests.DataSetTest.select_open_file_and_cancel()'><b>select_open_file_and_cancel</b><br>Test class: Tests.DataSetTest</td>
+<td></td>
+<td>4</td>
+<td>Tests.DataSetTest@75329a49</td></tr>
+<tr>
+<td title='Tests.AnalyticsTest.hover_on_freeform_on_Analytics_page()'><b>hover_on_freeform_on_Analytics_page</b><br>Test class: Tests.AnalyticsTest</td>
+<td></td>
+<td>3</td>
+<td>Tests.AnalyticsTest@159f197</td></tr>
+<tr>
+<td title='Tests.UpdateProjectTest.all_roles_are_displayed_in_add_list()'><b>all_roles_are_displayed_in_add_list</b><br>Test class: Tests.UpdateProjectTest</td>
+<td></td>
+<td>18</td>
+<td>Tests.UpdateProjectTest@60d8c9b7</td></tr>
+<tr>
+<td title='Tests.ProjectFlowStructuredTest.create_project_with_disable_status_for_admin()'><b>create_project_with_disable_status_for_admin</b><br>Test class: Tests.ProjectFlowStructuredTest</td>
+<td></td>
+<td>63</td>
+<td>Tests.ProjectFlowStructuredTest@59d016c9</td></tr>
+<tr>
+<td title='Tests.DocProcessMedicalChartTest.documents_filter()'><b>documents_filter</b><br>Test class: Tests.DocProcessMedicalChartTest</td>
+<td></td>
+<td>14</td>
+<td>Tests.DocProcessMedicalChartTest@4313f5bc</td></tr>
+<tr>
+<td title='Tests.UpdateUserAdminTest.UpdateUserAdminFlow()'><b>UpdateUserAdminFlow</b><br>Test class: Tests.UpdateUserAdminTest</td>
+<td></td>
+<td>26</td>
+<td>Tests.UpdateUserAdminTest@48aaecc3</td></tr>
+<tr>
+<td title='Tests.ProjectFlowStructuredTest.table_structure()'><b>table_structure</b><br>Test class: Tests.ProjectFlowStructuredTest</td>
+<td></td>
+<td>25</td>
+<td>Tests.ProjectFlowStructuredTest@59d016c9</td></tr>
+<tr>
+<td title='Tests.CreateUpdateRoleAdminTest.blank_role_name_valid_permission()'><b>blank_role_name_valid_permission</b><br>Test class: Tests.CreateUpdateRoleAdminTest</td>
+<td></td>
+<td>14</td>
+<td>Tests.CreateUpdateRoleAdminTest@48fa0f47</td></tr>
+<tr>
+<td title='Tests.DocProcessSemiStructuredTest.anticlockwise_clockwise_zoomin_zoomout_navigate_right_left()'><b>anticlockwise_clockwise_zoomin_zoomout_navigate_right_left</b><br>Test class: Tests.DocProcessSemiStructuredTest</td>
+<td></td>
+<td>22</td>
+<td>Tests.DocProcessSemiStructuredTest@7f010382</td></tr>
+<tr>
+<td title='Tests.DataSetTest.add_dataset_created_category_name_chosen_file_valid_type()'><b>add_dataset_created_category_name_chosen_file_valid_type</b><br>Test class: Tests.DataSetTest</td>
+<td></td>
+<td>6</td>
+<td>Tests.DataSetTest@75329a49</td></tr>
+<tr>
+<td title='Tests.ProjectBREMedicalChartDocumentTest1.verify_icd_on_medical_chart()'><b>verify_icd_on_medical_chart</b><br>Test class: Tests.ProjectBREMedicalChartDocumentTest1</td>
+<td></td>
+<td>32</td>
+<td>Tests.ProjectBREMedicalChartDocumentTest1@96def03</td></tr>
+<tr>
+<td title='Tests.FunctionalTabTest.click_on_n_icon()'><b>click_on_n_icon</b><br>Test class: Tests.FunctionalTabTest</td>
+<td></td>
+<td>3</td>
+<td>Tests.FunctionalTabTest@670002</td></tr>
+<tr>
+<td title='Tests.LoginTest.login_with_valid_username_and_invalid_password_supervisor()'><b>login_with_valid_username_and_invalid_password_supervisor</b><br>Test class: Tests.LoginTest</td>
+<td></td>
+<td>7</td>
+<td>Tests.LoginTest@1f0f1111</td></tr>
+<tr>
+<td title='Tests.LoginTest.login_with_valid_username_and_invalid_password_admin()'><b>login_with_valid_username_and_invalid_password_admin</b><br>Test class: Tests.LoginTest</td>
+<td></td>
+<td>7</td>
+<td>Tests.LoginTest@1f0f1111</td></tr>
+<tr>
+<td title='Tests.ProjectFlowStructuredTest1.verify_disabled_project_on_Project_page()'><b>verify_disabled_project_on_Project_page</b><br>Test class: Tests.ProjectFlowStructuredTest1</td>
+<td></td>
+<td>16</td>
+<td>Tests.ProjectFlowStructuredTest1@3cc2931c</td></tr>
+<tr>
+<td title='Tests.AnalyticsTest.search_project_on_Analytics_page()'><b>search_project_on_Analytics_page</b><br>Test class: Tests.AnalyticsTest</td>
+<td></td>
+<td>7</td>
+<td>Tests.AnalyticsTest@159f197</td></tr>
+<tr>
+<td title='Tests.EditProfileTest.night_mode_day_mode()'><b>night_mode_day_mode</b><br>Test class: Tests.EditProfileTest</td>
+<td></td>
+<td>4</td>
+<td>Tests.EditProfileTest@2b6faea6</td></tr>
+<tr>
+<td title='Tests.CreateUserPlatformAdminTest.blank_username_valid_password()'><b>blank_username_valid_password</b><br>Test class: Tests.CreateUserPlatformAdminTest</td>
+<td></td>
+<td>9</td>
+<td>Tests.CreateUserPlatformAdminTest@6d2a209c</td></tr>
+<tr>
+<td title='Tests.UpdateUserPlatformAdminTest.all_combinations_of_password_policy_as_userid()'><b>all_combinations_of_password_policy_as_userid</b><br>Test class: Tests.UpdateUserPlatformAdminTest</td>
+<td></td>
+<td>10</td>
+<td>Tests.UpdateUserPlatformAdminTest@7c0c77c7</td></tr>
+<tr>
+<td title='Tests.CreateUpdateRoleAdminTest.blank_role_name_permission()'><b>blank_role_name_permission</b><br>Test class: Tests.CreateUpdateRoleAdminTest</td>
+<td></td>
+<td>8</td>
+<td>Tests.CreateUpdateRoleAdminTest@48fa0f47</td></tr>
+<tr>
+<td title='Tests.ProjectFlowStructuredTest.create_project_without_role()'><b>create_project_without_role</b><br>Test class: Tests.ProjectFlowStructuredTest</td>
+<td></td>
+<td>6</td>
+<td>Tests.ProjectFlowStructuredTest@59d016c9</td></tr>
+<tr>
+<td title='Tests.DataSetTest.search_created_document_and_expand()'><b>search_created_document_and_expand</b><br>Test class: Tests.DataSetTest</td>
+<td></td>
+<td>4</td>
+<td>Tests.DataSetTest@75329a49</td></tr>
+<tr>
+<td title='Tests.ProjectFlowStructuredTest.create_project_with_blank_data()'><b>create_project_with_blank_data</b><br>Test class: Tests.ProjectFlowStructuredTest</td>
+<td></td>
+<td>7</td>
+<td>Tests.ProjectFlowStructuredTest@59d016c9</td></tr>
+<tr>
+<td title='Tests.CreateUpdateRolePlatformAdminTest.create_role_with_valid_rolename_permission()'><b>create_role_with_valid_rolename_permission</b><br>Test class: Tests.CreateUpdateRolePlatformAdminTest</td>
+<td></td>
+<td>18</td>
+<td>Tests.CreateUpdateRolePlatformAdminTest@6ac13091</td></tr>
+<tr>
+<td title='Tests.AnalyticsTest.hover_total_users_on_Analytics_page()'><b>hover_total_users_on_Analytics_page</b><br>Test class: Tests.AnalyticsTest</td>
+<td></td>
+<td>3</td>
+<td>Tests.AnalyticsTest@159f197</td></tr>
+<tr>
+<td title='Tests.ProjectFlowFreeFormTest.create_project_without_adding_user()'><b>create_project_without_adding_user</b><br>Test class: Tests.ProjectFlowFreeFormTest</td>
+<td></td>
+<td>8</td>
+<td>Tests.ProjectFlowFreeFormTest@1f3f4916</td></tr>
+<tr>
+<td title='Tests.RoleWiseTest.login_with_valid_username_password()'><b>login_with_valid_username_password</b><br>Test class: Tests.RoleWiseTest</td>
+<td></td>
+<td>23</td>
+<td>Tests.RoleWiseTest@20d28811</td></tr>
+<tr>
+<td title='Tests.CreateUpdateRolePlatformAdminTest.enable_status_role_update()'><b>enable_status_role_update</b><br>Test class: Tests.CreateUpdateRolePlatformAdminTest</td>
+<td></td>
+<td>15</td>
+<td>Tests.CreateUpdateRolePlatformAdminTest@6ac13091</td></tr>
+<tr>
+<td title='Tests.TemplateTest.zoom_in()'><b>zoom_in</b><br>Test class: Tests.TemplateTest</td>
+<td></td>
+<td>6</td>
+<td>Tests.TemplateTest@3967e60c</td></tr>
+<tr>
+<td title='Tests.CreateUserAdminTest.valid_login_with_admin_credentials()'><b>valid_login_with_admin_credentials</b><br>Test class: Tests.CreateUserAdminTest</td>
+<td></td>
+<td>21</td>
+<td>Tests.CreateUserAdminTest@5e316c74</td></tr>
+<tr>
+<td title='Tests.ProjectFlowMedicalChart.create_project_with_valid_details()'><b>create_project_with_valid_details</b><br>Test class: Tests.ProjectFlowMedicalChart</td>
+<td></td>
+<td>9</td>
+<td>Tests.ProjectFlowMedicalChart@794cb805</td></tr>
+<tr>
+<td title='Tests.AnalyticsTest.hover_ready_to_process_on_Analytics_page()'><b>hover_ready_to_process_on_Analytics_page</b><br>Test class: Tests.AnalyticsTest</td>
+<td></td>
+<td>3</td>
+<td>Tests.AnalyticsTest@159f197</td></tr>
+<tr>
+<td title='Tests.CreateUserAdminTest.disable_user()'><b>disable_user</b><br>Test class: Tests.CreateUserAdminTest</td>
+<td></td>
+<td>11</td>
+<td>Tests.CreateUserAdminTest@5e316c74</td></tr>
+<tr>
+<td title='Tests.CreateUserPlatformAdminTest.create_user_with_existing_username_password()'><b>create_user_with_existing_username_password</b><br>Test class: Tests.CreateUserPlatformAdminTest</td>
+<td></td>
+<td>14</td>
+<td>Tests.CreateUserPlatformAdminTest@6d2a209c</td></tr>
+<tr>
+<td title='Tests.DocProcessMedicalChartTest.update_document_cancel()'><b>update_document_cancel</b><br>Test class: Tests.DocProcessMedicalChartTest</td>
+<td></td>
+<td>21</td>
+<td>Tests.DocProcessMedicalChartTest@4313f5bc</td></tr>
+<tr>
+<td title='Tests.ProjectFlowStructuredTest.create_project_with_invalid_name()'><b>create_project_with_invalid_name</b><br>Test class: Tests.ProjectFlowStructuredTest</td>
+<td></td>
+<td>60</td>
+<td>Tests.ProjectFlowStructuredTest@59d016c9</td></tr>
+<tr>
+<td title='Tests.UpdateProjectTest.when_role_status_is_enabled_for_admin()'><b>when_role_status_is_enabled_for_admin</b><br>Test class: Tests.UpdateProjectTest</td>
+<td></td>
+<td>17</td>
+<td>Tests.UpdateProjectTest@60d8c9b7</td></tr>
+<tr>
+<td title='Tests.FunctionalTabTest.vertical_templates_tab()'><b>vertical_templates_tab</b><br>Test class: Tests.FunctionalTabTest</td>
+<td></td>
+<td>13</td>
+<td>Tests.FunctionalTabTest@670002</td></tr>
+<tr>
+<td title='Tests.TemplateTest.create_template_with_already_exists_name_no_chosen_file()'><b>create_template_with_already_exists_name_no_chosen_file</b><br>Test class: Tests.TemplateTest</td>
+<td></td>
+<td>15</td>
+<td>Tests.TemplateTest@3967e60c</td></tr>
+<tr>
+<td title='Tests.ProjectFlowStructuredTest.create_project_only_with_role_info_for_admin()'><b>create_project_only_with_role_info_for_admin</b><br>Test class: Tests.ProjectFlowStructuredTest</td>
+<td></td>
+<td>33</td>
+<td>Tests.ProjectFlowStructuredTest@59d016c9</td></tr>
+<tr>
+<td title='Tests.LoginTest.login_with_invalid_username_and_password()'><b>login_with_invalid_username_and_password</b><br>Test class: Tests.LoginTest</td>
+<td></td>
+<td>4</td>
+<td>Tests.LoginTest@1f0f1111</td></tr>
+<tr>
+<td title='Tests.UpdateProjectTest.updating_project_with_valid_data()'><b>updating_project_with_valid_data</b><br>Test class: Tests.UpdateProjectTest</td>
+<td></td>
+<td>20</td>
+<td>Tests.UpdateProjectTest@60d8c9b7</td></tr>
+<tr>
+<td title='Tests.DocProcessSemiStructuredTest.next_page_previous_page_first_page_last_page()'><b>next_page_previous_page_first_page_last_page</b><br>Test class: Tests.DocProcessSemiStructuredTest</td>
+<td></td>
+<td>8</td>
+<td>Tests.DocProcessSemiStructuredTest@7f010382</td></tr>
+<tr>
+<td title='Tests.AnalyticsTest.select_daily_data_on_Analytics_page()'><b>select_daily_data_on_Analytics_page</b><br>Test class: Tests.AnalyticsTest</td>
+<td></td>
+<td>12</td>
+<td>Tests.AnalyticsTest@159f197</td></tr>
+<tr>
+<td title='Tests.UpdateProjectTest.update_project_role_should_not_have_empty_user()'><b>update_project_role_should_not_have_empty_user</b><br>Test class: Tests.UpdateProjectTest</td>
+<td></td>
+<td>39</td>
+<td>Tests.UpdateProjectTest@60d8c9b7</td></tr>
+<tr>
+<td title='Tests.LoginTest.login_with_invalid_username_and_valid_password()'><b>login_with_invalid_username_and_valid_password</b><br>Test class: Tests.LoginTest</td>
+<td></td>
+<td>7</td>
+<td>Tests.LoginTest@1f0f1111</td></tr>
+<tr>
+<td title='Tests.DocProcessMedicalChartTest.next_page_previous_page_first_page_last_page()'><b>next_page_previous_page_first_page_last_page</b><br>Test class: Tests.DocProcessMedicalChartTest</td>
+<td></td>
+<td>8</td>
+<td>Tests.DocProcessMedicalChartTest@4313f5bc</td></tr>
+<tr>
+<td title='Tests.ProjectFlowStructuredTest.items_per_page()'><b>items_per_page</b><br>Test class: Tests.ProjectFlowStructuredTest</td>
+<td></td>
+<td>7</td>
+<td>Tests.ProjectFlowStructuredTest@59d016c9</td></tr>
+<tr>
+<td title='Tests.TemplateTest.create_template_with_valid_name_no_chosen_file()'><b>create_template_with_valid_name_no_chosen_file</b><br>Test class: Tests.TemplateTest</td>
+<td></td>
+<td>7</td>
+<td>Tests.TemplateTest@3967e60c</td></tr>
+<tr>
+<td title='Tests.DocProcessStructuredTest.anticlockwise_clockwise_zoomin_zoomout_navigate_right_left()'><b>anticlockwise_clockwise_zoomin_zoomout_navigate_right_left</b><br>Test class: Tests.DocProcessStructuredTest</td>
+<td></td>
+<td>29</td>
+<td>Tests.DocProcessStructuredTest@1e802ef9</td></tr>
+<tr>
+<td title='Tests.ProjectBREMedicalChartDocumentTest1.save_with_hcc_comments_on_medical_chart()'><b>save_with_hcc_comments_on_medical_chart</b><br>Test class: Tests.ProjectBREMedicalChartDocumentTest1</td>
+<td></td>
+<td>8</td>
+<td>Tests.ProjectBREMedicalChartDocumentTest1@96def03</td></tr>
+<tr>
+<td title='Tests.DocProcessMedicalChartTest.hide_unhide_analytics()'><b>hide_unhide_analytics</b><br>Test class: Tests.DocProcessMedicalChartTest</td>
+<td></td>
+<td>4</td>
+<td>Tests.DocProcessMedicalChartTest@4313f5bc</td></tr>
+<tr>
+<td title='Tests.RoleWiseTest.operator_role_access_analytics()'><b>operator_role_access_analytics</b><br>Test class: Tests.RoleWiseTest</td>
+<td></td>
+<td>4</td>
+<td>Tests.RoleWiseTest@20d28811</td></tr>
+<tr>
+<td title='Tests.AnalyticsTest.select_overall_data_on_Analytics_page()'><b>select_overall_data_on_Analytics_page</b><br>Test class: Tests.AnalyticsTest</td>
+<td></td>
+<td>5</td>
+<td>Tests.AnalyticsTest@159f197</td></tr>
+<tr>
+<td title='Tests.RoleWiseTest.admin_role_access_templates_tab()'><b>admin_role_access_templates_tab</b><br>Test class: Tests.RoleWiseTest</td>
+<td></td>
+<td>5</td>
+<td>Tests.RoleWiseTest@20d28811</td></tr>
+<tr>
+<td title='Tests.ProjectFlowFreeFormTest.verify_add_user()'><b>verify_add_user</b><br>Test class: Tests.ProjectFlowFreeFormTest</td>
+<td></td>
+<td>6</td>
+<td>Tests.ProjectFlowFreeFormTest@1f3f4916</td></tr>
+<tr>
+<td title='Tests.ProjectFlowStructuredTest1.disable_active_project_on_Project_page()'><b>disable_active_project_on_Project_page</b><br>Test class: Tests.ProjectFlowStructuredTest1</td>
+<td></td>
+<td>30</td>
+<td>Tests.ProjectFlowStructuredTest1@3cc2931c</td></tr>
+<tr>
+<td title='Tests.FunctionalTabTest.vertical_Documents_tab()'><b>vertical_Documents_tab</b><br>Test class: Tests.FunctionalTabTest</td>
+<td></td>
+<td>10</td>
+<td>Tests.FunctionalTabTest@670002</td></tr>
+<tr>
+<td title='Tests.TemplateTest.zoom_out()'><b>zoom_out</b><br>Test class: Tests.TemplateTest</td>
+<td></td>
+<td>22</td>
+<td>Tests.TemplateTest@3967e60c</td></tr>
+<tr>
+<td title='Tests.AnalyticsTest.select_weekly_data_on_Analytics_page()'><b>select_weekly_data_on_Analytics_page</b><br>Test class: Tests.AnalyticsTest</td>
+<td></td>
+<td>9</td>
+<td>Tests.AnalyticsTest@159f197</td></tr>
+<tr>
+<td title='Tests.FunctionalTabTest.horizontal_users_tab()'><b>horizontal_users_tab</b><br>Test class: Tests.FunctionalTabTest</td>
+<td></td>
+<td>9</td>
+<td>Tests.FunctionalTabTest@670002</td></tr>
+<tr>
+<td title='Tests.CreateUserPlatformAdminTest.search_user()'><b>search_user</b><br>Test class: Tests.CreateUserPlatformAdminTest</td>
+<td></td>
+<td>21</td>
+<td>Tests.CreateUserPlatformAdminTest@6d2a209c</td></tr>
+<tr>
+<td title='Tests.ForgetPwdTest.first_login_not_done()'><b>first_login_not_done</b><br>Test class: Tests.ForgetPwdTest</td>
+<td></td>
+<td>5</td>
+<td>Tests.ForgetPwdTest@778d1062</td></tr>
+<tr>
+<td title='Tests.UpdateUserPlatformAdminTest.only_alphabets()'><b>only_alphabets</b><br>Test class: Tests.UpdateUserPlatformAdminTest</td>
+<td></td>
+<td>11</td>
+<td>Tests.UpdateUserPlatformAdminTest@7c0c77c7</td></tr>
+<tr>
+<td title='Tests.DocProcessFreeFormTest.anti_clockwise_clockwise_zoomin_zoomout_navigate_right_left()'><b>anti_clockwise_clockwise_zoomin_zoomout_navigate_right_left</b><br>Test class: Tests.DocProcessFreeFormTest</td>
+<td></td>
+<td>26</td>
+<td>Tests.DocProcessFreeFormTest@161479c6</td></tr>
+<tr>
+<td title='Tests.CreateUserAdminTest.create_user_with_invalid_data()'><b>create_user_with_invalid_data</b><br>Test class: Tests.CreateUserAdminTest</td>
+<td></td>
+<td>11</td>
+<td>Tests.CreateUserAdminTest@5e316c74</td></tr>
+<tr>
+<td title='Tests.ProjectBREMedicalChartTest.add_action()'><b>add_action</b><br>Test class: Tests.ProjectBREMedicalChartTest</td>
+<td></td>
+<td>10</td>
+<td>Tests.ProjectBREMedicalChartTest@5ccddd20</td></tr>
+<tr>
+<td title='Tests.UpdateUserPlatformAdminTest.password_field_length_max_length_twelve()'><b>password_field_length_max_length_twelve</b><br>Test class: Tests.UpdateUserPlatformAdminTest</td>
+<td></td>
+<td>12</td>
+<td>Tests.UpdateUserPlatformAdminTest@7c0c77c7</td></tr>
+<tr>
+<td title='Tests.ProjectBRETest.bre_applied_to_address_fail()'><b>bre_applied_to_address_fail</b><br>Test class: Tests.ProjectBRETest</td>
+<td></td>
+<td>17</td>
+<td>Tests.ProjectBRETest@1ed1993a</td></tr>
+<tr>
+<td title='Tests.CreateUpdateRolePlatformAdminTest.create_role_with_blank_rolename_permission()'><b>create_role_with_blank_rolename_permission</b><br>Test class: Tests.CreateUpdateRolePlatformAdminTest</td>
+<td></td>
+<td>17</td>
+<td>Tests.CreateUpdateRolePlatformAdminTest@6ac13091</td></tr>
+<tr>
+<td title='Tests.ManualInterventionDocument.manual_intervention_freeform_rejected_document()'><b>manual_intervention_freeform_rejected_document</b><br>Test class: Tests.ManualInterventionDocument</td>
+<td></td>
+<td>64</td>
+<td>Tests.ManualInterventionDocument@49c386c8</td></tr>
+<tr>
+<td title='Tests.ProjectFlowStructuredTest.create_project_without_role_for_admin()'><b>create_project_without_role_for_admin</b><br>Test class: Tests.ProjectFlowStructuredTest</td>
+<td></td>
+<td>6</td>
+<td>Tests.ProjectFlowStructuredTest@59d016c9</td></tr>
+<tr>
+<td title='Tests.LoginTest.login_with_blank_username_and_valid_password()'><b>login_with_blank_username_and_valid_password</b><br>Test class: Tests.LoginTest</td>
+<td></td>
+<td>6</td>
+<td>Tests.LoginTest@1f0f1111</td></tr>
+<tr>
+<td title='Tests.DocProcessStructuredTest.sorting()'><b>sorting</b><br>Test class: Tests.DocProcessStructuredTest</td>
+<td></td>
+<td>19</td>
+<td>Tests.DocProcessStructuredTest@1e802ef9</td></tr>
+<tr>
+<td title='Tests.CreateUpdateRoleAdminTest.search_created_role()'><b>search_created_role</b><br>Test class: Tests.CreateUpdateRoleAdminTest</td>
+<td></td>
+<td>2</td>
+<td>Tests.CreateUpdateRoleAdminTest@48fa0f47</td></tr>
+<tr>
+<td title='Tests.RoleWiseTest.supervisor_role_access_document()'><b>supervisor_role_access_document</b><br>Test class: Tests.RoleWiseTest</td>
+<td></td>
+<td>6</td>
+<td>Tests.RoleWiseTest@20d28811</td></tr>
+<tr>
+<td title='Tests.DataSetTest.create_category_with_invalid_name()'><b>create_category_with_invalid_name</b><br>Test class: Tests.DataSetTest</td>
+<td></td>
+<td>4</td>
+<td>Tests.DataSetTest@75329a49</td></tr>
+<tr>
+<td title='Tests.ProjectFlowFreeFormTest.next_to_data()'><b>next_to_data</b><br>Test class: Tests.ProjectFlowFreeFormTest</td>
+<td></td>
+<td>8</td>
+<td>Tests.ProjectFlowFreeFormTest@1f3f4916</td></tr>
+<tr>
+<td title='Tests.ProjectFlowStructuredTest.create_project_without_template()'><b>create_project_without_template</b><br>Test class: Tests.ProjectFlowStructuredTest</td>
+<td></td>
+<td>42</td>
+<td>Tests.ProjectFlowStructuredTest@59d016c9</td></tr>
+<tr>
+<td title='Tests.ProjectFlowStructuredTest.create_project_without_user_and_with_valid_data()'><b>create_project_without_user_and_with_valid_data</b><br>Test class: Tests.ProjectFlowStructuredTest</td>
+<td></td>
+<td>25</td>
+<td>Tests.ProjectFlowStructuredTest@59d016c9</td></tr>
+<tr>
+<td title='Tests.CreateUpdateRoleAdminTest.valid_role_name_blank_permission()'><b>valid_role_name_blank_permission</b><br>Test class: Tests.CreateUpdateRoleAdminTest</td>
+<td></td>
+<td>13</td>
+<td>Tests.CreateUpdateRoleAdminTest@48fa0f47</td></tr>
+<tr>
+<td title='Tests.CreateUpdateRolePlatformAdminTest.create_role_with_valid_rolename_blank_permission()'><b>create_role_with_valid_rolename_blank_permission</b><br>Test class: Tests.CreateUpdateRolePlatformAdminTest</td>
+<td></td>
+<td>11</td>
+<td>Tests.CreateUpdateRolePlatformAdminTest@6ac13091</td></tr>
+<tr>
+<td title='Tests.CreateUpdateRolePlatformAdminTest.search_created_role()'><b>search_created_role</b><br>Test class: Tests.CreateUpdateRolePlatformAdminTest</td>
+<td></td>
+<td>3</td>
+<td>Tests.CreateUpdateRolePlatformAdminTest@6ac13091</td></tr>
+<tr>
+<td title='Tests.DataSetTest.validation_type_as_phone_role_to_create_new_dataset()'><b>validation_type_as_phone_role_to_create_new_dataset</b><br>Test class: Tests.DataSetTest</td>
+<td></td>
+<td>8</td>
+<td>Tests.DataSetTest@75329a49</td></tr>
+<tr>
+<td title='Tests.EditProfileTest.visible_password_off()'><b>visible_password_off</b><br>Test class: Tests.EditProfileTest</td>
+<td></td>
+<td>9</td>
+<td>Tests.EditProfileTest@2b6faea6</td></tr>
+<tr>
+<td title='Tests.FunctionalTabTest.vertical_datasets_tab()'><b>vertical_datasets_tab</b><br>Test class: Tests.FunctionalTabTest</td>
+<td></td>
+<td>11</td>
+<td>Tests.FunctionalTabTest@670002</td></tr>
+<tr>
+<td title='Tests.TemplateTest.search_created_template()'><b>search_created_template</b><br>Test class: Tests.TemplateTest</td>
+<td></td>
+<td>8</td>
+<td>Tests.TemplateTest@3967e60c</td></tr>
+<tr>
+<td title='Tests.DataSetTest.create_category_with_valid_name()'><b>create_category_with_valid_name</b><br>Test class: Tests.DataSetTest</td>
+<td></td>
+<td>6</td>
+<td>Tests.DataSetTest@75329a49</td></tr>
+<tr>
+<td title='Tests.ForgetPwdTest.invalid_email()'><b>invalid_email</b><br>Test class: Tests.ForgetPwdTest</td>
+<td></td>
+<td>4</td>
+<td>Tests.ForgetPwdTest@778d1062</td></tr>
+<tr>
+<td title='Tests.TemplateTest.navigate_next()'><b>navigate_next</b><br>Test class: Tests.TemplateTest</td>
+<td></td>
+<td>5</td>
+<td>Tests.TemplateTest@3967e60c</td></tr>
+<tr>
+<td title='Tests.ProjectBREMedicalChartDocumentTest1.edit_encounter_detail_and_enter_invalid_npi_physician_on_medical_chart()'><b>edit_encounter_detail_and_enter_invalid_npi_physician_on_medical_chart</b><br>Test class: Tests.ProjectBREMedicalChartDocumentTest1</td>
+<td></td>
+<td>15</td>
+<td>Tests.ProjectBREMedicalChartDocumentTest1@96def03</td></tr>
+<tr>
+<td title='Tests.DocProcessFreeFormTest.update_document_cancel_it()'><b>update_document_cancel_it</b><br>Test class: Tests.DocProcessFreeFormTest</td>
+<td></td>
+<td>16</td>
+<td>Tests.DocProcessFreeFormTest@161479c6</td></tr>
+<tr>
+<td title='Tests.UpdateProjectTest.to_maintain_script_two()'><b>to_maintain_script_two</b><br>Test class: Tests.UpdateProjectTest</td>
+<td></td>
+<td>24</td>
+<td>Tests.UpdateProjectTest@60d8c9b7</td></tr>
+<tr>
+<td title='Tests.CreateUpdateRoleAdminTest.create_role_with_existing_rolename()'><b>create_role_with_existing_rolename</b><br>Test class: Tests.CreateUpdateRoleAdminTest</td>
+<td></td>
+<td>19</td>
+<td>Tests.CreateUpdateRoleAdminTest@48fa0f47</td></tr>
+<tr>
+<td title='Tests.UpdateUserPlatformAdminTest.password_field_contains_alphabet_digit_special_char()'><b>password_field_contains_alphabet_digit_special_char</b><br>Test class: Tests.UpdateUserPlatformAdminTest</td>
+<td></td>
+<td>11</td>
+<td>Tests.UpdateUserPlatformAdminTest@7c0c77c7</td></tr>
+<tr>
+<td title='Tests.RoleWiseTest.supervisor_role_valid_login()'><b>supervisor_role_valid_login</b><br>Test class: Tests.RoleWiseTest</td>
+<td></td>
+<td>9</td>
+<td>Tests.RoleWiseTest@20d28811</td></tr>
+<tr>
+<td title='Tests.UpdateProjectTest.status_is_disabled_for_admin_when_action_is_false()'><b>status_is_disabled_for_admin_when_action_is_false</b><br>Test class: Tests.UpdateProjectTest</td>
+<td></td>
+<td>15</td>
+<td>Tests.UpdateProjectTest@60d8c9b7</td></tr>
+<tr>
+<td title='Tests.FunctionalTabTest.horizontal_datasets_tab()'><b>horizontal_datasets_tab</b><br>Test class: Tests.FunctionalTabTest</td>
+<td></td>
+<td>11</td>
+<td>Tests.FunctionalTabTest@670002</td></tr>
+<tr>
+<td title='Tests.UpdateUserPlatformAdminTest.blank_username_blank_password()'><b>blank_username_blank_password</b><br>Test class: Tests.UpdateUserPlatformAdminTest</td>
+<td></td>
+<td>14</td>
+<td>Tests.UpdateUserPlatformAdminTest@7c0c77c7</td></tr>
+<tr>
+<td title='Tests.FunctionalTabTest.vertical_projects_tab()'><b>vertical_projects_tab</b><br>Test class: Tests.FunctionalTabTest</td>
+<td></td>
+<td>13</td>
+<td>Tests.FunctionalTabTest@670002</td></tr>
+<tr>
+<td title='Tests.DocProcessSemiStructuredTest.documents_filter()'><b>documents_filter</b><br>Test class: Tests.DocProcessSemiStructuredTest</td>
+<td></td>
+<td>14</td>
+<td>Tests.DocProcessSemiStructuredTest@7f010382</td></tr>
+<tr>
+<td title='Tests.ProjectBRETest.bre_applied_to_name_fail()'><b>bre_applied_to_name_fail</b><br>Test class: Tests.ProjectBRETest</td>
+<td></td>
+<td>16</td>
+<td>Tests.ProjectBRETest@1ed1993a</td></tr>
+<tr>
+<td title='Tests.UpdateUserAdminTest.update_with_blank_name()'><b>update_with_blank_name</b><br>Test class: Tests.UpdateUserAdminTest</td>
+<td></td>
+<td>12</td>
+<td>Tests.UpdateUserAdminTest@48aaecc3</td></tr>
+<tr>
+<td title='Tests.UpdateUserAdminTest.disable_user_update()'><b>disable_user_update</b><br>Test class: Tests.UpdateUserAdminTest</td>
+<td></td>
+<td>7</td>
+<td>Tests.UpdateUserAdminTest@48aaecc3</td></tr>
+<tr>
+<td title='Tests.ProjectFlowStructuredTest.create_project_with_disable_status()'><b>create_project_with_disable_status</b><br>Test class: Tests.ProjectFlowStructuredTest</td>
+<td></td>
+<td>67</td>
+<td>Tests.ProjectFlowStructuredTest@59d016c9</td></tr>
+<tr>
+<td title='Tests.DocProcessFreeFormTest.hide_unhide_analytics()'><b>hide_unhide_analytics</b><br>Test class: Tests.DocProcessFreeFormTest</td>
+<td></td>
+<td>4</td>
+<td>Tests.DocProcessFreeFormTest@161479c6</td></tr>
+<tr>
+<td title='Tests.UpdateUserAdminTest.enable_user_update()'><b>enable_user_update</b><br>Test class: Tests.UpdateUserAdminTest</td>
+<td></td>
+<td>4</td>
+<td>Tests.UpdateUserAdminTest@48aaecc3</td></tr>
+<tr>
+<td title='Tests.ProjectBRETest.bre_applied_to_state_fail()'><b>bre_applied_to_state_fail</b><br>Test class: Tests.ProjectBRETest</td>
+<td></td>
+<td>17</td>
+<td>Tests.ProjectBRETest@1ed1993a</td></tr>
+<tr>
+<td title='Tests.DataSetTest.add_dataset_with_blank_and_no_chosen_file()'><b>add_dataset_with_blank_and_no_chosen_file</b><br>Test class: Tests.DataSetTest</td>
+<td></td>
+<td>4</td>
+<td>Tests.DataSetTest@75329a49</td></tr>
+<tr>
+<td title='Tests.AnalyticsTest.test_organization_arrows_on_analytics_page()'><b>test_organization_arrows_on_analytics_page</b><br>Test class: Tests.AnalyticsTest</td>
+<td></td>
+<td>12</td>
+<td>Tests.AnalyticsTest@159f197</td></tr>
+<tr>
+<td title='Tests.DocProcessFreeFormTest.documents_filter()'><b>documents_filter</b><br>Test class: Tests.DocProcessFreeFormTest</td>
+<td></td>
+<td>14</td>
+<td>Tests.DocProcessFreeFormTest@161479c6</td></tr>
+<tr>
+<td title='Tests.ProjectFlowMedicalChart.create_project_with_entities_without_role()'><b>create_project_with_entities_without_role</b><br>Test class: Tests.ProjectFlowMedicalChart</td>
+<td></td>
+<td>14</td>
+<td>Tests.ProjectFlowMedicalChart@794cb805</td></tr>
+<tr>
+<td title='Tests.ProjectBREMedicalChartDocumentTest1.save_without_hcc_comments_on_medical_chart()'><b>save_without_hcc_comments_on_medical_chart</b><br>Test class: Tests.ProjectBREMedicalChartDocumentTest1</td>
+<td></td>
+<td>1</td>
+<td>Tests.ProjectBREMedicalChartDocumentTest1@96def03</td></tr>
+<tr>
+<td title='Tests.LoginTest.login_with_invalid_username_and_blank_password()'><b>login_with_invalid_username_and_blank_password</b><br>Test class: Tests.LoginTest</td>
+<td></td>
+<td>2</td>
+<td>Tests.LoginTest@1f0f1111</td></tr>
+<tr>
+<td title='Tests.ProjectFlowSemiStructureTest.create_project_without_role()'><b>create_project_without_role</b><br>Test class: Tests.ProjectFlowSemiStructureTest</td>
+<td></td>
+<td>19</td>
+<td>Tests.ProjectFlowSemiStructureTest@4b5a5ed1</td></tr>
+<tr>
+<td title='Tests.UpdateProjectTest.to_maintain_script()'><b>to_maintain_script</b><br>Test class: Tests.UpdateProjectTest</td>
+<td></td>
+<td>25</td>
+<td>Tests.UpdateProjectTest@60d8c9b7</td></tr>
+<tr>
+<td title='Tests.TemplateTest.navigate_back()'><b>navigate_back</b><br>Test class: Tests.TemplateTest</td>
+<td></td>
+<td>14</td>
+<td>Tests.TemplateTest@3967e60c</td></tr>
+<tr>
+<td title='Tests.FunctionalTabTest.horizontal_documents_tab()'><b>horizontal_documents_tab</b><br>Test class: Tests.FunctionalTabTest</td>
+<td></td>
+<td>11</td>
+<td>Tests.FunctionalTabTest@670002</td></tr>
+<tr>
+<td title='Tests.LoginTest.verification_of_title_logo_and_login_with_blank_details()'><b>verification_of_title_logo_and_login_with_blank_details</b><br>Test class: Tests.LoginTest</td>
+<td></td>
+<td>7</td>
+<td>Tests.LoginTest@1f0f1111</td></tr>
+<tr>
+<td title='Tests.RoleWiseTest.admin_role_access_roles_tab()'><b>admin_role_access_roles_tab</b><br>Test class: Tests.RoleWiseTest</td>
+<td></td>
+<td>5</td>
+<td>Tests.RoleWiseTest@20d28811</td></tr>
+<tr>
+<td title='Tests.RoleWiseTest.operator_role_access_document()'><b>operator_role_access_document</b><br>Test class: Tests.RoleWiseTest</td>
+<td></td>
+<td>4</td>
+<td>Tests.RoleWiseTest@20d28811</td></tr>
+<tr>
+<td title='Tests.ProjectFlowStructuredTest.verify_cancel_with_blank_info()'><b>verify_cancel_with_blank_info</b><br>Test class: Tests.ProjectFlowStructuredTest</td>
+<td></td>
+<td>14</td>
+<td>Tests.ProjectFlowStructuredTest@59d016c9</td></tr>
+<tr>
+<td title='Tests.DocProcessStructuredTest.searchbox_document()'><b>searchbox_document</b><br>Test class: Tests.DocProcessStructuredTest</td>
+<td></td>
+<td>4</td>
+<td>Tests.DocProcessStructuredTest@1e802ef9</td></tr>
+<tr>
+<td title='Tests.DocProcessSemiStructuredTest.hide_unhide_analytics()'><b>hide_unhide_analytics</b><br>Test class: Tests.DocProcessSemiStructuredTest</td>
+<td></td>
+<td>4</td>
+<td>Tests.DocProcessSemiStructuredTest@7f010382</td></tr>
+<tr>
+<td title='Tests.TemplateTest.create_template_with_valid_name_chosen_file()'><b>create_template_with_valid_name_chosen_file</b><br>Test class: Tests.TemplateTest</td>
+<td></td>
+<td>17</td>
+<td>Tests.TemplateTest@3967e60c</td></tr>
+<tr>
+<td title='Tests.EditProfileTest.edit_profile()'><b>edit_profile</b><br>Test class: Tests.EditProfileTest</td>
+<td></td>
+<td>3</td>
+<td>Tests.EditProfileTest@2b6faea6</td></tr>
+<tr>
+<td title='Tests.UpdateUserAdminTest.update_with_valid_username()'><b>update_with_valid_username</b><br>Test class: Tests.UpdateUserAdminTest</td>
+<td></td>
+<td>24</td>
+<td>Tests.UpdateUserAdminTest@48aaecc3</td></tr>
+<tr>
+<td title='Tests.LoginTest.login_with_valid_username_and_blank_password()'><b>login_with_valid_username_and_blank_password</b><br>Test class: Tests.LoginTest</td>
+<td></td>
+<td>8</td>
+<td>Tests.LoginTest@1f0f1111</td></tr>
+<tr>
+<td title='Tests.CreateUpdateRolePlatformAdminTest.disable_status_role_update()'><b>disable_status_role_update</b><br>Test class: Tests.CreateUpdateRolePlatformAdminTest</td>
+<td></td>
+<td>11</td>
+<td>Tests.CreateUpdateRolePlatformAdminTest@6ac13091</td></tr>
+<tr>
+<td title='Tests.CreateUpdateRoleAdminTest.remove_all_permissions()'><b>remove_all_permissions</b><br>Test class: Tests.CreateUpdateRoleAdminTest</td>
+<td></td>
+<td>12</td>
+<td>Tests.CreateUpdateRoleAdminTest@48fa0f47</td></tr>
+<tr>
+<td title='Tests.RoleWiseTest.supervisor_role_access_template()'><b>supervisor_role_access_template</b><br>Test class: Tests.RoleWiseTest</td>
+<td></td>
+<td>6</td>
+<td>Tests.RoleWiseTest@20d28811</td></tr>
+<tr>
+<td title='Tests.ForgetPwdTest.click_on_cancel_button_on_forgot_password()'><b>click_on_cancel_button_on_forgot_password</b><br>Test class: Tests.ForgetPwdTest</td>
+<td></td>
+<td>13</td>
+<td>Tests.ForgetPwdTest@778d1062</td></tr>
+<tr>
+<td title='Tests.ForgetPwdTest.disable_user()'><b>disable_user</b><br>Test class: Tests.ForgetPwdTest</td>
+<td></td>
+<td>9</td>
+<td>Tests.ForgetPwdTest@778d1062</td></tr>
+<tr>
+<td title='Tests.LoginTest.login_with_invalid_username_and_password_supervisor()'><b>login_with_invalid_username_and_password_supervisor</b><br>Test class: Tests.LoginTest</td>
+<td></td>
+<td>7</td>
+<td>Tests.LoginTest@1f0f1111</td></tr>
+<tr>
+<td title='Tests.UpdateProjectTest.role_should_not_have_empty_user_for_supervisor()'><b>role_should_not_have_empty_user_for_supervisor</b><br>Test class: Tests.UpdateProjectTest</td>
+<td></td>
+<td>25</td>
+<td>Tests.UpdateProjectTest@60d8c9b7</td></tr>
+<tr>
+<td title='Tests.CreateUserPlatformAdminTest.blank_username_invalid_password()'><b>blank_username_invalid_password</b><br>Test class: Tests.CreateUserPlatformAdminTest</td>
+<td></td>
+<td>9</td>
+<td>Tests.CreateUserPlatformAdminTest@6d2a209c</td></tr>
+<tr>
+<td title='Tests.DocProcessStructuredTest.items_page()'><b>items_page</b><br>Test class: Tests.DocProcessStructuredTest</td>
+<td></td>
+<td>4</td>
+<td>Tests.DocProcessStructuredTest@1e802ef9</td></tr>
+<tr>
+<td title='Tests.FunctionalTabTest.horizontal_templates_tab()'><b>horizontal_templates_tab</b><br>Test class: Tests.FunctionalTabTest</td>
+<td></td>
+<td>13</td>
+<td>Tests.FunctionalTabTest@670002</td></tr>
+<tr>
+<td title='Tests.RoleWiseTest.supervisor_role_access_analytics()'><b>supervisor_role_access_analytics</b><br>Test class: Tests.RoleWiseTest</td>
+<td></td>
+<td>9</td>
+<td>Tests.RoleWiseTest@20d28811</td></tr>
+<tr>
+<td title='Tests.AnalyticsTest.select_monthly_data_on_Analytics_page()'><b>select_monthly_data_on_Analytics_page</b><br>Test class: Tests.AnalyticsTest</td>
+<td></td>
+<td>9</td>
+<td>Tests.AnalyticsTest@159f197</td></tr>
+<tr>
+<td title='Tests.ProjectFlowStructuredTest.create_project_only_with_role_info()'><b>create_project_only_with_role_info</b><br>Test class: Tests.ProjectFlowStructuredTest</td>
+<td></td>
+<td>33</td>
+<td>Tests.ProjectFlowStructuredTest@59d016c9</td></tr>
+<tr>
+<td title='Tests.ProjectFlowSemiStructureTest.navigate_to_data_page_and_Rules_page()'><b>navigate_to_data_page_and_Rules_page</b><br>Test class: Tests.ProjectFlowSemiStructureTest</td>
+<td></td>
+<td>8</td>
+<td>Tests.ProjectFlowSemiStructureTest@4b5a5ed1</td></tr>
+<tr>
+<td title='Tests.LoginTest.login_with_invalid_username_and_valid_password_supervisor()'><b>login_with_invalid_username_and_valid_password_supervisor</b><br>Test class: Tests.LoginTest</td>
+<td></td>
+<td>7</td>
+<td>Tests.LoginTest@1f0f1111</td></tr>
+<tr>
+<td title='Tests.CreateUpdateRolePlatformAdminTest.remove_all_permissions_update()'><b>remove_all_permissions_update</b><br>Test class: Tests.CreateUpdateRolePlatformAdminTest</td>
+<td></td>
+<td>12</td>
+<td>Tests.CreateUpdateRolePlatformAdminTest@6ac13091</td></tr>
+<tr>
+<td title='Tests.CreateUserPlatformAdminTest.blank_username_blank_password()'><b>blank_username_blank_password</b><br>Test class: Tests.CreateUserPlatformAdminTest</td>
+<td></td>
+<td>13</td>
+<td>Tests.CreateUserPlatformAdminTest@6d2a209c</td></tr>
+<tr>
+<td title='Tests.ProjectFlowStructuredTest.verify_next_button_with_blank_info()'><b>verify_next_button_with_blank_info</b><br>Test class: Tests.ProjectFlowStructuredTest</td>
+<td></td>
+<td>11</td>
+<td>Tests.ProjectFlowStructuredTest@59d016c9</td></tr>
+<tr>
+<td title='Tests.FunctionalTabTest.horizontal_roles_tab()'><b>horizontal_roles_tab</b><br>Test class: Tests.FunctionalTabTest</td>
+<td></td>
+<td>11</td>
+<td>Tests.FunctionalTabTest@670002</td></tr>
+<tr>
+<td title='Tests.ProjectFlowMedicalChart.create_project_without_entities_and_role()'><b>create_project_without_entities_and_role</b><br>Test class: Tests.ProjectFlowMedicalChart</td>
+<td></td>
+<td>2</td>
+<td>Tests.ProjectFlowMedicalChart@794cb805</td></tr>
+<tr>
+<td title='Tests.RoleWiseTest.operator_role_with_valid_login()'><b>operator_role_with_valid_login</b><br>Test class: Tests.RoleWiseTest</td>
+<td></td>
+<td>8</td>
+<td>Tests.RoleWiseTest@20d28811</td></tr>
+<tr>
+<td title='Tests.UpdateProjectTest.disabled_roles_are_not_displayed_in_role_list_for_admin()'><b>disabled_roles_are_not_displayed_in_role_list_for_admin</b><br>Test class: Tests.UpdateProjectTest</td>
+<td></td>
+<td>32</td>
+<td>Tests.UpdateProjectTest@60d8c9b7</td></tr>
+<tr>
+<td title='Tests.DocProcessSemiStructuredTest.update_document_cancel()'><b>update_document_cancel</b><br>Test class: Tests.DocProcessSemiStructuredTest</td>
+<td></td>
+<td>19</td>
+<td>Tests.DocProcessSemiStructuredTest@7f010382</td></tr>
+<tr>
+<td title='Tests.DocProcessFreeFormTest.next_page_previous_page_first_page_last_page()'><b>next_page_previous_page_first_page_last_page</b><br>Test class: Tests.DocProcessFreeFormTest</td>
+<td></td>
+<td>8</td>
+<td>Tests.DocProcessFreeFormTest@161479c6</td></tr>
+<tr>
+<td title='Tests.ProjectFlowStructuredTest.cancel_with_blank_info()'><b>cancel_with_blank_info</b><br>Test class: Tests.ProjectFlowStructuredTest</td>
+<td></td>
+<td>15</td>
+<td>Tests.ProjectFlowStructuredTest@59d016c9</td></tr>
+<tr>
+<td title='Tests.DocProcessSemiStructuredTest.items_page()'><b>items_page</b><br>Test class: Tests.DocProcessSemiStructuredTest</td>
+<td></td>
+<td>4</td>
+<td>Tests.DocProcessSemiStructuredTest@7f010382</td></tr>
+<tr>
+<td title='Tests.DocProcessStructuredTest.hide_unhide_analytics()'><b>hide_unhide_analytics</b><br>Test class: Tests.DocProcessStructuredTest</td>
+<td></td>
+<td>4</td>
+<td>Tests.DocProcessStructuredTest@1e802ef9</td></tr>
+<tr>
+<td title='Tests.ForgetPwdTest.user_not_exists()'><b>user_not_exists</b><br>Test class: Tests.ForgetPwdTest</td>
+<td></td>
+<td>8</td>
+<td>Tests.ForgetPwdTest@778d1062</td></tr>
+<tr>
+<td title='Tests.ProjectBREMedicalChartDocumentTest.verify_save_draft_option_for_chronic_conditions()'><b>verify_save_draft_option_for_chronic_conditions</b><br>Test class: Tests.ProjectBREMedicalChartDocumentTest</td>
+<td></td>
+<td>33</td>
+<td>Tests.ProjectBREMedicalChartDocumentTest@6e0dec4a</td></tr>
+</table><p>
+</body>
+</html>

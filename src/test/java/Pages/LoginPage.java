@@ -23,9 +23,7 @@ public class LoginPage {
     SoftAssert softAssert = new SoftAssert();
 
     //Methods Declaration.
-    public void setUsername(String text) {
-        driver.findElement(userName).sendKeys(text);
-    }
+
 
     public void setPassword(String text) {
         driver.findElement(password).sendKeys(text);

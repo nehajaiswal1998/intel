@@ -1,29 +1,28 @@
 package Tests;
 
 import Base.BasePage;
-import Pages.LoginPage;
 import Pages.ProjectPage;
 import Utilities.ReadProps;
-import Utilities.TakesScreen;
-import com.relevantcodes.extentreports.LogStatus;
-import org.openqa.selenium.JavascriptExecutor;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
-import java.io.IOException;
+@Listeners(Utilities.TestListeners.class)
 
 public class ProjectFlowMedicalChart extends BasePage {
-
-    @Test
-    public void ProjectFlow() throws InterruptedException, IOException {
-        try {
-
-            BasePage.LoginTest();
+        static ProjectPage ProjectPageObj;
+    @BeforeClass
+    public void login() throws Exception {
+        BasePage.driverInit();
+        BasePage.LoginTest();
+    }
+    @AfterClass
+    public void cleanUp() throws Exception {
+        driver.quit();
+    }
+    @Test(priority = 1)
+    public void check_all_functionalities_on_project_page() throws Exception {
             Robot r = new Robot();
-            ProjectPage ProjectPageObj = new ProjectPage(driver);
-            test.log(LogStatus.INFO, "ProjectFlowMedicalChart");
-            test.log(LogStatus.PASS, "TestPassed");
-
+           ProjectPageObj = new ProjectPage(driver);
             //TC 16.1 Checking all the functionalities on the Project Page Platform Admin.
             ProjectPageObj.ClickOnProjectBtn();
             Thread.sleep(6000);
@@ -51,70 +50,69 @@ public class ProjectFlowMedicalChart extends BasePage {
             Thread.sleep(2000);
             ProjectPageObj.ClickOnDocumentAutoAssignBtn();
             Thread.sleep(2000);
+    }
 
-            //TC 16.2 Verify Create Project without Entities and Role.
-            ProjectPageObj.ClickOnCreate();
-            ProjectPageObj.VerifyAssertForEntities();
-            TakesScreen.takeSnapShot(driver, "test-output//ProjectFlowMedicalChart//ErrorEntites.jpg");
+        @Test(priority = 2)
+        public void create_project_without_entities_and_role() throws Exception {
+                //TC 16.2 Verify Create Project without Entities and Role.
+                ProjectPageObj.ClickOnCreate();
+                ProjectPageObj.VerifyAssertForEntities();
             Thread.sleep(2000);
-
-            //TC 16.3 Verify Create Project with Entities and without Role
-            ProjectPageObj.ClickOnAddEntity();
+        }
+        @Test(priority = 3)
+        public void create_project_with_entities_without_role() throws Exception {
+                //TC 16.3 Verify Create Project with Entities and without Role
+                ProjectPageObj.ClickOnAddEntity();
+                Thread.sleep(3000);
+                ProjectPageObj.SelectPatientGraphics();
+                Thread.sleep(3000);
+                ProjectPageObj.ClickOnAddEntity();
+                Thread.sleep(3000);
+                ProjectPageObj.SelectChronicConditions();
+                Thread.sleep(3000);
+                ProjectPageObj.ClickOnCreate();
+                ProjectPageObj.VerifyAssertForRole();
             Thread.sleep(2000);
-            ProjectPageObj.SelectPatientGraphics();
-            Thread.sleep(2000);
-            ProjectPageObj.ClickOnAddEntity();
-            Thread.sleep(2000);
-            ProjectPageObj.SelectChronicConditions();
-            Thread.sleep(2000);
-            ProjectPageObj.ClickOnCreate();
-            ProjectPageObj.VerifyAssertForRole();
-            TakesScreen.takeSnapShot(driver, "test-output//ProjectFlowMedicalChart//ErrorRole.jpg");
-            Thread.sleep(2000);
-
-            //TC 16.4 Verify Create Project without User.
-            ProjectPageObj.ClickOnRolesBtn();
-            Thread.sleep(2000);
-            ProjectPageObj.ClickOnAddRoleBtn();
-            Thread.sleep(2000);
-            ProjectPageObj.ClickOnSelectRoleBtn();
-            Thread.sleep(2000);
-            ProjectPageObj.ClickOnCreate();
-            ProjectPageObj.VerifyAssertForUser();
-            TakesScreen.takeSnapShot(driver, "test-output//ProjectFlowMedicalChart//ErrorUser.jpg");
-
-            //TC 16.5 Verify Add User.
-            ProjectPageObj.ClickOnAddUserBtn();
-            Thread.sleep(2000);
-            ProjectPageObj.ClickOnSelectUserBtn();
-            Thread.sleep(2000);
-            r.keyPress(KeyEvent.VK_ESCAPE);
-            Thread.sleep(2000);
-
-            //16.6 Navigate Next to Data Page and Rules Page and Back also.
-            ProjectPageObj.ClickNextPage();
-            Thread.sleep(2000);
-            TakesScreen.takeSnapShot(driver, "test-output//ProjectFlowMedicalChart//DataPage.jpg");
-            Thread.sleep(1000);
-            ProjectPageObj.ClickRulesPage();
-            Thread.sleep(2000);
-            TakesScreen.takeSnapShot(driver, "test-output//ProjectFlowMedicalChart//RulesPage.jpg");
-            Thread.sleep(4000);
-            ProjectPageObj.ClickBackRulePage();
-            Thread.sleep(2000);
-            TakesScreen.takeSnapShot(driver, "test-output//ProjectFlowMedicalChart//BackRulePage.jpg");
-            ProjectPageObj.CLickBackDataPage();
-            Thread.sleep(2000);
-            TakesScreen.takeSnapShot(driver, "test-output//ProjectFlowMedicalChart//BackDataPage.jpg");
-
+        }
+        @Test(priority = 4)
+        public void create_project_without_user() throws Exception {
+                //TC 16.4 Verify Create Project without User.
+                ProjectPageObj.ClickOnRolesBtn();
+                Thread.sleep(2000);
+                ProjectPageObj.ClickOnAddRoleBtn();
+                Thread.sleep(2000);
+                ProjectPageObj.ClickOnSelectRoleBtn();
+                Thread.sleep(2000);
+                ProjectPageObj.ClickOnCreate();
+                ProjectPageObj.VerifyAssertForUser();
+        }
+        @Test(priority = 5)
+        public void verify_add_user() throws Exception {
+                //TC 16.5 Verify Add User.
+                ProjectPageObj.ClickOnAddUserBtn();
+                Thread.sleep(2000);
+                ProjectPageObj.ClickOnSelectUserBtn();
+                Thread.sleep(2000);
+                Robot r = new Robot();
+                r.keyPress(KeyEvent.VK_ESCAPE);
+                Thread.sleep(2000);
+        }
+        @Test(priority = 6)
+        public void navigate_next_to_datapage_back_page() throws Exception {
+                //16.6 Navigate Next to Data Page and Rules Page and Back also.
+                ProjectPageObj.ClickNextPage();
+                Thread.sleep(2000);
+                ProjectPageObj.ClickRulesPage();
+                Thread.sleep(2000);
+                ProjectPageObj.ClickBackRulePage();
+                Thread.sleep(2000);
+                ProjectPageObj.CLickBackDataPage();
+                Thread.sleep(2000);
+        }
+        @Test(priority = 7)
+        public void create_project_with_valid_details() throws Exception {
             //TC 16.7 Verify Create Project with Valid Details.
             ProjectPageObj.ClickOnCreate();
             Thread.sleep(9000);
-            TakesScreen.takeSnapShot(driver, "test-output//ProjectFlowMedicalChart//ProjectCreatedSuccess.jpg");
-            driver.close();
-        } catch (Exception e) {
-            test.log(LogStatus.FAIL, e);
-        }
-
     }
 }

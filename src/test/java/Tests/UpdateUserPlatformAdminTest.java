@@ -1,209 +1,226 @@
 package Tests;
-
 import Base.BasePage;
 import Pages.CreateUserPage;
 import Utilities.ReadProps;
-import Utilities.TakesScreen;
-import com.relevantcodes.extentreports.LogStatus;
-import org.testng.annotations.Test;
-import java.io.IOException;
+import org.testng.annotations.*;
+@Listeners(Utilities.TestListeners.class)
 
 public class UpdateUserPlatformAdminTest extends BasePage {
-    @Test
-    public void PlatformAdminUpdateUserFlow() throws InterruptedException, IOException {
-        try {
-            BasePage.LoginTest();
-            CreateUserPage UserPageObj1 = new CreateUserPage(driver);
-            test.log(LogStatus.INFO, "PlatformAdminUpdateUser");
-            test.log(LogStatus.PASS, "TestPassed");
-            UserPageObj1.ClickUserBtn();
-            Thread.sleep(5000);
+        static CreateUserPage UserPageObj1;
 
-            //TC 23.1 Update User enable, disable.
-            UserPageObj1.SearchCreatedUser(ReadProps.readAttr("Username"));
-            Thread.sleep(2000);
-            UserPageObj1.SelectSearchedUser();
-            Thread.sleep(1000);
-            UserPageObj1.ClickDisableUser();
-            Thread.sleep(2000);
-            UserPageObj1.ClickUpdateUser();
-            TakesScreen.takeSnapShot(driver, "test-output//PlatformAdminUpdateUser//EditUserFile.jpg");
-            Thread.sleep(5000);
-            UserPageObj1.SearchCreatedUser(ReadProps.readAttr("Username"));
-            Thread.sleep(1000);
-            UserPageObj1.SelectSearchedUser();
-            Thread.sleep(1000);
-            UserPageObj1.ClickEnableUser();
-            Thread.sleep(2000);
-            UserPageObj1.ClickUpdateUser();
-            TakesScreen.takeSnapShot(driver, "test-output//PlatformAdminUpdateUser//EnableUser.jpg");
-            Thread.sleep(6000);
+        @BeforeClass
+        public void login() throws Exception {
+                BasePage.driverInit();
+                BasePage.LoginTest();
+        }
 
-            //TC 23.2 Blank Name and Valid Password.
-            UserPageObj1.SelectSearchedUser();
-            Thread.sleep(1000);
-            UserPageObj1.ClickToClearName();
-            Thread.sleep(2000);
-            UserPageObj1.ClickUpdateUser();
-            TakesScreen.takeSnapShot(driver, "test-output//PlatformAdminUpdateUser//BlankName.jpg");
-            //UserPageObj1.UserBlankAssert();
-            Thread.sleep(5000);
-            UserPageObj1.ClickOnCancelBtn();
-            Thread.sleep(5000);
+        @AfterClass
+        public void cleanUp() throws Exception {
+                driver.quit();
+        }
 
-            //TC 23.3 Blank UserName and Invalid Password.
-            UserPageObj1.SelectSearchedUser();
-            Thread.sleep(1000);
-            UserPageObj1.ClickToClearName();
-            Thread.sleep(2000);
-            UserPageObj1.ClearPassword();
-            Thread.sleep(3000);
-            UserPageObj1.EnterPassword(ReadProps.readAttr("pwd"));
-            Thread.sleep(2000);
-            UserPageObj1.ClickUpdateUser();
-            TakesScreen.takeSnapShot(driver, "test-output//PlatformAdminUpdateUser//InvalidPassword.jpg");
-            Thread.sleep(5000);
-            UserPageObj1.ClickOnCancelBtn();
-            Thread.sleep(5000);
+        @Test(priority = 1)
+        public void update_user_enable_disable() throws Exception {
+                UserPageObj1 = new CreateUserPage(driver);
+                UserPageObj1.ClickUserBtn();
+                Thread.sleep(5000);
+                //TC 23.1 Update User enable, disable.
+                UserPageObj1.SearchCreatedUser(ReadProps.readAttr("Username"));
+                Thread.sleep(2000);
+                UserPageObj1.SelectSearchedUser();
+                Thread.sleep(1000);
+                UserPageObj1.ClickDisableUser();
+                Thread.sleep(2000);
+                UserPageObj1.ClickUpdateUser();
+                Thread.sleep(5000);
+                UserPageObj1.SearchCreatedUser(ReadProps.readAttr("Username"));
+                Thread.sleep(1000);
+                UserPageObj1.SelectSearchedUser();
+                Thread.sleep(1000);
+                UserPageObj1.ClickEnableUser();
+                Thread.sleep(2000);
+                UserPageObj1.ClickUpdateUser();
+                Thread.sleep(6000);
+        }
 
-            //TC 23.4 Invalid Name Blank Password.
-            UserPageObj1.SearchCreatedUser(ReadProps.readAttr("Username"));
-            Thread.sleep(2000);
-            UserPageObj1.SelectSearchedUser();
-            Thread.sleep(1000);
-            UserPageObj1.ClickToClearName();
-            Thread.sleep(2000);
-            UserPageObj1.EnterUserName(ReadProps.readAttr("EnterName"));
-            Thread.sleep(2000);
-            UserPageObj1.ClearPassword();
-            Thread.sleep(3000);
-            UserPageObj1.ClickUpdateUser();
-            TakesScreen.takeSnapShot(driver, "test-output//PlatformAdminUpdateUser//InvalidName.jpg");
-            //UserPageObj1.UserBlankAssert();
-            Thread.sleep(5000);
-            UserPageObj1.ClickOnCancelBtn();
-            Thread.sleep(5000);
+        @Test(priority = 2)
+        public void blank_name_valid_password() throws Exception {
+                //TC 23.2 Blank Name and Valid Password.
+                UserPageObj1.SelectSearchedUser();
+                Thread.sleep(1000);
+                UserPageObj1.ClickToClearName();
+                Thread.sleep(2000);
+                UserPageObj1.ClickUpdateUser();
+                //UserPageObj1.UserBlankAssert();
+                Thread.sleep(5000);
+                UserPageObj1.ClickOnCancelBtn();
+                Thread.sleep(5000);
+        }
 
-            //TC 23.5 Blank UserName Blank Password.
-            UserPageObj1.SelectSearchedUser();
-            Thread.sleep(1000);
-            UserPageObj1.ClickToClearName();
-            Thread.sleep(2000);
-            UserPageObj1.ClearPassword();
-            Thread.sleep(2000);
-            UserPageObj1.ClickUpdateUser();
-            Thread.sleep(2000);
-            TakesScreen.takeSnapShot(driver, "test-output//PlatformAdminUpdateUser//BlankCredentials.jpg");
-            //UserPageObj1.UserBlankAssert();
-            Thread.sleep(2000);
-            UserPageObj1.ClickOnCancelBtn();
-            Thread.sleep(5000);
+        @Test(priority = 3)
+        public void blank_username_invalid_password() throws Exception {
+                //TC 23.3 Blank UserName and Invalid Password.
+                UserPageObj1.SelectSearchedUser();
+                Thread.sleep(1000);
+                UserPageObj1.ClickToClearName();
+                Thread.sleep(2000);
+                UserPageObj1.ClearPassword();
+                Thread.sleep(3000);
+                UserPageObj1.EnterPassword(ReadProps.readAttr("pwd"));
+                Thread.sleep(2000);
+                UserPageObj1.ClickUpdateUser();
+                Thread.sleep(5000);
+                UserPageObj1.ClickOnCancelBtn();
+                Thread.sleep(5000);
+        }
 
-            //TC 23.6 Invalid UserName Invalid Password.
-            UserPageObj1.SelectSearchedUser();
-            Thread.sleep(1000);
-            UserPageObj1.ClickToClearName();
-            Thread.sleep(2000);
-            UserPageObj1.EnterUserName(ReadProps.readAttr("EnterName"));
-            TakesScreen.takeSnapShot(driver, "test-output//PlatformAdminUpdateUser//InvalidCredentialsErrMsg.jpg");
-            Thread.sleep(2000);
-            UserPageObj1.ClearPassword();
-            Thread.sleep(2000);
-            UserPageObj1.EnterPassword(ReadProps.readAttr("pwd"));
-            Thread.sleep(2000);
-            UserPageObj1.ClickUpdateUser();
-            TakesScreen.takeSnapShot(driver, "test-output//PlatformAdminUpdateUser//InvalidCredentials.jpg");
-            //UserPageObj1.UserBlankAssert();
-            Thread.sleep(2000);
-            UserPageObj1.ClickOnCancelBtn();
-            Thread.sleep(5000);
+        @Test(priority = 4)
+        public void invalid_name_blank_password() throws Exception {
+                //TC 23.4 Invalid Name Blank Password.
+                UserPageObj1.SearchCreatedUser(ReadProps.readAttr("Username"));
+                Thread.sleep(2000);
+                UserPageObj1.SelectSearchedUser();
+                Thread.sleep(1000);
+                UserPageObj1.ClickToClearName();
+                Thread.sleep(2000);
+                UserPageObj1.EnterUserName(ReadProps.readAttr("EnterName"));
+                Thread.sleep(2000);
+                UserPageObj1.ClearPassword();
+                Thread.sleep(3000);
+                UserPageObj1.ClickUpdateUser();
+                //UserPageObj1.UserBlankAssert();
+                Thread.sleep(5000);
+                UserPageObj1.ClickOnCancelBtn();
+                Thread.sleep(5000);
+        }
 
-            //TC 23.7 Valid Name and Blank password.
-            UserPageObj1.SelectSearchedUser();
-            Thread.sleep(1000);
-            UserPageObj1.ClearPassword();
-            Thread.sleep(3000);
-            UserPageObj1.ClickUpdateUser();
-            Thread.sleep(1000);
-            TakesScreen.takeSnapShot(driver, "test-output//PlatformAdminUpdateUser//BlankPwd.jpg");
-            Thread.sleep(5000);
-            UserPageObj1.UpdateTimeAssert();
-            Thread.sleep(2000);
+        @Test(priority = 5)
+        public void blank_username_blank_password() throws Exception {
+                //TC 23.5 Blank UserName Blank Password.
+                UserPageObj1.SelectSearchedUser();
+                Thread.sleep(1000);
+                UserPageObj1.ClickToClearName();
+                Thread.sleep(2000);
+                UserPageObj1.ClearPassword();
+                Thread.sleep(2000);
+                UserPageObj1.ClickUpdateUser();
+                Thread.sleep(2000);
+                //UserPageObj1.UserBlankAssert();
+                Thread.sleep(2000);
+                UserPageObj1.ClickOnCancelBtn();
+                Thread.sleep(5000);
+        }
 
-            //TC 23.8 All combination to verify password Policy-Password same as userid.
-            UserPageObj1.SelectSearchedUser();
-            Thread.sleep(1000);
-            UserPageObj1.ClearPassword();
-            Thread.sleep(3000);
-            UserPageObj1.EnterPassword(ReadProps.readAttr("MailPwd"));
-            Thread.sleep(2000);
-            UserPageObj1.ClickUpdateUser();
-            Thread.sleep(2000);
-            TakesScreen.takeSnapShot(driver,"test-output//PlatformAdminUpdateUser//PwdSameAsUserid.jpg");
-            Thread.sleep(2000);
-            UserPageObj1.ClickOnCancelBtn();
-            Thread.sleep(2000);
+        @Test(priority = 6)
+        public void invalid_username_invalid_password() throws Exception {
+                //TC 23.6 Invalid UserName Invalid Password.
+                UserPageObj1.SelectSearchedUser();
+                Thread.sleep(1000);
+                UserPageObj1.ClickToClearName();
+                Thread.sleep(2000);
+                UserPageObj1.EnterUserName(ReadProps.readAttr("EnterName"));
+                Thread.sleep(2000);
+                UserPageObj1.ClearPassword();
+                Thread.sleep(2000);
+                UserPageObj1.EnterPassword(ReadProps.readAttr("pwd"));
+                Thread.sleep(2000);
+                UserPageObj1.ClickUpdateUser();
+                //UserPageObj1.UserBlankAssert();
+                Thread.sleep(2000);
+                UserPageObj1.ClickOnCancelBtn();
+                Thread.sleep(5000);
+        }
 
-            //TC 23.9 The password field should only contain alphabets, digits, and special characters.
-            UserPageObj1.SelectSearchedUser();
-            Thread.sleep(1000);
-            UserPageObj1.ClearPassword();
-            Thread.sleep(3000);
-            UserPageObj1.EnterPassword(ReadProps.readAttr("SpecialCharPwd"));
-            Thread.sleep(2000);
-            UserPageObj1.ClickUpdateUser();
-            Thread.sleep(2000);
-            TakesScreen.takeSnapShot(driver,"test-output//PlatformAdminUpdateUser//SpecialCharPwd.jpg");
-            Thread.sleep(4000);
+        @Test(priority = 7)
+        public void valid_name_and_blank_password() throws Exception {
+                //TC 23.7 Valid Name and Blank password.
+                UserPageObj1.SelectSearchedUser();
+                Thread.sleep(1000);
+                UserPageObj1.ClearPassword();
+                Thread.sleep(3000);
+                UserPageObj1.ClickUpdateUser();
+                Thread.sleep(5000);
+                UserPageObj1.UpdateTimeAssert();
+                Thread.sleep(2000);
+        }
 
-            //TC 23.10 The password field must have at least 1 uppercase and 1 lowercase alphabet.
+        @Test(priority = 8)
+        public void all_combinations_of_password_policy_as_userid() throws Exception {
+                //TC 23.8 All combination to verify password Policy-Password same as userid.
+                UserPageObj1.SelectSearchedUser();
+                Thread.sleep(1000);
+                UserPageObj1.ClearPassword();
+                Thread.sleep(3000);
+                UserPageObj1.EnterPassword(ReadProps.readAttr("MailPwd"));
+                Thread.sleep(2000);
+                UserPageObj1.ClickUpdateUser();
+                Thread.sleep(2000);
+                UserPageObj1.ClickOnCancelBtn();
+                Thread.sleep(2000);
+        }
+
+        @Test(priority = 9)
+        public void password_field_contains_alphabet_digit_special_char() throws Exception {
+                //TC 23.9 The password field should only contain alphabets, digits, and special characters.
+                UserPageObj1.SelectSearchedUser();
+                Thread.sleep(1000);
+                UserPageObj1.ClearPassword();
+                Thread.sleep(3000);
+                UserPageObj1.EnterPassword(ReadProps.readAttr("SpecialCharPwd"));
+                Thread.sleep(2000);
+                UserPageObj1.ClickUpdateUser();
+                Thread.sleep(4000);
+        }
+
+        @Test(priority = 10)
+        public void password_field_must_have_at_least_one_upper_lower_alphabet()  throws Exception{
+                //TC 23.10 The password field must have at least 1 uppercase and 1 lowercase alphabet.
+                UserPageObj1.SelectSearchedUser();
+                Thread.sleep(1000);
+                UserPageObj1.ClearPassword();
+                Thread.sleep(3000);
+                UserPageObj1.EnterPassword(ReadProps.readAttr("UpperLowerCasePwd"));
+                Thread.sleep(2000);
+                UserPageObj1.ClickUpdateUser();
+                Thread.sleep(5000);
+        }
+
+        @Test(priority = 11)
+        public void password_field_must_have_length_to_be_minimum_eight() throws Exception{
+        //TC 23.11 The password field length has to be minimum 8.
             UserPageObj1.SelectSearchedUser();
-            Thread.sleep(1000);
+            Thread.sleep(2000);
             UserPageObj1.ClearPassword();
             Thread.sleep(3000);
             UserPageObj1.EnterPassword(ReadProps.readAttr("UpperLowerCasePwd"));
             Thread.sleep(2000);
             UserPageObj1.ClickUpdateUser();
-            Thread.sleep(2000);
-            TakesScreen.takeSnapShot(driver,"test-output//PlatformAdminUpdateUser//UpperLowerCasePwd.jpg");
-            Thread.sleep(4000);
-
-            //TC 23.11 The password field length has to be minimum 8.
-            UserPageObj1.SelectSearchedUser();
-            Thread.sleep(1000);
-            UserPageObj1.ClearPassword();
-            Thread.sleep(3000);
-            UserPageObj1.EnterPassword(ReadProps.readAttr("UpperLowerCasePwd"));
-            Thread.sleep(2000);
-            UserPageObj1.ClickUpdateUser();
-            Thread.sleep(2000);
-            TakesScreen.takeSnapShot(driver,"test-output//PlatformAdminUpdateUser//Min8char.jpg");
-            Thread.sleep(4000);
-
-            //TC 23.12 The password field length has to be maximum 12.
-            UserPageObj1.SelectSearchedUser();
-            Thread.sleep(1000);
-            UserPageObj1.ClearPassword();
-            Thread.sleep(3000);
-            UserPageObj1.EnterPassword(ReadProps.readAttr("MaxLimit"));
-            Thread.sleep(2000);
-            UserPageObj1.ClickUpdateUser();
-            Thread.sleep(2000);
-            TakesScreen.takeSnapShot(driver,"test-output//PlatformAdminUpdateUser//MaxLimit.jpg");
-            Thread.sleep(4000);
-
-            //TC 23.13 Only Alphabets.
-            UserPageObj1.SelectSearchedUser();
-            Thread.sleep(1000);
-            UserPageObj1.ClearPassword();
-            Thread.sleep(3000);
-            UserPageObj1.EnterPassword(ReadProps.readAttr("OnlyAlphabets"));
-            Thread.sleep(2000);
-            TakesScreen.takeSnapShot(driver,"test-output//PlatformAdminUpdateUser//OnlyAlphabets.jpg");
-            Thread.sleep(3000);
-            UserPageObj1.ClickUpdateUser();
-            Thread.sleep(3000);
-
+            Thread.sleep(5000);
+}
+@Test(priority = 12)
+        public void password_field_length_max_length_twelve() throws Exception {
+        //TC 23.12 The password field length has to be maximum 12.
+        UserPageObj1.SelectSearchedUser();
+        Thread.sleep(2000);
+        UserPageObj1.ClearPassword();
+        Thread.sleep(3000);
+        UserPageObj1.EnterPassword(ReadProps.readAttr("MaxLimit"));
+        Thread.sleep(2000);
+        UserPageObj1.ClickUpdateUser();
+        Thread.sleep(5000);
+}
+@Test(priority = 13)
+        public void only_alphabets() throws Exception {
+        //TC 23.13 Only Alphabets.
+        UserPageObj1.SelectSearchedUser();
+        Thread.sleep(2000);
+        UserPageObj1.ClearPassword();
+        Thread.sleep(3000);
+        UserPageObj1.EnterPassword(ReadProps.readAttr("OnlyAlphabets"));
+        Thread.sleep(3000);
+        UserPageObj1.ClickUpdateUser();
+        Thread.sleep(3000);
+}
 //            //Only Digits
 //            UserPageObj1.SelectSearchedUser();
 //            Thread.sleep(1000);
@@ -322,10 +339,6 @@ public class UpdateUserPlatformAdminTest extends BasePage {
 //            UserPageObj1.ClickUpdateUser();
 //            Thread.sleep(4000);
 //            UserPageObj1.LogOut();
-            Thread.sleep(4000);
-            driver.close();
-        } catch (Exception e) {
-            test.log(LogStatus.FAIL, e);
+
         }
-    }
-}
+

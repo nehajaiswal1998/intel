@@ -1,36 +1,35 @@
 package Tests;
-
 import Base.BasePage;
 import Pages.ProjectBREDataSetPage;
 import Pages.ProjectBREPage;
 import Pages.ProjectPage;
 import Utilities.ReadProps;
-import Utilities.TakesScreen;
-import com.relevantcodes.extentreports.LogStatus;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import org.openqa.selenium.JavascriptExecutor;
 import java.awt.*;
 import java.awt.event.KeyEvent;
-import java.io.IOException;
-
+@Listeners(Utilities.TestListeners.class)
 public class ProjectBREDataSetTest extends BasePage {
-
-    @Test
-    public void ProjectBREDataSetFlow() throws InterruptedException, IOException {
-        try {
-            BasePage.LoginTest();
-            Robot r = new Robot();
+    @BeforeClass
+    public void login() throws Exception {
+        BasePage.driverInit();
+        BasePage.LoginTest();
+    }
+    @AfterClass
+    public void cleanUp() throws Exception {
+        driver.quit();
+    }
+    @Test(priority = 1)
+    public void bre_applied_to_name_using_dataset_fail() throws Exception {
             ProjectPage ProjectPageObj = new ProjectPage(driver);
-            test.log(LogStatus.INFO, "ProjectBREDataSet");
-            test.log(LogStatus.PASS, "TestPassed");
             //Object creation
             ProjectBREDataSetPage ProjectBREDataSetPageObj = new ProjectBREDataSetPage(driver);
-
+            Robot r = new Robot();
             //TC-1.1 BRE Applied to NAME RULE Using DataSet = Fail.
             ProjectPageObj.ClickOnCreateProjectBtn();
             Thread.sleep(3000);
             //Navigate to Project Page.
-            ProjectPageObj.ClickOnProjectNameBtn(ReadProps.readAttr("BREProjectNameWithDataSet"));
+            ProjectPageObj.ClickOnProjectNameBtn(ReadProps.readAttr("BREProjectName"));
             Thread.sleep(2000);
             ProjectPageObj.ClickOnLeadBtn();
             Thread.sleep(2000);
@@ -79,7 +78,6 @@ public class ProjectBREDataSetTest extends BasePage {
             Thread.sleep(1000);
             JavascriptExecutor js = (JavascriptExecutor) driver;
             js.executeScript("window.scrollBy(0,-1000)", "");
-            TakesScreen.takeSnapShot(driver, "test-output//ProjectBREDataSetTest//ProjectDetails.jpg");
             Thread.sleep(2000);
             js.executeScript("window.scrollBy(0,1000)", "");
             Thread.sleep(1000);
@@ -94,8 +92,6 @@ public class ProjectBREDataSetTest extends BasePage {
             Thread.sleep(1000);
             ProjectBREDataSetPageObj.SelectDataSet();
             Thread.sleep(1000);
-            TakesScreen.takeSnapShot(driver, "test-output//ProjectBREDataSetTest//DataSetAdded.jpg");
-            Thread.sleep(2000);
             ProjectBREPage ProjectBREPageObj = new ProjectBREPage(driver);
             //Navigate to Rules Page.
             ProjectBREPageObj.ClickOnNextPageButton();
@@ -113,22 +109,14 @@ public class ProjectBREDataSetTest extends BasePage {
             ProjectBREPageObj.ClickOnThreeDotsButton();
             Thread.sleep(2000);
             ProjectBREPageObj.ClickOnAddRulesButton();
-            Thread.sleep(1000);
-            TakesScreen.takeSnapShot(driver, "test-output//ProjectBREDataSetTest//AddRule1.jpg");
             Thread.sleep(2000);
             ProjectBREPageObj.ClickOnDeleteRulesButton();
-            Thread.sleep(1000);
-            TakesScreen.takeSnapShot(driver, "test-output//ProjectBREDataSetTest//DeleteRule1.jpg");
             Thread.sleep(2000);
             ProjectBREPageObj.ClickOnAddRulesButton();
             Thread.sleep(2000);
             ProjectBREPageObj.ClickOnExpandFirstRule();
-            Thread.sleep(1000);
-            TakesScreen.takeSnapShot(driver, "test-output//ProjectBREDataSetTest//ExpandRule1.jpg");
             Thread.sleep(2000);
             ProjectBREPageObj.ClickOnContractRuleButton();
-            Thread.sleep(1000);
-            TakesScreen.takeSnapShot(driver, "test-output//ProjectBREDataSetTest//ContractRule.jpg");
             Thread.sleep(2000);
             ProjectBREPageObj.ClickOnVisibility();
             Thread.sleep(2000);
@@ -166,22 +154,10 @@ public class ProjectBREDataSetTest extends BasePage {
             ProjectBREDataSetPageObj.SelectDataSetHeader();
             Thread.sleep(1000);
             ProjectBREPageObj.ClickOnSave();
-            TakesScreen.takeSnapShot(driver, "test-output//ProjectBREDataSetTest//ConditionSavedSuccessfully.jpg");
             Thread.sleep(1000);
             ProjectBREDataSetPageObj.ClickOnFirstDataSetBox();
-            TakesScreen.takeSnapShot(driver, "test-output//ProjectBREDataSetTest//FirstConditionBox.jpg");
             Thread.sleep(4000);
-//            ProjectBREPageObj.ClickOnCreateProjectButton();
-//            Thread.sleep(6000);
-//            TakesScreen.takeSnapShot(driver, "test-output//ProjectBRETest//ProjectCreatedSuccessfully.jpg");
-             // driver.close();
-            //Document should be uploaded from backend to check the output.
-
-
+    //Document should be uploaded from backend to check the output.
 
         }
-        catch (Exception e) {
-            test.log(LogStatus.FAIL, e);
         }
-    }
-}

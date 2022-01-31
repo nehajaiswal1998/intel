@@ -1,0 +1,1466 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="273" passed="272" failed="1" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2022-01-30T22:13:21 GMT" name="All Test Suite" finished-at="2022-01-30T23:29:23 GMT" duration-ms="4562152">
+    <groups>
+    </groups>
+    <test started-at="2022-01-30T22:13:21 GMT" name="C:/Users/kishor_ghadge/IdeaProjects/Maven_Project" finished-at="2022-01-30T23:29:23 GMT" duration-ms="4562152">
+      <class name="Tests.ProjectBRETest">
+        <test-method is-config="true" signature="login()[pri:0, instance:Tests.ProjectBRETest@1ed1993a]" started-at="2022-01-30T22:50:31 GMT" name="login" finished-at="2022-01-30T22:50:41 GMT" duration-ms="9246" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method signature="bre_applied_to_name_pass()[pri:1, instance:Tests.ProjectBRETest@1ed1993a]" started-at="2022-01-30T22:50:41 GMT" name="bre_applied_to_name_pass" finished-at="2022-01-30T22:54:49 GMT" duration-ms="247803" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- bre_applied_to_name_pass -->
+        <test-method signature="bre_applied_to_name_fail()[pri:2, instance:Tests.ProjectBRETest@1ed1993a]" started-at="2022-01-30T22:54:49 GMT" name="bre_applied_to_name_fail" finished-at="2022-01-30T22:55:05 GMT" duration-ms="16905" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- bre_applied_to_name_fail -->
+        <test-method signature="bre_applied_to_address_pass()[pri:3, instance:Tests.ProjectBRETest@1ed1993a]" started-at="2022-01-30T22:55:05 GMT" name="bre_applied_to_address_pass" finished-at="2022-01-30T22:55:46 GMT" duration-ms="40103" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- bre_applied_to_address_pass -->
+        <test-method signature="bre_applied_to_address_fail()[pri:4, instance:Tests.ProjectBRETest@1ed1993a]" started-at="2022-01-30T22:55:46 GMT" name="bre_applied_to_address_fail" finished-at="2022-01-30T22:56:03 GMT" duration-ms="17082" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- bre_applied_to_address_fail -->
+        <test-method signature="bre_applied_to_state_pass()[pri:5, instance:Tests.ProjectBRETest@1ed1993a]" started-at="2022-01-30T22:56:03 GMT" name="bre_applied_to_state_pass" finished-at="2022-01-30T22:56:39 GMT" duration-ms="36300" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- bre_applied_to_state_pass -->
+        <test-method signature="bre_applied_to_state_fail()[pri:6, instance:Tests.ProjectBRETest@1ed1993a]" started-at="2022-01-30T22:56:39 GMT" name="bre_applied_to_state_fail" finished-at="2022-01-30T22:56:56 GMT" duration-ms="17137" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- bre_applied_to_state_fail -->
+        <test-method is-config="true" signature="cleanUp()[pri:0, instance:Tests.ProjectBRETest@1ed1993a]" started-at="2022-01-30T22:56:56 GMT" name="cleanUp" finished-at="2022-01-30T22:56:56 GMT" duration-ms="393" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+      </class> <!-- Tests.ProjectBRETest -->
+      <class name="Tests.DocProcessFreeFormTest">
+        <test-method is-config="true" signature="login()[pri:0, instance:Tests.DocProcessFreeFormTest@161479c6]" started-at="2022-01-30T22:25:05 GMT" name="login" finished-at="2022-01-30T22:25:15 GMT" duration-ms="9125" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method signature="search_project()[pri:1, instance:Tests.DocProcessFreeFormTest@161479c6]" started-at="2022-01-30T22:25:15 GMT" name="search_project" finished-at="2022-01-30T22:25:33 GMT" duration-ms="18003" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- search_project -->
+        <test-method signature="search_document()[pri:2, instance:Tests.DocProcessFreeFormTest@161479c6]" started-at="2022-01-30T22:25:33 GMT" name="search_document" finished-at="2022-01-30T22:25:37 GMT" duration-ms="4281" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- search_document -->
+        <test-method signature="update_document_cancel_it()[pri:3, instance:Tests.DocProcessFreeFormTest@161479c6]" started-at="2022-01-30T22:25:37 GMT" name="update_document_cancel_it" finished-at="2022-01-30T22:25:53 GMT" duration-ms="16594" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- update_document_cancel_it -->
+        <test-method signature="hide_unhide_analytics()[pri:4, instance:Tests.DocProcessFreeFormTest@161479c6]" started-at="2022-01-30T22:25:53 GMT" name="hide_unhide_analytics" finished-at="2022-01-30T22:25:58 GMT" duration-ms="4118" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- hide_unhide_analytics -->
+        <test-method signature="documents_filter()[pri:5, instance:Tests.DocProcessFreeFormTest@161479c6]" started-at="2022-01-30T22:25:58 GMT" name="documents_filter" finished-at="2022-01-30T22:26:12 GMT" duration-ms="14451" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- documents_filter -->
+        <test-method signature="sorting()[pri:6, instance:Tests.DocProcessFreeFormTest@161479c6]" started-at="2022-01-30T22:26:12 GMT" name="sorting" finished-at="2022-01-30T22:26:32 GMT" duration-ms="19717" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- sorting -->
+        <test-method signature="items_per_page()[pri:7, instance:Tests.DocProcessFreeFormTest@161479c6]" started-at="2022-01-30T22:26:32 GMT" name="items_per_page" finished-at="2022-01-30T22:26:36 GMT" duration-ms="4152" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- items_per_page -->
+        <test-method signature="next_page_previous_page_first_page_last_page()[pri:8, instance:Tests.DocProcessFreeFormTest@161479c6]" started-at="2022-01-30T22:26:36 GMT" name="next_page_previous_page_first_page_last_page" finished-at="2022-01-30T22:26:44 GMT" duration-ms="8307" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- next_page_previous_page_first_page_last_page -->
+        <test-method signature="anti_clockwise_clockwise_zoomin_zoomout_navigate_right_left()[pri:9, instance:Tests.DocProcessFreeFormTest@161479c6]" started-at="2022-01-30T22:26:44 GMT" name="anti_clockwise_clockwise_zoomin_zoomout_navigate_right_left" finished-at="2022-01-30T22:27:11 GMT" duration-ms="26822" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- anti_clockwise_clockwise_zoomin_zoomout_navigate_right_left -->
+        <test-method is-config="true" signature="cleanUp()[pri:0, instance:Tests.DocProcessFreeFormTest@161479c6]" started-at="2022-01-30T22:27:11 GMT" name="cleanUp" finished-at="2022-01-30T22:27:11 GMT" duration-ms="282" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+      </class> <!-- Tests.DocProcessFreeFormTest -->
+      <class name="Tests.FunctionalTabTest">
+        <test-method is-config="true" signature="login()[pri:0, instance:Tests.FunctionalTabTest@670002]" started-at="2022-01-30T22:34:48 GMT" name="login" finished-at="2022-01-30T22:34:57 GMT" duration-ms="9524" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method signature="click_on_n_icon()[pri:1, instance:Tests.FunctionalTabTest@670002]" started-at="2022-01-30T22:34:57 GMT" name="click_on_n_icon" finished-at="2022-01-30T22:35:01 GMT" duration-ms="3253" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- click_on_n_icon -->
+        <test-method signature="horizontal_users_tab()[pri:2, instance:Tests.FunctionalTabTest@670002]" started-at="2022-01-30T22:35:01 GMT" name="horizontal_users_tab" finished-at="2022-01-30T22:35:10 GMT" duration-ms="9105" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- horizontal_users_tab -->
+        <test-method signature="horizontal_roles_tab()[pri:3, instance:Tests.FunctionalTabTest@670002]" started-at="2022-01-30T22:35:10 GMT" name="horizontal_roles_tab" finished-at="2022-01-30T22:35:21 GMT" duration-ms="11089" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- horizontal_roles_tab -->
+        <test-method signature="horizontal_templates_tab()[pri:4, instance:Tests.FunctionalTabTest@670002]" started-at="2022-01-30T22:35:21 GMT" name="horizontal_templates_tab" finished-at="2022-01-30T22:35:34 GMT" duration-ms="13176" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- horizontal_templates_tab -->
+        <test-method signature="horizontal_datasets_tab()[pri:5, instance:Tests.FunctionalTabTest@670002]" started-at="2022-01-30T22:35:34 GMT" name="horizontal_datasets_tab" finished-at="2022-01-30T22:35:45 GMT" duration-ms="11170" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- horizontal_datasets_tab -->
+        <test-method signature="horizontal_projects_tab()[pri:6, instance:Tests.FunctionalTabTest@670002]" started-at="2022-01-30T22:35:45 GMT" name="horizontal_projects_tab" finished-at="2022-01-30T22:35:58 GMT" duration-ms="13236" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- horizontal_projects_tab -->
+        <test-method signature="horizontal_documents_tab()[pri:7, instance:Tests.FunctionalTabTest@670002]" started-at="2022-01-30T22:35:58 GMT" name="horizontal_documents_tab" finished-at="2022-01-30T22:36:10 GMT" duration-ms="11227" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- horizontal_documents_tab -->
+        <test-method signature="horizontal_analytics_tab()[pri:8, instance:Tests.FunctionalTabTest@670002]" started-at="2022-01-30T22:36:10 GMT" name="horizontal_analytics_tab" finished-at="2022-01-30T22:36:21 GMT" duration-ms="11552" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- horizontal_analytics_tab -->
+        <test-method signature="vertical_users_tab()[pri:9, instance:Tests.FunctionalTabTest@670002]" started-at="2022-01-30T22:36:21 GMT" name="vertical_users_tab" finished-at="2022-01-30T22:36:32 GMT" duration-ms="11192" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- vertical_users_tab -->
+        <test-method signature="vertical_roles_tab()[pri:10, instance:Tests.FunctionalTabTest@670002]" started-at="2022-01-30T22:36:32 GMT" name="vertical_roles_tab" finished-at="2022-01-30T22:36:43 GMT" duration-ms="11131" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- vertical_roles_tab -->
+        <test-method signature="vertical_templates_tab()[pri:11, instance:Tests.FunctionalTabTest@670002]" started-at="2022-01-30T22:36:43 GMT" name="vertical_templates_tab" finished-at="2022-01-30T22:36:57 GMT" duration-ms="13147" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- vertical_templates_tab -->
+        <test-method signature="vertical_datasets_tab()[pri:12, instance:Tests.FunctionalTabTest@670002]" started-at="2022-01-30T22:36:57 GMT" name="vertical_datasets_tab" finished-at="2022-01-30T22:37:08 GMT" duration-ms="11140" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- vertical_datasets_tab -->
+        <test-method signature="vertical_projects_tab()[pri:13, instance:Tests.FunctionalTabTest@670002]" started-at="2022-01-30T22:37:08 GMT" name="vertical_projects_tab" finished-at="2022-01-30T22:37:21 GMT" duration-ms="13230" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- vertical_projects_tab -->
+        <test-method signature="vertical_Documents_tab()[pri:14, instance:Tests.FunctionalTabTest@670002]" started-at="2022-01-30T22:37:21 GMT" name="vertical_Documents_tab" finished-at="2022-01-30T22:37:31 GMT" duration-ms="10477" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- vertical_Documents_tab -->
+        <test-method signature="vertical_analytics_tab()[pri:15, instance:Tests.FunctionalTabTest@670002]" started-at="2022-01-30T22:37:31 GMT" name="vertical_analytics_tab" finished-at="2022-01-30T22:37:42 GMT" duration-ms="10288" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- vertical_analytics_tab -->
+        <test-method is-config="true" signature="cleanUp()[pri:0, instance:Tests.FunctionalTabTest@670002]" started-at="2022-01-30T22:37:42 GMT" name="cleanUp" finished-at="2022-01-30T22:37:42 GMT" duration-ms="375" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+      </class> <!-- Tests.FunctionalTabTest -->
+      <class name="Tests.ProjectBREMedicalChartDocumentTest1">
+        <test-method is-config="true" signature="login()[pri:0, instance:Tests.ProjectBREMedicalChartDocumentTest1@96def03]" started-at="2022-01-30T22:45:42 GMT" name="login" finished-at="2022-01-30T22:45:52 GMT" duration-ms="9461" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method signature="verify_rejected_document_no_data_extracted_on_medical_chart()[pri:1, instance:Tests.ProjectBREMedicalChartDocumentTest1@96def03]" started-at="2022-01-30T22:45:52 GMT" name="verify_rejected_document_no_data_extracted_on_medical_chart" finished-at="2022-01-30T22:46:17 GMT" duration-ms="25226" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_rejected_document_no_data_extracted_on_medical_chart -->
+        <test-method signature="edit_encounter_detail_and_enter_invalid_npi_physician_on_medical_chart()[pri:2, instance:Tests.ProjectBREMedicalChartDocumentTest1@96def03]" started-at="2022-01-30T22:46:17 GMT" name="edit_encounter_detail_and_enter_invalid_npi_physician_on_medical_chart" finished-at="2022-01-30T22:46:32 GMT" duration-ms="15286" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- edit_encounter_detail_and_enter_invalid_npi_physician_on_medical_chart -->
+        <test-method signature="run_rule_for_invalid_physicians_sign_on_medical_chart()[pri:3, instance:Tests.ProjectBREMedicalChartDocumentTest1@96def03]" started-at="2022-01-30T22:46:32 GMT" name="run_rule_for_invalid_physicians_sign_on_medical_chart" finished-at="2022-01-30T22:46:46 GMT" duration-ms="13867" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- run_rule_for_invalid_physicians_sign_on_medical_chart -->
+        <test-method signature="verify_icd_on_medical_chart()[pri:4, instance:Tests.ProjectBREMedicalChartDocumentTest1@96def03]" started-at="2022-01-30T22:46:46 GMT" name="verify_icd_on_medical_chart" finished-at="2022-01-30T22:47:19 GMT" duration-ms="32512" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_icd_on_medical_chart -->
+        <test-method signature="save_without_hcc_comments_on_medical_chart()[pri:5, instance:Tests.ProjectBREMedicalChartDocumentTest1@96def03]" started-at="2022-01-30T22:47:19 GMT" name="save_without_hcc_comments_on_medical_chart" finished-at="2022-01-30T22:47:20 GMT" duration-ms="1079" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- save_without_hcc_comments_on_medical_chart -->
+        <test-method signature="save_with_hcc_comments_on_medical_chart()[pri:6, instance:Tests.ProjectBREMedicalChartDocumentTest1@96def03]" started-at="2022-01-30T22:47:20 GMT" name="save_with_hcc_comments_on_medical_chart" finished-at="2022-01-30T22:47:28 GMT" duration-ms="8577" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- save_with_hcc_comments_on_medical_chart -->
+        <test-method is-config="true" signature="cleanUp()[pri:0, instance:Tests.ProjectBREMedicalChartDocumentTest1@96def03]" started-at="2022-01-30T22:47:28 GMT" name="cleanUp" finished-at="2022-01-30T22:47:29 GMT" duration-ms="369" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+      </class> <!-- Tests.ProjectBREMedicalChartDocumentTest1 -->
+      <class name="Tests.CreateUpdateRolePlatformAdminTest">
+        <test-method is-config="true" signature="login()[pri:0, instance:Tests.CreateUpdateRolePlatformAdminTest@6ac13091]" started-at="2022-01-30T22:17:54 GMT" name="login" finished-at="2022-01-30T22:18:03 GMT" duration-ms="9311" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method signature="create_role_with_blank_rolename_permission()[pri:1, instance:Tests.CreateUpdateRolePlatformAdminTest@6ac13091]" started-at="2022-01-30T22:18:03 GMT" name="create_role_with_blank_rolename_permission" finished-at="2022-01-30T22:18:21 GMT" duration-ms="17314" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- create_role_with_blank_rolename_permission -->
+        <test-method signature="create_role_with_valid_rolename_blank_permission()[pri:2, instance:Tests.CreateUpdateRolePlatformAdminTest@6ac13091]" started-at="2022-01-30T22:18:21 GMT" name="create_role_with_valid_rolename_blank_permission" finished-at="2022-01-30T22:18:33 GMT" duration-ms="11727" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- create_role_with_valid_rolename_blank_permission -->
+        <test-method signature="create_role_with_blank_rolename_valid_permission()[pri:3, instance:Tests.CreateUpdateRolePlatformAdminTest@6ac13091]" started-at="2022-01-30T22:18:33 GMT" name="create_role_with_blank_rolename_valid_permission" finished-at="2022-01-30T22:18:51 GMT" duration-ms="18417" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- create_role_with_blank_rolename_valid_permission -->
+        <test-method signature="create_role_with_valid_rolename_permission()[pri:4, instance:Tests.CreateUpdateRolePlatformAdminTest@6ac13091]" started-at="2022-01-30T22:18:51 GMT" name="create_role_with_valid_rolename_permission" finished-at="2022-01-30T22:19:09 GMT" duration-ms="18481" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- create_role_with_valid_rolename_permission -->
+        <test-method signature="create_role_with_existing_name()[pri:5, instance:Tests.CreateUpdateRolePlatformAdminTest@6ac13091]" started-at="2022-01-30T22:19:09 GMT" name="create_role_with_existing_name" finished-at="2022-01-30T22:19:30 GMT" duration-ms="20512" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- create_role_with_existing_name -->
+        <test-method signature="search_created_role()[pri:6, instance:Tests.CreateUpdateRolePlatformAdminTest@6ac13091]" started-at="2022-01-30T22:19:30 GMT" name="search_created_role" finished-at="2022-01-30T22:19:33 GMT" duration-ms="3267" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- search_created_role -->
+        <test-method signature="update_role_with_valid_data()[pri:7, instance:Tests.CreateUpdateRolePlatformAdminTest@6ac13091]" started-at="2022-01-30T22:19:33 GMT" name="update_role_with_valid_data" finished-at="2022-01-30T22:19:51 GMT" duration-ms="17406" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- update_role_with_valid_data -->
+        <test-method signature="remove_all_permissions_update()[pri:8, instance:Tests.CreateUpdateRolePlatformAdminTest@6ac13091]" started-at="2022-01-30T22:19:51 GMT" name="remove_all_permissions_update" finished-at="2022-01-30T22:20:03 GMT" duration-ms="12326" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- remove_all_permissions_update -->
+        <test-method signature="disable_status_role_update()[pri:9, instance:Tests.CreateUpdateRolePlatformAdminTest@6ac13091]" started-at="2022-01-30T22:20:03 GMT" name="disable_status_role_update" finished-at="2022-01-30T22:20:14 GMT" duration-ms="11250" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- disable_status_role_update -->
+        <test-method signature="enable_status_role_update()[pri:10, instance:Tests.CreateUpdateRolePlatformAdminTest@6ac13091]" started-at="2022-01-30T22:20:14 GMT" name="enable_status_role_update" finished-at="2022-01-30T22:20:30 GMT" duration-ms="15335" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- enable_status_role_update -->
+        <test-method is-config="true" signature="cleanUp()[pri:0, instance:Tests.CreateUpdateRolePlatformAdminTest@6ac13091]" started-at="2022-01-30T22:20:30 GMT" name="cleanUp" finished-at="2022-01-30T22:20:30 GMT" duration-ms="280" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+      </class> <!-- Tests.CreateUpdateRolePlatformAdminTest -->
+      <class name="Tests.ProjectFlowStructuredTest">
+        <test-method is-config="true" signature="login()[pri:0, instance:Tests.ProjectFlowStructuredTest@59d016c9]" started-at="2022-01-30T23:01:11 GMT" name="login" finished-at="2022-01-30T23:01:21 GMT" duration-ms="9188" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method signature="create_project_with_blank_data()[pri:1, instance:Tests.ProjectFlowStructuredTest@59d016c9]" started-at="2022-01-30T23:01:21 GMT" name="create_project_with_blank_data" finished-at="2022-01-30T23:01:28 GMT" duration-ms="7150" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- create_project_with_blank_data -->
+        <test-method signature="next_button_with_blank_info_for_platform_admin()[pri:2, instance:Tests.ProjectFlowStructuredTest@59d016c9]" started-at="2022-01-30T23:01:28 GMT" name="next_button_with_blank_info_for_platform_admin" finished-at="2022-01-30T23:01:40 GMT" duration-ms="12701" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- next_button_with_blank_info_for_platform_admin -->
+        <test-method signature="cancel_with_blank_info()[pri:3, instance:Tests.ProjectFlowStructuredTest@59d016c9]" started-at="2022-01-30T23:01:40 GMT" name="cancel_with_blank_info" finished-at="2022-01-30T23:01:56 GMT" duration-ms="15491" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cancel_with_blank_info -->
+        <test-method signature="create_project_with_invalid_name()[pri:4, instance:Tests.ProjectFlowStructuredTest@59d016c9]" started-at="2022-01-30T23:01:56 GMT" name="create_project_with_invalid_name" finished-at="2022-01-30T23:02:56 GMT" duration-ms="60568" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- create_project_with_invalid_name -->
+        <test-method signature="create_project_without_template()[pri:5, instance:Tests.ProjectFlowStructuredTest@59d016c9]" started-at="2022-01-30T23:02:56 GMT" name="create_project_without_template" finished-at="2022-01-30T23:03:39 GMT" duration-ms="42447" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- create_project_without_template -->
+        <test-method signature="create_project_without_role()[pri:6, instance:Tests.ProjectFlowStructuredTest@59d016c9]" started-at="2022-01-30T23:03:39 GMT" name="create_project_without_role" finished-at="2022-01-30T23:03:45 GMT" duration-ms="6510" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- create_project_without_role -->
+        <test-method signature="create_project_without_user_and_with_valid_data()[pri:7, instance:Tests.ProjectFlowStructuredTest@59d016c9]" started-at="2022-01-30T23:03:45 GMT" name="create_project_without_user_and_with_valid_data" finished-at="2022-01-30T23:04:11 GMT" duration-ms="25148" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- create_project_without_user_and_with_valid_data -->
+        <test-method signature="create_project_with_disable_status()[pri:8, instance:Tests.ProjectFlowStructuredTest@59d016c9]" started-at="2022-01-30T23:04:11 GMT" name="create_project_with_disable_status" finished-at="2022-01-30T23:05:18 GMT" duration-ms="67109" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- create_project_with_disable_status -->
+        <test-method signature="create_project_only_with_role_info()[pri:9, instance:Tests.ProjectFlowStructuredTest@59d016c9]" started-at="2022-01-30T23:05:18 GMT" name="create_project_only_with_role_info" finished-at="2022-01-30T23:05:51 GMT" duration-ms="33658" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- create_project_only_with_role_info -->
+        <test-method signature="create_project_with_blank_info()[pri:10, instance:Tests.ProjectFlowStructuredTest@59d016c9]" started-at="2022-01-30T23:05:51 GMT" name="create_project_with_blank_info" finished-at="2022-01-30T23:06:07 GMT" duration-ms="15796" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- create_project_with_blank_info -->
+        <test-method signature="verify_next_button_with_blank_info()[pri:11, instance:Tests.ProjectFlowStructuredTest@59d016c9]" started-at="2022-01-30T23:06:07 GMT" name="verify_next_button_with_blank_info" finished-at="2022-01-30T23:06:19 GMT" duration-ms="11615" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_next_button_with_blank_info -->
+        <test-method signature="verify_cancel_with_blank_info()[pri:12, instance:Tests.ProjectFlowStructuredTest@59d016c9]" started-at="2022-01-30T23:06:19 GMT" name="verify_cancel_with_blank_info" finished-at="2022-01-30T23:06:33 GMT" duration-ms="14501" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_cancel_with_blank_info -->
+        <test-method signature="create_project_with_invalid_project_name()[pri:13, instance:Tests.ProjectFlowStructuredTest@59d016c9]" started-at="2022-01-30T23:06:33 GMT" name="create_project_with_invalid_project_name" finished-at="2022-01-30T23:07:34 GMT" duration-ms="60318" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- create_project_with_invalid_project_name -->
+        <test-method signature="create_project_without_template_for_admin()[pri:14, instance:Tests.ProjectFlowStructuredTest@59d016c9]" started-at="2022-01-30T23:07:34 GMT" name="create_project_without_template_for_admin" finished-at="2022-01-30T23:08:16 GMT" duration-ms="42506" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- create_project_without_template_for_admin -->
+        <test-method signature="create_project_without_role_for_admin()[pri:15, instance:Tests.ProjectFlowStructuredTest@59d016c9]" started-at="2022-01-30T23:08:16 GMT" name="create_project_without_role_for_admin" finished-at="2022-01-30T23:08:22 GMT" duration-ms="6297" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- create_project_without_role_for_admin -->
+        <test-method signature="create_project_without_user_for_admin()[pri:16, instance:Tests.ProjectFlowStructuredTest@59d016c9]" started-at="2022-01-30T23:08:22 GMT" name="create_project_without_user_for_admin" finished-at="2022-01-30T23:08:31 GMT" duration-ms="8805" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- create_project_without_user_for_admin -->
+        <test-method signature="create_project_with_disable_status_for_admin()[pri:17, instance:Tests.ProjectFlowStructuredTest@59d016c9]" started-at="2022-01-30T23:08:31 GMT" name="create_project_with_disable_status_for_admin" finished-at="2022-01-30T23:09:35 GMT" duration-ms="63642" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- create_project_with_disable_status_for_admin -->
+        <test-method signature="create_project_only_with_role_info_for_admin()[pri:18, instance:Tests.ProjectFlowStructuredTest@59d016c9]" started-at="2022-01-30T23:09:35 GMT" name="create_project_only_with_role_info_for_admin" finished-at="2022-01-30T23:10:08 GMT" duration-ms="33341" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- create_project_only_with_role_info_for_admin -->
+        <test-method signature="table_structure()[pri:19, instance:Tests.ProjectFlowStructuredTest@59d016c9]" started-at="2022-01-30T23:10:08 GMT" name="table_structure" finished-at="2022-01-30T23:10:33 GMT" duration-ms="25019" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- table_structure -->
+        <test-method signature="items_per_page()[pri:20, instance:Tests.ProjectFlowStructuredTest@59d016c9]" started-at="2022-01-30T23:10:33 GMT" name="items_per_page" finished-at="2022-01-30T23:10:40 GMT" duration-ms="7316" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- items_per_page -->
+        <test-method is-config="true" signature="cleanUp()[pri:0, instance:Tests.ProjectFlowStructuredTest@59d016c9]" started-at="2022-01-30T23:10:40 GMT" name="cleanUp" finished-at="2022-01-30T23:10:41 GMT" duration-ms="328" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+      </class> <!-- Tests.ProjectFlowStructuredTest -->
+      <class name="Tests.CreateUpdateRoleAdminTest">
+        <test-method is-config="true" signature="login()[pri:0, instance:Tests.CreateUpdateRoleAdminTest@48fa0f47]" started-at="2022-01-30T22:15:06 GMT" name="login" finished-at="2022-01-30T22:15:07 GMT" duration-ms="1135" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method signature="login_with_valid_details()[pri:1, instance:Tests.CreateUpdateRoleAdminTest@48fa0f47]" started-at="2022-01-30T22:15:07 GMT" name="login_with_valid_details" finished-at="2022-01-30T22:15:37 GMT" duration-ms="29612" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login_with_valid_details -->
+        <test-method signature="blank_role_name_permission()[pri:2, instance:Tests.CreateUpdateRoleAdminTest@48fa0f47]" started-at="2022-01-30T22:15:37 GMT" name="blank_role_name_permission" finished-at="2022-01-30T22:15:46 GMT" duration-ms="8704" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- blank_role_name_permission -->
+        <test-method signature="valid_role_name_blank_permission()[pri:3, instance:Tests.CreateUpdateRoleAdminTest@48fa0f47]" started-at="2022-01-30T22:15:46 GMT" name="valid_role_name_blank_permission" finished-at="2022-01-30T22:16:00 GMT" duration-ms="13810" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- valid_role_name_blank_permission -->
+        <test-method signature="blank_role_name_valid_permission()[pri:4, instance:Tests.CreateUpdateRoleAdminTest@48fa0f47]" started-at="2022-01-30T22:16:00 GMT" name="blank_role_name_valid_permission" finished-at="2022-01-30T22:16:14 GMT" duration-ms="14469" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- blank_role_name_valid_permission -->
+        <test-method signature="valid_role_and_permission()[pri:5, instance:Tests.CreateUpdateRoleAdminTest@48fa0f47]" started-at="2022-01-30T22:16:14 GMT" name="valid_role_and_permission" finished-at="2022-01-30T22:16:33 GMT" duration-ms="18512" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- valid_role_and_permission -->
+        <test-method signature="create_role_with_existing_rolename()[pri:6, instance:Tests.CreateUpdateRoleAdminTest@48fa0f47]" started-at="2022-01-30T22:16:33 GMT" name="create_role_with_existing_rolename" finished-at="2022-01-30T22:16:52 GMT" duration-ms="19566" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- create_role_with_existing_rolename -->
+        <test-method signature="search_created_role()[pri:7, instance:Tests.CreateUpdateRoleAdminTest@48fa0f47]" started-at="2022-01-30T22:16:52 GMT" name="search_created_role" finished-at="2022-01-30T22:16:54 GMT" duration-ms="2230" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- search_created_role -->
+        <test-method signature="update_role_with_valid_data()[pri:8, instance:Tests.CreateUpdateRoleAdminTest@48fa0f47]" started-at="2022-01-30T22:16:54 GMT" name="update_role_with_valid_data" finished-at="2022-01-30T22:17:15 GMT" duration-ms="20489" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- update_role_with_valid_data -->
+        <test-method signature="remove_all_permissions()[pri:9, instance:Tests.CreateUpdateRoleAdminTest@48fa0f47]" started-at="2022-01-30T22:17:15 GMT" name="remove_all_permissions" finished-at="2022-01-30T22:17:27 GMT" duration-ms="12373" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- remove_all_permissions -->
+        <test-method signature="disable_the_status_of_role_update()[pri:10, instance:Tests.CreateUpdateRoleAdminTest@48fa0f47]" started-at="2022-01-30T22:17:27 GMT" name="disable_the_status_of_role_update" finished-at="2022-01-30T22:17:38 GMT" duration-ms="11245" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- disable_the_status_of_role_update -->
+        <test-method signature="enable_status_role_update()[pri:11, instance:Tests.CreateUpdateRoleAdminTest@48fa0f47]" started-at="2022-01-30T22:17:38 GMT" name="enable_status_role_update" finished-at="2022-01-30T22:17:54 GMT" duration-ms="15447" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- enable_status_role_update -->
+        <test-method is-config="true" signature="cleanUp()[pri:0, instance:Tests.CreateUpdateRoleAdminTest@48fa0f47]" started-at="2022-01-30T22:17:54 GMT" name="cleanUp" finished-at="2022-01-30T22:17:54 GMT" duration-ms="286" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+      </class> <!-- Tests.CreateUpdateRoleAdminTest -->
+      <class name="Tests.ForgetPwdTest">
+        <test-method is-config="true" signature="login()[pri:0, instance:Tests.ForgetPwdTest@778d1062]" started-at="2022-01-30T22:34:04 GMT" name="login" finished-at="2022-01-30T22:34:06 GMT" duration-ms="1334" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method signature="click_on_cancel_button_on_forgot_password()[pri:1, instance:Tests.ForgetPwdTest@778d1062]" started-at="2022-01-30T22:34:06 GMT" name="click_on_cancel_button_on_forgot_password" finished-at="2022-01-30T22:34:19 GMT" duration-ms="13517" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- click_on_cancel_button_on_forgot_password -->
+        <test-method signature="first_login_not_done()[pri:2, instance:Tests.ForgetPwdTest@778d1062]" started-at="2022-01-30T22:34:19 GMT" name="first_login_not_done" finished-at="2022-01-30T22:34:25 GMT" duration-ms="5384" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- first_login_not_done -->
+        <test-method signature="invalid_email()[pri:3, instance:Tests.ForgetPwdTest@778d1062]" started-at="2022-01-30T22:34:25 GMT" name="invalid_email" finished-at="2022-01-30T22:34:29 GMT" duration-ms="4437" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- invalid_email -->
+        <test-method signature="user_not_exists()[pri:4, instance:Tests.ForgetPwdTest@778d1062]" started-at="2022-01-30T22:34:29 GMT" name="user_not_exists" finished-at="2022-01-30T22:34:38 GMT" duration-ms="8825" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- user_not_exists -->
+        <test-method signature="disable_user()[pri:5, instance:Tests.ForgetPwdTest@778d1062]" started-at="2022-01-30T22:34:38 GMT" name="disable_user" finished-at="2022-01-30T22:34:48 GMT" duration-ms="9646" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- disable_user -->
+        <test-method is-config="true" signature="cleanUp()[pri:0, instance:Tests.ForgetPwdTest@778d1062]" started-at="2022-01-30T22:34:48 GMT" name="cleanUp" finished-at="2022-01-30T22:34:48 GMT" duration-ms="250" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+      </class> <!-- Tests.ForgetPwdTest -->
+      <class name="Tests.LoginTest">
+        <test-method is-config="true" signature="login()[pri:0, instance:Tests.LoginTest@1f0f1111]" started-at="2022-01-30T22:37:42 GMT" name="login" finished-at="2022-01-30T22:37:43 GMT" duration-ms="911" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method signature="verification_of_title_logo_and_login_with_blank_details()[pri:1, instance:Tests.LoginTest@1f0f1111]" started-at="2022-01-30T22:37:43 GMT" name="verification_of_title_logo_and_login_with_blank_details" finished-at="2022-01-30T22:37:50 GMT" duration-ms="7082" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verification_of_title_logo_and_login_with_blank_details -->
+        <test-method signature="login_with_invalid_username_and_blank_password()[pri:2, instance:Tests.LoginTest@1f0f1111]" started-at="2022-01-30T22:37:50 GMT" name="login_with_invalid_username_and_blank_password" finished-at="2022-01-30T22:37:52 GMT" duration-ms="2219" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login_with_invalid_username_and_blank_password -->
+        <test-method signature="login_with_blank_username_and_valid_password()[pri:3, instance:Tests.LoginTest@1f0f1111]" started-at="2022-01-30T22:37:52 GMT" name="login_with_blank_username_and_valid_password" finished-at="2022-01-30T22:37:59 GMT" duration-ms="6215" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login_with_blank_username_and_valid_password -->
+        <test-method signature="login_with_blank_username_and_invalid_password()[pri:4, instance:Tests.LoginTest@1f0f1111]" started-at="2022-01-30T22:37:59 GMT" name="login_with_blank_username_and_invalid_password" finished-at="2022-01-30T22:38:04 GMT" duration-ms="5163" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login_with_blank_username_and_invalid_password -->
+        <test-method signature="login_with_valid_username_and_blank_password()[pri:5, instance:Tests.LoginTest@1f0f1111]" started-at="2022-01-30T22:38:04 GMT" name="login_with_valid_username_and_blank_password" finished-at="2022-01-30T22:38:12 GMT" duration-ms="8691" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login_with_valid_username_and_blank_password -->
+        <test-method signature="login_with_invalid_username_and_password()[pri:6, instance:Tests.LoginTest@1f0f1111]" started-at="2022-01-30T22:38:12 GMT" name="login_with_invalid_username_and_password" finished-at="2022-01-30T22:38:17 GMT" duration-ms="4324" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login_with_invalid_username_and_password -->
+        <test-method signature="login_with_invalid_username_and_valid_password()[pri:7, instance:Tests.LoginTest@1f0f1111]" started-at="2022-01-30T22:38:17 GMT" name="login_with_invalid_username_and_valid_password" finished-at="2022-01-30T22:38:24 GMT" duration-ms="7631" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login_with_invalid_username_and_valid_password -->
+        <test-method signature="login_with_valid_username_and_invalid_password()[pri:8, instance:Tests.LoginTest@1f0f1111]" started-at="2022-01-30T22:38:24 GMT" name="login_with_valid_username_and_invalid_password" finished-at="2022-01-30T22:38:32 GMT" duration-ms="7627" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login_with_valid_username_and_invalid_password -->
+        <test-method signature="login_with_valid_username_and_password()[pri:9, instance:Tests.LoginTest@1f0f1111]" started-at="2022-01-30T22:38:32 GMT" name="login_with_valid_username_and_password" finished-at="2022-01-30T22:38:50 GMT" duration-ms="17589" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login_with_valid_username_and_password -->
+        <test-method signature="navigate_backward()[pri:10, instance:Tests.LoginTest@1f0f1111]" started-at="2022-01-30T22:38:50 GMT" name="navigate_backward" finished-at="2022-01-30T22:38:52 GMT" duration-ms="2590" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- navigate_backward -->
+        <test-method signature="logout_for_platform_admin()[pri:11, instance:Tests.LoginTest@1f0f1111]" started-at="2022-01-30T22:38:52 GMT" name="logout_for_platform_admin" finished-at="2022-01-30T22:38:57 GMT" duration-ms="5117" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logout_for_platform_admin -->
+        <test-method signature="login_with_invalid_username_password()[pri:12, instance:Tests.LoginTest@1f0f1111]" started-at="2022-01-30T22:38:57 GMT" name="login_with_invalid_username_password" finished-at="2022-01-30T22:39:02 GMT" duration-ms="4333" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login_with_invalid_username_password -->
+        <test-method signature="login_with_invalid_username_and_valid_password_for_admin()[pri:13, instance:Tests.LoginTest@1f0f1111]" started-at="2022-01-30T22:39:02 GMT" name="login_with_invalid_username_and_valid_password_for_admin" finished-at="2022-01-30T22:39:09 GMT" duration-ms="7595" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login_with_invalid_username_and_valid_password_for_admin -->
+        <test-method signature="login_with_valid_username_and_invalid_password_admin()[pri:14, instance:Tests.LoginTest@1f0f1111]" started-at="2022-01-30T22:39:09 GMT" name="login_with_valid_username_and_invalid_password_admin" finished-at="2022-01-30T22:39:17 GMT" duration-ms="7634" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login_with_valid_username_and_invalid_password_admin -->
+        <test-method signature="login_with_valid_username_and_password_admin()[pri:15, instance:Tests.LoginTest@1f0f1111]" started-at="2022-01-30T22:39:17 GMT" name="login_with_valid_username_and_password_admin" finished-at="2022-01-30T22:39:36 GMT" duration-ms="19638" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login_with_valid_username_and_password_admin -->
+        <test-method signature="login_with_invalid_username_and_password_supervisor()[pri:16, instance:Tests.LoginTest@1f0f1111]" started-at="2022-01-30T22:39:36 GMT" name="login_with_invalid_username_and_password_supervisor" finished-at="2022-01-30T22:39:44 GMT" duration-ms="7504" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login_with_invalid_username_and_password_supervisor -->
+        <test-method signature="login_with_invalid_username_and_valid_password_supervisor()[pri:17, instance:Tests.LoginTest@1f0f1111]" started-at="2022-01-30T22:39:44 GMT" name="login_with_invalid_username_and_valid_password_supervisor" finished-at="2022-01-30T22:39:52 GMT" duration-ms="7579" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login_with_invalid_username_and_valid_password_supervisor -->
+        <test-method signature="login_with_valid_username_and_invalid_password_supervisor()[pri:18, instance:Tests.LoginTest@1f0f1111]" started-at="2022-01-30T22:39:52 GMT" name="login_with_valid_username_and_invalid_password_supervisor" finished-at="2022-01-30T22:39:59 GMT" duration-ms="7611" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login_with_valid_username_and_invalid_password_supervisor -->
+        <test-method signature="login_with_valid_username_and_password_supervisor()[pri:19, instance:Tests.LoginTest@1f0f1111]" started-at="2022-01-30T22:39:59 GMT" name="login_with_valid_username_and_password_supervisor" finished-at="2022-01-30T22:40:17 GMT" duration-ms="17706" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login_with_valid_username_and_password_supervisor -->
+        <test-method signature="login_with_invalid_username_and_password_for_operator()[pri:20, instance:Tests.LoginTest@1f0f1111]" started-at="2022-01-30T22:40:17 GMT" name="login_with_invalid_username_and_password_for_operator" finished-at="2022-01-30T22:40:24 GMT" duration-ms="7527" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login_with_invalid_username_and_password_for_operator -->
+        <test-method signature="login_with_invalid_username_and_valid_password_for_operator()[pri:21, instance:Tests.LoginTest@1f0f1111]" started-at="2022-01-30T22:40:24 GMT" name="login_with_invalid_username_and_valid_password_for_operator" finished-at="2022-01-30T22:40:32 GMT" duration-ms="7613" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login_with_invalid_username_and_valid_password_for_operator -->
+        <test-method signature="login_with_valid_username_and_invalid_password_for_operator()[pri:22, instance:Tests.LoginTest@1f0f1111]" started-at="2022-01-30T22:40:32 GMT" name="login_with_valid_username_and_invalid_password_for_operator" finished-at="2022-01-30T22:40:40 GMT" duration-ms="7600" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login_with_valid_username_and_invalid_password_for_operator -->
+        <test-method signature="login_with_valid_username_and_password_for_operator()[pri:23, instance:Tests.LoginTest@1f0f1111]" started-at="2022-01-30T22:40:40 GMT" name="login_with_valid_username_and_password_for_operator" finished-at="2022-01-30T22:41:00 GMT" duration-ms="20646" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login_with_valid_username_and_password_for_operator -->
+        <test-method is-config="true" signature="cleanUp()[pri:0, instance:Tests.LoginTest@1f0f1111]" started-at="2022-01-30T22:41:00 GMT" name="cleanUp" finished-at="2022-01-30T22:41:01 GMT" duration-ms="336" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+      </class> <!-- Tests.LoginTest -->
+      <class name="Tests.ProjectFlowStructuredTest1">
+        <test-method is-config="true" signature="login()[pri:0, instance:Tests.ProjectFlowStructuredTest1@3cc2931c]" started-at="2022-01-30T23:10:41 GMT" name="login" finished-at="2022-01-30T23:10:50 GMT" duration-ms="9309" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method signature="disable_active_project_on_Project_page()[pri:1, instance:Tests.ProjectFlowStructuredTest1@3cc2931c]" started-at="2022-01-30T23:10:50 GMT" name="disable_active_project_on_Project_page" finished-at="2022-01-30T23:11:21 GMT" duration-ms="30531" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- disable_active_project_on_Project_page -->
+        <test-method signature="verify_disabled_project_on_Project_page()[pri:2, instance:Tests.ProjectFlowStructuredTest1@3cc2931c]" started-at="2022-01-30T23:11:21 GMT" name="verify_disabled_project_on_Project_page" finished-at="2022-01-30T23:11:37 GMT" duration-ms="16071" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_disabled_project_on_Project_page -->
+        <test-method is-config="true" signature="cleanUp()[pri:0, instance:Tests.ProjectFlowStructuredTest1@3cc2931c]" started-at="2022-01-30T23:11:37 GMT" name="cleanUp" finished-at="2022-01-30T23:11:37 GMT" duration-ms="281" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+      </class> <!-- Tests.ProjectFlowStructuredTest1 -->
+      <class name="Tests.UpdateProjectTest">
+        <test-method is-config="true" signature="login()[pri:0, instance:Tests.UpdateProjectTest@60d8c9b7]" started-at="2022-01-30T23:16:43 GMT" name="login" finished-at="2022-01-30T23:16:52 GMT" duration-ms="9452" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method signature="updating_project_with_valid_data()[pri:1, instance:Tests.UpdateProjectTest@60d8c9b7]" started-at="2022-01-30T23:16:52 GMT" name="updating_project_with_valid_data" finished-at="2022-01-30T23:17:13 GMT" duration-ms="20916" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- updating_project_with_valid_data -->
+        <test-method signature="to_maintain_script()[pri:2, instance:Tests.UpdateProjectTest@60d8c9b7]" started-at="2022-01-30T23:17:13 GMT" name="to_maintain_script" finished-at="2022-01-30T23:17:39 GMT" duration-ms="25712" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- to_maintain_script -->
+        <test-method signature="update_project_when_role_status_disabled()[pri:3, instance:Tests.UpdateProjectTest@60d8c9b7]" started-at="2022-01-30T23:17:39 GMT" name="update_project_when_role_status_disabled" finished-at="2022-01-30T23:18:08 GMT" duration-ms="29064" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- update_project_when_role_status_disabled -->
+        <test-method signature="disabled_roles_are_not_displayed_in_add_role_list()[pri:4, instance:Tests.UpdateProjectTest@60d8c9b7]" started-at="2022-01-30T23:18:08 GMT" name="disabled_roles_are_not_displayed_in_add_role_list" finished-at="2022-01-30T23:18:43 GMT" duration-ms="35373" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- disabled_roles_are_not_displayed_in_add_role_list -->
+        <test-method signature="update_project_button_when_role_and_user_status_enabled()[pri:5, instance:Tests.UpdateProjectTest@60d8c9b7]" started-at="2022-01-30T23:18:43 GMT" name="update_project_button_when_role_and_user_status_enabled" finished-at="2022-01-30T23:19:02 GMT" duration-ms="18394" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- update_project_button_when_role_and_user_status_enabled -->
+        <test-method signature="enabled_roles_()[pri:6, instance:Tests.UpdateProjectTest@60d8c9b7]" started-at="2022-01-30T23:19:02 GMT" name="enabled_roles_" finished-at="2022-01-30T23:19:20 GMT" duration-ms="18378" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- enabled_roles_ -->
+        <test-method signature="user_should_not_add_user_when_role_disabled()[pri:7, instance:Tests.UpdateProjectTest@60d8c9b7]" started-at="2022-01-30T23:19:20 GMT" name="user_should_not_add_user_when_role_disabled" finished-at="2022-01-30T23:19:54 GMT" duration-ms="33986" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- user_should_not_add_user_when_role_disabled -->
+        <test-method signature="update_project_role_should_not_have_empty_user()[pri:8, instance:Tests.UpdateProjectTest@60d8c9b7]" started-at="2022-01-30T23:19:54 GMT" name="update_project_role_should_not_have_empty_user" finished-at="2022-01-30T23:20:34 GMT" duration-ms="39592" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- update_project_role_should_not_have_empty_user -->
+        <test-method signature="update_project_by_entering_valid_data()[pri:9, instance:Tests.UpdateProjectTest@60d8c9b7]" started-at="2022-01-30T23:20:34 GMT" name="update_project_by_entering_valid_data" finished-at="2022-01-30T23:21:01 GMT" duration-ms="27192" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- update_project_by_entering_valid_data -->
+        <test-method signature="to_maintain_script_two()[pri:10, instance:Tests.UpdateProjectTest@60d8c9b7]" started-at="2022-01-30T23:21:01 GMT" name="to_maintain_script_two" finished-at="2022-01-30T23:21:25 GMT" duration-ms="24280" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- to_maintain_script_two -->
+        <test-method signature="update_project_when_role_and_status_disable()[pri:11, instance:Tests.UpdateProjectTest@60d8c9b7]" started-at="2022-01-30T23:21:25 GMT" name="update_project_when_role_and_status_disable" finished-at="2022-01-30T23:21:56 GMT" duration-ms="30534" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- update_project_when_role_and_status_disable -->
+        <test-method signature="disabled_roles_are_not_displayed_in_role_list_for_admin()[pri:12, instance:Tests.UpdateProjectTest@60d8c9b7]" started-at="2022-01-30T23:21:56 GMT" name="disabled_roles_are_not_displayed_in_role_list_for_admin" finished-at="2022-01-30T23:22:28 GMT" duration-ms="32691" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- disabled_roles_are_not_displayed_in_role_list_for_admin -->
+        <test-method signature="when_role_status_is_enabled_for_admin()[pri:13, instance:Tests.UpdateProjectTest@60d8c9b7]" started-at="2022-01-30T23:22:28 GMT" name="when_role_status_is_enabled_for_admin" finished-at="2022-01-30T23:22:46 GMT" duration-ms="17905" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- when_role_status_is_enabled_for_admin -->
+        <test-method signature="all_roles_are_displayed_in_add_list()[pri:14, instance:Tests.UpdateProjectTest@60d8c9b7]" started-at="2022-01-30T23:22:46 GMT" name="all_roles_are_displayed_in_add_list" finished-at="2022-01-30T23:23:04 GMT" duration-ms="18014" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- all_roles_are_displayed_in_add_list -->
+        <test-method signature="user_should_not_able_to_add_user_when_role_is_disabled_SP()[pri:15, instance:Tests.UpdateProjectTest@60d8c9b7]" started-at="2022-01-30T23:23:04 GMT" name="user_should_not_able_to_add_user_when_role_is_disabled_SP" finished-at="2022-01-30T23:23:29 GMT" duration-ms="24362" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- user_should_not_able_to_add_user_when_role_is_disabled_SP -->
+        <test-method signature="role_should_not_have_empty_user_for_supervisor()[pri:16, instance:Tests.UpdateProjectTest@60d8c9b7]" started-at="2022-01-30T23:23:29 GMT" name="role_should_not_have_empty_user_for_supervisor" finished-at="2022-01-30T23:23:54 GMT" duration-ms="25246" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- role_should_not_have_empty_user_for_supervisor -->
+        <test-method signature="status_is_disabled_for_admin_when_action_is_false()[pri:17, instance:Tests.UpdateProjectTest@60d8c9b7]" started-at="2022-01-30T23:23:54 GMT" name="status_is_disabled_for_admin_when_action_is_false" finished-at="2022-01-30T23:24:10 GMT" duration-ms="15871" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- status_is_disabled_for_admin_when_action_is_false -->
+        <test-method signature="status_is_disabled_for_admin_when_action_is_true()[pri:18, instance:Tests.UpdateProjectTest@60d8c9b7]" started-at="2022-01-30T23:24:10 GMT" name="status_is_disabled_for_admin_when_action_is_true" finished-at="2022-01-30T23:24:34 GMT" duration-ms="24120" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- status_is_disabled_for_admin_when_action_is_true -->
+        <test-method is-config="true" signature="cleanUp()[pri:0, instance:Tests.UpdateProjectTest@60d8c9b7]" started-at="2022-01-30T23:24:34 GMT" name="cleanUp" finished-at="2022-01-30T23:24:34 GMT" duration-ms="406" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+      </class> <!-- Tests.UpdateProjectTest -->
+      <class name="Tests.ProjectFlowSemiStructureTest">
+        <test-method is-config="true" signature="login()[pri:0, instance:Tests.ProjectFlowSemiStructureTest@4b5a5ed1]" started-at="2022-01-30T22:59:53 GMT" name="login" finished-at="2022-01-30T23:00:02 GMT" duration-ms="9414" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method signature="check_all_the_functions_on_project_page()[pri:1, instance:Tests.ProjectFlowSemiStructureTest@4b5a5ed1]" started-at="2022-01-30T23:00:02 GMT" name="check_all_the_functions_on_project_page" finished-at="2022-01-30T23:00:32 GMT" duration-ms="30304" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- check_all_the_functions_on_project_page -->
+        <test-method signature="check_delete_attribute()[pri:2, instance:Tests.ProjectFlowSemiStructureTest@4b5a5ed1]" started-at="2022-01-30T23:00:32 GMT" name="check_delete_attribute" finished-at="2022-01-30T23:00:34 GMT" duration-ms="2107" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- check_delete_attribute -->
+        <test-method signature="create_project_without_role()[pri:3, instance:Tests.ProjectFlowSemiStructureTest@4b5a5ed1]" started-at="2022-01-30T23:00:34 GMT" name="create_project_without_role" finished-at="2022-01-30T23:00:53 GMT" duration-ms="19019" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- create_project_without_role -->
+        <test-method signature="navigate_to_data_page_and_Rules_page()[pri:4, instance:Tests.ProjectFlowSemiStructureTest@4b5a5ed1]" started-at="2022-01-30T23:00:53 GMT" name="navigate_to_data_page_and_Rules_page" finished-at="2022-01-30T23:01:02 GMT" duration-ms="8332" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- navigate_to_data_page_and_Rules_page -->
+        <test-method signature="verify_create_project()[pri:5, instance:Tests.ProjectFlowSemiStructureTest@4b5a5ed1]" started-at="2022-01-30T23:01:02 GMT" name="verify_create_project" finished-at="2022-01-30T23:01:11 GMT" duration-ms="9330" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_create_project -->
+        <test-method is-config="true" signature="cleanUp()[pri:0, instance:Tests.ProjectFlowSemiStructureTest@4b5a5ed1]" started-at="2022-01-30T23:01:11 GMT" name="cleanUp" finished-at="2022-01-30T23:01:11 GMT" duration-ms="266" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+      </class> <!-- Tests.ProjectFlowSemiStructureTest -->
+      <class name="Tests.EditProfileTest">
+        <test-method is-config="true" signature="login()[pri:0, instance:Tests.EditProfileTest@2b6faea6]" started-at="2022-01-30T22:33:27 GMT" name="login" finished-at="2022-01-30T22:33:29 GMT" duration-ms="1050" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method signature="visible_password_on()[pri:1, instance:Tests.EditProfileTest@2b6faea6]" started-at="2022-01-30T22:33:29 GMT" name="visible_password_on" finished-at="2022-01-30T22:33:43 GMT" duration-ms="14153" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- visible_password_on -->
+        <test-method signature="visible_password_off()[pri:2, instance:Tests.EditProfileTest@2b6faea6]" started-at="2022-01-30T22:33:43 GMT" name="visible_password_off" finished-at="2022-01-30T22:33:52 GMT" duration-ms="9100" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- visible_password_off -->
+        <test-method signature="profile_icon()[pri:3, instance:Tests.EditProfileTest@2b6faea6]" started-at="2022-01-30T22:33:52 GMT" name="profile_icon" finished-at="2022-01-30T22:33:54 GMT" duration-ms="2254" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- profile_icon -->
+        <test-method signature="night_mode_day_mode()[pri:4, instance:Tests.EditProfileTest@2b6faea6]" started-at="2022-01-30T22:33:54 GMT" name="night_mode_day_mode" finished-at="2022-01-30T22:33:59 GMT" duration-ms="4693" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- night_mode_day_mode -->
+        <test-method signature="edit_profile()[pri:5, instance:Tests.EditProfileTest@2b6faea6]" started-at="2022-01-30T22:33:59 GMT" name="edit_profile" finished-at="2022-01-30T22:34:02 GMT" duration-ms="3235" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- edit_profile -->
+        <test-method signature="edit_profile_cancel()[pri:6, instance:Tests.EditProfileTest@2b6faea6]" started-at="2022-01-30T22:34:02 GMT" name="edit_profile_cancel" finished-at="2022-01-30T22:34:04 GMT" duration-ms="2116" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- edit_profile_cancel -->
+        <test-method is-config="true" signature="cleanUp()[pri:0, instance:Tests.EditProfileTest@2b6faea6]" started-at="2022-01-30T22:34:04 GMT" name="cleanUp" finished-at="2022-01-30T22:34:04 GMT" duration-ms="269" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+      </class> <!-- Tests.EditProfileTest -->
+      <class name="Tests.ProjectBREMedicalChartTest">
+        <test-method is-config="true" signature="login()[pri:0, instance:Tests.ProjectBREMedicalChartTest@5ccddd20]" started-at="2022-01-30T22:47:29 GMT" name="login" finished-at="2022-01-30T22:47:38 GMT" duration-ms="9286" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method signature="check_all_functions_on_project_page()[pri:1, instance:Tests.ProjectBREMedicalChartTest@5ccddd20]" started-at="2022-01-30T22:47:38 GMT" name="check_all_functions_on_project_page" finished-at="2022-01-30T22:48:34 GMT" duration-ms="56429" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- check_all_functions_on_project_page -->
+        <test-method signature="add_dataset()[pri:2, instance:Tests.ProjectBREMedicalChartTest@5ccddd20]" started-at="2022-01-30T22:48:34 GMT" name="add_dataset" finished-at="2022-01-30T22:49:03 GMT" duration-ms="28637" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- add_dataset -->
+        <test-method signature="add_condition()[pri:3, instance:Tests.ProjectBREMedicalChartTest@5ccddd20]" started-at="2022-01-30T22:49:03 GMT" name="add_condition" finished-at="2022-01-30T22:49:33 GMT" duration-ms="29674" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- add_condition -->
+        <test-method signature="add_action()[pri:4, instance:Tests.ProjectBREMedicalChartTest@5ccddd20]" started-at="2022-01-30T22:49:33 GMT" name="add_action" finished-at="2022-01-30T22:49:43 GMT" duration-ms="10709" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- add_action -->
+        <test-method signature="set_document_status_ready()[pri:5, instance:Tests.ProjectBREMedicalChartTest@5ccddd20]" started-at="2022-01-30T22:49:43 GMT" name="set_document_status_ready" finished-at="2022-01-30T22:50:05 GMT" duration-ms="21108" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- set_document_status_ready -->
+        <test-method signature="set_document_status_rejected()[pri:6, instance:Tests.ProjectBREMedicalChartTest@5ccddd20]" started-at="2022-01-30T22:50:05 GMT" name="set_document_status_rejected" finished-at="2022-01-30T22:50:31 GMT" duration-ms="26593" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- set_document_status_rejected -->
+        <test-method is-config="true" signature="cleanUp()[pri:0, instance:Tests.ProjectBREMedicalChartTest@5ccddd20]" started-at="2022-01-30T22:50:31 GMT" name="cleanUp" finished-at="2022-01-30T22:50:31 GMT" duration-ms="313" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+      </class> <!-- Tests.ProjectBREMedicalChartTest -->
+      <class name="Tests.CreateUserPlatformAdminTest">
+        <test-method is-config="true" signature="login()[pri:0, instance:Tests.CreateUserPlatformAdminTest@6d2a209c]" started-at="2022-01-30T22:21:58 GMT" name="login" finished-at="2022-01-30T22:22:07 GMT" duration-ms="9298" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method signature="blank_username_blank_password()[pri:1, instance:Tests.CreateUserPlatformAdminTest@6d2a209c]" started-at="2022-01-30T22:22:07 GMT" name="blank_username_blank_password" finished-at="2022-01-30T22:22:21 GMT" duration-ms="13824" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- blank_username_blank_password -->
+        <test-method signature="valid_username_blank_password()[pri:2, instance:Tests.CreateUserPlatformAdminTest@6d2a209c]" started-at="2022-01-30T22:22:21 GMT" name="valid_username_blank_password" finished-at="2022-01-30T22:22:32 GMT" duration-ms="10495" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- valid_username_blank_password -->
+        <test-method signature="blank_username_valid_password()[pri:3, instance:Tests.CreateUserPlatformAdminTest@6d2a209c]" started-at="2022-01-30T22:22:32 GMT" name="blank_username_valid_password" finished-at="2022-01-30T22:22:41 GMT" duration-ms="9541" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- blank_username_valid_password -->
+        <test-method signature="invalid_username_blank_password()[pri:4, instance:Tests.CreateUserPlatformAdminTest@6d2a209c]" started-at="2022-01-30T22:22:41 GMT" name="invalid_username_blank_password" finished-at="2022-01-30T22:22:51 GMT" duration-ms="9501" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- invalid_username_blank_password -->
+        <test-method signature="blank_username_invalid_password()[pri:5, instance:Tests.CreateUserPlatformAdminTest@6d2a209c]" started-at="2022-01-30T22:22:51 GMT" name="blank_username_invalid_password" finished-at="2022-01-30T22:23:00 GMT" duration-ms="9491" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- blank_username_invalid_password -->
+        <test-method signature="invalid_credentials()[pri:6, instance:Tests.CreateUserPlatformAdminTest@6d2a209c]" started-at="2022-01-30T22:23:00 GMT" name="invalid_credentials" finished-at="2022-01-30T22:23:12 GMT" duration-ms="11680" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- invalid_credentials -->
+        <test-method signature="create_user_with_existing_username_password()[pri:7, instance:Tests.CreateUserPlatformAdminTest@6d2a209c]" started-at="2022-01-30T22:23:12 GMT" name="create_user_with_existing_username_password" finished-at="2022-01-30T22:23:26 GMT" duration-ms="14422" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- create_user_with_existing_username_password -->
+        <test-method signature="search_user()[pri:8, instance:Tests.CreateUserPlatformAdminTest@6d2a209c]" started-at="2022-01-30T22:23:26 GMT" name="search_user" finished-at="2022-01-30T22:23:48 GMT" duration-ms="21970" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- search_user -->
+        <test-method is-config="true" signature="cleanUp()[pri:0, instance:Tests.CreateUserPlatformAdminTest@6d2a209c]" started-at="2022-01-30T22:23:48 GMT" name="cleanUp" finished-at="2022-01-30T22:23:48 GMT" duration-ms="257" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+      </class> <!-- Tests.CreateUserPlatformAdminTest -->
+      <class name="Tests.ManualInterventionDocument">
+        <test-method is-config="true" signature="login()[pri:0, instance:Tests.ManualInterventionDocument@49c386c8]" started-at="2022-01-30T22:41:01 GMT" name="login" finished-at="2022-01-30T22:41:10 GMT" duration-ms="9290" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method signature="manual_intervention_freeform_rejected_document()[pri:1, instance:Tests.ManualInterventionDocument@49c386c8]" started-at="2022-01-30T22:41:10 GMT" name="manual_intervention_freeform_rejected_document" finished-at="2022-01-30T22:42:14 GMT" duration-ms="64075" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- manual_intervention_freeform_rejected_document -->
+        <test-method is-config="true" signature="cleanUp()[pri:0, instance:Tests.ManualInterventionDocument@49c386c8]" started-at="2022-01-30T22:42:14 GMT" name="cleanUp" finished-at="2022-01-30T22:42:14 GMT" duration-ms="266" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+      </class> <!-- Tests.ManualInterventionDocument -->
+      <class name="Tests.UpdateUserPlatformAdminTest">
+        <test-method is-config="true" signature="login()[pri:0, instance:Tests.UpdateUserPlatformAdminTest@7c0c77c7]" started-at="2022-01-30T23:26:03 GMT" name="login" finished-at="2022-01-30T23:26:12 GMT" duration-ms="9072" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method signature="update_user_enable_disable()[pri:1, instance:Tests.UpdateUserPlatformAdminTest@7c0c77c7]" started-at="2022-01-30T23:26:12 GMT" name="update_user_enable_disable" finished-at="2022-01-30T23:26:39 GMT" duration-ms="26436" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- update_user_enable_disable -->
+        <test-method signature="blank_name_valid_password()[pri:2, instance:Tests.UpdateUserPlatformAdminTest@7c0c77c7]" started-at="2022-01-30T23:26:39 GMT" name="blank_name_valid_password" finished-at="2022-01-30T23:26:52 GMT" duration-ms="13356" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- blank_name_valid_password -->
+        <test-method signature="blank_username_invalid_password()[pri:3, instance:Tests.UpdateUserPlatformAdminTest@7c0c77c7]" started-at="2022-01-30T23:26:52 GMT" name="blank_username_invalid_password" finished-at="2022-01-30T23:27:11 GMT" duration-ms="18431" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- blank_username_invalid_password -->
+        <test-method signature="invalid_name_blank_password()[pri:4, instance:Tests.UpdateUserPlatformAdminTest@7c0c77c7]" started-at="2022-01-30T23:27:11 GMT" name="invalid_name_blank_password" finished-at="2022-01-30T23:27:31 GMT" duration-ms="20734" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- invalid_name_blank_password -->
+        <test-method signature="blank_username_blank_password()[pri:5, instance:Tests.UpdateUserPlatformAdminTest@7c0c77c7]" started-at="2022-01-30T23:27:31 GMT" name="blank_username_blank_password" finished-at="2022-01-30T23:27:46 GMT" duration-ms="14431" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- blank_username_blank_password -->
+        <test-method signature="invalid_username_invalid_password()[pri:6, instance:Tests.UpdateUserPlatformAdminTest@7c0c77c7]" started-at="2022-01-30T23:27:46 GMT" name="invalid_username_invalid_password" finished-at="2022-01-30T23:28:02 GMT" duration-ms="16611" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- invalid_username_invalid_password -->
+        <test-method signature="valid_name_and_blank_password()[pri:7, instance:Tests.UpdateUserPlatformAdminTest@7c0c77c7]" started-at="2022-01-30T23:28:02 GMT" name="valid_name_and_blank_password" finished-at="2022-01-30T23:28:14 GMT" duration-ms="11256" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- valid_name_and_blank_password -->
+        <test-method signature="all_combinations_of_password_policy_as_userid()[pri:8, instance:Tests.UpdateUserPlatformAdminTest@7c0c77c7]" started-at="2022-01-30T23:28:14 GMT" name="all_combinations_of_password_policy_as_userid" finished-at="2022-01-30T23:28:24 GMT" duration-ms="10453" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- all_combinations_of_password_policy_as_userid -->
+        <test-method signature="password_field_contains_alphabet_digit_special_char()[pri:9, instance:Tests.UpdateUserPlatformAdminTest@7c0c77c7]" started-at="2022-01-30T23:28:24 GMT" name="password_field_contains_alphabet_digit_special_char" finished-at="2022-01-30T23:28:35 GMT" duration-ms="11384" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- password_field_contains_alphabet_digit_special_char -->
+        <test-method signature="password_field_must_have_at_least_one_upper_lower_alphabet()[pri:10, instance:Tests.UpdateUserPlatformAdminTest@7c0c77c7]" started-at="2022-01-30T23:28:35 GMT" name="password_field_must_have_at_least_one_upper_lower_alphabet" finished-at="2022-01-30T23:28:47 GMT" duration-ms="11526" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- password_field_must_have_at_least_one_upper_lower_alphabet -->
+        <test-method signature="password_field_must_have_length_to_be_minimum_eight()[pri:11, instance:Tests.UpdateUserPlatformAdminTest@7c0c77c7]" started-at="2022-01-30T23:28:47 GMT" name="password_field_must_have_length_to_be_minimum_eight" finished-at="2022-01-30T23:28:59 GMT" duration-ms="12340" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- password_field_must_have_length_to_be_minimum_eight -->
+        <test-method signature="password_field_length_max_length_twelve()[pri:12, instance:Tests.UpdateUserPlatformAdminTest@7c0c77c7]" started-at="2022-01-30T23:28:59 GMT" name="password_field_length_max_length_twelve" finished-at="2022-01-30T23:29:12 GMT" duration-ms="12372" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- password_field_length_max_length_twelve -->
+        <test-method signature="only_alphabets()[pri:13, instance:Tests.UpdateUserPlatformAdminTest@7c0c77c7]" started-at="2022-01-30T23:29:12 GMT" name="only_alphabets" finished-at="2022-01-30T23:29:23 GMT" duration-ms="11357" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- only_alphabets -->
+        <test-method is-config="true" signature="cleanUp()[pri:0, instance:Tests.UpdateUserPlatformAdminTest@7c0c77c7]" started-at="2022-01-30T23:29:23 GMT" name="cleanUp" finished-at="2022-01-30T23:29:23 GMT" duration-ms="282" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+      </class> <!-- Tests.UpdateUserPlatformAdminTest -->
+      <class name="Tests.ProjectBREDataSetTest">
+        <test-method is-config="true" signature="login()[pri:0, instance:Tests.ProjectBREDataSetTest@56528192]" started-at="2022-01-30T22:42:14 GMT" name="login" finished-at="2022-01-30T22:42:24 GMT" duration-ms="9338" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method signature="bre_applied_to_name_using_dataset_fail()[pri:1, instance:Tests.ProjectBREDataSetTest@56528192]" started-at="2022-01-30T22:42:24 GMT" name="bre_applied_to_name_using_dataset_fail" finished-at="2022-01-30T22:44:17 GMT" duration-ms="113195" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- bre_applied_to_name_using_dataset_fail -->
+        <test-method is-config="true" signature="cleanUp()[pri:0, instance:Tests.ProjectBREDataSetTest@56528192]" started-at="2022-01-30T22:44:17 GMT" name="cleanUp" finished-at="2022-01-30T22:44:17 GMT" duration-ms="329" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+      </class> <!-- Tests.ProjectBREDataSetTest -->
+      <class name="Tests.AnalyticsTest">
+        <test-method is-config="true" signature="login()[pri:0, instance:Tests.AnalyticsTest@159f197]" started-at="2022-01-30T22:13:22 GMT" name="login" finished-at="2022-01-30T22:13:32 GMT" duration-ms="10713" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method signature="test_organization_arrows_on_analytics_page()[pri:1, instance:Tests.AnalyticsTest@159f197]" started-at="2022-01-30T22:13:32 GMT" name="test_organization_arrows_on_analytics_page" finished-at="2022-01-30T22:13:45 GMT" duration-ms="12641" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test_organization_arrows_on_analytics_page -->
+        <test-method signature="hover_total_users_on_Analytics_page()[pri:2, instance:Tests.AnalyticsTest@159f197]" started-at="2022-01-30T22:13:45 GMT" name="hover_total_users_on_Analytics_page" finished-at="2022-01-30T22:13:48 GMT" duration-ms="3154" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- hover_total_users_on_Analytics_page -->
+        <test-method signature="hover_total_documents_on_Analytics_page()[pri:3, instance:Tests.AnalyticsTest@159f197]" started-at="2022-01-30T22:13:48 GMT" name="hover_total_documents_on_Analytics_page" finished-at="2022-01-30T22:13:51 GMT" duration-ms="3144" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- hover_total_documents_on_Analytics_page -->
+        <test-method signature="hover_processed_documents_on_Analytics_page()[pri:4, instance:Tests.AnalyticsTest@159f197]" started-at="2022-01-30T22:13:51 GMT" name="hover_processed_documents_on_Analytics_page" finished-at="2022-01-30T22:13:55 GMT" duration-ms="3139" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- hover_processed_documents_on_Analytics_page -->
+        <test-method signature="hover_ready_to_process_on_Analytics_page()[pri:5, instance:Tests.AnalyticsTest@159f197]" started-at="2022-01-30T22:13:55 GMT" name="hover_ready_to_process_on_Analytics_page" finished-at="2022-01-30T22:13:58 GMT" duration-ms="3141" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- hover_ready_to_process_on_Analytics_page -->
+        <test-method signature="hover_ready_to_rejected_documents_on_Analytics_page()[pri:6, instance:Tests.AnalyticsTest@159f197]" started-at="2022-01-30T22:13:58 GMT" name="hover_ready_to_rejected_documents_on_Analytics_page" finished-at="2022-01-30T22:14:01 GMT" duration-ms="3141" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- hover_ready_to_rejected_documents_on_Analytics_page -->
+        <test-method signature="hover_validation_time_on_Analytics_page()[pri:7, instance:Tests.AnalyticsTest@159f197]" started-at="2022-01-30T22:14:01 GMT" name="hover_validation_time_on_Analytics_page" finished-at="2022-01-30T22:14:04 GMT" duration-ms="3141" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- hover_validation_time_on_Analytics_page -->
+        <test-method signature="hover_on_structured_on_Analytics_page()[pri:8, instance:Tests.AnalyticsTest@159f197]" started-at="2022-01-30T22:14:04 GMT" name="hover_on_structured_on_Analytics_page" finished-at="2022-01-30T22:14:07 GMT" duration-ms="3419" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- hover_on_structured_on_Analytics_page -->
+        <test-method signature="hover_on_semistructured_on_Analytics_page()[pri:9, instance:Tests.AnalyticsTest@159f197]" started-at="2022-01-30T22:14:07 GMT" name="hover_on_semistructured_on_Analytics_page" finished-at="2022-01-30T22:14:11 GMT" duration-ms="3439" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- hover_on_semistructured_on_Analytics_page -->
+        <test-method signature="hover_on_freeform_on_Analytics_page()[pri:10, instance:Tests.AnalyticsTest@159f197]" started-at="2022-01-30T22:14:11 GMT" name="hover_on_freeform_on_Analytics_page" finished-at="2022-01-30T22:14:14 GMT" duration-ms="3448" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- hover_on_freeform_on_Analytics_page -->
+        <test-method signature="hover_on_medicalchart_on_Analytics_page()[pri:11, instance:Tests.AnalyticsTest@159f197]" started-at="2022-01-30T22:14:14 GMT" name="hover_on_medicalchart_on_Analytics_page" finished-at="2022-01-30T22:14:23 GMT" duration-ms="8655" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- hover_on_medicalchart_on_Analytics_page -->
+        <test-method signature="search_project_on_Analytics_page()[pri:12, instance:Tests.AnalyticsTest@159f197]" started-at="2022-01-30T22:14:23 GMT" name="search_project_on_Analytics_page" finished-at="2022-01-30T22:14:30 GMT" duration-ms="7341" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- search_project_on_Analytics_page -->
+        <test-method signature="select_overall_data_on_Analytics_page()[pri:13, instance:Tests.AnalyticsTest@159f197]" started-at="2022-01-30T22:14:30 GMT" name="select_overall_data_on_Analytics_page" finished-at="2022-01-30T22:14:35 GMT" duration-ms="5123" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- select_overall_data_on_Analytics_page -->
+        <test-method signature="select_monthly_data_on_Analytics_page()[pri:14, instance:Tests.AnalyticsTest@159f197]" started-at="2022-01-30T22:14:35 GMT" name="select_monthly_data_on_Analytics_page" finished-at="2022-01-30T22:14:45 GMT" duration-ms="9193" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- select_monthly_data_on_Analytics_page -->
+        <test-method signature="select_weekly_data_on_Analytics_page()[pri:15, instance:Tests.AnalyticsTest@159f197]" started-at="2022-01-30T22:14:45 GMT" name="select_weekly_data_on_Analytics_page" finished-at="2022-01-30T22:14:54 GMT" duration-ms="9197" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- select_weekly_data_on_Analytics_page -->
+        <test-method signature="select_daily_data_on_Analytics_page()[pri:16, instance:Tests.AnalyticsTest@159f197]" started-at="2022-01-30T22:14:54 GMT" name="select_daily_data_on_Analytics_page" finished-at="2022-01-30T22:15:06 GMT" duration-ms="12271" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- select_daily_data_on_Analytics_page -->
+        <test-method is-config="true" signature="cleanUp()[pri:0, instance:Tests.AnalyticsTest@159f197]" started-at="2022-01-30T22:15:06 GMT" name="cleanUp" finished-at="2022-01-30T22:15:06 GMT" duration-ms="250" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+      </class> <!-- Tests.AnalyticsTest -->
+      <class name="Tests.DataSetTest">
+        <test-method is-config="true" signature="login()[pri:0, instance:Tests.DataSetTest@75329a49]" started-at="2022-01-30T22:23:48 GMT" name="login" finished-at="2022-01-30T22:23:58 GMT" duration-ms="9452" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method signature="create_category_with_blank_name()[pri:1, instance:Tests.DataSetTest@75329a49]" started-at="2022-01-30T22:23:58 GMT" name="create_category_with_blank_name" finished-at="2022-01-30T22:24:04 GMT" duration-ms="6400" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- create_category_with_blank_name -->
+        <test-method signature="create_category_with_invalid_name()[pri:2, instance:Tests.DataSetTest@75329a49]" started-at="2022-01-30T22:24:04 GMT" name="create_category_with_invalid_name" finished-at="2022-01-30T22:24:09 GMT" duration-ms="4226" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- create_category_with_invalid_name -->
+        <test-method signature="create_category_with_valid_name()[pri:3, instance:Tests.DataSetTest@75329a49]" started-at="2022-01-30T22:24:09 GMT" name="create_category_with_valid_name" finished-at="2022-01-30T22:24:15 GMT" duration-ms="6247" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- create_category_with_valid_name -->
+        <test-method signature="add_dataset_with_blank_and_no_chosen_file()[pri:4, instance:Tests.DataSetTest@75329a49]" started-at="2022-01-30T22:24:15 GMT" name="add_dataset_with_blank_and_no_chosen_file" finished-at="2022-01-30T22:24:19 GMT" duration-ms="4148" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- add_dataset_with_blank_and_no_chosen_file -->
+        <test-method signature="add_dataset_with_blank_and_name_chosen_file()[pri:5, instance:Tests.DataSetTest@75329a49]" started-at="2022-01-30T22:24:19 GMT" name="add_dataset_with_blank_and_name_chosen_file" finished-at="2022-01-30T22:24:25 GMT" duration-ms="6332" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- add_dataset_with_blank_and_name_chosen_file -->
+        <test-method signature="add_dataset_with_csv_file_validation()[pri:6, instance:Tests.DataSetTest@75329a49]" started-at="2022-01-30T22:24:25 GMT" name="add_dataset_with_csv_file_validation" finished-at="2022-01-30T22:24:34 GMT" duration-ms="8352" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- add_dataset_with_csv_file_validation -->
+        <test-method signature="add_dataset_created_category_name_chosen_file_valid_type()[pri:7, instance:Tests.DataSetTest@75329a49]" started-at="2022-01-30T22:24:34 GMT" name="add_dataset_created_category_name_chosen_file_valid_type" finished-at="2022-01-30T22:24:40 GMT" duration-ms="6351" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- add_dataset_created_category_name_chosen_file_valid_type -->
+        <test-method signature="validation_type_as_name_to_create_new_dataset()[pri:8, instance:Tests.DataSetTest@75329a49]" started-at="2022-01-30T22:24:40 GMT" name="validation_type_as_name_to_create_new_dataset" finished-at="2022-01-30T22:24:44 GMT" duration-ms="4143" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validation_type_as_name_to_create_new_dataset -->
+        <test-method signature="validation_type_as_phone_role_to_create_new_dataset()[pri:9, instance:Tests.DataSetTest@75329a49]" started-at="2022-01-30T22:24:44 GMT" name="validation_type_as_phone_role_to_create_new_dataset" finished-at="2022-01-30T22:24:52 GMT" duration-ms="8218" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validation_type_as_phone_role_to_create_new_dataset -->
+        <test-method signature="search_created_document_and_expand()[pri:10, instance:Tests.DataSetTest@75329a49]" started-at="2022-01-30T22:24:52 GMT" name="search_created_document_and_expand" finished-at="2022-01-30T22:24:57 GMT" duration-ms="4357" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- search_created_document_and_expand -->
+        <test-method signature="select_open_file_and_cancel()[pri:11, instance:Tests.DataSetTest@75329a49]" started-at="2022-01-30T22:24:57 GMT" name="select_open_file_and_cancel" finished-at="2022-01-30T22:25:01 GMT" duration-ms="4264" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- select_open_file_and_cancel -->
+        <test-method signature="disable_dataset()[pri:12, instance:Tests.DataSetTest@75329a49]" started-at="2022-01-30T22:25:01 GMT" name="disable_dataset" finished-at="2022-01-30T22:25:05 GMT" duration-ms="4222" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- disable_dataset -->
+        <test-method is-config="true" signature="cleanUp()[pri:0, instance:Tests.DataSetTest@75329a49]" started-at="2022-01-30T22:25:05 GMT" name="cleanUp" finished-at="2022-01-30T22:25:05 GMT" duration-ms="250" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+      </class> <!-- Tests.DataSetTest -->
+      <class name="Tests.DocProcessStructuredTest">
+        <test-method is-config="true" signature="login()[pri:0, instance:Tests.DocProcessStructuredTest@1e802ef9]" started-at="2022-01-30T22:31:15 GMT" name="login" finished-at="2022-01-30T22:31:24 GMT" duration-ms="9350" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method signature="search_project()[pri:1, instance:Tests.DocProcessStructuredTest@1e802ef9]" started-at="2022-01-30T22:31:24 GMT" name="search_project" finished-at="2022-01-30T22:31:43 GMT" duration-ms="18023" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- search_project -->
+        <test-method signature="searchbox_document()[pri:2, instance:Tests.DocProcessStructuredTest@1e802ef9]" started-at="2022-01-30T22:31:43 GMT" name="searchbox_document" finished-at="2022-01-30T22:31:47 GMT" duration-ms="4239" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- searchbox_document -->
+        <test-method signature="update_document_cancel()[pri:3, instance:Tests.DocProcessStructuredTest@1e802ef9]" started-at="2022-01-30T22:31:47 GMT" name="update_document_cancel" finished-at="2022-01-30T22:32:08 GMT" duration-ms="21687" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- update_document_cancel -->
+        <test-method signature="hide_unhide_analytics()[pri:4, instance:Tests.DocProcessStructuredTest@1e802ef9]" started-at="2022-01-30T22:32:08 GMT" name="hide_unhide_analytics" finished-at="2022-01-30T22:32:13 GMT" duration-ms="4122" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- hide_unhide_analytics -->
+        <test-method signature="documents_filter()[pri:5, instance:Tests.DocProcessStructuredTest@1e802ef9]" started-at="2022-01-30T22:32:13 GMT" name="documents_filter" finished-at="2022-01-30T22:32:27 GMT" duration-ms="14508" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- documents_filter -->
+        <test-method signature="sorting()[pri:6, instance:Tests.DocProcessStructuredTest@1e802ef9]" started-at="2022-01-30T22:32:27 GMT" name="sorting" finished-at="2022-01-30T22:32:47 GMT" duration-ms="19643" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- sorting -->
+        <test-method signature="items_page()[pri:7, instance:Tests.DocProcessStructuredTest@1e802ef9]" started-at="2022-01-30T22:32:47 GMT" name="items_page" finished-at="2022-01-30T22:32:51 GMT" duration-ms="4164" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- items_page -->
+        <test-method signature="next_page_previous_page_first_page_last_page()[pri:8, instance:Tests.DocProcessStructuredTest@1e802ef9]" started-at="2022-01-30T22:32:51 GMT" name="next_page_previous_page_first_page_last_page" finished-at="2022-01-30T22:32:57 GMT" duration-ms="6344" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- next_page_previous_page_first_page_last_page -->
+        <test-method signature="anticlockwise_clockwise_zoomin_zoomout_navigate_right_left()[pri:9, instance:Tests.DocProcessStructuredTest@1e802ef9]" started-at="2022-01-30T22:32:57 GMT" name="anticlockwise_clockwise_zoomin_zoomout_navigate_right_left" finished-at="2022-01-30T22:33:27 GMT" duration-ms="29966" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- anticlockwise_clockwise_zoomin_zoomout_navigate_right_left -->
+        <test-method is-config="true" signature="cleanUp()[pri:0, instance:Tests.DocProcessStructuredTest@1e802ef9]" started-at="2022-01-30T22:33:27 GMT" name="cleanUp" finished-at="2022-01-30T22:33:27 GMT" duration-ms="312" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+      </class> <!-- Tests.DocProcessStructuredTest -->
+      <class name="Tests.CreateUserAdminTest">
+        <test-method is-config="true" signature="login()[pri:0, instance:Tests.CreateUserAdminTest@5e316c74]" started-at="2022-01-30T22:20:30 GMT" name="login" finished-at="2022-01-30T22:20:31 GMT" duration-ms="1136" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method signature="valid_login_with_admin_credentials()[pri:1, instance:Tests.CreateUserAdminTest@5e316c74]" started-at="2022-01-30T22:20:31 GMT" name="valid_login_with_admin_credentials" finished-at="2022-01-30T22:20:52 GMT" duration-ms="21257" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- valid_login_with_admin_credentials -->
+        <test-method signature="create_user_with_blank_data()[pri:2, instance:Tests.CreateUserAdminTest@5e316c74]" started-at="2022-01-30T22:20:52 GMT" name="create_user_with_blank_data" finished-at="2022-01-30T22:21:04 GMT" duration-ms="11399" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- create_user_with_blank_data -->
+        <test-method signature="create_user_with_valid_data()[pri:3, instance:Tests.CreateUserAdminTest@5e316c74]" started-at="2022-01-30T22:21:04 GMT" name="create_user_with_valid_data" finished-at="2022-01-30T22:21:18 GMT" duration-ms="14455" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- create_user_with_valid_data -->
+        <test-method signature="create_user_with_invalid_data()[pri:4, instance:Tests.CreateUserAdminTest@5e316c74]" started-at="2022-01-30T22:21:18 GMT" name="create_user_with_invalid_data" finished-at="2022-01-30T22:21:29 GMT" duration-ms="11428" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- create_user_with_invalid_data -->
+        <test-method signature="disable_user()[pri:5, instance:Tests.CreateUserAdminTest@5e316c74]" started-at="2022-01-30T22:21:29 GMT" name="disable_user" finished-at="2022-01-30T22:21:41 GMT" duration-ms="11623" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- disable_user -->
+        <test-method signature="enable_disabled_user()[pri:6, instance:Tests.CreateUserAdminTest@5e316c74]" started-at="2022-01-30T22:21:41 GMT" name="enable_disabled_user" finished-at="2022-01-30T22:21:58 GMT" duration-ms="16581" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- enable_disabled_user -->
+        <test-method is-config="true" signature="cleanUp()[pri:0, instance:Tests.CreateUserAdminTest@5e316c74]" started-at="2022-01-30T22:21:58 GMT" name="cleanUp" finished-at="2022-01-30T22:21:58 GMT" duration-ms="336" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+      </class> <!-- Tests.CreateUserAdminTest -->
+      <class name="Tests.DocProcessSemiStructuredTest">
+        <test-method is-config="true" signature="login()[pri:0, instance:Tests.DocProcessSemiStructuredTest@7f010382]" started-at="2022-01-30T22:29:14 GMT" name="login" finished-at="2022-01-30T22:29:23 GMT" duration-ms="9742" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method signature="search_project()[pri:1, instance:Tests.DocProcessSemiStructuredTest@7f010382]" started-at="2022-01-30T22:29:23 GMT" name="search_project" finished-at="2022-01-30T22:29:37 GMT" duration-ms="14096" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- search_project -->
+        <test-method signature="searchbox_document()[pri:2, instance:Tests.DocProcessSemiStructuredTest@7f010382]" started-at="2022-01-30T22:29:37 GMT" name="searchbox_document" finished-at="2022-01-30T22:29:42 GMT" duration-ms="4254" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- searchbox_document -->
+        <test-method signature="update_document_cancel()[pri:3, instance:Tests.DocProcessSemiStructuredTest@7f010382]" started-at="2022-01-30T22:29:42 GMT" name="update_document_cancel" finished-at="2022-01-30T22:30:01 GMT" duration-ms="19641" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- update_document_cancel -->
+        <test-method signature="hide_unhide_analytics()[pri:4, instance:Tests.DocProcessSemiStructuredTest@7f010382]" started-at="2022-01-30T22:30:01 GMT" name="hide_unhide_analytics" finished-at="2022-01-30T22:30:05 GMT" duration-ms="4130" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- hide_unhide_analytics -->
+        <test-method signature="documents_filter()[pri:5, instance:Tests.DocProcessSemiStructuredTest@7f010382]" started-at="2022-01-30T22:30:05 GMT" name="documents_filter" finished-at="2022-01-30T22:30:20 GMT" duration-ms="14444" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- documents_filter -->
+        <test-method signature="sorting()[pri:6, instance:Tests.DocProcessSemiStructuredTest@7f010382]" started-at="2022-01-30T22:30:20 GMT" name="sorting" finished-at="2022-01-30T22:30:39 GMT" duration-ms="19601" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- sorting -->
+        <test-method signature="items_page()[pri:7, instance:Tests.DocProcessSemiStructuredTest@7f010382]" started-at="2022-01-30T22:30:39 GMT" name="items_page" finished-at="2022-01-30T22:30:44 GMT" duration-ms="4221" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- items_page -->
+        <test-method signature="next_page_previous_page_first_page_last_page()[pri:8, instance:Tests.DocProcessSemiStructuredTest@7f010382]" started-at="2022-01-30T22:30:44 GMT" name="next_page_previous_page_first_page_last_page" finished-at="2022-01-30T22:30:52 GMT" duration-ms="8256" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- next_page_previous_page_first_page_last_page -->
+        <test-method signature="anticlockwise_clockwise_zoomin_zoomout_navigate_right_left()[pri:9, instance:Tests.DocProcessSemiStructuredTest@7f010382]" started-at="2022-01-30T22:30:52 GMT" name="anticlockwise_clockwise_zoomin_zoomout_navigate_right_left" finished-at="2022-01-30T22:31:15 GMT" duration-ms="22868" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- anticlockwise_clockwise_zoomin_zoomout_navigate_right_left -->
+        <test-method is-config="true" signature="cleanUp()[pri:0, instance:Tests.DocProcessSemiStructuredTest@7f010382]" started-at="2022-01-30T22:31:15 GMT" name="cleanUp" finished-at="2022-01-30T22:31:15 GMT" duration-ms="360" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+      </class> <!-- Tests.DocProcessSemiStructuredTest -->
+      <class name="Tests.RoleWiseTest">
+        <test-method is-config="true" signature="login()[pri:0, instance:Tests.RoleWiseTest@20d28811]" started-at="2022-01-30T23:11:37 GMT" name="login" finished-at="2022-01-30T23:11:38 GMT" duration-ms="941" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method signature="login_with_valid_username_password()[pri:1, instance:Tests.RoleWiseTest@20d28811]" started-at="2022-01-30T23:11:38 GMT" name="login_with_valid_username_password" finished-at="2022-01-30T23:12:01 GMT" duration-ms="23522" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login_with_valid_username_password -->
+        <test-method signature="admin_role_access_users_tab()[pri:2, instance:Tests.RoleWiseTest@20d28811]" started-at="2022-01-30T23:12:01 GMT" name="admin_role_access_users_tab" finished-at="2022-01-30T23:12:07 GMT" duration-ms="5124" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- admin_role_access_users_tab -->
+        <test-method signature="admin_role_access_roles_tab()[pri:3, instance:Tests.RoleWiseTest@20d28811]" started-at="2022-01-30T23:12:07 GMT" name="admin_role_access_roles_tab" finished-at="2022-01-30T23:12:12 GMT" duration-ms="5157" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- admin_role_access_roles_tab -->
+        <test-method signature="admin_role_access_templates_tab()[pri:4, instance:Tests.RoleWiseTest@20d28811]" started-at="2022-01-30T23:12:12 GMT" name="admin_role_access_templates_tab" finished-at="2022-01-30T23:12:17 GMT" duration-ms="5090" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- admin_role_access_templates_tab -->
+        <test-method signature="admin_role_access_user_tab()[pri:5, instance:Tests.RoleWiseTest@20d28811]" started-at="2022-01-30T23:12:17 GMT" name="admin_role_access_user_tab" finished-at="2022-01-30T23:12:22 GMT" duration-ms="5151" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- admin_role_access_user_tab -->
+        <test-method signature="admin_role_access_analytics_tab()[pri:6, instance:Tests.RoleWiseTest@20d28811]" started-at="2022-01-30T23:12:22 GMT" name="admin_role_access_analytics_tab" finished-at="2022-01-30T23:12:27 GMT" duration-ms="5104" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- admin_role_access_analytics_tab -->
+        <test-method signature="admin_role_access_logout()[pri:7, instance:Tests.RoleWiseTest@20d28811]" started-at="2022-01-30T23:12:27 GMT" name="admin_role_access_logout" finished-at="2022-01-30T23:12:34 GMT" duration-ms="7311" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- admin_role_access_logout -->
+        <test-method signature="supervisor_role_valid_login()[pri:8, instance:Tests.RoleWiseTest@20d28811]" started-at="2022-01-30T23:12:34 GMT" name="supervisor_role_valid_login" finished-at="2022-01-30T23:12:44 GMT" duration-ms="9334" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- supervisor_role_valid_login -->
+        <test-method signature="supervisor_role_access_template()[pri:9, instance:Tests.RoleWiseTest@20d28811]" started-at="2022-01-30T23:12:44 GMT" name="supervisor_role_access_template" finished-at="2022-01-30T23:12:50 GMT" duration-ms="6100" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- supervisor_role_access_template -->
+        <test-method signature="supervisor_role_access_document()[pri:10, instance:Tests.RoleWiseTest@20d28811]" started-at="2022-01-30T23:12:50 GMT" name="supervisor_role_access_document" finished-at="2022-01-30T23:12:56 GMT" duration-ms="6116" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- supervisor_role_access_document -->
+        <test-method signature="supervisor_role_access_analytics()[pri:11, instance:Tests.RoleWiseTest@20d28811]" started-at="2022-01-30T23:12:56 GMT" name="supervisor_role_access_analytics" finished-at="2022-01-30T23:13:05 GMT" duration-ms="9279" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- supervisor_role_access_analytics -->
+        <test-method signature="operator_role_with_valid_login()[pri:12, instance:Tests.RoleWiseTest@20d28811]" started-at="2022-01-30T23:13:05 GMT" name="operator_role_with_valid_login" finished-at="2022-01-30T23:13:14 GMT" duration-ms="8320" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- operator_role_with_valid_login -->
+        <test-method signature="operator_role_access_document()[pri:13, instance:Tests.RoleWiseTest@20d28811]" started-at="2022-01-30T23:13:14 GMT" name="operator_role_access_document" finished-at="2022-01-30T23:13:18 GMT" duration-ms="4082" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- operator_role_access_document -->
+        <test-method signature="operator_role_access_analytics()[pri:14, instance:Tests.RoleWiseTest@20d28811]" started-at="2022-01-30T23:13:18 GMT" name="operator_role_access_analytics" finished-at="2022-01-30T23:13:22 GMT" duration-ms="4083" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- operator_role_access_analytics -->
+        <test-method is-config="true" signature="cleanUp()[pri:0, instance:Tests.RoleWiseTest@20d28811]" started-at="2022-01-30T23:13:22 GMT" name="cleanUp" finished-at="2022-01-30T23:13:22 GMT" duration-ms="281" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+      </class> <!-- Tests.RoleWiseTest -->
+      <class name="Tests.DocProcessMedicalChartTest">
+        <test-method is-config="true" signature="login()[pri:0, instance:Tests.DocProcessMedicalChartTest@4313f5bc]" started-at="2022-01-30T22:27:11 GMT" name="login" finished-at="2022-01-30T22:27:21 GMT" duration-ms="9245" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method signature="search_project()[pri:1, instance:Tests.DocProcessMedicalChartTest@4313f5bc]" started-at="2022-01-30T22:27:21 GMT" name="search_project" finished-at="2022-01-30T22:27:36 GMT" duration-ms="15819" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- search_project -->
+        <test-method signature="searchbox_document()[pri:2, instance:Tests.DocProcessMedicalChartTest@4313f5bc]" started-at="2022-01-30T22:27:36 GMT" name="searchbox_document" finished-at="2022-01-30T22:27:41 GMT" duration-ms="4263" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- searchbox_document -->
+        <test-method signature="update_document_cancel()[pri:3, instance:Tests.DocProcessMedicalChartTest@4313f5bc]" started-at="2022-01-30T22:27:41 GMT" name="update_document_cancel" finished-at="2022-01-30T22:28:02 GMT" duration-ms="21724" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- update_document_cancel -->
+        <test-method signature="hide_unhide_analytics()[pri:4, instance:Tests.DocProcessMedicalChartTest@4313f5bc]" started-at="2022-01-30T22:28:02 GMT" name="hide_unhide_analytics" finished-at="2022-01-30T22:28:06 GMT" duration-ms="4146" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- hide_unhide_analytics -->
+        <test-method signature="documents_filter()[pri:5, instance:Tests.DocProcessMedicalChartTest@4313f5bc]" started-at="2022-01-30T22:28:06 GMT" name="documents_filter" finished-at="2022-01-30T22:28:21 GMT" duration-ms="14485" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- documents_filter -->
+        <test-method signature="sorting()[pri:6, instance:Tests.DocProcessMedicalChartTest@4313f5bc]" started-at="2022-01-30T22:28:21 GMT" name="sorting" finished-at="2022-01-30T22:28:39 GMT" duration-ms="17629" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- sorting -->
+        <test-method signature="items_page()[pri:7, instance:Tests.DocProcessMedicalChartTest@4313f5bc]" started-at="2022-01-30T22:28:39 GMT" name="items_page" finished-at="2022-01-30T22:28:43 GMT" duration-ms="4153" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- items_page -->
+        <test-method signature="next_page_previous_page_first_page_last_page()[pri:8, instance:Tests.DocProcessMedicalChartTest@4313f5bc]" started-at="2022-01-30T22:28:43 GMT" name="next_page_previous_page_first_page_last_page" finished-at="2022-01-30T22:28:51 GMT" duration-ms="8223" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- next_page_previous_page_first_page_last_page -->
+        <test-method signature="create_chronic_condition()[pri:9, instance:Tests.DocProcessMedicalChartTest@4313f5bc]" started-at="2022-01-30T22:28:51 GMT" name="create_chronic_condition" finished-at="2022-01-30T22:29:13 GMT" duration-ms="22089" status="FAIL">
+          <exception class="org.openqa.selenium.ElementClickInterceptedException">
+            <message>
+              <![CDATA[element click intercepted: Element <div _ngcontent-serverapp-c277="" style="font-size: 13px;" class="ng-tns-c277-62">...</div> is not clickable at point (1089, 462). Other element would receive the click: <div class="cdk-overlay-backdrop mat-overlay-transparent-backdrop mat-datepicker-0-backdrop cdk-overlay-backdrop-showing"></div>
+  (Session info: chrome=97.0.4692.99)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'PELG01', ip: '10.128.0.13', os.name: 'Windows Server 2019', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\KISHOR~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:60050}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 1bd53602ca23cf3f805b7c58fa733af1]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <div _ngcontent-serverapp-c277="" style="font-size: 13px;" class="ng-tns-c277-62">...</div> is not clickable at point (1089, 462). Other element would receive the click: <div class="cdk-overlay-backdrop mat-overlay-transparent-backdrop mat-datepicker-0-backdrop cdk-overlay-backdrop-showing"></div>
+  (Session info: chrome=97.0.4692.99)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'PELG01', ip: '10.128.0.13', os.name: 'Windows Server 2019', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\KISHOR~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:60050}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 1bd53602ca23cf3f805b7c58fa733af1
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
+at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)
+at Pages.DocumentPage.SelectStartDate(DocumentPage.java:191)
+at Tests.DocProcessMedicalChartTest.create_chronic_condition(DocProcessMedicalChartTest.java:149)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:109)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.ElementClickInterceptedException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- create_chronic_condition -->
+        <test-method is-config="true" signature="cleanUp()[pri:0, instance:Tests.DocProcessMedicalChartTest@4313f5bc]" started-at="2022-01-30T22:29:13 GMT" name="cleanUp" finished-at="2022-01-30T22:29:14 GMT" duration-ms="324" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+      </class> <!-- Tests.DocProcessMedicalChartTest -->
+      <class name="Tests.ProjectBREMedicalChartDocumentTest">
+        <test-method is-config="true" signature="login()[pri:0, instance:Tests.ProjectBREMedicalChartDocumentTest@6e0dec4a]" started-at="2022-01-30T22:44:17 GMT" name="login" finished-at="2022-01-30T22:44:26 GMT" duration-ms="9392" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method signature="verify_save_draft_option_for_patient_demographics()[pri:1, instance:Tests.ProjectBREMedicalChartDocumentTest@6e0dec4a]" started-at="2022-01-30T22:44:26 GMT" name="verify_save_draft_option_for_patient_demographics" finished-at="2022-01-30T22:45:09 GMT" duration-ms="42177" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_save_draft_option_for_patient_demographics -->
+        <test-method signature="verify_save_draft_option_for_chronic_conditions()[pri:2, instance:Tests.ProjectBREMedicalChartDocumentTest@6e0dec4a]" started-at="2022-01-30T22:45:09 GMT" name="verify_save_draft_option_for_chronic_conditions" finished-at="2022-01-30T22:45:42 GMT" duration-ms="33473" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_save_draft_option_for_chronic_conditions -->
+        <test-method is-config="true" signature="cleanUp()[pri:0, instance:Tests.ProjectBREMedicalChartDocumentTest@6e0dec4a]" started-at="2022-01-30T22:45:42 GMT" name="cleanUp" finished-at="2022-01-30T22:45:42 GMT" duration-ms="281" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+      </class> <!-- Tests.ProjectBREMedicalChartDocumentTest -->
+      <class name="Tests.UpdateUserAdminTest">
+        <test-method is-config="true" signature="login()[pri:0, instance:Tests.UpdateUserAdminTest@48aaecc3]" started-at="2022-01-30T23:24:34 GMT" name="login" finished-at="2022-01-30T23:24:35 GMT" duration-ms="858" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method signature="UpdateUserAdminFlow()[pri:1, instance:Tests.UpdateUserAdminTest@48aaecc3]" started-at="2022-01-30T23:24:35 GMT" name="UpdateUserAdminFlow" finished-at="2022-01-30T23:25:02 GMT" duration-ms="26573" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- UpdateUserAdminFlow -->
+        <test-method signature="disable_user_update()[pri:2, instance:Tests.UpdateUserAdminTest@48aaecc3]" started-at="2022-01-30T23:25:02 GMT" name="disable_user_update" finished-at="2022-01-30T23:25:09 GMT" duration-ms="7129" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- disable_user_update -->
+        <test-method signature="enable_user_update()[pri:3, instance:Tests.UpdateUserAdminTest@48aaecc3]" started-at="2022-01-30T23:25:09 GMT" name="enable_user_update" finished-at="2022-01-30T23:25:13 GMT" duration-ms="4108" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- enable_user_update -->
+        <test-method signature="update_with_blank_name()[pri:4, instance:Tests.UpdateUserAdminTest@48aaecc3]" started-at="2022-01-30T23:25:13 GMT" name="update_with_blank_name" finished-at="2022-01-30T23:25:25 GMT" duration-ms="12389" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- update_with_blank_name -->
+        <test-method signature="update_with_invalid_username()[pri:5, instance:Tests.UpdateUserAdminTest@48aaecc3]" started-at="2022-01-30T23:25:25 GMT" name="update_with_invalid_username" finished-at="2022-01-30T23:25:39 GMT" duration-ms="13403" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- update_with_invalid_username -->
+        <test-method signature="update_with_valid_username()[pri:6, instance:Tests.UpdateUserAdminTest@48aaecc3]" started-at="2022-01-30T23:25:39 GMT" name="update_with_valid_username" finished-at="2022-01-30T23:26:03 GMT" duration-ms="24202" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- update_with_valid_username -->
+        <test-method is-config="true" signature="cleanUp()[pri:0, instance:Tests.UpdateUserAdminTest@48aaecc3]" started-at="2022-01-30T23:26:03 GMT" name="cleanUp" finished-at="2022-01-30T23:26:03 GMT" duration-ms="297" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+      </class> <!-- Tests.UpdateUserAdminTest -->
+      <class name="Tests.ProjectFlowFreeFormTest">
+        <test-method is-config="true" signature="login()[pri:0, instance:Tests.ProjectFlowFreeFormTest@1f3f4916]" started-at="2022-01-30T22:56:56 GMT" name="login" finished-at="2022-01-30T22:57:06 GMT" duration-ms="9324" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method signature="create_project_without_adding_attributes_and_role()[pri:1, instance:Tests.ProjectFlowFreeFormTest@1f3f4916]" started-at="2022-01-30T22:57:06 GMT" name="create_project_without_adding_attributes_and_role" finished-at="2022-01-30T22:57:42 GMT" duration-ms="36352" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- create_project_without_adding_attributes_and_role -->
+        <test-method signature="create_project_without_adding_role()[pri:2, instance:Tests.ProjectFlowFreeFormTest@1f3f4916]" started-at="2022-01-30T22:57:42 GMT" name="create_project_without_adding_role" finished-at="2022-01-30T22:57:51 GMT" duration-ms="8404" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- create_project_without_adding_role -->
+        <test-method signature="create_project_without_adding_user()[pri:3, instance:Tests.ProjectFlowFreeFormTest@1f3f4916]" started-at="2022-01-30T22:57:51 GMT" name="create_project_without_adding_user" finished-at="2022-01-30T22:57:59 GMT" duration-ms="8624" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- create_project_without_adding_user -->
+        <test-method signature="verify_add_user()[pri:4, instance:Tests.ProjectFlowFreeFormTest@1f3f4916]" started-at="2022-01-30T22:57:59 GMT" name="verify_add_user" finished-at="2022-01-30T22:58:05 GMT" duration-ms="6323" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_add_user -->
+        <test-method signature="next_to_data()[pri:5, instance:Tests.ProjectFlowFreeFormTest@1f3f4916]" started-at="2022-01-30T22:58:05 GMT" name="next_to_data" finished-at="2022-01-30T22:58:14 GMT" duration-ms="8351" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- next_to_data -->
+        <test-method signature="create_project_with_valid_details()[pri:6, instance:Tests.ProjectFlowFreeFormTest@1f3f4916]" started-at="2022-01-30T22:58:14 GMT" name="create_project_with_valid_details" finished-at="2022-01-30T22:58:23 GMT" duration-ms="9326" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- create_project_with_valid_details -->
+        <test-method is-config="true" signature="cleanUp()[pri:0, instance:Tests.ProjectFlowFreeFormTest@1f3f4916]" started-at="2022-01-30T22:58:23 GMT" name="cleanUp" finished-at="2022-01-30T22:58:23 GMT" duration-ms="312" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+      </class> <!-- Tests.ProjectFlowFreeFormTest -->
+      <class name="Tests.TemplateTest">
+        <test-method is-config="true" signature="login()[pri:0, instance:Tests.TemplateTest@3967e60c]" started-at="2022-01-30T23:13:22 GMT" name="login" finished-at="2022-01-30T23:13:31 GMT" duration-ms="9317" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method signature="create_template_with_invalid_name()[pri:1, instance:Tests.TemplateTest@3967e60c]" started-at="2022-01-30T23:13:31 GMT" name="create_template_with_invalid_name" finished-at="2022-01-30T23:13:48 GMT" duration-ms="16708" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- create_template_with_invalid_name -->
+        <test-method signature="create_template_with_valid_name_no_chosen_file()[pri:2, instance:Tests.TemplateTest@3967e60c]" started-at="2022-01-30T23:13:48 GMT" name="create_template_with_valid_name_no_chosen_file" finished-at="2022-01-30T23:13:55 GMT" duration-ms="7253" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- create_template_with_valid_name_no_chosen_file -->
+        <test-method signature="create_template_with_already_exists_name_no_chosen_file()[pri:3, instance:Tests.TemplateTest@3967e60c]" started-at="2022-01-30T23:13:55 GMT" name="create_template_with_already_exists_name_no_chosen_file" finished-at="2022-01-30T23:14:11 GMT" duration-ms="15448" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- create_template_with_already_exists_name_no_chosen_file -->
+        <test-method signature="create_template_with_valid_name_chosen_file()[pri:4, instance:Tests.TemplateTest@3967e60c]" started-at="2022-01-30T23:14:11 GMT" name="create_template_with_valid_name_chosen_file" finished-at="2022-01-30T23:14:28 GMT" duration-ms="17439" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- create_template_with_valid_name_chosen_file -->
+        <test-method signature="search_created_template()[pri:5, instance:Tests.TemplateTest@3967e60c]" started-at="2022-01-30T23:14:28 GMT" name="search_created_template" finished-at="2022-01-30T23:14:37 GMT" duration-ms="8587" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- search_created_template -->
+        <test-method signature="zoom_in()[pri:6, instance:Tests.TemplateTest@3967e60c]" started-at="2022-01-30T23:14:37 GMT" name="zoom_in" finished-at="2022-01-30T23:14:43 GMT" duration-ms="6202" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- zoom_in -->
+        <test-method signature="zoom_out()[pri:7, instance:Tests.TemplateTest@3967e60c]" started-at="2022-01-30T23:14:43 GMT" name="zoom_out" finished-at="2022-01-30T23:15:06 GMT" duration-ms="22804" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- zoom_out -->
+        <test-method signature="delete_created_template_single_page()[pri:8, instance:Tests.TemplateTest@3967e60c]" started-at="2022-01-30T23:15:06 GMT" name="delete_created_template_single_page" finished-at="2022-01-30T23:15:15 GMT" duration-ms="9536" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- delete_created_template_single_page -->
+        <test-method signature="create_template_with_more_pages()[pri:9, instance:Tests.TemplateTest@3967e60c]" started-at="2022-01-30T23:15:15 GMT" name="create_template_with_more_pages" finished-at="2022-01-30T23:16:02 GMT" duration-ms="46998" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- create_template_with_more_pages -->
+        <test-method signature="navigate_next()[pri:10, instance:Tests.TemplateTest@3967e60c]" started-at="2022-01-30T23:16:02 GMT" name="navigate_next" finished-at="2022-01-30T23:16:07 GMT" duration-ms="5107" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- navigate_next -->
+        <test-method signature="navigate_back()[pri:11, instance:Tests.TemplateTest@3967e60c]" started-at="2022-01-30T23:16:07 GMT" name="navigate_back" finished-at="2022-01-30T23:16:22 GMT" duration-ms="14648" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- navigate_back -->
+        <test-method signature="delete_more_page_template()[pri:12, instance:Tests.TemplateTest@3967e60c]" started-at="2022-01-30T23:16:22 GMT" name="delete_more_page_template" finished-at="2022-01-30T23:16:43 GMT" duration-ms="20498" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- delete_more_page_template -->
+        <test-method is-config="true" signature="cleanUp()[pri:0, instance:Tests.TemplateTest@3967e60c]" started-at="2022-01-30T23:16:43 GMT" name="cleanUp" finished-at="2022-01-30T23:16:43 GMT" duration-ms="297" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+      </class> <!-- Tests.TemplateTest -->
+      <class name="Tests.ProjectFlowMedicalChart">
+        <test-method is-config="true" signature="login()[pri:0, instance:Tests.ProjectFlowMedicalChart@794cb805]" started-at="2022-01-30T22:58:23 GMT" name="login" finished-at="2022-01-30T22:58:33 GMT" duration-ms="9330" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method signature="check_all_functionalities_on_project_page()[pri:1, instance:Tests.ProjectFlowMedicalChart@794cb805]" started-at="2022-01-30T22:58:33 GMT" name="check_all_functionalities_on_project_page" finished-at="2022-01-30T22:59:05 GMT" duration-ms="32190" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- check_all_functionalities_on_project_page -->
+        <test-method signature="create_project_without_entities_and_role()[pri:2, instance:Tests.ProjectFlowMedicalChart@794cb805]" started-at="2022-01-30T22:59:05 GMT" name="create_project_without_entities_and_role" finished-at="2022-01-30T22:59:07 GMT" duration-ms="2164" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- create_project_without_entities_and_role -->
+        <test-method signature="create_project_with_entities_without_role()[pri:3, instance:Tests.ProjectFlowMedicalChart@794cb805]" started-at="2022-01-30T22:59:07 GMT" name="create_project_with_entities_without_role" finished-at="2022-01-30T22:59:22 GMT" duration-ms="14457" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- create_project_with_entities_without_role -->
+        <test-method signature="create_project_without_user()[pri:4, instance:Tests.ProjectFlowMedicalChart@794cb805]" started-at="2022-01-30T22:59:22 GMT" name="create_project_without_user" finished-at="2022-01-30T22:59:28 GMT" duration-ms="6633" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- create_project_without_user -->
+        <test-method signature="verify_add_user()[pri:5, instance:Tests.ProjectFlowMedicalChart@794cb805]" started-at="2022-01-30T22:59:28 GMT" name="verify_add_user" finished-at="2022-01-30T22:59:35 GMT" duration-ms="6372" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_add_user -->
+        <test-method signature="navigate_next_to_datapage_back_page()[pri:6, instance:Tests.ProjectFlowMedicalChart@794cb805]" started-at="2022-01-30T22:59:35 GMT" name="navigate_next_to_datapage_back_page" finished-at="2022-01-30T22:59:43 GMT" duration-ms="8301" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- navigate_next_to_datapage_back_page -->
+        <test-method signature="create_project_with_valid_details()[pri:7, instance:Tests.ProjectFlowMedicalChart@794cb805]" started-at="2022-01-30T22:59:43 GMT" name="create_project_with_valid_details" finished-at="2022-01-30T22:59:52 GMT" duration-ms="9389" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- create_project_with_valid_details -->
+        <test-method is-config="true" signature="cleanUp()[pri:0, instance:Tests.ProjectFlowMedicalChart@794cb805]" started-at="2022-01-30T22:59:52 GMT" name="cleanUp" finished-at="2022-01-30T22:59:53 GMT" duration-ms="251" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+      </class> <!-- Tests.ProjectFlowMedicalChart -->
+    </test> <!-- C:/Users/kishor_ghadge/IdeaProjects/Maven_Project -->
+  </suite> <!-- All Test Suite -->
+</testng-results>
