@@ -7,14 +7,14 @@ import org.testng.asserts.SoftAssert;
 public class CreateUserPage extends BasePage
 {
     By UserBtn = By.xpath("//i[@class='mat-tooltip-trigger fa fa-users m-0 side-icon ng-star-inserted']");
-    By CreateUserBtn = By.xpath("//button[@class='mat-focus-indicator font-17 float-right btn-xs-block mat-raised-button mat-button-base mat-primary ng-star-inserted']");
-    By CreateBtn = By.xpath("//button[@class='mat-focus-indicator float-right button-cls mat-raised-button mat-button-base mat-primary']");
-    By EnterUserName = By.xpath("//body[1]/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-edit-user[1]/div[1]/form[1]/mat-card[1]/div[1]/div[1]/mat-form-field[1]/div[1]/div[1]/div[3]/input[1]");
-    By EnterEmail  = By.xpath("//body[1]/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-edit-user[1]/div[1]/form[1]/mat-card[1]/div[1]/div[2]/mat-form-field[1]/div[1]/div[1]/div[3]/input[1]");
+    By CreateUserBtn = By.xpath("//span[contains(text(),' Create User ')]");
+    By CreateBtn = By.xpath("//span[contains(text(),'Create')]");
+    By EnterUserName = By.xpath("//input[@formcontrolname='name']");
+    By EnterEmail  = By.xpath("//input[@formcontrolname='email']");
     By ActiveUser = By.xpath("//div[@class='mat-slide-toggle-thumb']");
-    By SearchBtn  = By.xpath("//body[1]/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-user-management[1]/div[1]/div[1]/div[1]/mat-form-field[1]/div[1]/div[1]/div[3]/input[1]");
+    By SearchBtn  = By.xpath("//input[@data-placeholder='Search']");
     By DisableUser = By.xpath("//div[@class='mat-slide-toggle-thumb']");
-    By UpdateUser  = By.xpath("//button[@class='mat-focus-indicator float-right button-cls mat-raised-button mat-button-base mat-primary']");
+    By UpdateUser  = By.xpath("//span[contains(text(),'Update')]");
     By Password  = By.xpath("//input[@type='password']");
     By PlatformUser = By.xpath("//td[contains(text(),' AutoSampleBB ')]");
     By UserUpdated = By.xpath("//td[contains(text(),' AutoSampleUpdate ')]");

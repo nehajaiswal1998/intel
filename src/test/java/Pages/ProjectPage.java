@@ -31,10 +31,10 @@ public class ProjectPage {
     By SelectMedical = By.xpath("//span[contains(text(),'Medical Chart')]");
     By SelectFreeForm = By.xpath("//span[contains(text(),'Free-Form ')]");
     By SelectSemiStructure = By.xpath("//span[contains(text(),'Semi-Structured ')]");
-    By AddEntity = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[2]/div[1]/form[1]/project-info-section[1]/mat-accordion[1]/project-entitys[1]/mat-expansion-panel[1]/div[1]/div[1]/div[2]/button[1]/span[1]");
+    By AddEntity = By.xpath("//span[contains(text(),' Add Entity ')]");
 
-    By PatientDemoGraphics = By.xpath("//body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/button[1]");
-    By ChronicConditions = By.xpath("//body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/button[1]");
+    By PatientDemoGraphics = By.xpath("//button[contains(text(),' Patient Demographics')]");
+    By ChronicConditions = By.xpath("//button[contains(text(),' Chronic Conditions')]");
 
     By ClickProcessingEngine = By.xpath("//*[@formcontrolname='processingEngine']/div[1]/div[2]");
     By SelectProcessingEngine = By.xpath("//span[contains(text(),'NN High')]");
@@ -56,8 +56,8 @@ public class ProjectPage {
     By AddUserAdmin = By.xpath("//button[@class='mat-focus-indicator disabled-font-color mat-icon-button mat-button-base primary-font-color']");       //esc method
     By SelectUserAdmin = By.xpath("//span[contains(text(),'j1@gmail.com')]");
     By UpdateProject = By.xpath("//span[contains(text(),'Update')]");
-    By RoleUserDisableEnable = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[2]/div[1]/form[1]/project-info-section[1]/mat-accordion[1]/project-roles[1]/mat-expansion-panel[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/mat-slide-toggle[1]/label[1]/div[1]");
-    By SupervisorRoleDisable = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[2]/div[1]/form[1]/project-info-section[1]/mat-accordion[1]/project-roles[1]/mat-expansion-panel[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/mat-slide-toggle[1]/label[1]/div[1]/div[1]/div[1]");
+    By RoleUserDisableEnable = By.xpath("//label[@for='mat-slide-toggle-7-input']");
+    By SupervisorRoleDisable = By.xpath("//label[@for='mat-slide-toggle-8-input']");
     By ClickDataset = By.xpath("//span[contains(text(),'Datasets')]");
     By AddDataset = By.xpath("//span[contains(text(),'Add Dataset')]");
     By SelectDataSample = By.xpath("//body[1]/div[1]/div[2]/div[1]/div[1]/div[1]/button[4]");

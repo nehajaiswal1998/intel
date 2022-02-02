@@ -20,7 +20,7 @@ public class TemplatePage {
     By Cancel = By.xpath("//span[contains(text(),' Cancel ')]");
     By TemplateDataInfo = By.xpath("//td[contains(text(),'Template1')]");
     By TemplateDataInfo1 = By.xpath("//td[contains(text(),'Sample-page1')]");
-    By TemplateDelete = By.xpath("//body[1]/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-new-training[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[6]/button[2]/span[1]/mat-icon[1]");
+    By TemplateDelete = By.xpath("//table[@matsortdirection='desc']/tbody/tr[2]/td/div/div/table/tbody/tr[1]/td[6]/button[2]");
     By ConfirmDeleteTemplate = By.xpath("//*[contains(text(),'Confirm')]");
     By TemplateOnGrid = By.xpath("//thead/tr[1]/th[1]/div[1]/div[1]");
     By ZoomInIcon = By.xpath("//button[@mattooltip='Zoom In']");

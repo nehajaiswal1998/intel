@@ -10,14 +10,14 @@ public class CreateRolePage {
     By RoleManagementBtn = By.xpath("//i[@class='mat-tooltip-trigger fa fa-id-card m-0 side-icon ng-star-inserted']");
     By CreateRoleBtn = By.xpath("//span[contains(text(),'Create Role')]");
     By ClickCreate = By.xpath("//span[contains(text(),'Create')]");
-    By RoleName = By.xpath("//body[1]/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-edit-role[1]/div[1]/form[1]/mat-card[1]/div[1]/div[1]/mat-form-field[1]/div[1]/div[1]/div[3]/input[1]");
+    By RoleName = By.xpath("//input[@formcontrolname='role']");
     By ActiveRole = By.xpath("//div[@class='mat-slide-toggle-thumb']");
     By AddPermission = By.xpath(" //button[@class='mat-focus-indicator mat-raised-button mat-button-base mat-primary']");
     By ViewDocumentPermission = By.xpath("//span[contains(text(),'View Document' )]");
     By ClickCancel = By.xpath("//span[contains(text(),'Cancel')]");
-    By SearchRole = By.xpath("//body[1]/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-role-management[1]/div[1]/div[1]/div[1]/mat-form-field[1]/div[1]/div[1]/div[3]/input[1]");
-    By EditRole = By.xpath("//span[contains(text(),'AutoAdmin23')]");//Update This.
-    By EditRolePA = By.xpath("//span[contains(text(),'AutoAdminPA24')]");//Update This.
+    By SearchRole = By.xpath("//input[@data-placeholder='Search']");
+    By EditRole = By.xpath("//span[contains(text(),'AutoAdmin25')]");//Update This.
+    By EditRolePA = By.xpath("//span[contains(text(),'AutoAdminPA28')]");//Update This.
     By ProcessDocumentPermission = By.xpath("//span[contains(text(),' Process Document ')]");
     By CreateUserPermission = By.xpath("//span[contains(text(),'Create User')]");
     By CreateProject = By.xpath("//span[contains(text(),'Create Project')]");
@@ -28,7 +28,7 @@ public class CreateRolePage {
     By CreateTemplate = By.xpath("//span[contains(text(),'Create Template')]");
     By CreateRole = By.xpath("//span[contains(text(),'Create Role')]");
     By ViewAnalytics    = By.xpath("//span[contains(text(),'View Analytics')]");
-    By RemoveProcessDocPermission = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-edit-role[1]/div[1]/form[1]/mat-card[1]/div[1]/div[5]/div[1]/div[1]/div[1]/mat-chip-list[1]/div[1]/mat-chip[3]/mat-icon[1]");
+    By RemoveProcessDocPermission = By.xpath("//mat-icon[contains(text(),'cancel')]");
     By UpdateRole = By.xpath("//span[contains(text(),'Update Role')]");
     By ClickUpdateBtn = By.xpath("//span[contains(text(),'Update' )]");
     By RemovePermission = By.xpath("//mat-icon[contains(text(),'cancel')]");
