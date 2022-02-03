@@ -209,9 +209,9 @@ public class DocumentPage {
         public void assertAttributValue () {
                 String AttributeValue = driver.findElement(addAttributeValue).getText();
                 System.out.println(AttributeValue);
-                //String ActualValue = AttributeValue;
-                //String ExpectedValue = "John Dey";
-                // Assert.assertEquals(ActualValue,ExpectedValue);
+                String ActualValue = AttributeValue;
+                String ExpectedValue = "John Dey";
+                Assert.assertEquals(ActualValue,ExpectedValue);
         }
         public void viewStructuredReadyDoc()
         {

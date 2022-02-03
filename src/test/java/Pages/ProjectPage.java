@@ -22,10 +22,10 @@ public class ProjectPage {
     By SelectLead = By.xpath("//span[contains(text(),'qa1@email.com')]");
     By ClickStartDate = By.cssSelector("button[aria-label='Open calendar'][tabindex='0']");
     By ClearStartDate = By.xpath("//input[@id='mat-input-3']");
-    By SelectStartDate = By.xpath("//div[contains(text(),'30')]");//Change this before running
+    By SelectStartDate = By.xpath("//div[contains(text(),'13')]");//Change this before running
     By ClickEndDate = By.xpath("/html/body/app-root/div/app-landing/div/div/main/div/app-create-project/div[2]/div/form/mat-card/div/div[4]/mat-form-field/div/div[1]/div[4]/mat-datepicker-toggle/button");
     By ClearEndDate = By.xpath("//input[@id='mat-input-4']");
-    By SelectEndDate = By.xpath("//div[contains(text(),'30')]");
+    By SelectEndDate = By.xpath("//div[contains(text(),'13')]");
     By ClickDocumentStructure = By.xpath("//*[@formcontrolname='documentStructure']");
     By SelectStructure = By.xpath("//span[contains(text(),'Structured ')]");
     By SelectMedical = By.xpath("//span[contains(text(),'Medical Chart')]");
@@ -65,7 +65,7 @@ public class ProjectPage {
     By DocumentChanel = By.xpath("//span[contains(text(),'Document Ingestion Channels')]");
     By ChannelType = By.xpath("//*[@id='testa1']/div/div[2]/div");
     By SelectChannelType = By.xpath("//*[@id='mat-option-9']/span");
-    By RulesPage = By.xpath("//body[1]/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[3]/div[1]/div[1]/button[4]");
+    By RulesPage = By.xpath("//span[text()='Next']");
 
     //Rules Workbench
     By CLickVariable = By.xpath("//span[contains(text(),'Variables')]");
@@ -109,10 +109,10 @@ public class ProjectPage {
     By TableStructure = By.xpath("//*[contains(text(),' list ')]");
     By SearchProject = By.xpath("//input[@data-placeholder='Search']");
 
-    By CreateButtonOnRulesPage = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[4]/div[1]/div[1]/button[2]/span[1]");
+    By CreateButtonOnRulesPage = By.xpath("//span[text()='Create']");
 
     By RoleManagementBtn = By.xpath("//i[@class='mat-tooltip-trigger fa fa-id-card m-0 side-icon ng-star-inserted']");
-    By SearchRole = By.xpath("//body[1]/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-role-management[1]/div[1]/div[1]/div[1]/mat-form-field[1]/div[1]/div[1]/div[3]/input[1]");
+    By SearchRole = By.xpath("//input[@data-placeholder='Search']");
     By EditRole = By.xpath("//span[contains(text(),' AutoAdmin1 ')]");
     By ActiveRole = By.xpath("//div[@class='mat-slide-toggle-thumb']");
 
@@ -122,15 +122,15 @@ public class ProjectPage {
     By Username = By.xpath("//input[@formcontrolname='userName']");
     By Password = By.xpath("//input[@formcontrolname='password']");
     By EditProject = By.xpath("//mat-icon[contains(text(),'create')]");
-    By DeleteAttributeFieldName = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[2]/div[1]/form[1]/project-info-section[1]/mat-accordion[1]/project-attributes[1]/mat-expansion-panel[1]/div[1]/div[1]/div[1]/mat-table[1]/mat-row[1]/mat-cell[3]/button[1]/span[1]/mat-icon[1]");
+    By DeleteAttributeFieldName = By.xpath("//mat-table[@role='grid']/mat-row[1]/mat-cell[3]/button");
     // User Update
     By UserBtn = By.xpath("//i[@class='mat-tooltip-trigger fa fa-users m-0 side-icon ng-star-inserted']");
     By User = By.xpath("//td[contains(text(),' AE Admin ')]");
-    By SearchBtn = By.xpath("//body[1]/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-user-management[1]/div[1]/div[1]/div[1]/mat-form-field[1]/div[1]/div[1]/div[3]/input[1]");
+    By SearchBtn = By.xpath("//input[@data-placeholder='Search']");
     By DisableUser = By.xpath("//div[@class='mat-slide-toggle-thumb']");
-    By UpdateUser = By.xpath("//button[@class='mat-focus-indicator float-right button-cls mat-raised-button mat-button-base mat-primary']");
-    By BackButtonRulePage = By.xpath("/html/body/app-root/div/app-landing/div/div/main/div/app-create-project/div[4]/div/div/button[1]/span[1]");
-    By BackButtonDataPage = By.xpath("/html/body/app-root/div/app-landing/div/div/main/div/app-create-project/div[3]/div/div/button[1]");
+    By UpdateUser = By.xpath("//span[text()='Update']");
+    By BackButtonRulePage = By.xpath("//project-rule-section/following-sibling::div/button/span[text()='Back']/parent::button");
+    By BackButtonDataPage = By.xpath("//project-rule-section/following-sibling::div/button/span[text()='Back']/parent::button");
     By ErrorMsgEntities = By.xpath("//span[contains(text(),'Please add the entities before creating the project.')]");
     public ProjectPage(WebDriver driver) {
         this.driver = driver;
