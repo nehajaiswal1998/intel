@@ -24,72 +24,74 @@ public class UpdateProjectTest extends BasePage{
             ProjectPageObj = new ProjectPage(driver);
             //TC 21.1 Verify the working of Platform Admin for  Updating Project by entering Valid Data.
             ProjectPageObj.SearchProject();
-            Thread.sleep(2000);
-            ProjectPageObj.ClickOnEditProject();
             Thread.sleep(3000);
+            ProjectPageObj.ClickOnEditProject();
+            Thread.sleep(6000);
             ProjectPageObj.ClickOnLeadBtn();
-            Thread.sleep(2000);
-            ProjectPageObj.SelectOnLeadSampleBtn();
-            Thread.sleep(2000);
+            Thread.sleep(3000);
+            ProjectPageObj.ClickSearchLead("qa1@email.com");
+        Thread.sleep(3000);
+        ProjectPageObj.SelectOnLeadBtn();
+        Thread.sleep(3000);
             ProjectPageObj.ClickOnProcessingEngineBtn();
-            Thread.sleep(2000);
-            ProjectPageObj.SelectOnProcessingEngineLowBtn();
-            Thread.sleep(2000);
-            r.keyPress(KeyEvent.VK_ESCAPE);
-            Thread.sleep(2000);
-            ProjectPageObj.ClickOnUpdateProject();
             Thread.sleep(4000);
+            ProjectPageObj.SelectOnProcessingEngineLowBtn();
+            Thread.sleep(3000);
+            r.keyPress(KeyEvent.VK_ESCAPE);
+            Thread.sleep(4000);
+            ProjectPageObj.ClickOnUpdateProject();
+            Thread.sleep(6000);
     }
-        @Test(priority = 2)
+       @Test(priority = 2)
         public void to_maintain_script() throws Exception {
                 //To maintain script
                 ProjectPageObj.ClickOnProjectBtn();
                 Thread.sleep(5000);
                 ProjectPageObj.SearchProject();
-                Thread.sleep(2000);
-                ProjectPageObj.ClickOnEditProject();
                 Thread.sleep(3000);
+                ProjectPageObj.ClickOnEditProject();
+                Thread.sleep(5000);
                 ProjectPageObj.ClickOnLeadBtn();
-                Thread.sleep(2000);
+                Thread.sleep(3000);
                 ProjectPageObj.ClickSearchLead("admin@test.com");
-                Thread.sleep(2000);
-                ProjectPageObj.SelectOnLeadAdminBtn();
-                Thread.sleep(2000);
+            Thread.sleep(4000);
+            ProjectPageObj.SelectOnLeadAdminBtn();
+
                 ProjectPageObj.ClickOnProcessingEngineBtn();
-                Thread.sleep(2000);
+                Thread.sleep(3000);
                 ProjectPageObj.SelectOnProcessingEngineBtn();
-                Thread.sleep(2000);
+                Thread.sleep(3000);
                 ProjectPageObj.ClickOnUpdateProject();
-                Thread.sleep(4000);
+                Thread.sleep(6000);
         }
-        @Test(priority = 3)
+       @Test(priority = 3)
         public void update_project_when_role_status_disabled() throws Exception {
                 //TC 21.2 Verify the working of Platform Admin for Update Project button when Role and User Status is Disabled.
                 ProjectPageObj.ClickOnProjectBtn();
-                Thread.sleep(4000);
+                Thread.sleep(6000);
                 ProjectPageObj.SearchProject();
-                Thread.sleep(2000);
-                ProjectPageObj.ClickOnEditProject();
                 Thread.sleep(3000);
+                ProjectPageObj.ClickOnEditProject();
+                Thread.sleep(5000);
                 ProjectPageObj.ClickOnRolesBtn();
-                Thread.sleep(2000);
-                ProjectPageObj.ClickOnRoleUserDisableEnable();
-                Thread.sleep(2000);
-                ProjectPageObj.ClickOnUpdateProject();
                 Thread.sleep(4000);
+                ProjectPageObj.ClickOnRoleUserDisableEnable();
+                Thread.sleep(3000);
+                ProjectPageObj.ClickOnUpdateProject();
+                Thread.sleep(5000);
                 //User Disable.
                 ProjectPageObj.ClickUserBtn();
                 Thread.sleep(3000);
                 ProjectPageObj.SearchCreatedUser(ReadProps.readAttr("AdminRole"));
-                Thread.sleep(2000);
+                Thread.sleep(3000);
                 ProjectPageObj.SelectSearchedUser();
-                Thread.sleep(1000);
+                Thread.sleep(3000);
                 ProjectPageObj.ClickDisableUser();
-                Thread.sleep(2000);
+                Thread.sleep(3000);
                 ProjectPageObj.ClickUpdateUser();
-                Thread.sleep(2000);
+                Thread.sleep(6000);
         }
-        @Test(priority = 4)
+       @Test(priority = 4)
         public void disabled_roles_are_not_displayed_in_add_role_list() throws Exception {
                 //TC 21.3 Verify that all Disabled roles are not displayed in add role list while updating a project by Platform Admin.
                 ProjectPageObj.ClickOnProjectBtn();
@@ -97,7 +99,7 @@ public class UpdateProjectTest extends BasePage{
                 ProjectPageObj.SearchProject();
                 Thread.sleep(2000);
                 ProjectPageObj.ClickOnEditProject();
-                Thread.sleep(3000);
+                Thread.sleep(5000);
                 ProjectPageObj.ClickOnLeadBtn();
                 Thread.sleep(2000);
                 ProjectPageObj.ClickSearchLead("admin@test.com");
@@ -115,13 +117,13 @@ public class UpdateProjectTest extends BasePage{
                 ProjectPageObj.SearchCreatedUser(ReadProps.readAttr("AdminRole"));
                 Thread.sleep(2000);
                 ProjectPageObj.SelectSearchedUser();
-                Thread.sleep(1000);
+                Thread.sleep(3000);
                 ProjectPageObj.ClickDisableUser();
                 Thread.sleep(2000);
                 ProjectPageObj.ClickUpdateUser();
-                Thread.sleep(3000);
+                Thread.sleep(6000);
         }
-        @Test(priority = 5)
+         @Test(priority = 5)
         public void update_project_button_when_role_and_user_status_enabled() throws Exception {
                 //TC 21.4 Verify the working of Platform Admin for Update Project button  when role and user status is enabled.
                 ProjectPageObj.ClickOnProjectBtn();
@@ -129,15 +131,15 @@ public class UpdateProjectTest extends BasePage{
                 ProjectPageObj.SearchProject();
                 Thread.sleep(2000);
                 ProjectPageObj.ClickOnEditProject();
-                Thread.sleep(3000);
+                Thread.sleep(5000);
                 ProjectPageObj.ClickOnRolesBtn();
-                Thread.sleep(2000);
+                Thread.sleep(3000);
                 ProjectPageObj.ClickOnRoleUserDisableEnable();
-                Thread.sleep(2000);
+                Thread.sleep(3000);
                 ProjectPageObj.ClickOnUpdateProject();
-                Thread.sleep(4000);
+                Thread.sleep(7000);
         }
-        @Test(priority = 6)
+         @Test(priority = 6)
         public void enabled_roles_() throws Exception {
                 //TC 21.5 Verify that all enabled roles are displayed in add role list while updating a project by Platform Admin.
                 ProjectPageObj.ClickOnProjectBtn();
@@ -151,7 +153,7 @@ public class UpdateProjectTest extends BasePage{
                 ProjectPageObj.SelectOnLeadAdminBtn();
                 Thread.sleep(2000);
                 ProjectPageObj.ClickOnUpdateProject();
-                Thread.sleep(4000);
+                Thread.sleep(8000);
         }
         @Test(priority = 7)
         public void user_should_not_add_user_when_role_disabled() throws Exception {
@@ -161,7 +163,7 @@ public class UpdateProjectTest extends BasePage{
                 ProjectPageObj.SearchProject();
                 Thread.sleep(4000);
                 ProjectPageObj.ClickOnEditProject();
-                Thread.sleep(3000);
+                Thread.sleep(5000);
                 ProjectPageObj.ClickOnRolesBtn();
                 Thread.sleep(4000);
                 ProjectPageObj.ClickOnAddRoleBtn();
@@ -174,17 +176,17 @@ public class UpdateProjectTest extends BasePage{
                 ProjectPageObj.VerifyAssertForRoleDisable();
                 Thread.sleep(2000);
                 ProjectPageObj.ClickOnCancelProject();
-                Thread.sleep(4000);
+                Thread.sleep(8000);
         }
-        @Test(priority = 8)
+       @Test(priority = 8)
         public void update_project_role_should_not_have_empty_user() throws Exception {
                 //TC 21.7 Verify that while updating project Role should not have an empty user.
                 ProjectPageObj.ClickOnProjectBtn();
-                Thread.sleep(4000);
+                Thread.sleep(5000);
                 ProjectPageObj.SearchProject();
                 Thread.sleep(3000);
                 ProjectPageObj.ClickOnEditProject();
-                Thread.sleep(3000);
+                Thread.sleep(6000);
                 ProjectPageObj.ClickOnRolesBtn();
                 Thread.sleep(2000);
                 ProjectPageObj.ClickOnAddRoleBtn();
@@ -204,13 +206,13 @@ public class UpdateProjectTest extends BasePage{
                 ProjectPageObj.EnterPassword(ReadProps.readAttr("AdminPwd"));
                 Thread.sleep(2000);
                 ProjectPageObj.ClickLoginButton();
-                Thread.sleep(6000);
+                Thread.sleep(8000);
         }
         @Test(priority = 9)
         public void update_project_by_entering_valid_data() throws Exception {
                 //TC 21.8 Verify the working of  Admin for Updating project by entering valid data.
                 ProjectPageObj.ClickOnProjectBtn();
-                Thread.sleep(4000);
+                Thread.sleep(6000);
                 ProjectPageObj.SearchProjectAdmin();
                 Thread.sleep(5000);
                 ProjectPageObj.ClickOnEditProject();
@@ -227,7 +229,7 @@ public class UpdateProjectTest extends BasePage{
                 r.keyPress(KeyEvent.VK_ESCAPE);
                 Thread.sleep(2000);
                 ProjectPageObj.ClickOnUpdateProject();
-                Thread.sleep(4000);
+                Thread.sleep(6000);
         }
         @Test(priority = 10)
         public void to_maintain_script_two() throws Exception {
@@ -237,19 +239,19 @@ public class UpdateProjectTest extends BasePage{
                 ProjectPageObj.SearchProjectAdmin();
                 Thread.sleep(2000);
                 ProjectPageObj.ClickOnEditProject();
-                Thread.sleep(3000);
+                Thread.sleep(5000);
                 ProjectPageObj.ClickOnLeadBtn();
                 Thread.sleep(2000);
                 ProjectPageObj.ClickSearchLead("admin@test.com");
-                Thread.sleep(2000);
+                Thread.sleep(3000);
                 ProjectPageObj.SelectOnLeadAdminBtn();
-                Thread.sleep(2000);
+                Thread.sleep(3000);
                 ProjectPageObj.ClickOnProcessingEngineBtn();
                 Thread.sleep(2000);
                 ProjectPageObj.SelectOnProcessingEngineBtn();
                 Thread.sleep(2000);
                 ProjectPageObj.ClickOnUpdateProject();
-                Thread.sleep(4000);
+                Thread.sleep(6000);
         }
         @Test(priority = 11)
         public void update_project_when_role_and_status_disable() throws Exception {
@@ -276,7 +278,7 @@ public class UpdateProjectTest extends BasePage{
                 ProjectPageObj.ClickDisableUser();
                 Thread.sleep(2000);
                 ProjectPageObj.ClickUpdateUser();
-                Thread.sleep(2000);
+                Thread.sleep(6000);
         }
         @Test(priority = 12)
         public void disabled_roles_are_not_displayed_in_role_list_for_admin() throws Exception {
@@ -308,7 +310,7 @@ public class UpdateProjectTest extends BasePage{
                 ProjectPageObj.ClickDisableUser();
                 Thread.sleep(2000);
                 ProjectPageObj.ClickUpdateUser();
-                Thread.sleep(2000);
+                Thread.sleep(6000);
         }
         @Test(priority = 13)
         public void when_role_status_is_enabled_for_admin() throws Exception {
@@ -324,7 +326,7 @@ public class UpdateProjectTest extends BasePage{
                 ProjectPageObj.ClickOnRoleUserDisableEnable();
                 Thread.sleep(2000);
                 ProjectPageObj.ClickOnUpdateProject();
-                Thread.sleep(4000);
+                Thread.sleep(6000);
         }
         @Test(priority = 14)
         public void all_roles_are_displayed_in_add_list() throws Exception {
@@ -340,7 +342,7 @@ public class UpdateProjectTest extends BasePage{
                 ProjectPageObj.SelectOnLeadAdminBtn();
                 Thread.sleep(2000);
                 ProjectPageObj.ClickOnUpdateProject();
-                Thread.sleep(4000);
+                Thread.sleep(6000);
         }
         @Test(priority = 15)
         public void user_should_not_able_to_add_user_when_role_is_disabled_SP() throws Exception {
@@ -363,7 +365,7 @@ public class UpdateProjectTest extends BasePage{
                 ProjectPageObj.VerifyAssertForRoleDisable();
                 Thread.sleep(2000);
                 ProjectPageObj.ClickOnCancelProject();
-                Thread.sleep(4000);
+                Thread.sleep(6000);
         }
         @Test(priority = 16)
         public void role_should_not_have_empty_user_for_supervisor() throws Exception {
@@ -384,7 +386,7 @@ public class UpdateProjectTest extends BasePage{
                 ProjectPageObj.VerifyAssertForUser();
                 Thread.sleep(4000);
                 ProjectPageObj.ClickOnCancelProject();
-                Thread.sleep(5000);
+                Thread.sleep(6000);
         }
         @Test(priority = 17)
         public void status_is_disabled_for_admin_when_action_is_false() throws Exception {
@@ -398,7 +400,7 @@ public class UpdateProjectTest extends BasePage{
                 ProjectPageObj.ClickOnStatusBtn();
                 Thread.sleep(2000);
                 ProjectPageObj.ClickOnUpdateProject();
-                Thread.sleep(4000);
+                Thread.sleep(6000);
         }
         @Test(priority = 18)
         public void status_is_disabled_for_admin_when_action_is_true() throws Exception {
