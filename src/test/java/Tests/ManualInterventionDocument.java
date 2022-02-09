@@ -30,7 +30,7 @@ public class ManualInterventionDocument extends BasePage {
         Thread.sleep(2000);
         documentPageObj.ClickSelectFreeFormProject();
         Thread.sleep(2000);
-        documentPageObj.ClickSearchBox("Pfizer7.jpg");//rejected document for free from project.
+        documentPageObj.ClickSearchBox("Pfizer1.jpg");//rejected document for free from project.
         Thread.sleep(2000);
         documentPageObj.ClickSearchDocument();
         Thread.sleep(2000);
