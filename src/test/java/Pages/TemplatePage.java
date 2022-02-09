@@ -2,6 +2,7 @@ package Pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 
 public class TemplatePage {
@@ -28,7 +29,7 @@ public class TemplatePage {
     By CropDragIcon = By.xpath("//button[@class='mat-focus-indicator mat-tooltip-trigger mx-1 mat-mini-fab mat-button-base mat-primary']/span[1]/mat-icon[1]");
     By FieldName = By.xpath("//input[@formcontrolname='attributeName']");
     By MapButton = By.xpath("//*[contains(text(),'Map')]");
-    By MapErrorMsg = By.xpath("//*[contains(text(),' Please Select Portion Of Image ')]");
+    By MapErrorMsg = By.xpath("//*[text()=' Please select the portion on image for which the field name and validations have been given. ']");
     By SaveDraft = By.xpath("//span[contains(text(),'Save Draft')]");
     By CompleteTraining = By.xpath("//*[contains(text(),'Complete Training')]");
     By ClickClassification = By.xpath("//*[@id='docClassificationField']");
@@ -40,9 +41,10 @@ public class TemplatePage {
     By NavigateBack = By.xpath("//*[contains(text(),'navigate_before')]");
     By TrainingStatus = By.xpath("//tbody/tr[1]/td[4]");
 
+    By InvalidTemplateNameErr= By.xpath("//*[text()='Only alphabets,digits,parenthesis and hyphens are allowed while naming a template.']");
+    By ExistingTemplateNameErr= By.xpath("//div[text()='Template Name Already In Use.']");
 
     //Methods
-    SoftAssert softAssert = new SoftAssert();
     public TemplatePage(WebDriver driver) {
         this.driver = driver;
     }
@@ -90,20 +92,6 @@ public class TemplatePage {
         driver.findElement(TemplateDataInfo).click();
     }
 
-    public void AssertCreatTemplate() {
-        String[] TemplateName = driver.findElement(ExpandTemplate).getText().split(" ");
-        String ActualTemplate = TemplateName[1].trim();
-        String ExpectedTemplate = "Demo-New3";
-        softAssert.assertEquals(ActualTemplate, ExpectedTemplate);
-
-    }
-
-    public void AssertTrainingStatus()
-    {
-        String ActualStaus = driver.findElement(TrainingStatus).getText();
-        String ExpectedStatus = "In Progress";
-        softAssert.assertEquals(ActualStaus,ExpectedStatus);
-    }
     public void ClickCancel() {
         driver.findElement(Cancel).click();
     }
@@ -160,11 +148,7 @@ public class TemplatePage {
 
     }
 
-    public void AssertMap() {
-        String MapError = driver.findElement(MapErrorMsg).getText();
-        String ExpectedErrorMsg = "Please Select Portion Of Image";
-        softAssert.assertEquals(MapError, ExpectedErrorMsg);
-    }
+
 
     public void ClickSaveDraft()
     {
@@ -193,9 +177,48 @@ public class TemplatePage {
         driver.findElement(TemplateDataInfo1).click();
     }
 
-    public void SoftAssertAll()
+    public void verifyInvalidTemplatNameErr()
     {
-        softAssert.assertAll();
+        String ActualErrorInvalidTemplateName = driver.findElement(InvalidTemplateNameErr).getText();
+        String ExpectedInvalidTemplateName = "Only alphabets,digits,parenthesis and hyphens are allowed while naming a template.";
+        Assert.assertEquals(ActualErrorInvalidTemplateName,ExpectedInvalidTemplateName);
 
     }
+
+    public void verifyExistingTemplateName()
+    {
+        String ActualErrorExistingTemplateName = driver.findElement(ExistingTemplateNameErr).getText();
+        String ExpectedExistingTemplateName = "Template Name Already In Use.";
+        Assert.assertEquals(ActualErrorExistingTemplateName,ExpectedExistingTemplateName);
+    }
+    public void verifyTemplateMap() {
+        String ActualMapError = driver.findElement(MapErrorMsg).getText();
+        String ExpectedMapError = "Please select the portion on image for which the field name and validations have been given.";
+        Assert.assertEquals(ActualMapError, ExpectedMapError);
+    }
+
+    public void AssertTrainingStatus()
+    {
+        String ActualStaus = driver.findElement(TrainingStatus).getText();
+        String ExpectedStatus = "In Progress";
+        Assert.assertEquals(ActualStaus,ExpectedStatus);
+    }
+
+    public void verifySinglePageTemplateCreated() {
+        String[] TemplateName = driver.findElement(ExpandTemplate).getText().split(" ");
+        String ActualTemplate = TemplateName[1].trim();
+        String ExpectedTemplate = "AutoSampleSPTemp";
+        Assert.assertEquals(ActualTemplate, ExpectedTemplate);
+
+    }
+
+    public void verifySinglePageTemplateDelete() {
+        String[] TemplateName = driver.findElement(ExpandTemplate).getText().split(" ");
+        String ActualTemplate = TemplateName[1].trim();
+        String ExpectedTemplate = "AutoSampleSPTemp";
+        Assert.assertNotEquals(ActualTemplate, ExpectedTemplate);
+
+    }
+
+
 }
