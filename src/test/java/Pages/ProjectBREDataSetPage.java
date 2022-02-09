@@ -25,7 +25,7 @@ public class ProjectBREDataSetPage {
     By SelectPreDefinedDataSet = By.xpath("//span[contains(text(),'Test - Patient Info')]");
     By DataSetHeader = By.xpath("//span[contains(text(),'Dataset Header')]");
     By SelectDataSetHeader = By.xpath("//span[contains(text(),'DxCode')]");
-    By FirstDecisionBox = By.xpath("//body[1]/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[4]/div[1]/project-rule-section[1]/mat-drawer-container[1]/mat-drawer-content[1]/div[2]/div[1]/div[1]/div[1]/div[2]/app-tree-node[1]/div[1]/div[1]/div[1]/div[2]/mat-card[1]/div[1]/div[1]");
+    By FirstDecisionBox = By.xpath("//div[contains(@class,'opacity7 font-12 conditionCardHeading')]");
 
     public  void SelectDataSetHeader(){driver.findElement(SelectDataSetHeader).click();}
     public  void ClickOnDataSetHeader(){driver.findElement(DataSetHeader).click();}

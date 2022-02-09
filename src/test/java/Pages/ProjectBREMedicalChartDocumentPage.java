@@ -10,38 +10,35 @@ public class ProjectBREMedicalChartDocumentPage {
     By OpenReadyDocumentICD = By.xpath("//span[contains(text(),'document (1).pdf')]");
     By OpenRejectedDocument = By.xpath("//span[contains(text(),'inputDocs.jpg')]");
     By ChartData = By.xpath("//mat-label[contains(text(),'Chart Data')]");
-    By Address = By.xpath("//body[1]/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-processed-forms[1]/div[1]/div[1]/div[1]/as-split[1]/as-split-area[2]/div[4]/mat-expansion-panel[1]/div[1]/div[1]/div[1]/mat-tab-group[1]/div[1]/mat-tab-body[1]/div[1]/div[1]/mat-table[1]/mat-row[1]/mat-cell[2]/mat-form-field[1]/div[1]/div[1]/div[1]/input[1]");
+    By Address = By.xpath("//div[@class='mat-form-field-infix ng-tns-c97-11']");
     By SaveDraft = By.xpath("//span[contains(text(),'Save Draft')]");
-    By ChronicConditions = By.xpath("//mat-tab-header/div[2]/div[1]/div[1]/div[2]/div[1]");
+    By ChronicConditions = By.xpath("");
     By AddChronicCondition = By.xpath("//mat-icon[contains(text(),'add')]");
     By NPINumber = By.xpath("//input[@formcontrolname='npiNo']");
     By EncounterDetails = By.xpath("//span[contains(text(),'NPI No')]");
     By DoctorName = By.xpath("//input[@formcontrolname='physicianName']");
     By StartDate = By.xpath("//input[@formcontrolname='startDate']");
-    By HCCCodes = By.xpath("//body[1]/div[1]/div[1]/div[1]/mat-dialog-container[1]/app-rcm-edit-dialog[1]/div[1]/form[1]/div[1]/div[2]/div[4]/div[1]/mat-form-field[1]/div[1]/div[1]/div[3]/input[1]");
+    By HCCCodes = By.xpath("//input[@formcontrolname='hcc_codes']");
     By EditICDCodeDetailsOnEditDiagnosisDetails = By.xpath("//input[@formcontrolname='icd_code']");
 
-    By EditICDCodeDetails = By.xpath("//body[1]/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-processed-forms[1]/div[1]/div[1]/div[1]/as-split[1]/as-split-area[2]/div[4]/mat-expansion-panel[1]/div[1]/div[1]/div[1]/mat-tab-group[1]/div[1]/mat-tab-body[2]/div[1]/div[1]/mat-accordion[1]/mat-expansion-panel[1]/div[1]/div[1]/div[1]/mat-table[1]/mat-row[1]/mat-cell[5]/button[1]/mat-icon[1]");
+    By EditICDCodeDetails = By.xpath("//div[contains(text(),' Chronic Conditions ')]");
     By PickCommentAdd = By.xpath("//span[contains(text(),'ADD')]");
     By EndDate = By.xpath("//input[@formcontrolname='endDate']");
-    By ClickAddedChronicCondition = By.xpath("//mat-tab-body/div[1]/div[1]/mat-accordion[1]/mat-expansion-panel[1]");
-    By SaveBtn = By.xpath("//app-rcm-edit-header/div[1]/form[1]/div[1]/div[2]/div[4]/button[2]");
+    By ClickAddedChronicCondition = By.xpath("//span[@class='mat-content ng-tns-c158-21']");
+    By SaveBtn = By.xpath("//button[@class='mat-focus-indicator mat-raised-button mat-button-base mat-primary']");
     By DeleteCC = By.xpath("//mat-icon[contains(text(),'delete')]");
-    By CancelCC = By.xpath("//app-rcm-edit-header/div[1]/form[1]/div[1]/div[2]/div[4]/button[1]");
+    By CancelCC = By.xpath("//button[@class='mat-focus-indicator mr-2 mat-stroked-button mat-button-base mat-accent']");
     By EditEncounterDetails = By.xpath("//mat-expansion-panel-header/span[1]/mat-panel-description[1]/button[1]/span[1]/mat-icon[1]");
     By EditEncounterDetailsCC = By.xpath("//mat-icon[contains(text(),'create')]");
-    By SaveEditEncounterDetails = By.xpath("//app-rcm-edit-header/div[1]/form[1]/div[1]/div[2]/div[4]/button[2]/span[1]");
-    By CancelEditEncounterDetails = By.xpath("//app-rcm-edit-header/div[1]/form[1]/div[1]/div[2]/div[4]/button[1]/span[1]");
+    By CancelEditEncounterDetails = By.xpath("//button[@class='mat-focus-indicator mr-2 mat-stroked-button mat-button-base mat-accent']");
     By AddDiagnosisDetails = By.xpath("//mat-expansion-panel-header/span[1]/mat-panel-description[1]/button[2]/span[1]/mat-icon[1]");
     By CancelDiagnosisDetails = By.xpath("//button[@id='category-close-modal']");
-    By SaveDiagnosisDetails = By.xpath("//body/div[1]/div[1]/div[1]/mat-dialog-container[1]/app-rcm-edit-dialog[1]/div[1]/form[1]/div[1]/div[2]/div[5]/button[2]");
     By RunRule = By.xpath("//span[contains(text(),'Run Rule')]");
     By AddComment = By.xpath("//span[contains(text(),'Add Comment')]");
     By CancelBtnICD = By.xpath("//span[contains(text(),'Cancel')]");
     By SelectICDCode = By.xpath("//span[contains(text(),'A00.9 Cholera, unspecified')]");
     By OpenReadyDocumentICD1 = By.xpath("//span[contains(text(),'Karis Garner_only 8 page.pdf')]");
-    By CancelEditDiagnosisDetails = By.xpath("//body/div[1]/div[1]/div[1]/mat-dialog-container[1]/app-rcm-edit-dialog[1]/div[1]/form[1]/div[1]/div[2]/div[7]/button[1]/span[1]");
-    By SaveEditDiagnosisDetails = By.xpath("//body/div[1]/div[1]/div[1]/mat-dialog-container[1]/app-rcm-edit-dialog[1]/div[1]/form[1]/div[1]/div[2]/div[7]/button[2]/span[1]");
+
     //Constructor
     public ProjectBREMedicalChartDocumentPage(WebDriver driver) {
         this.driver = driver;
@@ -65,10 +62,10 @@ public class ProjectBREMedicalChartDocumentPage {
         driver.findElement(EditICDCodeDetails).click();
     }
     public void ClickOnSaveEditDiagnosisDetails() {
-        driver.findElement(SaveEditDiagnosisDetails).click();
+        driver.findElement(SaveBtn).click();
     }
     public void ClickOnCancelEditDiagnosisDetails() {
-        driver.findElement(CancelEditDiagnosisDetails).click();
+        driver.findElement(CancelCC).click();
     }
 
     public void ClickOnReadyDocumentICD() {
@@ -159,7 +156,7 @@ public class ProjectBREMedicalChartDocumentPage {
     }
 
     public void ClickOnSaveEditEncounterDetails() {
-        driver.findElement(SaveEditEncounterDetails).click();
+        driver.findElement(SaveBtn).click();
     }
 
     public void ClickOnCancelEditEncounterDetails() {
@@ -177,7 +174,7 @@ public class ProjectBREMedicalChartDocumentPage {
     }
 
     public void ClickOnSaveDiagnosisDetails() {
-        driver.findElement(SaveDiagnosisDetails).click();
+        driver.findElement(SaveBtn).click();
     }
 
     public void ClickOnRunRuleBtn() {

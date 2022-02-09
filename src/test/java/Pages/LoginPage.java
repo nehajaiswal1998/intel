@@ -2,6 +2,7 @@ package Pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 
 public class LoginPage {
@@ -19,8 +20,6 @@ public class LoginPage {
     public LoginPage(WebDriver driver) {
         this.driver = driver;
     }
-
-    SoftAssert softAssert = new SoftAssert();
 
     //Methods Declaration.
 
@@ -48,16 +47,21 @@ public class LoginPage {
     public void VerifyAssertError() {
         String actual_msg = driver.findElement(ErrorMsgBlankData).getText();
         String expect = "Please Enter Valid Data ...!";
-        softAssert.assertEquals(actual_msg, expect);
+        Assert.assertEquals(actual_msg, expect);
+    }
+    public void VerifyAssertError1() {
+        String actual_msg = driver.findElement(ErrorMsgBlankData).getText();
+        String expect = "Please Enter Valid Data ...!";
+        Assert.assertEquals(actual_msg, expect);
     }
     public void VerifyHomePage() {
         String actual_page = driver.getCurrentUrl();
         String expected_page = "https://alpha.neutrino-ai.com/#/home";
-        softAssert.assertEquals(actual_page, expected_page);
+        Assert.assertEquals(actual_page, expected_page);
     }
     public void VerifyAssertBack() {
         String actual_page = driver.getCurrentUrl();
         String expected_page = "https://alpha.neutrino-ai.com/#/home";
-        softAssert.assertEquals(actual_page, expected_page);
+        Assert.assertEquals(actual_page, expected_page);
     }
 }

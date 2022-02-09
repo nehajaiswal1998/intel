@@ -21,7 +21,7 @@ public class BasePage {
         ProjectPageObj.EnterUsername(ReadProps.readAttr("UserID"));
         loginPageObjects.setPassword(ReadProps.readAttr("Password"));
         loginPageObjects.clickLoginButton();
-        Thread.sleep(7000);
+        Thread.sleep(12000);
     }
     public static void driverInit() throws Exception {
         String projectPath = System.getProperty("user.dir");

@@ -22,10 +22,10 @@ public class ProjectPage {
     By SelectLead = By.xpath("//span[contains(text(),'qa1@email.com')]");
     By ClickStartDate = By.cssSelector("button[aria-label='Open calendar'][tabindex='0']");
     By ClearStartDate = By.xpath("//input[@id='mat-input-3']");
-    By SelectStartDate = By.xpath("//div[contains(text(),'30')]");//Change this before running
+    By SelectStartDate = By.xpath("//div[contains(text(),'7')]");//Change this before running
     By ClickEndDate = By.xpath("/html/body/app-root/div/app-landing/div/div/main/div/app-create-project/div[2]/div/form/mat-card/div/div[4]/mat-form-field/div/div[1]/div[4]/mat-datepicker-toggle/button");
     By ClearEndDate = By.xpath("//input[@id='mat-input-4']");
-    By SelectEndDate = By.xpath("//div[contains(text(),'30')]");
+    By SelectEndDate = By.xpath("//div[contains(text(),'28')]");
     By ClickDocumentStructure = By.xpath("//*[@formcontrolname='documentStructure']");
     By SelectStructure = By.xpath("//span[contains(text(),'Structured ')]");
     By SelectMedical = By.xpath("//span[contains(text(),'Medical Chart')]");

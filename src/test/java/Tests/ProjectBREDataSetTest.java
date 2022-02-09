@@ -81,9 +81,9 @@ public class ProjectBREDataSetTest extends BasePage {
             Thread.sleep(2000);
             js.executeScript("window.scrollBy(0,1000)", "");
             Thread.sleep(1000);
-            //Navigate to Data Page.
             ProjectPageObj.ClickNextPage();
             Thread.sleep(2000);
+            //Navigate to Data Page.
             ProjectBREDataSetPageObj.ClickOnDataSets();
             Thread.sleep(1000);
             ProjectBREDataSetPageObj.ClickOnAddDataSets();

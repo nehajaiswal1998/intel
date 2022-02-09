@@ -50,7 +50,6 @@ public class LoginTest extends BasePage {
                 loginPageObjects.VerifyAssertError();
                 Thread.sleep(2000);
         }
-
         @Test(priority = 2)
         public static void login_with_invalid_username_and_blank_password() throws Exception {
                 //TC 14.2 - Login with Invalid Username and Blank Password for Platform Admin.
@@ -58,6 +57,7 @@ public class LoginTest extends BasePage {
                 Thread.sleep(2000);
                 loginPageObjects.clickLoginButton();
                 loginPageObjects.VerifyAssertError();
+                Thread.sleep(2000);
         }
 
         @Test(priority = 3)
@@ -68,9 +68,8 @@ public class LoginTest extends BasePage {
                 loginPageObjects.setPassword(ReadProps.readAttr("Password"));
                 Thread.sleep(1000);
                 loginPageObjects.clickLoginButton();
-                Thread.sleep(3000);
+                Thread.sleep(2000);
         }
-
         @Test(priority = 4)
         public static void login_with_blank_username_and_invalid_password() throws Exception {
                 //TC 14.4 - Login with Blank Username and Invalid Password for Platform Admin.
