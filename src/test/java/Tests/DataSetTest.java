@@ -71,7 +71,7 @@ public class DataSetTest extends BasePage {
         DatasetPageObj.ClickDatasetName(ReadProps.readAttr("DName"));//Change before executing.
         Thread.sleep(2000);
         WebElement upload_file = driver.findElement(By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-dataset-editor[1]/div[4]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/div[1]/input[1]"));
-        upload_file.sendKeys("C:\\Users\\kishor_ghadge\\IdeaProjects\\sampledata.csv");
+        upload_file.sendKeys("C:\\Users\\kumar\\Downloads\\sampledata.csv");
         Thread.sleep(2000);
         DatasetPageObj.ClickAddDatasetCancelBtn();
         Thread.sleep(2000);
@@ -84,7 +84,7 @@ public class DataSetTest extends BasePage {
         DatasetPageObj.ClickDatasetName(ReadProps.readAttr("DName"));//Change before executing
         Thread.sleep(2000);
         WebElement upload_file1 = driver.findElement(By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-dataset-editor[1]/div[4]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/div[1]/input[1]"));
-        upload_file1.sendKeys("C:\\Users\\kishor_ghadge\\IdeaProjects\\sampledata.csv");
+        upload_file1.sendKeys("C:\\Users\\kumar\\Downloads\\sampledata.csv");
         Thread.sleep(2000);
     }
     @Test(priority = 8)

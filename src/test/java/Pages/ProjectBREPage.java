@@ -1,5 +1,4 @@
 package Pages;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,7 +8,7 @@ public class ProjectBREPage {
 
     WebDriver driver = null;
 
-    By NextPageOnRulesPage = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[3]/div[1]/div[1]/button[4]/span[1]");
+    By NextPageOnRulesPage = By.xpath("(//span[contains(text(),'Next')])[2]");
     By ThreeDots = By.xpath("//mat-icon[contains(text(),'menu')]");
     By ProjectData = By.xpath("//mat-panel-title[contains(text(),'Project DATA')]");
     By DataSets = By.xpath("//mat-panel-title[contains(text(),'Datasets')]");
@@ -22,11 +21,11 @@ public class ProjectBREPage {
     //BREMedicalChart.
     By PNameCheck= By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[4]/div[1]/project-rule-section[1]/mat-drawer-container[1]/mat-drawer-content[1]/div[2]/div[1]/div[1]/div[1]/div[2]/app-tree-node[1]/div[1]/div[1]/div[1]/div[2]/mat-card[1]/div[1]/div[1]/span[1]");
     By SetDocumentStatus = By.xpath("//span[contains(text(),'Set Document Status')]");
-    By DocumentValue = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[4]/div[1]/project-rule-section[1]/mat-drawer-container[1]/mat-drawer[2]/div[1]/rule-edit-sidebar[1]/div[1]/div[3]/div[2]/div[1]/div[3]/div[1]/div[2]/mat-form-field[1]/div[1]/div[1]/div[3]");
+    By DocumentValue = By.xpath("//div[@class='mat-select-arrow-wrapper ng-tns-c164-132']");
     By Rejected = By.xpath("//span[contains(text(),'Rejected')]");
     By ActionType = By.xpath("//span[contains(text(),'Set Variable')]");
     By ContractFirstRule = By.xpath("//mat-icon[contains(text(),'visibility_off')]");
-    By AddNameOfCondition = By.xpath("//body[1]/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[4]/div[1]/project-rule-section[1]/mat-drawer-container[1]/mat-drawer[2]/div[1]/rule-edit-sidebar[1]/div[1]/div[2]/mat-form-field[1]/div[1]/div[1]/div[3]/input[1]");
+    By AddNameOfCondition = By.xpath("//input[@data-placeholder='Enter name of Condition / Action']");
 
     By RuleName = By.xpath("//input[@data-placeholder='Rule Name']");
     By FirstDecisionBox =  By.xpath("//span[@class='mat-tooltip-trigger conditionCardHeadingspan']");
@@ -34,10 +33,9 @@ public class ProjectBREPage {
     By FirstCondition = By.xpath("//div[@class='opacity7 font-12 pt-3 text-center actionCardHeading']");
     By AndCondition = By.xpath("//span[contains(text(),'AND')]");
 
-    By SelectPatientDemographics = By.xpath("//body[1]/div[1]/div[2]/div[1]/div[1]/div[1]/mat-option[1]/span[1]");
-    By SelectPatientDemographics1 = By.xpath("//body/div[1]/div[2]/div[1]/div[1]/div[1]/mat-option[1]/span[1]");
-    By AddBREEntity = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[4]/div[1]/project-rule-section[1]/mat-drawer-container[1]/mat-drawer[2]/div[1]/rule-edit-sidebar[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/mat-form-field[1]/div[1]/div[1]/div[3]/mat-select[1]/div[1]/div[1]/span[1]");
-    By AddBREEntity1 = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[4]/div[1]/project-rule-section[1]/mat-drawer-container[1]/mat-drawer[2]/div[1]/rule-edit-sidebar[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/mat-form-field[1]/div[1]/div[1]/div[3]/mat-select[1]/div[1]/div[1]/span[1]");
+    By SelectPatientDemographics = By.xpath("(//span[contains(text(),' Patient Demographics ')])[2]");
+    By AddBREEntity = By.xpath("//div[@id='mat-select-value-17']");
+    By AddBREEntity1 = By.xpath("//div[@id='mat-select-value-25']");
     By AttributeValue = By.xpath("//span[contains(text(),'Attribute / Variable')]");
 
     By NameAttribute = By.xpath("//span[contains(text(),'NAME')]");
@@ -49,7 +47,7 @@ public class ProjectBREPage {
     By Visibility = By.xpath("//mat-icon[contains(text(),'visibility')]");
     By Operator = By.xpath("//span[contains(text(),'Operator')]");
     By OperatorValueEqualTo = By.xpath("//span[contains(text(),'==')]");
-    By OperatorValueExistsIN = By.xpath("//body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/mat-option[1]/span[1]");
+    By OperatorValueExistsIN = By.xpath("//span[contains(text(),'Exists In')]");
     By Save = By.xpath("//span[contains(text(),'Save ')]");
     By AddAction = By.xpath("//span[contains(text(),'Add Action')]");
     By ClickOnBREDataSet = By.xpath("//span[contains(text(),'dataset')]");
@@ -59,9 +57,9 @@ public class ProjectBREPage {
     By SelectBREDatasetHeaderDXCode = By.xpath("//body/div[1]/div[2]/div[1]/div[1]/div[1]/mat-option[1]/span[1]");
     By SelectBREDatasetHeaderDOB = By.xpath("//span[contains(text(),'DOB')]");
     By ExpandVariables = By.xpath("//span[contains(text(),'Variables')]");
-    By AddVariablesButton = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[3]/div[1]/project-data-section[1]/mat-accordion[1]/project-variables[1]/mat-expansion-panel[1]/div[1]/div[1]/div[1]/button[1]/span[1]");
+    By AddVariablesButton = By.xpath("//span[contains(text(),' Add Variable ')]");
     By VariableName = By.xpath("//input[@id='variableName']");
-    By ValidationType = By.xpath("//span[@class='mat-select-placeholder mat-select-min-line ng-tns-c164-42 ng-star-inserted']");
+    By ValidationType = By.xpath("//span[@class='mat-select-placeholder mat-select-min-line ng-tns-c164-23 ng-star-inserted']");
     By Name = By.xpath("//span[contains(text(),'Name')]");
     By Address = By.xpath("//span[contains(text(),'Address')]");
     By City = By.xpath("//span[contains(text(),'City')]");
@@ -69,8 +67,8 @@ public class ProjectBREPage {
     By ZIP = By.xpath("//span[contains(text(),'Zip')]");
 
     By DefaultValue = By.xpath("//input[@id='VariableValue']");
-    By AddButton = By.xpath("//span[contains(text(),'Add +')]");
-    By CancelButton = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[4]/div[1]/div[1]/button[3]/span[1]");
+    By AddButton = By.xpath("(//button[@class='mat-focus-indicator ml-2 mat-raised-button mat-button-base mat-primary'])[2]");
+    By CancelButton = By.xpath("//button[@class='mat-focus-indicator ml-2 mat-stroked-button mat-button-base mat-accent']");
 
     By Value= By.xpath("//input[@placeholder='value']");
     By ActionValue = By.xpath("//input[@data-placeholder='Enter name of Condition / Action']");
@@ -133,7 +131,7 @@ public class ProjectBREPage {
 
     public  void ClickOnAddBREEntity(){driver.findElement(AddBREEntity).click();}
     public  void ClickOnAddBREEntity1(){driver.findElement(AddBREEntity1).click();}
-    public  void ClickOnAddBREEntityPD1(){driver.findElement(SelectPatientDemographics1).click();}
+    public  void ClickOnAddBREEntityPD1(){driver.findElement(SelectPatientDemographics).click();}
     public  void ClickOnAddBREEntityPD(){driver.findElement(SelectPatientDemographics).click();}
 
     public  void ClickOnAttributeValue(){driver.findElement(AttributeValue).click();}
