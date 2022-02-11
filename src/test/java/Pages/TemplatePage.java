@@ -41,7 +41,7 @@ public class TemplatePage {
     By NavigateBack = By.xpath("//*[contains(text(),'navigate_before')]");
     By TrainingStatus = By.xpath("//tbody/tr[1]/td[4]");
 
-    By InvalidTemplateNameErr= By.xpath("//*[text()='Only alphabets,digits,parenthesis and hyphens are allowed while naming a template.']");
+    By InvalidTemplateNameErr= By.xpath("//mat-error[text()='Only alphabets,digits,parenthesis and hyphens are allowed while naming a template.']");
     By ExistingTemplateNameErr= By.xpath("//div[text()='Template Name Already In Use.']");
 
     //Methods
@@ -67,6 +67,8 @@ public class TemplatePage {
 
     public void ClickOnTemplateName(String text) {
         driver.findElement(TemplateName).sendKeys(text);
+        driver.findElement(TemplateName).click();
+
     }
 
     public void ClickOnChooseFileBtn() {
@@ -217,6 +219,25 @@ public class TemplatePage {
         String ActualTemplate = TemplateName[1].trim();
         String ExpectedTemplate = "AutoSampleSPTemp";
         Assert.assertNotEquals(ActualTemplate, ExpectedTemplate);
+
+    }
+
+    public void verifyMultiPageTemplateCreated() {
+        String[] TemplateName = driver.findElement(ExpandTemplate).getText().split(" ");
+        String ActualTemplate = TemplateName[1].trim();
+        String ExpectedTemplate = "AutoSampleMPTemp";
+        Assert.assertEquals(ActualTemplate, ExpectedTemplate);
+
+    }
+
+    public void verifyMultiPageTemplateDelete() {
+
+            String[] TemplateName = driver.findElement(ExpandTemplate).getText().split(" ");
+            String ActualTemplate = TemplateName[1].trim();
+            String ExpectedTemplate = "AutoSampleMPTemp";
+            Assert.assertNotEquals(ActualTemplate, ExpectedTemplate);
+
+
 
     }
 

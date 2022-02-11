@@ -29,7 +29,7 @@ public class ManualInterventionDocument extends BasePage {
         documentPageObj.ClickDropDownBtn();
         Thread.sleep(3000);
         documentPageObj.ClickSelectFreeFormProject();
-        Thread.sleep(4000);
+        Thread.sleep(6000);
         documentPageObj.ClickSearchBox("Pfizer8.jpg");//rejected document for free from project.
         Thread.sleep(3000);
         documentPageObj.ClickSearchDocument();
@@ -68,7 +68,7 @@ public class ManualInterventionDocument extends BasePage {
         documentPageObj.assertFreeFormDocument();
         Thread.sleep(3000);
     }
-    /*@Test(priority = 2)
+   /* @Test(priority = 2)
     public void manual_intervention_structured_ready_document() throws Exception {
         Robot r = new Robot();
         documentPageObj.ClickDocumentBtn();

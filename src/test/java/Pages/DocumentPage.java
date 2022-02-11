@@ -10,7 +10,7 @@ public class DocumentPage {
         By DocumentBtn = By.xpath("//mat-sidenav[@id='sidenav']/div/mat-nav-list/mat-list-item[6]");
         By DropDown = By.xpath("//button[@class='mat-focus-indicator mat-menu-trigger white_bg mat-button mat-button-base mat-primary ng-star-inserted']");
         By SearchProject = By.xpath("//div[@class='cdk-overlay-pane']/div/div/div/input");
-        By SearchBox = By.xpath("//div[@class='row mb-3']/div[1]/mat-form-field");
+        By SearchBox = By.xpath("//input[@data-placeholder='Search']");
         By SelectStructuredProject = By.xpath("//span[contains(text(),'QA-AutoProject-Structured')]");
         By SelectSemiStructuredProject = By.xpath("//span[contains(text(),'QA-AutoProject-SemiStructured')]");
         By SelectFreeFormProject = By.xpath("//span[contains(text(),'QA-AutoProject-FreeForm')]");
@@ -24,7 +24,7 @@ public class DocumentPage {
         By ViewDoc3 = By.xpath("//span[contains(text(),'4.tif')]");
         By ViewDoc4 = By.xpath("//span[contains(text(),'3.tif')]");
         By ViewDoc5 = By.xpath("//span[contains(text(),'Processed.pdf')]");
-        By ViewFreeFormRejectedDoc = By.xpath("//span[contains(text(),'Pfizer4.jpg')]");
+        By ViewFreeFormRejectedDoc = By.xpath("//span[contains(text(),'Pfizer8.jpg')]");
         By ViewStructuredReadyDoc = By.xpath("//span[contains(text(),'Pfizer4.jpg')]");
 
         By ExpansionPanel = By.xpath("//mat-expansion-panel-header/span[2]");
@@ -82,6 +82,28 @@ public class DocumentPage {
         By AddData = By.xpath("//mat-label[contains(text(),'Data')]");
         By AddAttribute = By.xpath("//span[contains(text(),'Attribute')]");
         By AddPatientName = By.xpath("//span[contains(text(),' PatientName ')]");
+        By AddDOB = By.xpath("//span[contains(text(),' DOB ')]");
+        By AddAge = By.xpath("//span[contains(text(),' Age ')]");
+        By AddAddress = By.xpath("//span[contains(text(),' Address ')]");
+        By AddGender = By.xpath("//span[contains(text(),' Gender ')]");
+        By AddPhone = By.xpath("//span[contains(text(),' Phone ')]");
+        By AddMRN =   By.xpath("//span[contains(text(),' MRN ')]");
+        By AddSSN =   By.xpath("//span[contains(text(),' SSN ')]");
+        By AddEmail =   By.xpath("//span[contains(text(),' Email ')]");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         By clickAdd = By.xpath("//span[contains(text(),' Add ')]");
         By addAttributeValue = By.xpath("//mat-cell[contains(text(),'PatientName')]/following::input");
         By SaveDraft = By.xpath("//span[contains(text(),'Save Draft')]");
@@ -193,7 +215,19 @@ public class DocumentPage {
         public void ViewFreeFormRejectedDocument(){ driver.findElement(ViewFreeFormRejectedDoc).click();}
         public void clickAddData() {driver.findElement(AddData).click();}
         public void clickAddAttributes() { driver.findElement(AddAttribute).click();}
-        public void addAttributes() {driver.findElement(AddPatientName).click();}
+
+        public void addAttributes() {
+                driver.findElement(AddPatientName).click();
+                driver.findElement(AddDOB).click();
+                driver.findElement(AddAge).click();
+                driver.findElement(AddAddress).click();
+                driver.findElement(AddGender).click();
+                driver.findElement(AddPhone).click();
+                driver.findElement(AddMRN).click();
+                driver.findElement(AddSSN).click();
+                driver.findElement(AddEmail).click();
+        }
+
         public void clickADD() {driver.findElement(clickAdd).click();}
         public void addAttributeValue() {driver.findElement(addAttributeValue).sendKeys("John Dey");}
         public void clickSaveDraft() {driver.findElement(SaveDraft).click();}

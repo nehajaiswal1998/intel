@@ -9,15 +9,18 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.*;
 
 import java.awt.*;
+import java.util.concurrent.TimeUnit;
 
 @Listeners(Utilities.TestListeners.class)
 
 public class TemplateTest extends BasePage {
     static TemplatePage TemplatePageObj;
 
+
     @BeforeClass
     public void login() throws Exception {
         BasePage.driverInit();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         BasePage.LoginTest();
     }
 
@@ -31,19 +34,19 @@ public class TemplateTest extends BasePage {
         TemplatePageObj = new TemplatePage(driver);
         Robot r = new Robot();
         TemplatePageObj.ClickTemplateBtn();
-        Thread.sleep(6000);
+        Thread.sleep(8000);
         //TC 20.1 - Create Template with Invalid Name and Chosen File.
         TemplatePageObj.ClickOnUploadTemplateBtn();
         Thread.sleep(4000);
         TemplatePageObj.ClickOnTemplateName(ReadProps.readAttr("TInvalidName"));
+        Thread.sleep(3000);
         Thread.sleep(2000);
-        WebElement upload_file = driver.findElement(By.xpath("//*[@id='faxDetailModal']/div/div/div[2]/div/form/div/input"));
-        upload_file.sendKeys("C:\\Users\\juee.ningshetti\\OneDrive\\Desktop\\Template format\\Template1.jpg");
+        TemplatePageObj.ClickCreateTemplate();
         Thread.sleep(2000);
         TemplatePageObj.verifyInvalidTemplatNameErr();
         Thread.sleep(2000);
         TemplatePageObj.ClickCancelCreateTemplate();
-        Thread.sleep(3000);
+        Thread.sleep(5000);
     }
 
     @Test(priority = 2)
@@ -54,7 +57,7 @@ public class TemplateTest extends BasePage {
         TemplatePageObj.ClickOnTemplateName(ReadProps.readAttr("TNameUnique"));
         Thread.sleep(2000);
         TemplatePageObj.ClickCancelCreateTemplate();
-        Thread.sleep(3000);
+        Thread.sleep(5000);
     }
 
     @Test(priority = 3)
@@ -72,7 +75,7 @@ public class TemplateTest extends BasePage {
         TemplatePageObj.verifyExistingTemplateName();
         Thread.sleep(1000);
         TemplatePageObj.ClickCancelCreateTemplate();
-        Thread.sleep(3000);
+        Thread.sleep(5000);
     }
 
     @Test(priority = 4)
@@ -83,7 +86,6 @@ public class TemplateTest extends BasePage {
         TemplatePageObj.ClickOnTemplateName(ReadProps.readAttr("TNameUnique"));
         Thread.sleep(2000);
         WebElement upload_file = driver.findElement(By.xpath("//*[@id='faxDetailModal']/div/div/div[2]/div/form/div/input"));
-
         upload_file.sendKeys("C:\\Users\\juee.ningshetti\\OneDrive\\Desktop\\Template format\\Template1.jpg");
         Thread.sleep(2000);
         TemplatePageObj.ClickCreateTemplate();
@@ -99,8 +101,8 @@ public class TemplateTest extends BasePage {
     public void search_created_template() throws Exception {
         //TC 20.5 Search Created template.
         TemplatePageObj.ClickOnSearchTemplate(ReadProps.readAttr("TNameUnique"));
-        Thread.sleep(2000);
-        TemplatePageObj.verifySinglePageTemplateCreated();
+        Thread.sleep(4000);
+        // TemplatePageObj.verifySinglePageTemplateCreated();
         TemplatePageObj.ClickOnExpandTemplate();
         Thread.sleep(2000);
         TemplatePageObj.ClickOnTemplateDataInfo();
@@ -151,15 +153,13 @@ public class TemplateTest extends BasePage {
     public void delete_created_template_single_page() throws Exception {
         //TC 20.8 Delete created template (Single Page).
         TemplatePageObj.ClickOnSearchTemplate(ReadProps.readAttr("TNameUnique"));
-        Thread.sleep(2000);
+        Thread.sleep(4000);
         TemplatePageObj.ClickOnExpandTemplate();
         Thread.sleep(2000);
         TemplatePageObj.DeleteTemplate();
         Thread.sleep(2000);
         TemplatePageObj.ConfirmDeleteTemplate();
         Thread.sleep(3000);
-        TemplatePageObj.verifySinglePageTemplateDelete();
-        Thread.sleep(2000);
 
     }
 
@@ -179,8 +179,11 @@ public class TemplateTest extends BasePage {
         Thread.sleep(20000);
         TemplatePageObj.ClickCancel();
         Thread.sleep(5000);
+        TemplatePageObj.verifyMultiPageTemplateCreated();
+        Thread.sleep(2000);
         TemplatePageObj.ClickOnSearchTemplate(ReadProps.readAttr("TNameMorePages"));
         Thread.sleep(4000);
+        TemplatePageObj.verifyMultiPageTemplateCreated();
         TemplatePageObj.ClickExpandMore();
         Thread.sleep(2000);
         TemplatePageObj.ClickOnTemplateMorePagesInfo();
@@ -208,7 +211,7 @@ public class TemplateTest extends BasePage {
         TemplatePageObj.ClickOnSearchTemplate(ReadProps.readAttr("TNameMorePages"));
         Thread.sleep(2000);
         TemplatePageObj.ClickExpandMore();
-        Thread.sleep(4000);
+        Thread.sleep(5000);
     }
 
     @Test(priority = 12)
@@ -230,7 +233,8 @@ public class TemplateTest extends BasePage {
         Thread.sleep(3000);
         TemplatePageObj.ConfirmDeleteTemplate();
         Thread.sleep(4000);
-        Thread.sleep(4000);
+
+
     }
 
 }
