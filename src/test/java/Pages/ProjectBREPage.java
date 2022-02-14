@@ -17,6 +17,7 @@ public class ProjectBREPage {
     By DeleteRules = By.xpath("//span[@class='rulesetVisibilityIcon px-3 bgcolor2']");
     By ExpandRule = By.xpath("//mat-icon[@class='mat-icon notranslate addRuleRoundedIcon mt-2 ml-2 material-icons mat-icon-no-color ng-star-inserted']");
 
+
     //BREMedicalChart.
     By PNameCheck= By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[4]/div[1]/project-rule-section[1]/mat-drawer-container[1]/mat-drawer-content[1]/div[2]/div[1]/div[1]/div[1]/div[2]/app-tree-node[1]/div[1]/div[1]/div[1]/div[2]/mat-card[1]/div[1]/div[1]/span[1]");
     By SetDocumentStatus = By.xpath("//span[contains(text(),'Set Document Status')]");
@@ -69,10 +70,17 @@ public class ProjectBREPage {
     By AddButton = By.xpath("(//button[@class='mat-focus-indicator ml-2 mat-raised-button mat-button-base mat-primary'])[2]");
     By CancelButton = By.xpath("//button[@class='mat-focus-indicator ml-2 mat-stroked-button mat-button-base mat-accent']");
 
-    By Value= By.xpath("//input[@placeholder='value']");
+    By Value = By.xpath("//input[@placeholder='value']");
     By ActionValue = By.xpath("//input[@data-placeholder='Enter name of Condition / Action']");
-    By FalseBox = By.xpath("//button[@class='float-right conditionBlockFalseButton ng-star-inserted']");
-    By TrueBox = By.xpath("//button[@class='float-left conditinBlockTrueButton ng-star-inserted']");
+    By FalseBox = By.xpath("(//div[@class='opacity7 font-12 pt-3 text-center actionCardHeading'])[2]");
+    By FalseBox2 = By.xpath("(//div[@class='opacity7 font-12 pt-3 text-center actionCardHeading'])[4]");
+    By FalseBox3 = By.xpath("(//div[@class='opacity7 font-12 pt-3 text-center actionCardHeading'])[6]");
+
+    By TrueBox1 = By.xpath("(//div[@class='opacity7 font-12 pt-3 text-center actionCardHeading'])[1]");
+    By TrueBox2 = By.xpath("(//div[@class='opacity7 font-12 pt-3 text-center actionCardHeading'])[3]");
+    By TrueBox3 = By.xpath("(//div[@class='opacity7 font-12 pt-3 text-center actionCardHeading'])[5]");
+
+
 
     By SelectVariable1 = By.xpath("//span[contains(text(),'Variable1')]");
     By SelectVariable2 = By.xpath("//span[contains(text(),'Variable2')]");
@@ -85,7 +93,7 @@ public class ProjectBREPage {
     By SelectVariable9 = By.xpath("//span[contains(text(),'Variable9')]");
     By SelectVariable10 = By.xpath("//span[contains(text(),'Variable10')]");
 
-    By VariableDropdown = By.xpath("//span[@class='mat-select-placeholder mat-select-min-line ng-tns-c164-129 ng-star-inserted']");
+    By VariableDropdown = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[4]/div[1]/project-rule-section[1]/mat-drawer-container[1]/mat-drawer[2]/div[1]/rule-edit-sidebar[1]/div[1]/div[3]/div[2]/div[1]/div[3]/mat-form-field[1]/div[1]/div[1]/div[3]/mat-select[1]/div[1]/div[1]/span[1]");
     By Project = By.xpath("//span[contains(text(),'AutoSample3')]");
 
 
@@ -93,11 +101,11 @@ public class ProjectBREPage {
     public ProjectBREPage(WebDriver driver) {
         this.driver = driver;
     }
-    public void ClickOnFirstTrueBoxButton(){driver.findElement(TrueBox).click();}
-    public void ClickOnSecondTrueBoxButton(){driver.findElement(TrueBox).click();}
-    public void ClickOnThirdTrueBoxButton(){driver.findElement(TrueBox).click();}
+    public void ClickOnFirstTrueBoxButton(){driver.findElement(TrueBox1).click();}
+    public void ClickOnSecondTrueBoxButton(){driver.findElement(TrueBox2).click();}
+    public void ClickOnThirdTrueBoxButton(){driver.findElement(TrueBox3).click();}
 
-//BRE Medical Chart
+    //BRE Medical Chart
     public void ClickOnPNameCheck(){driver.findElement(PNameCheck).click();}
     public void ClickOnActionType(){driver.findElement(ActionType).click();}
     public void ClickOnDocumentValue(){driver.findElement(DocumentValue).click();}
@@ -176,10 +184,8 @@ public class ProjectBREPage {
     public  void ClickOnContractRuleButton(){driver.findElement(ContractFirstRule).click();}
 
     public  void ClickOnFalseBoxButton1(){driver.findElement(FalseBox).click();}
-    public  void ClickOnFalseBoxButton2(){driver.findElement(FalseBox).click();}
-    public  void ClickOnFalseBoxButton3(){driver.findElement(FalseBox).click();}
-
-
+    public  void ClickOnFalseBoxButton2(){driver.findElement(FalseBox2).click();}
+    public  void ClickOnFalseBoxButton3(){driver.findElement(FalseBox3).click();}
     public  void EnterActionValue(String text){ driver.findElement(ActionValue).sendKeys(text);}
     public  void ClickOnVariableDropdown(){driver.findElement(VariableDropdown).click();}
     public  void SelectVariable1(){driver.findElement(SelectVariable1).click();}

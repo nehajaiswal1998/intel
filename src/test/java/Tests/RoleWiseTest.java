@@ -1,13 +1,13 @@
 package Tests;
 import Base.BasePage;
-import Pages.RoleAccessPage;
+import Pages.RoleAccess;
 import Utilities.ReadProps;
 import org.testng.annotations.*;
 import java.io.IOException;
 @Listeners(Utilities.TestListeners.class)
 
 public class RoleWiseTest extends BasePage {
-       static RoleAccessPage roleAccessObj;
+       static RoleAccess roleAccessObj;
     @BeforeClass
     public void login() throws Exception {
         BasePage.driverInit();
@@ -18,7 +18,7 @@ public class RoleWiseTest extends BasePage {
     }
     @Test(priority = 1)
     public void login_with_valid_username_password() throws InterruptedException, IOException {
-            roleAccessObj = new RoleAccessPage(driver);
+            roleAccessObj = new RoleAccess(driver);
             driver.get(ReadProps.readAttr("URL"));
             Thread.sleep(8000);
             driver.manage().window().maximize();
