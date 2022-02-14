@@ -4,11 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.asserts.SoftAssert;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 public class ProjectPage {
-    String currentDate = new SimpleDateFormat("dd").format(new Date());
+
     WebDriver driver = null;
 
 
@@ -23,11 +20,9 @@ public class ProjectPage {
     By SelectLeadAdmin = By.xpath("//span[contains(text(),' admin@test.com ')]");
     By SelectLead = By.xpath("//span[contains(text(),'qa1@email.com')]");
     By ClickStartDate = By.cssSelector("button[aria-label='Open calendar'][tabindex='0']");
-    By ClearStartDate = By.xpath("//input[@id='mat-input-3']");
-    By SelectStartDate = By.xpath("//div[contains(text(),"+currentDate+")]");//Change this before running
+    By SelectStartDate = By.xpath("//div[contains(text(),'13')]");//Change this before running
     By ClickEndDate = By.xpath("/html/body/app-root/div/app-landing/div/div/main/div/app-create-project/div[2]/div/form/mat-card/div/div[4]/mat-form-field/div/div[1]/div[4]/mat-datepicker-toggle/button");
-    By ClearEndDate = By.xpath("//input[@id='mat-input-4']");
-    By SelectEndDate = By.xpath("//div[contains(text(),"+currentDate+")]");
+    By SelectEndDate = By.xpath("//div[contains(text(),'13')]");
     By ClickDocumentStructure = By.xpath("//*[@formcontrolname='documentStructure']");
     By SelectStructure = By.xpath("//span[contains(text(),'Structured ')]");
     By SelectMedical = By.xpath("//span[contains(text(),'Medical Chart')]");
@@ -81,7 +76,7 @@ public class ProjectPage {
 
     By RoleManagementBtn = By.xpath("//i[@class='mat-tooltip-trigger fa fa-id-card m-0 side-icon ng-star-inserted']");
     By SearchRole = By.xpath("//input[@data-placeholder='Search']");
-    By EditRole = By.xpath("//span[contains(text(),' AutoAdmin1 ')]");
+    By EditRole = By.xpath("//span[contains(text(),' AutoAdmin23 ')]");
     By ActiveRole = By.xpath("//div[@class='mat-slide-toggle-thumb']");
     By ClickUpdateBtn = By.xpath("//span[contains(text(),'Update' )]");
 
