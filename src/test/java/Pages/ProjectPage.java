@@ -4,8 +4,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.asserts.SoftAssert;
 
-public class ProjectPage {
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
+public class ProjectPage {
+    String currentDate = new SimpleDateFormat("dd").format(new Date());
     WebDriver driver = null;
 
 
@@ -20,9 +23,11 @@ public class ProjectPage {
     By SelectLeadAdmin = By.xpath("//span[contains(text(),' admin@test.com ')]");
     By SelectLead = By.xpath("//span[contains(text(),'qa1@email.com')]");
     By ClickStartDate = By.cssSelector("button[aria-label='Open calendar'][tabindex='0']");
-    By SelectStartDate = By.xpath("//div[contains(text(),'13')]");//Change this before running
+    By ClearStartDate = By.xpath("//input[@id='mat-input-3']");
+    By SelectStartDate = By.xpath("//div[contains(text(),"+currentDate+")]");//Change this before running
     By ClickEndDate = By.xpath("/html/body/app-root/div/app-landing/div/div/main/div/app-create-project/div[2]/div/form/mat-card/div/div[4]/mat-form-field/div/div[1]/div[4]/mat-datepicker-toggle/button");
-    By SelectEndDate = By.xpath("//div[contains(text(),'13')]");
+    By ClearEndDate = By.xpath("//input[@id='mat-input-4']");
+    By SelectEndDate = By.xpath("//div[contains(text(),"+currentDate+")]");
     By ClickDocumentStructure = By.xpath("//*[@formcontrolname='documentStructure']");
     By SelectStructure = By.xpath("//span[contains(text(),'Structured ')]");
     By SelectMedical = By.xpath("//span[contains(text(),'Medical Chart')]");

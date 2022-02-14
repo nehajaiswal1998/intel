@@ -44,6 +44,8 @@ public class TemplateTest extends BasePage {
         TemplatePageObj.ClickCreateTemplate();
         Thread.sleep(2000);
         TemplatePageObj.verifyInvalidTemplatNameErr();
+        WebElement upload_file = driver.findElement(By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-new-training[1]/div[3]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/input[1]"));
+        upload_file.sendKeys(System.getProperty("user.dir")+"\\src\\test\\resources\\Template1.jpg");
         Thread.sleep(2000);
         TemplatePageObj.ClickCancelCreateTemplate();
         Thread.sleep(5000);
@@ -68,7 +70,7 @@ public class TemplateTest extends BasePage {
         TemplatePageObj.ClickOnTemplateName(ReadProps.readAttr("TExistName"));
         Thread.sleep(2000);
         WebElement upload_file = driver.findElement(By.xpath("//*[@id='faxDetailModal']/div/div/div[2]/div/form/div/input"));
-        upload_file.sendKeys("C:\\Users\\juee.ningshetti\\OneDrive\\Desktop\\Template format\\Template1.jpg");
+        upload_file.sendKeys(System.getProperty("user.dir")+"\\src\\test\\resources\\Template1.jpg");
         Thread.sleep(3000);
         TemplatePageObj.ClickCreateTemplate();
         Thread.sleep(5000);
@@ -86,7 +88,7 @@ public class TemplateTest extends BasePage {
         TemplatePageObj.ClickOnTemplateName(ReadProps.readAttr("TNameUnique"));
         Thread.sleep(2000);
         WebElement upload_file = driver.findElement(By.xpath("//*[@id='faxDetailModal']/div/div/div[2]/div/form/div/input"));
-        upload_file.sendKeys("C:\\Users\\juee.ningshetti\\OneDrive\\Desktop\\Template format\\Template1.jpg");
+	upload_file.sendKeys(System.getProperty("user.dir")+"\\src\\test\\resources\\Template1.jpg");
         Thread.sleep(2000);
         TemplatePageObj.ClickCreateTemplate();
         Thread.sleep(8000);
@@ -173,8 +175,8 @@ public class TemplateTest extends BasePage {
         TemplatePageObj.ClickOnTemplateName(ReadProps.readAttr("TNameMorePages"));
         Thread.sleep(4000);
         WebElement upload_file1 = driver.findElement(By.xpath("//*[@id='faxDetailModal']/div/div/div[2]/div/form/div/input"));
-        upload_file1.sendKeys("C:\\Users\\juee.ningshetti\\OneDrive\\Desktop\\Template format\\Sample.pdf");
-        Thread.sleep(4000);
+        upload_file1.sendKeys(System.getProperty("user.dir")+"\\src\\test\\resources\\Sample.pdf");
+        Thread.sleep(2000);
         TemplatePageObj.ClickCreateTemplate();
         Thread.sleep(20000);
         TemplatePageObj.ClickCancel();

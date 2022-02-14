@@ -1,7 +1,10 @@
 package Pages;
+import Utilities.ReadProps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.asserts.SoftAssert;
+
+import java.io.IOException;
 
 public class CreateRolePage {
 
@@ -16,8 +19,9 @@ public class CreateRolePage {
     By ViewDocumentPermission = By.xpath("//span[contains(text(),'View Document' )]");
     By ClickCancel = By.xpath("//span[contains(text(),'Cancel')]");
     By SearchRole = By.xpath("//input[@data-placeholder='Search']");
-    By EditRole = By.xpath("//span[contains(text(),'AutoAdmin25')]");//Update This.
-    By EditRolePA = By.xpath("//span[contains(text(),'AutoAdminPA28')]");//Update This.
+    By EditRole = By.xpath("//span[contains(text(),"+ReadProps.readAttr("RoleName")+")]");
+    By EditRolePA = By.xpath("//span[contains(text(),"+ ReadProps.readAttr("RoleNamePA")+")]");
+
     By ProcessDocumentPermission = By.xpath("//span[contains(text(),' Process Document ')]");
     By CreateUserPermission = By.xpath("//span[contains(text(),'Create User')]");
     By CreateProject = By.xpath("//span[contains(text(),'Create Project')]");
@@ -41,7 +45,7 @@ public class CreateRolePage {
     By UpdatedTime = By.xpath("//tbody[@role='rowgroup']/tr[1]/td[3]");
     By CreatedTime = By.xpath("//tbody[@role='rowgroup']/tr[1]/td[4]");
 
-    public CreateRolePage(WebDriver driver) {
+    public CreateRolePage(WebDriver driver) throws IOException {
         this.driver = driver;
     }
 
