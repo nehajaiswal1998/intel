@@ -26,37 +26,36 @@ public class DocumentPage {
         By ViewDoc5 = By.xpath("//span[contains(text(),'Processed.pdf')]");
         By ViewFreeFormRejectedDoc = By.xpath("//span[contains(text(),'Pfizer8.jpg')]");
         By ViewStructuredReadyDoc = By.xpath("//span[contains(text(),'Pfizer4.jpg')]");
-
         By ExpansionPanel = By.xpath("//mat-expansion-panel-header/span[2]");
         By HideAnalytics = By.xpath("//mat-expansion-panel-header/span[2]");
         By UnHideAnalytics = By.xpath("//mat-expansion-panel-header/span[2]");
         By ClearSearchDocument = By.xpath("//mat-icon[contains(text(),'highlight_off')]");
         By RefreshDocuments = By.xpath("//mat-icon[contains(text(),'refresh')]");
-
         By FilterDoc = By.xpath("//div[contains(text(),'Documents')]/button");
-        By SearchFilterDoc = By.xpath("//div[@class='popover-body']/mat-form-field/div/div[1]");
+        By SearchFilterDoc = By.xpath("//body[1]/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-documents[1]/div[1]/div[3]/div[1]/div[1]/table[1]/thead[1]/tr[1]/th[1]/div[1]/div[1]/ngb-popover-window[1]/div[2]/mat-form-field[1]/div[1]/div[1]/div[1]/input[1]");
         By FilterSearchIcon = By.xpath("//thead/tr[1]/th[1]/div[1]/div[1]/ngb-popover-window[1]/div[2]/mat-form-field[1]/div[1]/div[1]/div[2]/button[1]/span[1]");
         By CancelFilterSearch = By.xpath("//thead/tr[1]/th[1]/div[1]/div[1]/ngb-popover-window[1]/div[2]/mat-form-field[1]/div[1]/div[1]/div[2]/button[2]/span[1]/mat-icon[1]");
-
         //sorting
         By DocSort = By.xpath("//thead/tr[1]/th[1]/div[1]/div[2]");
         By AssigneeSort = By.xpath("//div[contains(text(),'Assignee')]//following::div[1]");
-        By StatusSort = By.xpath("//div[contains(text(),'Status')]//following::div[1]");
+        //By StatusSort = By.xpath("//div[contains(text(),'Status')]//following::div[1]");//
+        By StatusSort = By.xpath("//div[contains(text(),' Status ')]");
         By TypeSort = By.xpath("//div[contains(text(),'Type')]//following::div[1]");
         By ScoreSort = By.xpath("//div[contains(text(),'Score')]//following::div[1]");
         By SizeSort = By.xpath("//div[contains(text(),'Size')]//following::div[1]");
         By UpdateSort = By.xpath("//div[contains(text(),'Update')]//following::div[1]");
         By ReceivedSort = By.xpath("//div[contains(text(),'Received')]//following::div[1]");
-
-
         //status filter
         By StatusFilter = By.xpath("//div[contains(text(),'Status')]/button");
         By CheckProcessed = By.xpath("//div[@role='listbox']/mat-option[3]");
-
+        //Chart level Flags
+        By chartLevelFlagDropdown = By.xpath("(//mat-select[@role='combobox'])[1]");
+        By nonHCC = By.xpath("//span[contains(text(),' Non-HCC ')]");
+        By invalidRecord = By.xpath("//span[contains(text(),' Invalid record ')]");
+        By patientNameMismatch = By.xpath("//span[contains(text(),' Patient name mismatch ')]");
 
 
         By ItemsPerPage = By.xpath("//*[@aria-label='Items per page:']");
-
         By SelectItems = By.xpath("//div[@role='listbox']/mat-option[1]");
         By NextPage = By.xpath("//button[@aria-label='Next page']");
         By LastPage = By.xpath("//button[@aria-label='Last page']");
@@ -68,17 +67,15 @@ public class DocumentPage {
         By ClickZoomOut = By.xpath("//*[@class='fa fa-search-minus']");
         By ClickNavigateRight = By.xpath("//*[@mattooltip='Navigate Right']");
         By ClickNavigateLeft = By.xpath("//*[@mattooltip='Navigate Left']");
-
         By ChronicCondition = By.xpath("//div[contains(text(),' Chronic Conditions ')]");
         By AddCondition = By.xpath("//mat-icon[contains(text(),'add')]");
         By NPINo = By.xpath("//input[@formcontrolname='npiNo']");
         By PhysicianName = By.xpath("//input[@formcontrolname='physicianName']");
-        By StartDate = By.xpath("//*[@id='mat-dialog-0']/app-rcm-edit-header/div/form/div/div[2]/div[3]/div[1]/mat-form-field/div/div[1]/div[4]/mat-datepicker-toggle/button");
-        By SelectStartDate = By.xpath("//div[contains(text(),'11')]");
-        By EndDate = By.xpath("//*[@id='mat-dialog-0']/app-rcm-edit-header/div/form/div/div[2]/div[3]/div[2]/mat-form-field/div/div[1]/div[4]/mat-datepicker-toggle/button");
-        By SelectEndDate = By.xpath("//div[contains(text(),'25')]");
+        By StartDate = By.xpath("(//button[@aria-label='Open calendar'])[1]");
+        By SelectStartDate = By.xpath("//div[contains(text(),'15')]");
+        By EndDate = By.xpath("(//button[@aria-label='Open calendar'])[2]");
+        By SelectEndDate = By.xpath("//div[contains(text(),'15')]");
         By SaveCondition = By.xpath("//*[@id='mat-dialog-0']/app-rcm-edit-header/div/form/div/div[2]/div[4]/button[2]/span[1]");
-
         By AddData = By.xpath("//mat-label[contains(text(),'Data')]");
         By AddAttribute = By.xpath("//span[contains(text(),'Attribute')]");
         By AddPatientName = By.xpath("//span[contains(text(),' PatientName ')]");
@@ -90,20 +87,6 @@ public class DocumentPage {
         By AddMRN =   By.xpath("//span[contains(text(),' MRN ')]");
         By AddSSN =   By.xpath("//span[contains(text(),' SSN ')]");
         By AddEmail =   By.xpath("//span[contains(text(),' Email ')]");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         By clickAdd = By.xpath("//span[contains(text(),' Add ')]");
         By addAttributeValue = By.xpath("//mat-cell[contains(text(),'PatientName')]/following::input");
         By SaveDraft = By.xpath("//span[contains(text(),'Save Draft')]");
@@ -114,6 +97,13 @@ public class DocumentPage {
         By SelectAddress = By.xpath("//span[contains(text(),' 2472 Rose Peak Drive Dietz ')]");
 
         public DocumentPage(WebDriver driver) { this.driver = driver;}
+
+        //Chart Level Flags
+        public void ClickOnChartLevelFlagsBtn(){ driver.findElement(chartLevelFlagDropdown).click();}
+        public void selectNONHCCBtn(){ driver.findElement(nonHCC).click();}
+        public void selectInvalidRecordBtn(){ driver.findElement(invalidRecord).click();}
+        public void selectPatientNameMismatchBtn(){ driver.findElement(patientNameMismatch).click();}
+
 
         public void ClickDocumentBtn(){ driver.findElement(DocumentBtn).click();}
         public void ClickDropDownBtn(){ driver.findElement(DropDown).click();}
@@ -256,8 +246,4 @@ public class DocumentPage {
                 driver.findElement(SelectAddress).click();
 
         }
-
-
-
-
 }

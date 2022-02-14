@@ -47,10 +47,22 @@ public class DocProcessMedicalChartTest extends BasePage
         Thread.sleep(2000);
     }
     @Test(priority = 3)
-    public void update_document_cancel() throws Exception {
+    public void update_document_cancel_and_check_Chart_level_flags() throws Exception {
         //TC 8.3 Update Document and Cancel it.
         DocPageObj.ClickViewDocIcon5();
-        Thread.sleep(10000);
+        Thread.sleep(8000);
+        DocPageObj.ClickOnChartLevelFlagsBtn();
+        Thread.sleep(2000);
+        DocPageObj.selectNONHCCBtn();
+        Thread.sleep(2000);
+        DocPageObj.ClickOnChartLevelFlagsBtn();
+        Thread.sleep(2000);
+        DocPageObj.selectInvalidRecordBtn();
+        Thread.sleep(2000);
+        DocPageObj.ClickOnChartLevelFlagsBtn();
+        Thread.sleep(2000);
+        DocPageObj.selectPatientNameMismatchBtn();
+        Thread.sleep(2000);
         DocPageObj.ClickExpansionPanel();
         Thread.sleep(2000);
         DocPageObj.ClickCancelDoc2();
@@ -98,8 +110,6 @@ public class DocProcessMedicalChartTest extends BasePage
         Thread.sleep(2000);
         DocPageObj.ClickTypeSort();
         Thread.sleep(2000);
-        DocPageObj.ClickScoreSort();
-        Thread.sleep(2000);
         DocPageObj.ClickSizeSort();
         Thread.sleep(2000);
         DocPageObj.ClickUpdateSort();
@@ -132,7 +142,7 @@ public class DocProcessMedicalChartTest extends BasePage
     public void create_chronic_condition() throws Exception {
         //TC 8.9 Create Chronic condition.
         DocPageObj.ClickViewDocIcon2();
-        Thread.sleep(5000);
+        Thread.sleep(6000);
         ProjectBREMedicalChartDocumentPage ProjectBREMedicalChartDocumentPageObj = new ProjectBREMedicalChartDocumentPage(driver);
         ProjectBREMedicalChartDocumentPageObj.ClickOnChartData();
         Thread.sleep(3000);
