@@ -61,7 +61,16 @@ public class LoginPage {
     }
     public void VerifyAssertBack() {
         String actual_page = driver.getCurrentUrl();
-        String expected_page = "https://alpha.neutrino-ai.com/#/home";
+        String expected_page = "https://alpha.neutrino-ai.com/#/login";
         Assert.assertEquals(actual_page, expected_page);
+    }
+    public void RefreshPage()
+    {
+        driver.navigate().refresh();
+    }
+
+    public void NavigateBack()
+    {
+        driver.navigate().back();
     }
 }

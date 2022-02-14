@@ -11,15 +11,16 @@ public class AnalyticsPage {
     By AnalyticsBtn = By.xpath("//i[@class='mat-tooltip-trigger fa fa-cubes m-0 side-icon ng-star-inserted']");
     By OrganizationStatistics =By.xpath("//span[contains(text(),'Organization Statistics')]");
     By TotalUser = By.xpath("//div[contains(text(),' Users ')]");
-    By Document = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-analytics[1]/div[1]/mat-accordion[1]/mat-expansion-panel[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]");
-    By Processed = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-analytics[1]/div[1]/mat-accordion[1]/mat-expansion-panel[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]");
-    By ReadyToProcess = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-analytics[1]/div[1]/mat-accordion[1]/mat-expansion-panel[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]");
-    By Rejected = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-analytics[1]/div[1]/mat-accordion[1]/mat-expansion-panel[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]");
+    By Document = By.xpath("//*[@id='cdk-accordion-child-0']/div/div/div[1]/div/div[2]/div/div");
+    By Processed = By.xpath("//*[@id='cdk-accordion-child-0']/div/div/div[1]/div/div[3]/div/div/div[1]/div");
+
+    By ReadyToProcess = By.xpath("//*[@id='cdk-accordion-child-0']/div/div/div[1]/div/div[4]/div/div/div[1]/div");
+    By Rejected = By.xpath("//*[@id='cdk-accordion-child-0']/div/div/div[1]/div/div[5]/div/div/div[1]/div");
     By ValidationTime = By.xpath("//div[contains(text(),' Validation Time ')]");
-    By SProcessedBar = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-analytics[1]/div[1]/mat-accordion[1]/mat-expansion-panel[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]");
+    By SProcessedBar = By.xpath("//div[@class='row ng-star-inserted']/div[1]/div[1]/div[2]/div[1]");
     By SReadyBar = By.xpath("//div[@class='row ng-star-inserted']/div[1]/div[1]/div[2]/div[2]");
     By SRejectedBar = By.xpath("//div[@class='row ng-star-inserted']/div[1]/div[1]/div[2]/div[3]");
-    By SSProcessedBar = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-analytics[1]/div[1]/mat-accordion[1]/mat-expansion-panel[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[2]");
+    By SSProcessedBar = By.xpath("//div[@class='row ng-star-inserted']/div[2]/div[1]/div[2]/div[1]");
     By SSReadyBar = By.xpath("//div[@class='row ng-star-inserted']/div[2]/div[1]/div[2]/div[2]");
     By SSRejectedBar = By.xpath("//div[@class='row ng-star-inserted']/div[2]/div[1]/div[2]/div[3]");
     By FFProcessedBar = By.xpath("//div[@class='row ng-star-inserted']/div[3]/div[1]/div[2]/div[1]");
@@ -28,15 +29,15 @@ public class AnalyticsPage {
     By MCProcessedBar = By.xpath("//div[@class='row ng-star-inserted']/div[4]/div[1]/div[2]/div[1]");
     By MCReadyBar = By.xpath("//div[@class='row ng-star-inserted']/div[4]/div[1]/div[2]/div[2]");
     By MCRejectedBar = By.xpath("//div[@class='row ng-star-inserted']/div[4]/div[1]/div[2]/div[3]");
-    By ProjectDownArrow=By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-analytics[1]/div[2]/mat-accordion[1]/mat-expansion-panel[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/button[1]/span[1]/i[1]");
+    By ProjectDownArrow=By.xpath("//i[@class='fa fa-chevron-circle-down ml-2']");
     By SearchProject=By.xpath("//input[@placeholder='Search']");
     By SelectProject=By.xpath("//span[contains(text(),'QA-AutoProject-Structured')]");
-    By SelectDropDown= By.xpath("//body[1]/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-analytics[1]/div[2]/mat-accordion[1]/mat-expansion-panel[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/mat-form-field[1]/div[1]/div[1]/div[1]/mat-select[1]/div[1]/div[2]");
+    By SelectDropDown= By.xpath("//*[@id='mat-select-0']/div/div[2]");
     By SelectMonthly = By.xpath("//span[contains(text(),'Monthly')]");
     By SelectWeekly = By.xpath("//span[contains(text(),'Weekly')]");
     By SelectDaily = By.xpath("//span[contains(text(),'Daily')]");
-    By SelectOverall = By.xpath("//body/div[1]/div[2]/div[1]/div[1]/div[1]/mat-option[4]/span[1]");
-    By SortByDocuments = By.xpath("//thead/tr[1]/th[1]/div[1]/div[1]");
+    By SelectOverall = By.xpath("//*[@id='mat-option-3']/span");
+    By SortByDocuments = By.xpath("//*[@id='mat-tab-content-0-0']/div/div/div/table/thead/tr/th[1]/div/div[2]");
     By SortByReceived = By.xpath("//div[contains(text(),'Received')]");
 
     //Constructor for Analytics Page.

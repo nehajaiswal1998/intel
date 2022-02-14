@@ -17,7 +17,6 @@ public class ProjectBREPage {
     By DeleteRules = By.xpath("//span[@class='rulesetVisibilityIcon px-3 bgcolor2']");
     By ExpandRule = By.xpath("//mat-icon[@class='mat-icon notranslate addRuleRoundedIcon mt-2 ml-2 material-icons mat-icon-no-color ng-star-inserted']");
 
-
     //BREMedicalChart.
     By PNameCheck= By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[4]/div[1]/project-rule-section[1]/mat-drawer-container[1]/mat-drawer-content[1]/div[2]/div[1]/div[1]/div[1]/div[2]/app-tree-node[1]/div[1]/div[1]/div[1]/div[2]/mat-card[1]/div[1]/div[1]/span[1]");
     By SetDocumentStatus = By.xpath("//span[contains(text(),'Set Document Status')]");
