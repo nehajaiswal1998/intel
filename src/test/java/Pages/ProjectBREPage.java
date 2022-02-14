@@ -16,8 +16,8 @@ public class ProjectBREPage {
     By DataSets = By.xpath("//mat-panel-title[contains(text(),'Datasets')]");
     By Variables = By.xpath("//mat-panel-title[contains(text(),'Variables')]");
     By AddRules = By.xpath("//span[contains(text(),'Rules')]");
-    By DeleteRules = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[4]/div[1]/project-rule-section[1]/mat-drawer-container[1]/mat-drawer-content[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/mat-card[1]/div[1]/span[3]/mat-icon[1]");
-    By ExpandFirstRule = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[4]/div[1]/project-rule-section[1]/mat-drawer-container[1]/mat-drawer-content[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/mat-icon[1]");
+    By DeleteRules = By.xpath("//div[@class='d-flex']/span[3]/mat-icon");
+    By ExpandFirstRule = By.xpath("//mat-icon[contains(text(),' add_circle_outline ')]");
     By ExpandSecondRule = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[4]/div[1]/project-rule-section[1]/mat-drawer-container[1]/mat-drawer-content[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/mat-icon[1]");
     By ExpandThirdRule = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[4]/div[1]/project-rule-section[1]/mat-drawer-container[1]/mat-drawer-content[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/mat-icon[1]");
     By ExpandFourthRule = By.xpath("");
@@ -30,7 +30,7 @@ public class ProjectBREPage {
     By Rejected = By.xpath("//span[contains(text(),'Rejected')]");
     By ActionType = By.xpath("//span[contains(text(),'Set Variable')]");
     By ContractFirstRule = By.xpath("//mat-icon[contains(text(),'visibility_off')]");
-    By AddNameOfCondition = By.xpath("//body[1]/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[4]/div[1]/project-rule-section[1]/mat-drawer-container[1]/mat-drawer[2]/div[1]/rule-edit-sidebar[1]/div[1]/div[2]/mat-form-field[1]/div[1]/div[1]/div[3]/input[1]");
+    By AddNameOfCondition = By.xpath("//input[@data-placeholder='Enter name of Condition / Action']");
 
     By RuleName = By.xpath("//input[@data-placeholder='Rule Name']");
     By FirstDecisionBox =  By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[4]/div[1]/project-rule-section[1]/mat-drawer-container[1]/mat-drawer-content[1]/div[2]/div[1]/div[1]/div[1]/div[2]/app-tree-node[1]/div[1]/div[1]/div[1]/div[2]/mat-card[1]/div[1]/div[1]/span[1]");

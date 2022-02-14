@@ -24,7 +24,7 @@ public class AnalyticsTest extends BasePage
         Thread.sleep(8000);
         // 1.1 Organization Statistics Hide and UnHide.
         AnalyticsPageObj.ClickOrganizationArrow();
-        Thread.sleep(2000);
+        Thread.sleep(4000);
         AnalyticsPageObj.ClickOrganizationArrow();
         Thread.sleep(2000);
     }
