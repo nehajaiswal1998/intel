@@ -240,7 +240,7 @@ public class DocumentPage {
                 Assert.assertEquals(ActualStatus,ExpectedStatus);
         }
 
-        public void assertAttributValue () {
+        public void assertAttributeValue () {
                 String AttributeValue = driver.findElement(addAttributeValue).getText();
                 System.out.println(AttributeValue);
                 String ActualValue = AttributeValue;

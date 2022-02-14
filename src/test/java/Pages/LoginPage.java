@@ -21,7 +21,6 @@ public class LoginPage {
         this.driver = driver;
     }
 
-
     //Methods Declaration.
 
 
@@ -50,9 +49,14 @@ public class LoginPage {
         String expect = "Please Enter Valid Data ...!";
         Assert.assertEquals(actual_msg, expect);
     }
+    public void VerifyAssertError1() {
+        String actual_msg = driver.findElement(ErrorMsgBlankData).getText();
+        String expect = "Please Enter Valid Data ...!";
+        Assert.assertEquals(actual_msg, expect);
+    }
     public void VerifyHomePage() {
         String actual_page = driver.getCurrentUrl();
-        String expected_page = "https://alpha.neutrino-ai.com/#/home/project-management";
+        String expected_page = "https://alpha.neutrino-ai.com/#/home";
         Assert.assertEquals(actual_page, expected_page);
     }
     public void VerifyAssertBack() {
@@ -60,12 +64,6 @@ public class LoginPage {
         String expected_page = "https://alpha.neutrino-ai.com/#/login";
         Assert.assertEquals(actual_page, expected_page);
     }
-    public void VerifyAssertError1() {
-        String actual_msg = driver.findElement(ErrorMsgInvalidData).getText();
-        String expected_msg = "Something Went Wrong ...!";
-        Assert.assertEquals(actual_msg, expected_msg);
-    }
-
     public void RefreshPage()
     {
         driver.navigate().refresh();

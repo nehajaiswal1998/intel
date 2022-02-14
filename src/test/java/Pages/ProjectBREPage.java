@@ -1,5 +1,4 @@
 package Pages;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -7,42 +6,35 @@ import org.openqa.selenium.interactions.Actions;
 
 public class ProjectBREPage {
 
-
     WebDriver driver = null;
 
-    By NextPage = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[3]/div[1]/div[1]/button[4]/span[1]");
+    By NextPageOnRulesPage = By.xpath("(//span[contains(text(),'Next')])[2]");
     By ThreeDots = By.xpath("//mat-icon[contains(text(),'menu')]");
     By ProjectData = By.xpath("//mat-panel-title[contains(text(),'Project DATA')]");
     By DataSets = By.xpath("//mat-panel-title[contains(text(),'Datasets')]");
     By Variables = By.xpath("//mat-panel-title[contains(text(),'Variables')]");
     By AddRules = By.xpath("//span[contains(text(),'Rules')]");
-    By DeleteRules = By.xpath("//div[@class='d-flex']/span[3]/mat-icon");
-    By ExpandFirstRule = By.xpath("//mat-icon[contains(text(),' add_circle_outline ')]");
-    By ExpandSecondRule = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[4]/div[1]/project-rule-section[1]/mat-drawer-container[1]/mat-drawer-content[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/mat-icon[1]");
-    By ExpandThirdRule = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[4]/div[1]/project-rule-section[1]/mat-drawer-container[1]/mat-drawer-content[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/mat-icon[1]");
-    By ExpandFourthRule = By.xpath("");
-    By ExpandFifthRule = By.xpath("");
+    By DeleteRules = By.xpath("//span[@class='rulesetVisibilityIcon px-3 bgcolor2']");
+    By ExpandRule = By.xpath("//mat-icon[@class='mat-icon notranslate addRuleRoundedIcon mt-2 ml-2 material-icons mat-icon-no-color ng-star-inserted']");
 
     //BREMedicalChart.
     By PNameCheck= By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[4]/div[1]/project-rule-section[1]/mat-drawer-container[1]/mat-drawer-content[1]/div[2]/div[1]/div[1]/div[1]/div[2]/app-tree-node[1]/div[1]/div[1]/div[1]/div[2]/mat-card[1]/div[1]/div[1]/span[1]");
     By SetDocumentStatus = By.xpath("//span[contains(text(),'Set Document Status')]");
-    By DocumentValue = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[4]/div[1]/project-rule-section[1]/mat-drawer-container[1]/mat-drawer[2]/div[1]/rule-edit-sidebar[1]/div[1]/div[3]/div[2]/div[1]/div[3]/div[1]/div[2]/mat-form-field[1]/div[1]/div[1]/div[3]");
+    By DocumentValue = By.xpath("//div[@class='mat-select-arrow-wrapper ng-tns-c164-132']");
     By Rejected = By.xpath("//span[contains(text(),'Rejected')]");
     By ActionType = By.xpath("//span[contains(text(),'Set Variable')]");
     By ContractFirstRule = By.xpath("//mat-icon[contains(text(),'visibility_off')]");
     By AddNameOfCondition = By.xpath("//input[@data-placeholder='Enter name of Condition / Action']");
 
     By RuleName = By.xpath("//input[@data-placeholder='Rule Name']");
-    By FirstDecisionBox =  By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[4]/div[1]/project-rule-section[1]/mat-drawer-container[1]/mat-drawer-content[1]/div[2]/div[1]/div[1]/div[1]/div[2]/app-tree-node[1]/div[1]/div[1]/div[1]/div[2]/mat-card[1]/div[1]/div[1]/span[1]");
+    By FirstDecisionBox =  By.xpath("//span[@class='mat-tooltip-trigger conditionCardHeadingspan']");
     By AddCondition = By.xpath("//span[contains(text(),'Add Condition')]");
-    By FirstCondition = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[4]/div[1]/project-rule-section[1]/mat-drawer-container[1]/mat-drawer-content[1]/div[2]/div[1]/div[1]/div[1]/div[2]/app-tree-node[1]/div[1]/div[1]/div[1]/div[2]/mat-card[1]/div[1]/div[1]/span[1]");
-    By  AndCondition = By.xpath("//span[contains(text(),'AND')]");
+    By FirstCondition = By.xpath("//div[@class='opacity7 font-12 pt-3 text-center actionCardHeading']");
+    By AndCondition = By.xpath("//span[contains(text(),'AND')]");
 
-
-    By SelectPatientDemographics = By.xpath("//body[1]/div[1]/div[2]/div[1]/div[1]/div[1]/mat-option[1]/span[1]");
-    By SelectPatientDemographics1 = By.xpath("//body/div[1]/div[2]/div[1]/div[1]/div[1]/mat-option[1]/span[1]");
-    By AddBREEntity = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[4]/div[1]/project-rule-section[1]/mat-drawer-container[1]/mat-drawer[2]/div[1]/rule-edit-sidebar[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/mat-form-field[1]/div[1]/div[1]/div[3]/mat-select[1]/div[1]/div[1]/span[1]");
-    By AddBREEntity1 = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[4]/div[1]/project-rule-section[1]/mat-drawer-container[1]/mat-drawer[2]/div[1]/rule-edit-sidebar[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/mat-form-field[1]/div[1]/div[1]/div[3]/mat-select[1]/div[1]/div[1]/span[1]");
+    By SelectPatientDemographics = By.xpath("(//span[contains(text(),' Patient Demographics ')])[2]");
+    By AddBREEntity = By.xpath("//div[@id='mat-select-value-17']");
+    By AddBREEntity1 = By.xpath("//div[@id='mat-select-value-25']");
     By AttributeValue = By.xpath("//span[contains(text(),'Attribute / Variable')]");
 
     By NameAttribute = By.xpath("//span[contains(text(),'NAME')]");
@@ -50,13 +42,11 @@ public class ProjectBREPage {
     By BRENameAttributeDOB = By.xpath("//span[contains(text(),'Birthdate')]");
     By AddressAttribute = By.xpath("//span[contains(text(),'ADDRESS')]");
     By StateAttribute = By.xpath("//span[contains(text(),'STATE')]");
-    By CityAttribute = By.xpath("//span[contains(text(),'CITY')]");
-    By ZipAttribute = By.xpath("//span[contains(text(),'ZIP')]");
 
     By Visibility = By.xpath("//mat-icon[contains(text(),'visibility')]");
     By Operator = By.xpath("//span[contains(text(),'Operator')]");
     By OperatorValueEqualTo = By.xpath("//span[contains(text(),'==')]");
-    By OperatorValueExistsIN = By.xpath("//body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/mat-option[1]/span[1]");
+    By OperatorValueExistsIN = By.xpath("//span[contains(text(),'Exists In')]");
     By Save = By.xpath("//span[contains(text(),'Save ')]");
     By AddAction = By.xpath("//span[contains(text(),'Add Action')]");
     By ClickOnBREDataSet = By.xpath("//span[contains(text(),'dataset')]");
@@ -66,9 +56,9 @@ public class ProjectBREPage {
     By SelectBREDatasetHeaderDXCode = By.xpath("//body/div[1]/div[2]/div[1]/div[1]/div[1]/mat-option[1]/span[1]");
     By SelectBREDatasetHeaderDOB = By.xpath("//span[contains(text(),'DOB')]");
     By ExpandVariables = By.xpath("//span[contains(text(),'Variables')]");
-    By AddVariablesButton = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[3]/div[1]/project-data-section[1]/mat-accordion[1]/project-variables[1]/mat-expansion-panel[1]/div[1]/div[1]/div[1]/button[1]/span[1]");
+    By AddVariablesButton = By.xpath("//span[contains(text(),' Add Variable ')]");
     By VariableName = By.xpath("//input[@id='variableName']");
-    By ValidationType = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[3]/div[1]/project-data-section[1]/mat-accordion[1]/project-variables[1]/mat-expansion-panel[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/mat-form-field[1]/div[1]/div[1]/div[3]/mat-select[1]/div[1]/div[1]/span[1]");
+    By ValidationType = By.xpath("//span[@class='mat-select-placeholder mat-select-min-line ng-tns-c164-23 ng-star-inserted']");
     By Name = By.xpath("//span[contains(text(),'Name')]");
     By Address = By.xpath("//span[contains(text(),'Address')]");
     By City = By.xpath("//span[contains(text(),'City')]");
@@ -76,25 +66,13 @@ public class ProjectBREPage {
     By ZIP = By.xpath("//span[contains(text(),'Zip')]");
 
     By DefaultValue = By.xpath("//input[@id='VariableValue']");
-    By AddButton = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[3]/div[1]/project-data-section[1]/mat-accordion[1]/project-variables[1]/mat-expansion-panel[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/button[2]/span[1]");
-    By CancelButton = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[3]/div[1]/project-data-section[1]/mat-accordion[1]/project-variables[1]/mat-expansion-panel[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/button[1]/span[1]");
+    By AddButton = By.xpath("(//button[@class='mat-focus-indicator ml-2 mat-raised-button mat-button-base mat-primary'])[2]");
+    By CancelButton = By.xpath("//button[@class='mat-focus-indicator ml-2 mat-stroked-button mat-button-base mat-accent']");
 
-    By Value= By.xpath("//body[1]/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[4]/div[1]/project-rule-section[1]/mat-drawer-container[1]/mat-drawer[2]/div[1]/rule-edit-sidebar[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/mat-form-field[1]/div[1]/div[1]/div[3]/input[1]");
+    By Value= By.xpath("//input[@placeholder='value']");
     By ActionValue = By.xpath("//input[@data-placeholder='Enter name of Condition / Action']");
-
-    By FalseBox1 = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[4]/div[1]/project-rule-section[1]/mat-drawer-container[1]/mat-drawer-content[1]/div[2]/div[1]/div[1]/div[1]/div[2]/app-tree-node[1]/div[1]/div[1]/div[1]/app-tree-node[1]/div[2]/div[1]/div[1]/div[2]/mat-card[1]/div[1]/div[1]");
-    By FalseBox2 = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[4]/div[1]/project-rule-section[1]/mat-drawer-container[1]/mat-drawer-content[1]/div[2]/div[2]/div[1]/div[1]/div[2]/app-tree-node[1]/div[1]/div[1]/div[1]/app-tree-node[1]/div[2]/div[1]/div[1]/div[2]/mat-card[1]");
-    By FalseBox3 = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[4]/div[1]/project-rule-section[1]/mat-drawer-container[1]/mat-drawer-content[1]/div[2]/div[3]/div[1]/div[1]/div[2]/app-tree-node[1]/div[1]/div[1]/div[1]/app-tree-node[1]/div[2]/div[1]/div[1]/div[2]/mat-card[1]");
-    By FalseBox4 = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[4]/div[1]/project-rule-section[1]/mat-drawer-container[1]/mat-drawer-content[1]/div[2]/div[4]/div[1]/div[1]/div[2]/app-tree-node[1]/div[1]/div[1]/div[1]/app-tree-node[1]/div[2]/div[1]/div[1]/div[2]/mat-card[1]");
-    By FalseBox5 = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[4]/div[1]/project-rule-section[1]/mat-drawer-container[1]/mat-drawer-content[1]/div[2]/div[5]/div[1]/div[1]/div[2]/app-tree-node[1]/div[1]/div[1]/div[1]/app-tree-node[1]/div[2]/div[1]/div[1]/div[2]/mat-card[1]");
-
-
-    By CreateProject = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[4]/div[1]/div[1]/button[2]/span[1]");
-    By TrueBox1 = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[4]/div[1]/project-rule-section[1]/mat-drawer-container[1]/mat-drawer-content[1]/div[2]/div[1]/div[1]/div[1]/div[2]/app-tree-node[1]/div[1]/div[1]/div[1]/app-tree-node[1]/div[1]/div[1]/div[1]/div[2]/mat-card[1]/div[1]/div[1]");
-    By TrueBox2 = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[4]/div[1]/project-rule-section[1]/mat-drawer-container[1]/mat-drawer-content[1]/div[2]/div[2]/div[1]/div[1]/div[2]/app-tree-node[1]/div[1]/div[1]/div[1]/app-tree-node[1]/div[1]/div[1]/div[1]/div[2]/mat-card[1]");
-    By TrueBox3 = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[4]/div[1]/project-rule-section[1]/mat-drawer-container[1]/mat-drawer-content[1]/div[2]/div[3]/div[1]/div[1]/div[2]/app-tree-node[1]/div[1]/div[1]/div[1]/app-tree-node[1]/div[1]/div[1]/div[1]/div[2]");
-    By TrueBox4 = By.xpath("");
-    By TrueBox5 = By.xpath("");
+    By FalseBox = By.xpath("//button[@class='float-right conditionBlockFalseButton ng-star-inserted']");
+    By TrueBox = By.xpath("//button[@class='float-left conditinBlockTrueButton ng-star-inserted']");
 
     By SelectVariable1 = By.xpath("//span[contains(text(),'Variable1')]");
     By SelectVariable2 = By.xpath("//span[contains(text(),'Variable2')]");
@@ -107,7 +85,7 @@ public class ProjectBREPage {
     By SelectVariable9 = By.xpath("//span[contains(text(),'Variable9')]");
     By SelectVariable10 = By.xpath("//span[contains(text(),'Variable10')]");
 
-    By VariableDropdown = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[4]/div[1]/project-rule-section[1]/mat-drawer-container[1]/mat-drawer[2]/div[1]/rule-edit-sidebar[1]/div[1]/div[3]/div[2]/div[1]/div[3]/mat-form-field[1]/div[1]/div[1]/div[3]/mat-select[1]/div[1]/div[1]/span[1]");
+    By VariableDropdown = By.xpath("//span[@class='mat-select-placeholder mat-select-min-line ng-tns-c164-129 ng-star-inserted']");
     By Project = By.xpath("//span[contains(text(),'AutoSample3')]");
 
 
@@ -115,13 +93,9 @@ public class ProjectBREPage {
     public ProjectBREPage(WebDriver driver) {
         this.driver = driver;
     }
-
-    public void ClickOnCreateProjectButton(){driver.findElement(CreateProject).click();}
-    public void ClickOnFirstTrueBoxButton(){driver.findElement(TrueBox1).click();}
-    public void ClickOnSecondTrueBoxButton(){driver.findElement(TrueBox2).click();}
-    public void ClickOnThirdTrueBoxButton(){driver.findElement(TrueBox3).click();}
-    public void ClickOnFourthTrueBoxButton(){driver.findElement(TrueBox4).click();}
-    public void ClickOnFifthTrueBoxButton(){driver.findElement(TrueBox5).click();}
+    public void ClickOnFirstTrueBoxButton(){driver.findElement(TrueBox).click();}
+    public void ClickOnSecondTrueBoxButton(){driver.findElement(TrueBox).click();}
+    public void ClickOnThirdTrueBoxButton(){driver.findElement(TrueBox).click();}
 
 //BRE Medical Chart
     public void ClickOnPNameCheck(){driver.findElement(PNameCheck).click();}
@@ -129,7 +103,7 @@ public class ProjectBREPage {
     public void ClickOnDocumentValue(){driver.findElement(DocumentValue).click();}
     public void ClickOnSetDocumentStatus(){driver.findElement(SetDocumentStatus).click();}
     public void SelectDocumentStatusR(){driver.findElement(Rejected).click();}
-    public void ClickOnNextPageButton(){driver.findElement(NextPage).click();}
+    public void ClickOnNextPageButton(){driver.findElement(NextPageOnRulesPage).click();}
     public void ClickOnThreeDotsButton(){driver.findElement(ThreeDots).click();}
     public void ClickOnProjectData(){driver.findElement(ProjectData).click();}
     public void ClickOnDataSets(){driver.findElement(DataSets).click();}
@@ -139,11 +113,9 @@ public class ProjectBREPage {
     public void ClickOnFirstDecisionBox(){driver.findElement(FirstDecisionBox).click();}
     public void SearchCreatedProject(){driver.findElement(Project).click();}
 
-    public void ClickOnExpandFirstRule(){driver.findElement(ExpandFirstRule).click();}
-    public void ClickOnExpandSecondRule(){driver.findElement(ExpandSecondRule).click();}
-    public void ClickOnExpandThirdRule(){driver.findElement(ExpandThirdRule).click();}
-    public void ClickOnExpandFourthRule(){driver.findElement(ExpandFourthRule).click();}
-    public void ClickOnExpandFifthRule(){driver.findElement(ExpandFifthRule).click();}
+    public void ClickOnExpandFirstRule(){driver.findElement(ExpandRule).click();}
+    public void ClickOnExpandSecondRule(){driver.findElement(ExpandRule).click();}
+    public void ClickOnExpandThirdRule(){driver.findElement(ExpandRule).click();}
 
     public void EnterAddNameOfCondition(String text){ driver.findElement(AddNameOfCondition).sendKeys(text);}
 
@@ -158,7 +130,7 @@ public class ProjectBREPage {
 
     public  void ClickOnAddBREEntity(){driver.findElement(AddBREEntity).click();}
     public  void ClickOnAddBREEntity1(){driver.findElement(AddBREEntity1).click();}
-    public  void ClickOnAddBREEntityPD1(){driver.findElement(SelectPatientDemographics1).click();}
+    public  void ClickOnAddBREEntityPD1(){driver.findElement(SelectPatientDemographics).click();}
     public  void ClickOnAddBREEntityPD(){driver.findElement(SelectPatientDemographics).click();}
 
     public  void ClickOnAttributeValue(){driver.findElement(AttributeValue).click();}
@@ -203,11 +175,9 @@ public class ProjectBREPage {
     public  void ClickOnCancelButton(){driver.findElement(CancelButton).click();}
     public  void ClickOnContractRuleButton(){driver.findElement(ContractFirstRule).click();}
 
-    public  void ClickOnFalseBoxButton1(){driver.findElement(FalseBox1).click();}
-    public  void ClickOnFalseBoxButton2(){driver.findElement(FalseBox2).click();}
-    public  void ClickOnFalseBoxButton3(){driver.findElement(FalseBox3).click();}
-    public  void ClickOnFalseBoxButton4(){driver.findElement(FalseBox4).click();}
-    public  void ClickOnFalseBoxButton5(){driver.findElement(FalseBox5).click();}
+    public  void ClickOnFalseBoxButton1(){driver.findElement(FalseBox).click();}
+    public  void ClickOnFalseBoxButton2(){driver.findElement(FalseBox).click();}
+    public  void ClickOnFalseBoxButton3(){driver.findElement(FalseBox).click();}
 
 
     public  void EnterActionValue(String text){ driver.findElement(ActionValue).sendKeys(text);}
