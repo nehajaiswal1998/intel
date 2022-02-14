@@ -1,2 +1,4 @@
 .idea/
 IntelliDoc.iml
+target/classes/
+target/test-classes/
