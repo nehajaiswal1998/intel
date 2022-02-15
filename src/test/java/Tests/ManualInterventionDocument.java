@@ -47,7 +47,15 @@ public class ManualInterventionDocument extends BasePage {
         Thread.sleep(8000);
         documentPageObj.addInvalidAttribute();
         Thread.sleep(8000);
-
+        documentPageObj.clickAddData();
+        Thread.sleep(5000);
+        documentPageObj.clickAddAttributes();
+        Thread.sleep(5000);
+        documentPageObj.addAttributes();
+        Thread.sleep(8000);
+        r.keyPress(KeyEvent.VK_ESCAPE);
+        documentPageObj.clickADD();
+        Thread.sleep(8000);
         documentPageObj.addAttributeValue();
         Thread.sleep(5000);
         documentPageObj.clickSaveDraft();
@@ -55,8 +63,6 @@ public class ManualInterventionDocument extends BasePage {
         documentPageObj.ViewFreeFormRejectedDocument();
         Thread.sleep(6000);
         documentPageObj.clickAddData();
-        Thread.sleep(3000);
-        documentPageObj.assertAttributValue();
         Thread.sleep(3000);
         documentPageObj.clickSubmit();
         Thread.sleep(3000);

@@ -2,6 +2,8 @@ package Pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 
 public class DocumentPage {
@@ -9,7 +11,7 @@ public class DocumentPage {
     WebDriver driver = null;
 
     By DocumentBtn = By.xpath("//mat-sidenav[@id='sidenav']/div/mat-nav-list/mat-list-item[6]");
-    By DropDown = By.xpath("//button[@class='mat-focus-indicator mat-menu-trigger white_bg mat-button mat-button-base mat-primary ng-star-inserted']");
+    By DropDown = By.xpath("//span[@class='mat-tooltip-trigger projectname']");
     By SearchProject = By.xpath("//div[@class='cdk-overlay-pane']/div/div/div/input");
     By SearchBox = By.xpath("//input[@data-placeholder='Search']");
     By SelectStructuredProject = By.xpath("//span[contains(text(),'QA-AutoProject-Structured')]");
@@ -101,7 +103,9 @@ public class DocumentPage {
     By AddAttributeMRN = By.xpath("//mat-table[@role='grid']/mat-row[7]/mat-cell[2]/div/mat-form-field/div/div[1]/div/input");
     By AddAttributeSSN = By.xpath("//mat-table[@role='grid']/mat-row[8]/mat-cell[2]/div/mat-form-field/div/div[1]/div/input");
     By AddAttributeEmail = By.xpath("//mat-table[@role='grid']/mat-row[9]/mat-cell[2]/div/mat-form-field/div/div[1]/div/input");
+    By PatientNameErrorValidation = By.xpath("//*[text()='Acceptable entries are a-z, A-Z, space and dot.']");
 
+    By SavedAttributeValue = By.xpath("//*[@id='tableRow'][1]/mat-cell[2]/div/mat-form-field/div/div[3]");
 
     By SaveDraft = By.xpath("//span[contains(text(),'Save Draft')]");
     By Submit = By.xpath("//span[contains(text(),'Submit')]");
@@ -109,6 +113,12 @@ public class DocumentPage {
     By StatusFreeFormDoc = By.xpath("//tbody[@role='rowgroup']/tr[1]/td[3]");
     By UpdtAttributeValue = By.xpath("//mat-row[@id='tableRow'][2]/mat-cell[2]");
     By SelectAddress = By.xpath("//span[contains(text(),' 2472 Rose Peak Drive Dietz ')]");
+
+    By HoverProjectSearch= By.xpath("//span[text()=' QA-AutProject-For-Tool-Tip-Testing-In-Document-Window-View ']");
+    By HoverSearcheProjectd = By.xpath("//span[text()=' QA-AutProject-For-Tool-Tip-Testing-In-Document-Window-View ']");
+    By HoverDocumentName = By.xpath("//div[@class='example-container documentTable']/table/tbody/tr[1]/td[1]");
+    By SelectStructuredProjectTooltip = By.xpath("//span[contains(text(),'QA-AutProject-For-Tool-Tip-Testing-In-Document-Window-View')]");
+
 
     public DocumentPage(WebDriver driver) {
         this.driver = driver;
@@ -128,6 +138,9 @@ public class DocumentPage {
 
     public void ClickSelectStructuredProject() {
         driver.findElement(SelectStructuredProject).click();
+    }
+    public void ClickSelectStructuredProjectTooltip() {
+        driver.findElement(SelectStructuredProjectTooltip).click();
     }
 
     public void ClickSelectFreeFormProject() {
@@ -406,22 +419,40 @@ public class DocumentPage {
     public void addInvalidAttribute() throws InterruptedException {
         driver.findElement(addAttributePatientName).sendKeys("123");
         Thread.sleep(2000);
+        Assert.assertTrue(driver.findElement(By.xpath("//*[text()='Acceptable entries are a-z, A-Z, space and dot.']")).isDisplayed());
+
         driver.findElement(addAttributeDOB).sendKeys("13/3/2000");
         Thread.sleep(2000);
+        Assert.assertTrue(driver.findElement(By.xpath("//*[text()='Please enter valid DOB.']")).isDisplayed());
+
         driver.findElement(AddAttributeAge).sendKeys("101");
         Thread.sleep(2000);
-        driver.findElement(AddAttributeAddress).sendKeys("1111111");
+        Assert.assertTrue(driver.findElement(By.xpath("//*[text()='Please enter valid age.']")).isDisplayed());
+
+        driver.findElement(AddAttributeAddress).sendKeys("@@");
         Thread.sleep(2000);
+        Assert.assertTrue(driver.findElement(By.xpath("//*[text()='Acceptable entries are alphanumeric with no special characters.']")).isDisplayed());
+
         driver.findElement(AddAttributeGender).sendKeys("54321");
         Thread.sleep(2000);
-        driver.findElement(AddAttributePhone).sendKeys("11223344");
+        Assert.assertTrue(driver.findElement(By.xpath("//*[text()='Acceptable entries are male,female or others.']")).isDisplayed());
+
+        driver.findElement(AddAttributePhone).sendKeys("abc");
         Thread.sleep(2000);
+        Assert.assertTrue(driver.findElement(By.xpath("//*[text()='Please enter valid phone number']")).isDisplayed());
+
         driver.findElement(AddAttributeMRN).sendKeys("ABCD");
         Thread.sleep(2000);
+        Assert.assertTrue(driver.findElement(By.xpath("//*[text()='Please enter valid MRN number.']")).isDisplayed());
+
         driver.findElement(AddAttributeSSN).sendKeys("John Dey");
         Thread.sleep(2000);
+        Assert.assertTrue(driver.findElement(By.xpath("//*[text()='Please enter valid SSN number.']")).isDisplayed());
+
         driver.findElement(AddAttributeEmail).sendKeys("John Dey");
         Thread.sleep(2000);
+        Assert.assertTrue(driver.findElement(By.xpath("//*[text()='An email address']")).isDisplayed());
+
         driver.navigate().refresh();
 
     }
@@ -430,6 +461,7 @@ public class DocumentPage {
     public void clickSaveDraft() {
         driver.findElement(SaveDraft).click();
     }
+
 
     public void clickSubmit() {
         driver.findElement(Submit).click();
@@ -446,13 +478,6 @@ public class DocumentPage {
         Assert.assertEquals(ActualStatus, ExpectedStatus);
     }
 
-    public void assertAttributValue() {
-        String AttributeValue = driver.findElement(addAttributePatientName).getText();
-        System.out.println(AttributeValue);
-        String ActualValue = AttributeValue;
-        String ExpectedValue = "John Dey";
-        Assert.assertEquals(ActualValue, ExpectedValue);
-    }
 
     public void viewStructuredReadyDoc() {
         driver.findElement(ViewStructuredReadyDoc).click();
@@ -463,6 +488,40 @@ public class DocumentPage {
         driver.findElement(SelectAddress).click();
 
     }
+
+    public void tooltipOnHoverProjectSearchList()
+    {
+        Actions action = new Actions(driver);
+        WebElement element= driver.findElement(HoverProjectSearch);
+        action.moveToElement(element).build().perform();
+        String ActualToolTip = driver.findElement(HoverProjectSearch).getText();
+        String ExpectedToolTip  = "QA-AutProject-For-Tool-Tip-Testing-In-Document-Window-View";
+        Assert.assertEquals(ActualToolTip, ExpectedToolTip);
+    }
+
+    public void tooltipOnHoverProjectSearched ()
+    {
+        Actions action = new Actions(driver);
+        WebElement element= driver.findElement(HoverSearcheProjectd);
+        action.moveToElement(element).build().perform();
+        String ActuaalToolTip = driver.findElement(HoverSearcheProjectd).getText();
+        String ExpectedToolTip  = "QA-AutProject-For-Tool-Tip-Testing-In-Document-Window-View";
+        Assert.assertEquals(ActuaalToolTip, ExpectedToolTip);
+    }
+
+    public void tooltipOnHoverOnDocumentName ()
+    {
+        Actions action = new Actions(driver);
+        WebElement element= driver.findElement(HoverDocumentName);
+        action.moveToElement(element).build().perform();
+        String ActuaalToolTip = driver.findElement(HoverDocumentName).getText();
+        String ExpectedToolTip  = "inputDocs_QA-AutoProject-Structured_Pfizer.jpg";
+        Assert.assertEquals(ActuaalToolTip, ExpectedToolTip);
+    }
+
+
+
+
 
 
 }
