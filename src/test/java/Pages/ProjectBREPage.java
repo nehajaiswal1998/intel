@@ -34,11 +34,12 @@ public class ProjectBREPage {
     By AndCondition = By.xpath("//span[contains(text(),'AND')]");
 
     By SelectPatientDemographics = By.xpath("(//span[contains(text(),' Patient Demographics ')])[2]");
-    By AddBREEntity = By.xpath("//div[@id='mat-select-value-17']");
-    By AddBREEntity1 = By.xpath("//div[@id='mat-select-value-25']");
+    By AddBREEntity = By.xpath("(//span[contains(text(),'Entity')])[3]");
+    By AddBREEntity1 = By.xpath("(//span[contains(text(),'Entity')])[4]");
     By AttributeValue = By.xpath("//span[contains(text(),'Attribute / Variable')]");
 
     By NameAttribute = By.xpath("//span[contains(text(),'NAME')]");
+    By PatientName = By.xpath("(//span[contains(text(),'Patient Name')])[3]");
     By BRENameAttributePN = By.xpath("//span[contains(text(),'Patient Name')]");
     By BRENameAttributeDOB = By.xpath("//span[contains(text(),'Birthdate')]");
     By AddressAttribute = By.xpath("//span[contains(text(),'ADDRESS')]");
@@ -79,7 +80,18 @@ public class ProjectBREPage {
     By TrueBox1 = By.xpath("(//div[@class='opacity7 font-12 pt-3 text-center actionCardHeading'])[1]");
     By TrueBox2 = By.xpath("(//div[@class='opacity7 font-12 pt-3 text-center actionCardHeading'])[3]");
     By TrueBox3 = By.xpath("(//div[@class='opacity7 font-12 pt-3 text-center actionCardHeading'])[5]");
-
+    //Replace String
+    By ReplaceString = By.xpath("//span[contains(text(),'Replace String')]");
+    By Entity = By.xpath("(//span[contains(text(),'Entity')])[3]");
+    By PatientDemoGraphics = By.xpath("(//span[contains(text(),'Patient Demographics')])[2]");
+    By AttributesDropDown = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[4]/div[1]/project-rule-section[1]/mat-drawer-container[1]/mat-drawer[2]/div[1]/rule-edit-sidebar[1]/div[1]/div[3]/div[2]/div[1]/div[3]/div[1]/div[2]/mat-form-field[1]/div[1]/div[1]/div[3]");
+    By PatientNameAttributes = By.xpath("(//span[contains(text(),'Patient Name')])[2]");
+    By OperatorDropDown = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[4]/div[1]/project-rule-section[1]/mat-drawer-container[1]/mat-drawer[2]/div[1]/rule-edit-sidebar[1]/div[1]/div[3]/div[2]/div[1]/div[3]/div[1]/div[3]/mat-form-field[1]/div[1]/div[1]/div[3]/mat-select[1]/div[1]/div[1]/span[1]");
+    By ReplaceAll = By.xpath("//span[contains(text(),'replaceAll')]");
+    By ReplaceFirst = By.xpath("//span[contains(text(),'replaceFirst')]");
+    By Replace = By.xpath("(//input[@type='text'])[5]");
+    By With = By.xpath("(//input[@type='text'])[4]");
+    By CaseSensitiveCheckBox = By.xpath("//span[contains(text(),'Case Sensitive')]");
 
 
     By SelectVariable1 = By.xpath("//span[contains(text(),'Variable1')]");
@@ -121,6 +133,24 @@ public class ProjectBREPage {
     public void ClickOnFirstDecisionBox(){driver.findElement(FirstDecisionBox).click();}
     public void SearchCreatedProject(){driver.findElement(Project).click();}
 
+    //Replace String methods
+    public void SelectReplaceStringBtn(){driver.findElement(ReplaceString).click();}
+    public void SelectEntityBtn(){driver.findElement(Entity).click();}
+    public void SelectPatientGraphicsBtn(){driver.findElement(PatientDemoGraphics).click();}
+    public void ClickOnAttributeBtn(){driver.findElement(AttributesDropDown).click();}
+    public void SelectPatientNameAttributesBtn(){driver.findElement(PatientNameAttributes).click();}
+    public void ClickOnOperatorDropdownBtn(){driver.findElement(OperatorDropDown).click();}
+    public void SelectReplaceAllBtn(){driver.findElement(ReplaceAll).click();}
+    public void SelectReplaceFirstBtn(){driver.findElement(ReplaceFirst).click();}
+    public void ClickOnReplaceValue(){ driver.findElement(Replace).click();}
+    public void ClickOnWithValue(){ driver.findElement(With).click();}
+    public void EnterReplaceValue(String text){ driver.findElement(Replace).sendKeys(text);}
+    public void EnterWithValue(String text){ driver.findElement(With).sendKeys(text);}
+    public void ClickOnCaseSensitivityBtn(){driver.findElement(CaseSensitiveCheckBox).click();}
+
+
+
+
     public void ClickOnExpandFirstRule(){driver.findElement(ExpandRule).click();}
     public void ClickOnExpandSecondRule(){driver.findElement(ExpandRule).click();}
     public void ClickOnExpandThirdRule(){driver.findElement(ExpandRule).click();}
@@ -143,6 +173,7 @@ public class ProjectBREPage {
 
     public  void ClickOnAttributeValue(){driver.findElement(AttributeValue).click();}
     public  void SelectNameAttribute(){driver.findElement(NameAttribute).click();}
+    public  void SelectPatientNameAttribute(){driver.findElement(PatientName).click();}
     public  void SelectBRENameAttribute(){driver.findElement(BRENameAttributePN).click();}
     public  void SelectBREDOBAttribute(){driver.findElement(BRENameAttributeDOB).click();}
     public  void SelectAddressAttribute(){driver.findElement(AddressAttribute).click();}
@@ -162,8 +193,6 @@ public class ProjectBREPage {
     public  void ClickOnVisibility(){driver.findElement(Visibility).click();}
     public  void SelectOperatorValueEqualTo(){driver.findElement(OperatorValueEqualTo).click();}
     public  void SelectOperatorValueExistsIn(){driver.findElement(OperatorValueExistsIN).click();}
-
-
 
 
     public  void ClickOnAddAction(){driver.findElement(AddAction).click();}
