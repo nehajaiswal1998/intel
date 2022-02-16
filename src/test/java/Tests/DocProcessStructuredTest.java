@@ -59,7 +59,7 @@ public class DocProcessStructuredTest extends BasePage {
         DocPageObj.ClickExpansionPanel();
         Thread.sleep(2000);
         DocPageObj.ClickCancelDoc2();
-        Thread.sleep(2000);
+        Thread.sleep(4000);
         DocPageObj.ClickClearSearch();
         Thread.sleep(2000);
         DocPageObj.ClickRefreshDocument();
@@ -98,7 +98,7 @@ public class DocProcessStructuredTest extends BasePage {
         DocPageObj.ClickDocSort();
         Thread.sleep(2000);
         DocPageObj.ClickAssigneeSort();
-        Thread.sleep(3000);
+        Thread.sleep(4000);
         DocPageObj.ClickStatusSort();
         Thread.sleep(2000);
         DocPageObj.ClickTypeSort();
@@ -115,7 +115,7 @@ public class DocProcessStructuredTest extends BasePage {
         js.executeScript("window.scrollBy(0,10000)", "");
         Thread.sleep(3000);
     }
-    @Test(priority = 7)
+   @Test(priority = 7)
     public void items_page() throws Exception {
         //TC 10.7 Items Per Page.
         DocPageObj.ClickItemsPerPage();
@@ -143,7 +143,7 @@ public class DocProcessStructuredTest extends BasePage {
             DocPageObj.ClickSearchDocument();
             Thread.sleep(1000);
             DocPageObj.ClickViewDocIcon1();
-            Thread.sleep(15000);
+            Thread.sleep(20000);
             DocPageObj.ClickAntiWiseIcon();
             Thread.sleep(2000);
 
@@ -165,13 +165,13 @@ public class DocProcessStructuredTest extends BasePage {
 
             //Navigate Back.
             DocPageObj.ClickNvgtLft();
-            Thread.sleep(2000);
+            Thread.sleep(8000);
     }
 
     @Test (priority = 10)
-    public void Tootip() throws InterruptedException, IOException, AWTException {
+    public void verify_tooltip() throws InterruptedException, IOException, AWTException {
         DocPageObj.ClickDocumentBtn();
-        Thread.sleep(5000);
+        Thread.sleep(8000);
         //TC 10.1 Search Project.
         DocPageObj.ClickDropDownBtn();
         Thread.sleep(2000);

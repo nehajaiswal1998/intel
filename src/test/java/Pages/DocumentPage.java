@@ -27,8 +27,8 @@ public class DocumentPage {
     By ViewDoc3 = By.xpath("//span[contains(text(),'4.tif')]");
     By ViewDoc4 = By.xpath("//span[contains(text(),'3.tif')]");
     By ViewDoc5 = By.xpath("//span[contains(text(),'Processed.pdf')]");
-    By ViewFreeFormRejectedDoc = By.xpath("//span[contains(text(),'Pfizer8.jpg')]");
-    By ViewStructuredReadyDoc = By.xpath("//span[contains(text(),'Pfizer4.jpg')]");
+    By ViewFreeFormRejectedDoc = By.xpath("//span[contains(text(),'Pfizer9.jpg')]");
+    By ViewStructuredReadyDoc = By.xpath("//span[contains(text(),'Pfizer9.jpg')]");
 
     By ExpansionPanel = By.xpath("//mat-expansion-panel-header/span[2]");
     By HideAnalytics = By.xpath("//mat-expansion-panel-header/span[2]");
@@ -37,14 +37,14 @@ public class DocumentPage {
     By RefreshDocuments = By.xpath("//mat-icon[contains(text(),'refresh')]");
 
     By FilterDoc = By.xpath("//div[contains(text(),'Documents')]/button");
-    By SearchFilterDoc = By.xpath("//div[@class='popover-body']/mat-form-field/div/div[1]");
+    By SearchFilterDoc = By.xpath("//div[@class='popover-body']/mat-form-field/div/div[1]/div[1]/input");
     By FilterSearchIcon = By.xpath("//thead/tr[1]/th[1]/div[1]/div[1]/ngb-popover-window[1]/div[2]/mat-form-field[1]/div[1]/div[1]/div[2]/button[1]/span[1]");
     By CancelFilterSearch = By.xpath("//thead/tr[1]/th[1]/div[1]/div[1]/ngb-popover-window[1]/div[2]/mat-form-field[1]/div[1]/div[1]/div[2]/button[2]/span[1]/mat-icon[1]");
 
     //sorting
     By DocSort = By.xpath("//thead/tr[1]/th[1]/div[1]/div[2]");
     By AssigneeSort = By.xpath("//div[contains(text(),'Assignee')]//following::div[1]");
-    By StatusSort = By.xpath("//div[contains(text(),'Status')]//following::div[1]");
+    By StatusSort = By.xpath("//div[contains(text(),'Status')]/following::div[1]");
     By TypeSort = By.xpath("//div[contains(text(),'Type')]//following::div[1]");
     By ScoreSort = By.xpath("//div[contains(text(),'Score')]//following::div[1]");
     By SizeSort = By.xpath("//div[contains(text(),'Size')]//following::div[1]");
@@ -168,7 +168,7 @@ public class DocumentPage {
     }
 
     public void ClickClearSearch() {
-        driver.findElement(ClearSearchDocument);
+        driver.findElement(ClearSearchDocument).click();
     }
 
     public void ClickCancelDoc2() {
