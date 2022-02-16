@@ -7,6 +7,8 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
+
 @Listeners(Utilities.TestListeners.class)
 
 public class DocProcessStructuredTest extends BasePage {
@@ -26,10 +28,10 @@ public class DocProcessStructuredTest extends BasePage {
         Robot r = new Robot();
         DocumentPage DocPageObj = new DocumentPage(driver);
         DocPageObj.ClickDocumentBtn();
-        Thread.sleep(5000);
+        Thread.sleep(10000);
         //TC 10.1 Search Project.
         DocPageObj.ClickDropDownBtn();
-        Thread.sleep(2000);
+        Thread.sleep(3000);
         DocPageObj.ClickSearchProject(ReadProps.readAttr("StructuredProjectName"));
         Thread.sleep(2000);
         DocPageObj.ClickSelectStructuredProject();
@@ -37,7 +39,7 @@ public class DocProcessStructuredTest extends BasePage {
         DocPageObj.ClickStatusFilter();
         Thread.sleep(2000);
         DocPageObj.ClickCheckProcessed();
-        Thread.sleep(2000);
+        Thread.sleep(3000);
         r.keyPress(KeyEvent.VK_ESCAPE);
         Thread.sleep(2000);
     }
@@ -45,7 +47,7 @@ public class DocProcessStructuredTest extends BasePage {
     public void searchbox_document() throws Exception {
         //TC 10.2 SearchBox Document.
         DocPageObj.ClickSearchBox("BRE US Citizen.jpg");
-        Thread.sleep(2000);
+        Thread.sleep(3000);
         DocPageObj.ClickSearchDocument();
         Thread.sleep(2000);
     }
@@ -57,7 +59,7 @@ public class DocProcessStructuredTest extends BasePage {
         DocPageObj.ClickExpansionPanel();
         Thread.sleep(2000);
         DocPageObj.ClickCancelDoc2();
-        Thread.sleep(2000);
+        Thread.sleep(4000);
         DocPageObj.ClickClearSearch();
         Thread.sleep(2000);
         DocPageObj.ClickRefreshDocument();
@@ -75,7 +77,7 @@ public class DocProcessStructuredTest extends BasePage {
     public void documents_filter() throws Exception {
         //TC 10.5 Documents filter.
         DocPageObj.ClickFilterDoc();
-        Thread.sleep(2000);
+        Thread.sleep(4000);
         DocPageObj.ClickSearchFilterDoc("BRE");
         Thread.sleep(2000);
         DocPageObj.ClickFilterSearchIcon();
@@ -96,7 +98,7 @@ public class DocProcessStructuredTest extends BasePage {
         DocPageObj.ClickDocSort();
         Thread.sleep(2000);
         DocPageObj.ClickAssigneeSort();
-        Thread.sleep(2000);
+        Thread.sleep(4000);
         DocPageObj.ClickStatusSort();
         Thread.sleep(2000);
         DocPageObj.ClickTypeSort();
@@ -113,7 +115,7 @@ public class DocProcessStructuredTest extends BasePage {
         js.executeScript("window.scrollBy(0,10000)", "");
         Thread.sleep(3000);
     }
-    @Test(priority = 7)
+   @Test(priority = 7)
     public void items_page() throws Exception {
         //TC 10.7 Items Per Page.
         DocPageObj.ClickItemsPerPage();
@@ -141,7 +143,7 @@ public class DocProcessStructuredTest extends BasePage {
             DocPageObj.ClickSearchDocument();
             Thread.sleep(1000);
             DocPageObj.ClickViewDocIcon1();
-            Thread.sleep(15000);
+            Thread.sleep(20000);
             DocPageObj.ClickAntiWiseIcon();
             Thread.sleep(2000);
 
@@ -163,6 +165,29 @@ public class DocProcessStructuredTest extends BasePage {
 
             //Navigate Back.
             DocPageObj.ClickNvgtLft();
-            Thread.sleep(2000);
+            Thread.sleep(8000);
     }
+
+    @Test (priority = 10)
+    public void verify_tooltip() throws InterruptedException, IOException, AWTException {
+        DocPageObj.ClickDocumentBtn();
+        Thread.sleep(8000);
+        //TC 10.1 Search Project.
+        DocPageObj.ClickDropDownBtn();
+        Thread.sleep(2000);
+        DocPageObj.ClickSearchProject("QA-AutProject-For-Tool-Tip-Testing-In-Document-Window-View");
+        Thread.sleep(2000);
+        DocPageObj.tooltipOnHoverProjectSearchList();
+        Thread.sleep(3000);
+        Robot r = new Robot();
+        r.keyPress(KeyEvent.VK_ESCAPE);
+        DocPageObj.ClickSelectStructuredProjectTooltip();
+        Thread.sleep(2000);
+        DocPageObj.tooltipOnHoverProjectSearched();
+        Thread.sleep(2000);
+        DocPageObj.tooltipOnHoverOnDocumentName();
+    }
+
+
+
 }

@@ -43,7 +43,7 @@ public class TemplatePage {
 
     By InvalidTemplateNameErr= By.xpath("//mat-error[text()='Only alphabets,digits,parenthesis and hyphens are allowed while naming a template.']");
     By ExistingTemplateNameErr= By.xpath("//div[text()='Template Name Already In Use.']");
-
+    By CancelDeleteTemplate = By.xpath("//span[text()='Cancel']");
     //Methods
     public TemplatePage(WebDriver driver) {
         this.driver = driver;
@@ -239,6 +239,17 @@ public class TemplatePage {
 
 
 
+    }
+
+    public void verifyDeleteAssociatedTemplate()
+    {
+        Assert.assertTrue(driver.findElement(By.xpath("//*[text()=' Sample-page1 is associated with QA-AutoProject-Structured,QA-AutoProject-Structured4 projects ']")).isDisplayed());
+
+    }
+
+    public void cancelDeleteTemplate()
+    {
+        driver.findElement(CancelDeleteTemplate).click();
     }
 
 

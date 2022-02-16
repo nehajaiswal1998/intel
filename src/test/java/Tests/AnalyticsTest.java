@@ -146,4 +146,14 @@ public class AnalyticsTest extends BasePage
         AnalyticsPageObj.ClickOnSortByDocuments();
         Thread.sleep(3000);
     }
+
+    @Test(priority=17)
+    public void verify_operator_performance_section() throws InterruptedException {
+        AnalyticsPageObj.VerifyOperatorPerformance();
+        Thread.sleep(3000);
+
+    }
+
+
+
 }
