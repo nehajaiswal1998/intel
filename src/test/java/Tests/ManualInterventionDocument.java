@@ -54,7 +54,7 @@ public class ManualInterventionDocument extends BasePage {
         Thread.sleep(6000);
         documentPageObj.clickAddData();
         Thread.sleep(3000);
-        documentPageObj.assertAttributValue();
+//        documentPageObj.assertAttributValue();
         Thread.sleep(3000);
         documentPageObj.clickSubmit();
         Thread.sleep(3000);
