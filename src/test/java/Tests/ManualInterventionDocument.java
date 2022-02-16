@@ -76,7 +76,7 @@ public class ManualInterventionDocument extends BasePage {
         documentPageObj.ClickDocumentBtn();
         Thread.sleep(10000);
         //documentPageObj.clearProject();
-        //Thread.sleep(2000);
+        Thread.sleep(2000);
         documentPageObj.ClickDropDownBtn();
         Thread.sleep(2000);
         documentPageObj.ClickSelectStructuredProject();

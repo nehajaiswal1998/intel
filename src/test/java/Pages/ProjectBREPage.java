@@ -89,6 +89,7 @@ public class ProjectBREPage {
     By OperatorDropDown = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[4]/div[1]/project-rule-section[1]/mat-drawer-container[1]/mat-drawer[2]/div[1]/rule-edit-sidebar[1]/div[1]/div[3]/div[2]/div[1]/div[3]/div[1]/div[3]/mat-form-field[1]/div[1]/div[1]/div[3]/mat-select[1]/div[1]/div[1]/span[1]");
     By ReplaceAll = By.xpath("//span[contains(text(),'replaceAll')]");
     By ReplaceFirst = By.xpath("//span[contains(text(),'replaceFirst')]");
+
     By Replace = By.xpath("(//input[@type='text'])[5]");
     By With = By.xpath("(//input[@type='text'])[4]");
     By CaseSensitiveCheckBox = By.xpath("//span[contains(text(),'Case Sensitive')]");
@@ -144,6 +145,8 @@ public class ProjectBREPage {
     public void SelectReplaceFirstBtn(){driver.findElement(ReplaceFirst).click();}
     public void ClickOnReplaceValue(){ driver.findElement(Replace).click();}
     public void ClickOnWithValue(){ driver.findElement(With).click();}
+    public void ClearWithValue(){ driver.findElement(With).clear();}
+
     public void EnterReplaceValue(String text){ driver.findElement(Replace).sendKeys(text);}
     public void EnterWithValue(String text){ driver.findElement(With).sendKeys(text);}
     public void ClickOnCaseSensitivityBtn(){driver.findElement(CaseSensitiveCheckBox).click();}

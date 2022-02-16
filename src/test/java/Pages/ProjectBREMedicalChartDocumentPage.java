@@ -33,7 +33,7 @@ public class ProjectBREMedicalChartDocumentPage {
     By CancelEditEncounterDetails = By.xpath("//button[@class='mat-focus-indicator mr-2 mat-stroked-button mat-button-base mat-accent']");
     By AddDiagnosisDetails = By.xpath("//mat-expansion-panel-header/span[1]/mat-panel-description[1]/button[2]/span[1]/mat-icon[1]");
     By CancelDiagnosisDetails = By.xpath("//button[@id='category-close-modal']");
-    By RunRule = By.xpath("//span[contains(text(),'Run Rule')]");
+    By RunRule = By.xpath("(//span[@class='mat-button-wrapper'])[6]");
     By AddComment = By.xpath("//span[contains(text(),'Add Comment')]");
     By CancelBtnICD = By.xpath("//span[contains(text(),'Cancel')]");
     By SelectICDCode = By.xpath("//span[contains(text(),'A00.9 Cholera, unspecified')]");

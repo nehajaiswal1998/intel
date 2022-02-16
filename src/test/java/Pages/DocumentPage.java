@@ -12,6 +12,8 @@ public class DocumentPage {
         By SearchProject = By.xpath("//div[@class='cdk-overlay-pane']/div/div/div/input");
         By SearchBox = By.xpath("//input[@data-placeholder='Search']");
         By SelectStructuredProject = By.xpath("//span[contains(text(),'QA-AutoProject-Structured')]");
+        By SelectBREProject = By.xpath("//span[contains(text(),'QA-AutoProject-BRE-MedicalChart')]");
+
         By SelectSemiStructuredProject = By.xpath("//span[contains(text(),'QA-AutoProject-SemiStructured')]");
         By SelectFreeFormProject = By.xpath("//span[contains(text(),'QA-AutoProject-FreeForm')]");
         By SelectMedicalChartProject = By.xpath("//span[contains(text(),'QA-AutoProject-MedicalChart')]");
@@ -24,6 +26,7 @@ public class DocumentPage {
         By ViewDoc3 = By.xpath("//span[contains(text(),'4.tif')]");
         By ViewDoc4 = By.xpath("//span[contains(text(),'3.tif')]");
         By ViewDoc5 = By.xpath("//span[contains(text(),'Processed.pdf')]");
+        By ViewDoc6 = By.xpath("//span[contains(text(),'33559446-2.pdf')]");
         By ViewFreeFormRejectedDoc = By.xpath("//span[contains(text(),'Pfizer8.jpg')]");
         By ViewStructuredReadyDoc = By.xpath("//span[contains(text(),'Pfizer4.jpg')]");
         By ExpansionPanel = By.xpath("//mat-expansion-panel-header/span[2]");
@@ -95,6 +98,12 @@ public class DocumentPage {
         By StatusFreeFormDoc = By.xpath("//tbody[@role='rowgroup']/tr[1]/td[3]");
         By UpdtAttributeValue = By.xpath("//mat-row[@id='tableRow'][2]/mat-cell[2]");
         By SelectAddress = By.xpath("//span[contains(text(),' 2472 Rose Peak Drive Dietz ')]");
+        By PatientNameValue = By.xpath("//input[@pattern='^([a-zA-Z.s\\s])+([a-zA-Z.s\\s()]+)*(-[()a-zA-Z.s\\s]+)*$']");
+        By ClassificationNameBtn = By.xpath("//mat-label[contains(text(),'Classification')]");
+        By PatientNameBtn = By.xpath("(//mat-cell[contains(text(),' Patient Name ')])[2]");
+        By DeleteRule1Condition1 = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[4]/div[1]/project-rule-section[1]/mat-drawer-container[1]/mat-drawer-content[1]/div[2]/div[1]/div[1]/div[1]/div[2]/app-tree-node[1]/div[1]/div[1]/div[1]/div[2]/mat-card[1]/div[2]/mat-icon[1]");
+        By CNFDeleteRule1Condition1 = By.xpath("//span[contains(text(),'Delete')]");
+        By DeleteFirstRule = By.xpath("(//mat-icon[contains(text(),'delete')])[3]");
 
         public DocumentPage(WebDriver driver) { this.driver = driver;}
 
@@ -104,11 +113,21 @@ public class DocumentPage {
         public void selectInvalidRecordBtn(){ driver.findElement(invalidRecord).click();}
         public void selectPatientNameMismatchBtn(){ driver.findElement(patientNameMismatch).click();}
 
+        public void ClickOnPatientNameValueBtn(){ driver.findElement(PatientNameValue).click();}
+        public void ClickOnClearPatientNameValueBtn(){ driver.findElement(PatientNameValue).clear();}
+        public void EnterNewPatientNameValueBtn(String text){ driver.findElement(PatientNameValue).sendKeys(text);}
+        public void ClickOnClassificationNameBtn(){ driver.findElement(ClassificationNameBtn).click();}
+        public void ClickOnPatientNameBtn(){ driver.findElement(PatientNameBtn).click();}
+
+        public void ClickOnDeleteRule1Condition1(){ driver.findElement(DeleteRule1Condition1).click();}
+        public void ClickOnCNFRule1Condition1(){ driver.findElement(CNFDeleteRule1Condition1).click();}
+        public void ClickOnDeleteFirstRuleBtn(){ driver.findElement(DeleteFirstRule).click();}
 
         public void ClickDocumentBtn(){ driver.findElement(DocumentBtn).click();}
         public void ClickDropDownBtn(){ driver.findElement(DropDown).click();}
         public void ClickSearchProject(String text){ driver.findElement(SearchProject).sendKeys(text);}
         public void ClickSelectStructuredProject(){driver.findElement(SelectStructuredProject).click();}
+        public void ClickSelectBREProject(){driver.findElement(SelectBREProject).click();}
         public void ClickSelectFreeFormProject(){driver.findElement(SelectFreeFormProject).click();}
         public void ClickSelectSemiStructuredProject(){driver.findElement(SelectSemiStructuredProject).click();}
         public void ClickSelectMedicalChartProject(){driver.findElement(SelectMedicalChartProject).click();}
@@ -123,7 +142,7 @@ public class DocumentPage {
         public void ClickViewDocIcon3(){ driver.findElement(ViewDoc3).click();}
         public void ClickViewDocIcon4(){ driver.findElement(ViewDoc4).click();}
         public void ClickViewDocIcon5(){ driver.findElement(ViewDoc5).click();}
-
+        public void ClickViewDocIcon6(){ driver.findElement(ViewDoc6).click();}
         public void ClickExpansionPanel(){driver.findElement(ExpansionPanel).click();}
         public void ClickHideAnalytics(){ driver.findElement(HideAnalytics).click();}
         public void ClickUnHideAnalytics(){ driver.findElement(UnHideAnalytics).click();}
