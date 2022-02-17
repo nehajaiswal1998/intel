@@ -7,7 +7,6 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 
 public class DocumentPage {
-
     WebDriver driver = null;
 
     By DocumentBtn = By.xpath("//mat-sidenav[@id='sidenav']/div/mat-nav-list/mat-list-item[6]");
@@ -27,6 +26,7 @@ public class DocumentPage {
     By ViewDoc3 = By.xpath("//span[contains(text(),'4.tif')]");
     By ViewDoc4 = By.xpath("//span[contains(text(),'3.tif')]");
     By ViewDoc5 = By.xpath("//span[contains(text(),'Processed.pdf')]");
+    By ViewDoc6 = By.xpath("//span[contains(text(),'33559446-2.pdf')]");
     By ViewFreeFormRejectedDoc = By.xpath("//span[contains(text(),'Pfizer9.jpg')]");
     By ViewStructuredReadyDoc = By.xpath("//span[contains(text(),'Pfizer9.jpg')]");
 
@@ -93,7 +93,7 @@ public class DocumentPage {
     By AddSSN = By.xpath("//span[contains(text(),' SSN ')]");
     By AddEmail = By.xpath("//span[contains(text(),' Email ')]");
     By clickAdd = By.xpath("//span[contains(text(),' Add ')]");
-
+    By addAttributeValue = By.xpath("//mat-cell[contains(text(),'PatientName')]/following::input");
     By addAttributePatientName = By.xpath("//mat-cell[contains(text(),'PatientName')]/following::input");
     By addAttributeDOB = By.xpath("//mat-table[@role='grid']/mat-row[2]/mat-cell[2]/div/mat-form-field/div/div[1]/div/input");
     By AddAttributeAge = By.xpath("//mat-table[@role='grid']/mat-row[3]/mat-cell[2]/div/mat-form-field/div/div[1]/div/input");
@@ -118,10 +118,50 @@ public class DocumentPage {
     By HoverSearcheProjectd = By.xpath("//span[text()=' QA-AutProject-For-Tool-Tip-Testing-In-Document-Window-View ']");
     By HoverDocumentName = By.xpath("//div[@class='example-container documentTable']/table/tbody/tr[1]/td[1]");
     By SelectStructuredProjectTooltip = By.xpath("//span[contains(text(),'QA-AutProject-For-Tool-Tip-Testing-In-Document-Window-View')]");
+    By SelectBREProject = By.xpath("//span[contains(text(),'QA-AutoProject-BRE-MedicalChart')]");
+
+    //Chart level Flags
+    By chartLevelFlagDropdown = By.xpath("(//mat-select[@role='combobox'])[1]");
+    By nonHCC = By.xpath("//span[contains(text(),' Non-HCC ')]");
+    By invalidRecord = By.xpath("//span[contains(text(),' Invalid record ')]");
+    By patientNameMismatch = By.xpath("//span[contains(text(),' Patient name mismatch ')]");
+    By PatientNameValue = By.xpath("//input[@pattern='^([a-zA-Z.s\\s])+([a-zA-Z.s\\s()]+)*(-[()a-zA-Z.s\\s]+)*$']");
+    By ClassificationNameBtn = By.xpath("//mat-label[contains(text(),'Classification')]");
+    By PatientNameBtn = By.xpath("(//mat-cell[contains(text(),' Patient Name ')])[2]");
+    By DeleteRule1Condition1 = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[4]/div[1]/project-rule-section[1]/mat-drawer-container[1]/mat-drawer-content[1]/div[2]/div[1]/div[1]/div[1]/div[2]/app-tree-node[1]/div[1]/div[1]/div[1]/div[2]/mat-card[1]/div[2]/mat-icon[1]");
+    By CNFDeleteRule1Condition1 = By.xpath("//span[contains(text(),'Delete')]");
+    By DeleteFirstRule = By.xpath("(//mat-icon[contains(text(),'delete')])[3]");
+
+    public DocumentPage(WebDriver driver) { this.driver = driver;}
+
+    //Chart Level Flags
+    public void ClickOnChartLevelFlagsBtn(){ driver.findElement(chartLevelFlagDropdown).click();}
+    public void selectNONHCCBtn(){ driver.findElement(nonHCC).click();}
+    public void selectInvalidRecordBtn(){ driver.findElement(invalidRecord).click();}
+    public void selectPatientNameMismatchBtn(){ driver.findElement(patientNameMismatch).click();}
+
+    public void ClickOnPatientNameValueBtn(){ driver.findElement(PatientNameValue).click();}
+    public void ClickOnClearPatientNameValueBtn(){ driver.findElement(PatientNameValue).clear();}
+    public void EnterNewPatientNameValueBtn(String text){ driver.findElement(PatientNameValue).sendKeys(text);}
+    public void ClickOnClassificationNameBtn(){ driver.findElement(ClassificationNameBtn).click();}
+    public void ClickOnPatientNameBtn(){ driver.findElement(PatientNameBtn).click();}
+
+    public void ClickOnDeleteRule1Condition1(){ driver.findElement(DeleteRule1Condition1).click();}
+    public void ClickOnCNFRule1Condition1(){ driver.findElement(CNFDeleteRule1Condition1).click();}
+    public void ClickOnDeleteFirstRuleBtn(){ driver.findElement(DeleteFirstRule).click();}
 
 
-    public DocumentPage(WebDriver driver) {
-        this.driver = driver;
+    public void ClickSelectBREProject(){driver.findElement(SelectBREProject).click();}
+
+    public void ClickViewDocIcon6(){ driver.findElement(ViewDoc6).click();}
+
+
+    public void assertAttributeValue () {
+        String AttributeValue = driver.findElement(addAttributeValue).getText();
+        System.out.println(AttributeValue);
+        String ActualValue = AttributeValue;
+        String ExpectedValue = "John Dey";
+        Assert.assertEquals(ActualValue,ExpectedValue);
     }
 
     public void ClickDocumentBtn() {
@@ -518,10 +558,5 @@ public class DocumentPage {
         String ExpectedToolTip  = "inputDocs_QA-AutoProject-Structured_Pfizer.jpg";
         Assert.assertEquals(ActuaalToolTip, ExpectedToolTip);
     }
-
-
-
-
-
 
 }
