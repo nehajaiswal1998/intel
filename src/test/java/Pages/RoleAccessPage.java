@@ -1,4 +1,7 @@
+
+
 package Pages;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -33,8 +36,8 @@ public class RoleAccessPage {
 
     public  void clickOperatorDocument(){
         Actions act = new Actions(driver);
-       WebElement ele2= driver.findElement(By.xpath("//i[@class='mat-tooltip-trigger fa fa-file-text m-0 side-icon ng-star-inserted']"));
-       act.doubleClick(ele2).perform();
+        WebElement ele2= driver.findElement(By.xpath("//i[@class='mat-tooltip-trigger fa fa-file-text m-0 side-icon ng-star-inserted']"));
+        act.doubleClick(ele2).perform();
     }
 
     public  void clickOperatorAnalytics(){driver.findElement(Analytics).click();}
@@ -46,7 +49,7 @@ public class RoleAccessPage {
         driver.findElement(profileIconAdmin).click();
     }
     public void clickProfileIcon_SupervisorUser() {
-       driver.findElement(ProfileIcon_SupervisorUser).click();
+        driver.findElement(ProfileIcon_SupervisorUser).click();
     }
     public  void clickProfileIcon_operator_role(){
         driver.findElement(profileIcon_Operator).click();
