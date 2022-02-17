@@ -12,7 +12,6 @@ public class ProjectPage {
     WebDriver driver = null;
 
 
-
     //Define Project
     By ProjectBtn = By.xpath("//i[@class='mat-tooltip-trigger fa fa-briefcase m-0 side-icon ng-star-inserted']");
     By CreateProject = By.xpath("//span[contains(text(),' Create Project ')]");
@@ -24,10 +23,10 @@ public class ProjectPage {
     By SelectLead = By.xpath("//span[contains(text(),'qa1@email.com')]");
     By ClickStartDate = By.cssSelector("button[aria-label='Open calendar'][tabindex='0']");
     By ClearStartDate = By.xpath("//input[@id='mat-input-3']");
-    By SelectStartDate = By.xpath("//div[contains(text(),"+currentDate+")]");//Change this before running
+    By SelectStartDate = By.xpath("//div[contains(text()," + currentDate + ")]");//Change this before running
     By ClickEndDate = By.xpath("/html/body/app-root/div/app-landing/div/div/main/div/app-create-project/div[2]/div/form/mat-card/div/div[4]/mat-form-field/div/div[1]/div[4]/mat-datepicker-toggle/button");
     By ClearEndDate = By.xpath("//input[@id='mat-input-4']");
-    By SelectEndDate = By.xpath("//div[contains(text(),"+currentDate+")]");
+    By SelectEndDate = By.xpath("//div[contains(text()," + currentDate + ")]");
     By ClickDocumentStructure = By.xpath("//*[@formcontrolname='documentStructure']");
     By SelectStructure = By.xpath("//span[contains(text(),'Structured ')]");
     By SelectMedical = By.xpath("//span[contains(text(),'Medical Chart')]");
@@ -98,7 +97,7 @@ public class ProjectPage {
     By DisableUser = By.xpath("//div[@class='mat-slide-toggle-thumb']");
     By UpdateUser = By.xpath("//span[text()='Update']");
     By BackButtonRulePage = By.xpath("//project-rule-section/following-sibling::div/button/span[text()='Back']/parent::button");
-    By BackButtonDataPage = By.xpath("//project-rule-section/following-sibling::div/button/span[text()='Back']/parent::button");
+    By BackButtonDataPage = By.xpath("//project-data-section/following-sibling::div/button/span[text()='Back']/parent::button");
     By ErrorMsgEntities = By.xpath("//span[contains(text(),'Please add the entities before creating the project.')]");
 
 
@@ -259,10 +258,10 @@ public class ProjectPage {
     public void ClickOnSelectSupervisorRoleBtn() {
         driver.findElement(SelectRoleSuperVisor).click();
     }
+
     public void ClickUpdateBtn() {
         driver.findElement(ClickUpdateBtn).click();
     }
-
 
 
     public void ClickOnAddUserBtn() {
@@ -276,10 +275,6 @@ public class ProjectPage {
     public void ClickOnSelectUserBtn() {
         driver.findElement(SelectUserAdmin).click();
     }
-
-
-
-
 
 
     public void ClickItemsPerPage() {
@@ -376,6 +371,7 @@ public class ProjectPage {
     public void SearchProjectAdmin() {
         driver.findElement(SearchProject).sendKeys("QA-AutoAdmin1");
     }
+
     public void ClickRoleManagementBtn() {
         driver.findElement(RoleManagementBtn).click();
     }
@@ -438,13 +434,11 @@ public class ProjectPage {
         driver.findElement(UpdateUser).click();
     }
 
-    public void ClickBackRulePage()
-    {
+    public void ClickBackRulePage() {
         driver.findElement(BackButtonRulePage).click();
     }
 
-    public void CLickBackDataPage()
-    {
+    public void CLickBackDataPage() {
         driver.findElement(BackButtonDataPage).click();
     }
 
