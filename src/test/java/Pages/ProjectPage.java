@@ -56,7 +56,7 @@ public class ProjectPage {
     By AddUser = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[2]/div[1]/form[1]/project-info-section[1]/mat-accordion[1]/project-roles[1]/mat-expansion-panel[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[2]/button[1]/span[1]/mat-icon[1]");
     By AddUserAdmin = By.xpath("//button[@class='mat-focus-indicator disabled-font-color mat-icon-button mat-button-base primary-font-color']");       //esc method
     By SelectUserAdmin = By.xpath("//span[contains(text(),'j1@gmail.com')]");
-    By UpdateProject = By.xpath("//span[contains(text(),'Update')]");
+    By UpdateProject = By.xpath("(//span[contains(text(),'Update')])[3]");
     By RoleUserDisableEnable = By.xpath("//div[@class='row']/div[3]/mat-slide-toggle");
     By SupervisorRoleDisable = By.xpath("//project-roles/mat-expansion-panel/div/div/div[1]/div[3]/div/div[3]/mat-slide-toggle/label[@class='mat-slide-toggle-label']");
     By RulesPage = By.xpath("//span[text()='Next']");
@@ -83,6 +83,8 @@ public class ProjectPage {
     By EditRole = By.xpath("//span[contains(text(),' AutoAdmin1 ')]");
     By ActiveRole = By.xpath("//div[@class='mat-slide-toggle-thumb']");
     By ClickUpdateBtn = By.xpath("//span[contains(text(),'Update' )]");
+    By ClickSearchBox = By.xpath("//input[@placeholder='Search']");
+    By EditProjectBtn = By.xpath("//mat-icon[contains(text(),'create')]");
 
     By Logout = By.xpath("//i[@class='fa fa-power-off']");
     By LoginBtn = By.xpath("//button[@type='submit']");
@@ -441,5 +443,6 @@ public class ProjectPage {
     public void CLickBackDataPage() {
         driver.findElement(BackButtonDataPage).click();
     }
-
+    public void ClickOnSearchBox(String text) {driver.findElement(ClickSearchBox).sendKeys(text);}
+    public void ClickEditProjectBtn(){ driver.findElement(EditProjectBtn).click();}
 }
