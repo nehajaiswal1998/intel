@@ -11,7 +11,8 @@ import java.io.IOException;
 public class Functions {
     public static void takescreenshot(String testname) throws IOException {
         File myfile = ((TakesScreenshot) BasePage.driver).getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(myfile, new File (System.getProperty("user.dir")+"\\target\\HTMLReport\\"+testname+"_fail.png"));
+        FileUtils.copyFile(myfile, new File (System.getProperty("user.dir")+"\\HTMLReport\\"+testname+"_fail.png"));
 
     }
+
 }

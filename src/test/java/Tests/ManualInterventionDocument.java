@@ -2,9 +2,12 @@ package Tests;
 import Base.BasePage;
 import Pages.DocumentPage;
 import Utilities.ReadProps;
+import Utilities.UploadObject;
 import org.testng.annotations.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
+
 @Listeners(Utilities.TestListeners.class)
 
 public class ManualInterventionDocument extends BasePage {
@@ -21,6 +24,9 @@ public class ManualInterventionDocument extends BasePage {
 
     @Test (priority = 1)
     public void manual_intervention_freeform_rejected_document() throws Exception {
+        // upload doc to QA-AutoProject-FreeForm folder in GCP:
+        UploadObject.uploadObject(ReadProps.readAttr("project_id"),ReadProps.readAttr("bucket_name"),"inputDocs/QA-AutoProject-FreeForm/Pfizer"+ReadProps.readAttr("exec_id")+".jpg",System.getProperty("user.dir")+"\\src\\test\\resources\\Pfizer.jpg");
+
         //Object Creation
         documentPageObj = new DocumentPage(driver);
         Robot r = new Robot();
@@ -81,6 +87,9 @@ public class ManualInterventionDocument extends BasePage {
 
    @Test(priority = 2)
     public void manual_intervention_structured_ready_document() throws Exception {
+        // upload doc to QA-AutoProject-Structured folder in GCP:
+        UploadObject.uploadObject(ReadProps.readAttr("project_id"),ReadProps.readAttr("bucket_name"),"inputDocs/QA-AutoProject-Structured/Pfizer"+ReadProps.readAttr("exec_id")+".jpg",System.getProperty("user.dir")+"\\src\\test\\resources\\Pfizer.jpg");
+
         Robot r = new Robot();
         documentPageObj.ClickDocumentBtn();
         Thread.sleep(10000);

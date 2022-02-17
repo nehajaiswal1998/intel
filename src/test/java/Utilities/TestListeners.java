@@ -29,8 +29,8 @@ public class TestListeners implements ITestListener {
     @Override
     public void onStart(ITestContext result) {
         String timestamp = new SimpleDateFormat("yyyy_MM_dd__hh_mm_ss").format(new Date());
-        report = new ExtentReports(System.getProperty("user.dir")+"\\target\\HTMLReport\\"+result.getSuite().getName()+"_Report_"+timestamp+".html");
-        report.loadConfig(new File (System.getProperty("user.dir")+"\\target\\HTMLReport\\config.xml"));
+        report = new ExtentReports(System.getProperty("user.dir")+"\\HTMLReport\\"+result.getSuite().getName()+"_Report_"+timestamp+".html");
+        report.loadConfig(new File (System.getProperty("user.dir")+"\\HTMLReport\\config.xml"));
     }
 
     @Override
