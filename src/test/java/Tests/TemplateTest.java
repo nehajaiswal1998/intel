@@ -51,7 +51,7 @@ public class TemplateTest extends BasePage {
         Thread.sleep(5000);
     }
 
-    @Test(priority = 2)
+   @Test(priority = 2)
     public void create_template_with_valid_name_no_chosen_file() throws Exception {
         //TC 20.2 - Create Template with Valid Name and No Chosen file.
         TemplatePageObj.ClickOnUploadTemplateBtn();
@@ -237,6 +237,22 @@ public class TemplateTest extends BasePage {
         Thread.sleep(4000);
 
 
+    }
+
+    @Test(priority = 13)
+    public void delete_template_assciatewithproject() throws InterruptedException {
+        TemplatePageObj.ClickTemplateBtn();
+        Thread.sleep(5000);
+        TemplatePageObj.ClickOnSearchTemplate("QA-AutoTemplate");
+        Thread.sleep(3000);
+        TemplatePageObj.ClickOnExpandTemplate();
+        Thread.sleep(5000);
+        TemplatePageObj.DeleteTemplate();
+        Thread.sleep(3000);
+        TemplatePageObj.verifyDeleteAssociatedTemplate();
+        Thread.sleep(1000);
+        TemplatePageObj.cancelDeleteTemplate();
+        Thread.sleep(3000);
     }
 
 }

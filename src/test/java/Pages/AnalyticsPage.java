@@ -3,6 +3,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
 
 public class AnalyticsPage {
 
@@ -39,6 +40,8 @@ public class AnalyticsPage {
     By SelectOverall = By.xpath("//*[@id='mat-option-3']/span");
     By SortByDocuments = By.xpath("//*[@id='mat-tab-content-0-0']/div/div/div/table/thead/tr/th[1]/div/div[2]");
     By SortByReceived = By.xpath("//div[contains(text(),'Received')]");
+    By OperatorPerformanceSection = By.xpath("//div[text()=' Operator Performance']");
+
 
     //Constructor for Analytics Page.
     public AnalyticsPage(WebDriver driver) {
@@ -167,4 +170,14 @@ public void HoverValidationTime()
     public void ClickSelectWeekly(){driver.findElement(SelectWeekly).click();}
     public void ClickSelectDaily(){driver.findElement(SelectDaily).click();}
     public void ClickSelectOverall(){driver.findElement(SelectOverall).click();}
+
+    public void VerifyOperatorPerformance ()
+    {
+        Assert.assertTrue(driver.findElement(By.xpath("//div[text()=' Operator Performance']")).isDisplayed());
+        Assert.assertTrue(driver.findElement(By.xpath("//div[text()=' Operator ']")).isDisplayed());
+        Assert.assertTrue(driver.findElement(By.xpath("//div[text()=' Validation count ']")).isDisplayed());
+        Assert.assertTrue(driver.findElement(By.xpath("//div[text()=' Validation time ']")).isDisplayed());
+        Assert.assertTrue(driver.findElement(By.xpath("//div[text()=' Validation time avg ']")).isDisplayed());
+        Assert.assertTrue(driver.findElement(By.xpath("//canvas[@id='bar-chart-horizontal']")).isDisplayed());
+    }
 }

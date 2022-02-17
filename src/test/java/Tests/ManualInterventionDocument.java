@@ -45,7 +45,18 @@ public class ManualInterventionDocument extends BasePage {
         Thread.sleep(3000);
         r.keyPress(KeyEvent.VK_ESCAPE);
         documentPageObj.clickADD();
-        Thread.sleep(3000);
+        Thread.sleep(8000);
+        documentPageObj.addInvalidAttribute();
+        Thread.sleep(8000);
+        documentPageObj.clickAddData();
+        Thread.sleep(5000);
+        documentPageObj.clickAddAttributes();
+        Thread.sleep(5000);
+        documentPageObj.addAttributes();
+        Thread.sleep(8000);
+        r.keyPress(KeyEvent.VK_ESCAPE);
+        documentPageObj.clickADD();
+        Thread.sleep(8000);
         documentPageObj.addAttributeValue();
         Thread.sleep(5000);
         documentPageObj.clickSaveDraft();
@@ -53,8 +64,6 @@ public class ManualInterventionDocument extends BasePage {
         documentPageObj.ViewFreeFormRejectedDocument();
         Thread.sleep(6000);
         documentPageObj.clickAddData();
-        Thread.sleep(3000);
-        //documentPageObj.assertAttributValue();
         Thread.sleep(3000);
         documentPageObj.clickSubmit();
         Thread.sleep(3000);
@@ -70,13 +79,11 @@ public class ManualInterventionDocument extends BasePage {
         Thread.sleep(3000);
     }
 
-    @Test(priority = 2)
+   @Test(priority = 2)
     public void manual_intervention_structured_ready_document() throws Exception {
         Robot r = new Robot();
         documentPageObj.ClickDocumentBtn();
         Thread.sleep(10000);
-        //documentPageObj.clearProject();
-        Thread.sleep(2000);
         documentPageObj.ClickDropDownBtn();
         Thread.sleep(2000);
         documentPageObj.ClickSelectStructuredProject();
@@ -86,7 +93,7 @@ public class ManualInterventionDocument extends BasePage {
         documentPageObj.ClickSearchDocument();
         Thread.sleep(3000);
         documentPageObj.viewStructuredReadyDoc();
-       Thread.sleep(4000);
+        Thread.sleep(4000);
         documentPageObj.clickAddData();
         Thread.sleep(2000);
         documentPageObj.updateAttributeValue();
