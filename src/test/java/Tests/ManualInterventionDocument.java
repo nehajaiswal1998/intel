@@ -6,12 +6,11 @@ import Utilities.UploadObject;
 import org.testng.annotations.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
-import java.io.IOException;
 
 @Listeners(Utilities.TestListeners.class)
 
 public class ManualInterventionDocument extends BasePage {
-    static DocumentPage documentPageObj;
+    public static DocumentPage documentPageObj;
     @BeforeClass
     public void login() throws Exception {
         BasePage.driverInit();
