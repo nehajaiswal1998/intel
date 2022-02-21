@@ -177,15 +177,17 @@ public class DocProcessStructuredTest extends BasePage {
         Thread.sleep(2000);
         DocPageObj.ClickSearchProject("QA-AutProject-For-Tool-Tip-Testing-In-Document-Window-View");
         Thread.sleep(2000);
-        DocPageObj.tooltipOnHoverProjectSearchList();
+        DocPageObj.verifytooltipOnHoverProjectSearchList();
         Thread.sleep(3000);
         Robot r = new Robot();
         r.keyPress(KeyEvent.VK_ESCAPE);
         DocPageObj.ClickSelectStructuredProjectTooltip();
         Thread.sleep(2000);
-        DocPageObj.tooltipOnHoverProjectSearched();
+        DocPageObj.verifytooltipOnHoverProjectSearched();
         Thread.sleep(2000);
-        DocPageObj.tooltipOnHoverOnDocumentName();
+        DocPageObj.verifytooltipOnHoverOnDocumentName();
+        Thread.sleep(2000);
+
     }
 
 

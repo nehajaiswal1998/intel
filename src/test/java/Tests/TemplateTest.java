@@ -3,6 +3,7 @@ package Tests;
 import Base.BasePage;
 import Pages.TemplatePage;
 import Utilities.ReadProps;
+import Utilities.VerifyAssertion;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -43,7 +44,7 @@ public class TemplateTest extends BasePage {
         Thread.sleep(2000);
         TemplatePageObj.ClickCreateTemplate();
         Thread.sleep(2000);
-        TemplatePageObj.verifyInvalidTemplatNameErr();
+       TemplatePageObj.verifyInvalidTemplatNameErr();
         WebElement upload_file = driver.findElement(By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-new-training[1]/div[3]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/input[1]"));
         upload_file.sendKeys(System.getProperty("user.dir")+"\\src\\test\\resources\\Template1.jpg");
         Thread.sleep(2000);
@@ -161,7 +162,12 @@ public class TemplateTest extends BasePage {
         TemplatePageObj.DeleteTemplate();
         Thread.sleep(2000);
         TemplatePageObj.ConfirmDeleteTemplate();
-        Thread.sleep(3000);
+        Thread.sleep(4000);
+        TemplatePageObj.refreshPage();
+        Thread.sleep(4000);
+        TemplatePageObj.verifySinglePageTemplateDelete();
+        Thread.sleep(2000);
+
 
     }
 
@@ -235,6 +241,11 @@ public class TemplateTest extends BasePage {
         Thread.sleep(3000);
         TemplatePageObj.ConfirmDeleteTemplate();
         Thread.sleep(4000);
+        TemplatePageObj.refreshPage();
+        Thread.sleep(3000);
+        TemplatePageObj.verifyMultiPageTemplateDelete();
+        Thread.sleep(3000);
+
 
 
     }

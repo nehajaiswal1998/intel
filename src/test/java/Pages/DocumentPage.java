@@ -1,12 +1,13 @@
 package Pages;
 
+import Utilities.VerifyAssertion;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 
-public class DocumentPage {
+public class DocumentPage extends VerifyAssertion {
     WebDriver driver = null;
 
     By DocumentBtn = By.xpath("//mat-sidenav[@id='sidenav']/div/mat-nav-list/mat-list-item[6]");
@@ -512,10 +513,12 @@ public class DocumentPage {
     }
 
     public void assertFreeFormDocument() {
-        String FreeFormDocStatus = driver.findElement(StatusFreeFormDoc).getText();
+        /*String FreeFormDocStatus = driver.findElement(StatusFreeFormDoc).getText();
         String ActualStatus = FreeFormDocStatus;
         String ExpectedStatus = "Processed";
-        Assert.assertEquals(ActualStatus, ExpectedStatus);
+        Assert.assertEquals(ActualStatus, ExpectedStatus);*/
+
+        verify_assert_equal("Processed",StatusFreeFormDoc);
     }
 
 
@@ -529,34 +532,20 @@ public class DocumentPage {
 
     }
 
-    public void tooltipOnHoverProjectSearchList()
+    public void verifytooltipOnHoverProjectSearchList()
     {
-        Actions action = new Actions(driver);
-        WebElement element= driver.findElement(HoverProjectSearch);
-        action.moveToElement(element).build().perform();
-        String ActualToolTip = driver.findElement(HoverProjectSearch).getText();
-        String ExpectedToolTip  = "QA-AutProject-For-Tool-Tip-Testing-In-Document-Window-View";
-        Assert.assertEquals(ActualToolTip, ExpectedToolTip);
+        verify_assertequal_hover("QA-AutProject-For-Tool-Tip-Testing-In-Document-Window-View" ,HoverProjectSearch );
     }
 
-    public void tooltipOnHoverProjectSearched ()
+    public void verifytooltipOnHoverProjectSearched ()
     {
-        Actions action = new Actions(driver);
-        WebElement element= driver.findElement(HoverSearcheProjectd);
-        action.moveToElement(element).build().perform();
-        String ActuaalToolTip = driver.findElement(HoverSearcheProjectd).getText();
-        String ExpectedToolTip  = "QA-AutProject-For-Tool-Tip-Testing-In-Document-Window-View";
-        Assert.assertEquals(ActuaalToolTip, ExpectedToolTip);
+        verify_assertequal_hover("QA-AutProject-For-Tool-Tip-Testing-In-Document-Window-View" ,HoverSearcheProjectd );
+
     }
 
-    public void tooltipOnHoverOnDocumentName ()
+    public void verifytooltipOnHoverOnDocumentName ()
     {
-        Actions action = new Actions(driver);
-        WebElement element= driver.findElement(HoverDocumentName);
-        action.moveToElement(element).build().perform();
-        String ActuaalToolTip = driver.findElement(HoverDocumentName).getText();
-        String ExpectedToolTip  = "inputDocs_QA-AutoProject-Structured_Pfizer.jpg";
-        Assert.assertEquals(ActuaalToolTip, ExpectedToolTip);
+        verify_assertequal_hover("inputDocs_QA-AutoProject-Structured_Pfizer.jpg" ,HoverDocumentName );
     }
 
 }

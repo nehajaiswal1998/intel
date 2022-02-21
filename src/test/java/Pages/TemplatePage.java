@@ -1,12 +1,14 @@
 package Pages;
 
+import Utilities.VerifyAssertion;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 
-public class TemplatePage {
+public class TemplatePage extends VerifyAssertion {
     WebDriver driver = null;
+
 
     By TemplateBtn = By.xpath("//i[@aria-describedby='cdk-describedby-message-4']");
     By UploadTemplate = By.xpath("//*[contains (text(),'Upload Template')]");
@@ -33,7 +35,7 @@ public class TemplatePage {
     By SaveDraft = By.xpath("//span[contains(text(),'Save Draft')]");
     By CompleteTraining = By.xpath("//*[contains(text(),'Complete Training')]");
     By ClickClassification = By.xpath("//*[@id='docClassificationField']");
-    By SelectClassification= By.xpath("//body/div[1]/div[1]/div[1]/div[1]/mat-option[1]/span[1]");
+    By SelectClassification = By.xpath("//body/div[1]/div[1]/div[1]/div[1]/mat-option[1]/span[1]");
     By ClickValidation = By.xpath("//*[@formcontrolname='validation']");
     By SelectValidation = By.xpath("//span[contains(text(),' Name ')]");
     By CancelTraining = By.xpath("//div[@class='tr-button white_bg']/button[3]");
@@ -41,9 +43,10 @@ public class TemplatePage {
     By NavigateBack = By.xpath("//*[contains(text(),'navigate_before')]");
     By TrainingStatus = By.xpath("//tbody/tr[1]/td[4]");
 
-    By InvalidTemplateNameErr= By.xpath("//mat-error[text()='Only alphabets,digits,parenthesis and hyphens are allowed while naming a template.']");
-    By ExistingTemplateNameErr= By.xpath("//div[text()='Template Name Already In Use.']");
+    By InvalidTemplateNameErr = By.xpath("//mat-error[text()='Only alphabets,digits,parenthesis and hyphens are allowed while naming a template.']");
+    By ExistingTemplateNameErr = By.xpath("//div[text()='Template Name Already In Use.']");
     By CancelDeleteTemplate = By.xpath("//span[text()='Cancel']");
+
     //Methods
     public TemplatePage(WebDriver driver) {
         this.driver = driver;
@@ -86,7 +89,8 @@ public class TemplatePage {
     public void ClickOnExpandTemplate() {
         driver.findElement(ExpandTemplate).click();
     }
-    public void ClickExpandMore(){
+
+    public void ClickExpandMore() {
         driver.findElement(ExpandTemplateMore).click();
     }
 
@@ -118,24 +122,23 @@ public class TemplatePage {
         driver.findElement(ZoomOutIcon).click();
     }
 
-    public void ClickClassificationBox(){
+    public void ClickClassificationBox()
+    {
         driver.findElement(ClickClassification).click();
     }
 
-    public void SelectClassification()
-    {
+    public void SelectClassification() {
         driver.findElement(SelectClassification).click();
     }
 
-    public void ClickValidation()
-    {
+    public void ClickValidation() {
         driver.findElement(ClickValidation).click();
     }
 
-    public void SelectValidation()
-    {
+    public void SelectValidation() {
         driver.findElement(SelectValidation).click();
     }
+
     public void ClickCropIcon() {
         driver.findElement(CropDragIcon).click();
     }
@@ -151,105 +154,84 @@ public class TemplatePage {
     }
 
 
-
-    public void ClickSaveDraft()
-    {
+    public void ClickSaveDraft() {
         driver.findElement(SaveDraft).click();
     }
 
-    public void ClickCompleteTraining()
-    {
+    public void ClickCompleteTraining() {
         driver.findElement(CompleteTraining).click();
     }
 
-    public void ClickCancelTraining(){driver.findElement(CancelTraining).click();}
+    public void ClickCancelTraining() {
+        driver.findElement(CancelTraining).click();
+    }
 
-    public void ClickNavigateNext()
-    {
+    public void ClickNavigateNext() {
         driver.findElement(NavigateNext).click();
     }
 
 
-    public void ClickNavigateBack()
-    {
+    public void ClickNavigateBack() {
         driver.findElement(NavigateBack).click();
     }
-    public void ClickOnTemplateMorePagesInfo()
-    {
+
+    public void ClickOnTemplateMorePagesInfo() {
         driver.findElement(TemplateDataInfo1).click();
     }
 
-    public void verifyInvalidTemplatNameErr()
-    {
-        String ActualErrorInvalidTemplateName = driver.findElement(InvalidTemplateNameErr).getText();
-        String ExpectedInvalidTemplateName = "Only alphabets,digits,parenthesis and hyphens are allowed while naming a template.";
-        Assert.assertEquals(ActualErrorInvalidTemplateName,ExpectedInvalidTemplateName);
+    public void verifyInvalidTemplatNameErr() {
+        verify_assert_equal("Only alphabets,digits,parenthesis and hyphens are allowed while naming a template.", InvalidTemplateNameErr);
+    }
+
+    public void verifyExistingTemplateName() {
+        verify_assert_equal("Template Name Already In Use.", ExistingTemplateNameErr);
 
     }
 
-    public void verifyExistingTemplateName()
-    {
-        String ActualErrorExistingTemplateName = driver.findElement(ExistingTemplateNameErr).getText();
-        String ExpectedExistingTemplateName = "Template Name Already In Use.";
-        Assert.assertEquals(ActualErrorExistingTemplateName,ExpectedExistingTemplateName);
-    }
     public void verifyTemplateMap() {
-        String ActualMapError = driver.findElement(MapErrorMsg).getText();
-        String ExpectedMapError = "Please select the portion on image for which the field name and validations have been given.";
-        Assert.assertEquals(ActualMapError, ExpectedMapError);
+
+        verify_assert_equal("Please select the portion on image for which the field name and validations have been given.", MapErrorMsg);
+
     }
 
-    public void AssertTrainingStatus()
+    public void AssertTrainingStatus() {
+
+        verify_assert_equal("In Progress", TrainingStatus);
+
+    }
+
+    public void verifySinglePageTemplateCreated()
     {
-        String ActualStaus = driver.findElement(TrainingStatus).getText();
-        String ExpectedStatus = "In Progress";
-        Assert.assertEquals(ActualStaus,ExpectedStatus);
+        verify_assertequal_withtrim("AutoSampleSPTemp", ExpandTemplate);
     }
 
-    public void verifySinglePageTemplateCreated() {
-        String[] TemplateName = driver.findElement(ExpandTemplate).getText().split(" ");
-        String ActualTemplate = TemplateName[1].trim();
-        String ExpectedTemplate = "AutoSampleSPTemp";
-        Assert.assertEquals(ActualTemplate, ExpectedTemplate);
-
+    public void verifySinglePageTemplateDelete()
+    {
+        verify_assertequal_withtrim("AutoSampleSPTemp", ExpandTemplate);
     }
 
-    public void verifySinglePageTemplateDelete() {
-        String[] TemplateName = driver.findElement(ExpandTemplate).getText().split(" ");
-        String ActualTemplate = TemplateName[1].trim();
-        String ExpectedTemplate = "AutoSampleSPTemp";
-        Assert.assertNotEquals(ActualTemplate, ExpectedTemplate);
+    public void verifyMultiPageTemplateCreated()
+    {
+        verify_assertequal_withtrim("AutoSampleMPTemp", ExpandTemplate);
 
     }
 
-    public void verifyMultiPageTemplateCreated() {
-        String[] TemplateName = driver.findElement(ExpandTemplate).getText().split(" ");
-        String ActualTemplate = TemplateName[1].trim();
-        String ExpectedTemplate = "AutoSampleMPTemp";
-        Assert.assertEquals(ActualTemplate, ExpectedTemplate);
-
-    }
-
-    public void verifyMultiPageTemplateDelete() {
-
-            String[] TemplateName = driver.findElement(ExpandTemplate).getText().split(" ");
-            String ActualTemplate = TemplateName[1].trim();
-            String ExpectedTemplate = "AutoSampleMPTemp";
-            Assert.assertNotEquals(ActualTemplate, ExpectedTemplate);
-
-
-
+    public void verifyMultiPageTemplateDelete()
+    {
+        verify_assertequal_withtrim("AutoSampleMPTemp", ExpandTemplate);
     }
 
     public void verifyDeleteAssociatedTemplate()
     {
         Assert.assertTrue(driver.findElement(By.xpath("//*[text()=' Sample-page1 is associated with QA-AutoProject-Structured,QA-AutoProject-Structured4 projects ']")).isDisplayed());
-
     }
 
-    public void cancelDeleteTemplate()
-    {
+    public void cancelDeleteTemplate() {
         driver.findElement(CancelDeleteTemplate).click();
+    }
+
+    public void refreshPage() {
+        driver.navigate().refresh();
     }
 
 
