@@ -20,7 +20,7 @@ public class CreateUpdateRoleAdminTest extends BasePage {
     public void login_with_valid_details() throws Exception {
         driver.get(ReadProps.readAttr("URL"));
         driver.manage().window().maximize();
-        Thread.sleep(8000);
+        Thread.sleep(9000);
         CreateRolePageObj = new CreateRolePage(driver);
         //TC 2.1 Login with Valid Admin details.
         CreateRolePageObj.EnterUsername(ReadProps.readAttr("AdminUser"));
