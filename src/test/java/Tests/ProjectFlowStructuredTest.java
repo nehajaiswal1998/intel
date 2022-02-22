@@ -128,7 +128,7 @@ public class ProjectFlowStructuredTest extends BasePage {
         ProjectPageObj.VerifyAssertForData();
         Thread.sleep(2000);
         driver.navigate().refresh();
-        Thread.sleep(4000);
+        Thread.sleep(6000);
         ProjectPageObj.ClickRoleManagementBtn();
         Thread.sleep(4000);
         ProjectPageObj.SearchCreatedRole(ReadProps.readAttr("EditRole"));
@@ -186,7 +186,8 @@ public class ProjectFlowStructuredTest extends BasePage {
          ProjectPageObj.ClickOnTemplateBtn();
          Thread.sleep(2000);
          ProjectPageObj.ClickOnCreate();
-         ProjectPageObj.VerifyAssertForData();
+         Thread.sleep(2000);
+         ProjectPageObj.VerifyAssertForDataAndRole();
          Thread.sleep(2000);
          ProjectPageObj.ClickOnProcessingEngineBtn();
          Thread.sleep(2000);
@@ -209,6 +210,7 @@ public class ProjectFlowStructuredTest extends BasePage {
         ProjectPageObj.ClickOnSelectRoleBtn();
         Thread.sleep(2000);
         ProjectPageObj.ClickOnCreate();
+        Thread.sleep(2000);
         ProjectPageObj.VerifyAssertForUser();
         Thread.sleep(2000);
         ProjectPageObj.ClickOnAddUserBtn();
@@ -298,6 +300,8 @@ public class ProjectFlowStructuredTest extends BasePage {
         Thread.sleep(3000);
         ProjectPageObj.ClickOnCreate();
         Thread.sleep(2000);
+        ProjectPageObj.VerifyAssertForBlank();
+        Thread.sleep(2000);
         ProjectPageObj.ClickLogout();
         Thread.sleep(10000);
     }
@@ -313,6 +317,7 @@ public class ProjectFlowStructuredTest extends BasePage {
         ProjectPageObj.ClickOnCreateProjectBtn();
         Thread.sleep(3000);
         ProjectPageObj.ClickOnCreate();
+        Thread.sleep(2000);
         ProjectPageObj.VerifyAssertForBlank();
         Thread.sleep(2000);
     }
@@ -537,6 +542,8 @@ public class ProjectFlowStructuredTest extends BasePage {
         r.keyPress(KeyEvent.VK_ESCAPE);
         Thread.sleep(3000);
         ProjectPageObj.ClickOnCreate();
+        Thread.sleep(2000);
+        ProjectPageObj.VerifyAssertForBlank();
         Thread.sleep(2000);
         ProjectPageObj.ClickLogout();
         Thread.sleep(8000);

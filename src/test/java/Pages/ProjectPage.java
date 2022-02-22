@@ -1,13 +1,15 @@
 package Pages;
 
+import Utilities.VerifyAssertion;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class ProjectPage {
+public class ProjectPage extends VerifyAssertion {
     String currentDate = new SimpleDateFormat("dd").format(new Date());
     WebDriver driver = null;
 
@@ -74,6 +76,7 @@ public class ProjectPage {
     By ErrorMsgData = By.xpath("//span[contains(text(),'Please check form data')]");
     By ErrorMsgRole = By.xpath("//span[contains(text(),'Role(s) cannot be empty')]");
     By ErrorMsgDisableRole = By.xpath("//span[contains(text(),'AE Supervisor role is Disabled')]");
+    By ErrorMsgDataRole = By.xpath("//span[contains(text(),'Please check form data and role(s) cannot be empty')]");
     By TableStructure = By.xpath("//*[contains(text(),' list ')]");
     By SearchProject = By.xpath("//input[@data-placeholder='Search']");
 
@@ -304,35 +307,47 @@ public class ProjectPage {
         driver.findElement(CancelOnProject).click();
     }
 
-    public void VerifyAssertForBlank() {
-
-        String actual_msg = driver.findElement(ErrorMsgBlank).getText();
-        String expect = "Please add the attributes before creating the project.";
-        softAssert.assertEquals(actual_msg, expect);
+    public void VerifyAssertForBlank()
+    {
+        verify_assert_equal("Please add the attributes before creating the project.",ErrorMsgBlank);
     }
 
-    public void VerifyAssertForUser() {
-        String actual_msg = driver.findElement(ErrorMsgRoleUser).getText();
-        String expect = "Role cannot have empty users.";
-        softAssert.assertEquals(actual_msg, expect);
+    public void VerifyAssertForUser()
+    {
+        verify_assert_equal("Role cannot have empty users",ErrorMsgRoleUser);
     }
 
     public void VerifyAssertForNoTemplate() {
-        String actual_msg = driver.findElement(ErrorMsgTemplate).getText();
+        /*String actual_msg = driver.findElement(ErrorMsgTemplate).getText();
         String expect = "Please add the template before creating the project.";
-        softAssert.assertEquals(actual_msg, expect);
+        softAssert.assertEquals(actual_msg, expect);*/
+
+        verify_assert_equal("Please add the template before creating the project.",ErrorMsgTemplate);
+
     }
 
     public void VerifyAssertForData() {
-        String actual_msg = driver.findElement(ErrorMsgData).getText();
+        /*String actual_msg = driver.findElement(ErrorMsgData).getText();
         String expect = "Please check form data";
-        softAssert.assertEquals(actual_msg, expect);
+        softAssert.assertEquals(actual_msg, expect);*/
+
+        verify_assert_equal("Please check form data",ErrorMsgData);
+
+    }
+
+    public void VerifyAssertForDataAndRole() {
+        /*String actual_msg = driver.findElement(ErrorMsgData).getText();
+        String expect = "Please check form data";
+        softAssert.assertEquals(actual_msg, expect);*/
+
+        verify_assert_equal("Please check form data",ErrorMsgDataRole);
+
     }
 
     public void VerifyAssertForRole() {
-        String actual_msg = driver.findElement(ErrorMsgRole).getText();
-        String expect = "Role(s) cannot be empty";
-        softAssert.assertEquals(actual_msg, expect);
+
+        verify_assert_equal("Role(s) cannot be empty",ErrorMsgRole);
+
     }
 
 
@@ -349,10 +364,17 @@ public class ProjectPage {
     }
 
     public void VerifyAssertForEntities() {
-        String actual_msg = driver.findElement(ErrorMsgEntities).getText();
-        String expect = "Please add the entities before creating the project.";
-        softAssert.assertEquals(actual_msg, expect);
+
+        verify_assert_equal("Please add the entities before creating the project.",ErrorMsgEntities);
+
     }
+
+    public void VerifyAssertForMedicalChartProjectCreated( )
+    {
+        Assert.assertTrue(driver.findElement(By.xpath("//*[text()='QA-AutoProject-FreeForm5 ']")).isDisplayed());
+
+    }
+
 
     public void ClickOnEndDate() {
         driver.findElement(ClickEndDate).click();
