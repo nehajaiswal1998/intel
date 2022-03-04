@@ -2,10 +2,13 @@ package Tests;
 import Base.BasePage;
 import Pages.ForgetPwdPage;
 import Utilities.ReadProps;
+import Utilities.verifyAssertions;
+import org.openqa.selenium.By;
 import org.testng.annotations.*;
 @Listeners(Utilities.TestListeners.class)
 public class ForgetPwdTest extends BasePage {
     static ForgetPwdPage FwdPwdObj;
+    static verifyAssertions verifyAssertionsobj;
     @BeforeClass
     public void login() throws Exception {
         BasePage.driverInit();
@@ -20,17 +23,21 @@ public class ForgetPwdTest extends BasePage {
         driver.manage().window().maximize();
         Thread.sleep(8000);
         FwdPwdObj = new ForgetPwdPage(driver);
+        verifyAssertionsobj=new verifyAssertions(driver);
         //12.1 Click on Cancel button on Forgot Password Screen.
         FwdPwdObj.ClickForgetPwdBtn();
         Thread.sleep(2000);
+        verifyAssertionsobj.verify_webpage_url(FwdPwdObj.forgotPwdUrl);
         FwdPwdObj.ClickCancelBtn();
         Thread.sleep(2000);
+        verifyAssertionsobj.verify_webpage_url(FwdPwdObj.loginPageUrl);
     }
     @Test(priority = 2)
     public void first_login_not_done() throws Exception {
         //TC 12.2 First Login is not Done By the User.
         FwdPwdObj.ClickForgetPwdBtn();
         Thread.sleep(2000);
+        verifyAssertionsobj.verify_webpage_url(FwdPwdObj.forgotPwdUrl);
         FwdPwdObj.ClickEmailBtn(ReadProps.readAttr("UserEmail"));
         FwdPwdObj.ClickSubmitBtn();
         Thread.sleep(3000);
@@ -44,28 +51,38 @@ public class ForgetPwdTest extends BasePage {
         FwdPwdObj.VerifyAssertEmailID();
         FwdPwdObj.ClickCancelBtn();
         Thread.sleep(2000);
+        verifyAssertionsobj.verify_webpage_url(FwdPwdObj.loginPageUrl);
+
     }
     @Test(priority = 4)
     public void user_not_exists() throws Exception {
         //12.4 User Does not Exist.
         FwdPwdObj.ClickForgetPwdBtn();
         Thread.sleep(2000);
+        verifyAssertionsobj.verify_webpage_url(FwdPwdObj.forgotPwdUrl);
         FwdPwdObj.ClickEmailBtn(ReadProps.readAttr("Invalid2"));
         Thread.sleep(3000);
         FwdPwdObj.ClickSubmitBtn();
         Thread.sleep(1000);
+        verifyAssertionsobj.verifyAdminProfile(FwdPwdObj.errMsguserDoseNotExist,FwdPwdObj.userDoseNotExist);
         FwdPwdObj.ClickCancelBtn();
         Thread.sleep(2000);
+        verifyAssertionsobj.verify_webpage_url(FwdPwdObj.loginPageUrl);
+
     }
     @Test(priority = 5)
     public void disable_user() throws Exception {
             //TC 12.5 Disable user.
             FwdPwdObj.ClickForgetPwdBtn();
             Thread.sleep(2000);
+            verifyAssertionsobj.verify_webpage_url(FwdPwdObj.forgotPwdUrl);
             FwdPwdObj.ClickEmailBtn(ReadProps.readAttr("DisabledUser"));
             Thread.sleep(1000);
             FwdPwdObj.ClickSubmitBtn();
             Thread.sleep(2000);
+            verifyAssertionsobj.verifyAdminProfile(FwdPwdObj.errmsguserInactive,FwdPwdObj.userInactive);
             FwdPwdObj.ClickCancelBtn();
             Thread.sleep(4000);
-        }}
+            verifyAssertionsobj.verify_webpage_url(FwdPwdObj.loginPageUrl);
+
+    }}

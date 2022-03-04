@@ -1,8 +1,13 @@
 package Pages;
 import Base.BasePage;
+import Utilities.ReadProps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.asserts.SoftAssert;
+
+import java.io.IOException;
 
 public class CreateUserPage extends BasePage
 {
@@ -18,7 +23,7 @@ public class CreateUserPage extends BasePage
     By Password  = By.xpath("//input[@type='password']");
     By PlatformUser = By.xpath("//td[contains(text(),' AutoSampleBB ')]");
     By UserUpdated = By.xpath("//td[contains(text(),' AutoSampleUpdate ')]");
-    By AdminUser = By.xpath("//td[contains(text(),' AutoAdminUserS ')]");//Change everytime before u run.
+    By AdminUser = By.xpath("//td[contains(text(),' AutoAdminUserad ')]");//Change everytime before u run.
     By UpdatedTime = By.xpath("//tbody[@role='rowgroup']/tr[1]/td[3]");
     By CreatedTime = By.xpath("//tbody[@role='rowgroup']/tr[1]/td[4]");
     By logout = By.xpath("//span[@mattooltip='Logout']");
@@ -26,13 +31,34 @@ public class CreateUserPage extends BasePage
     By username = By.xpath("//input[@formcontrolname='userName']");
     By password = By.xpath("//input[@formcontrolname='password']");
     By loginBtn = By.xpath("//button[@type='submit']");
-    //By BlankErrorMsg = By.xpath(("//span[contains(text(),'Please Check Form Detail ...!')]"));
     By ExistErrorMsg = By.xpath("//span[contains(text(),'User exists with email sampleemail@email.com')]");
+    By ProfileIcon=By.xpath("//div[@class='profileImageIcon ng-star-inserted']");
+    By createdUser=By.xpath("//td[contains(text(),\""+ ReadProps.readAttr("AdminUserName") +"\")]");
 
-    public CreateUserPage(WebDriver driver) {
+    public By actualUserName=By.xpath("//span[contains(text(),' AE Admin ')]");
+    public String UserText="AE Admin";
+    public  String userTabUrl="https://alpha.neutrino-ai.com/#/home/user-management";
+    public String loginHoempPageUrl="https://alpha.neutrino-ai.com/#/home/project-management";
+    public String createUserUrl="https://alpha.neutrino-ai.com/#/home/user-management/create-user";
+    public String loginPageUrl="https://alpha.neutrino-ai.com/#/login";
+
+    public void ProfileIconClick(){driver.findElement(ProfileIcon).click();}
+    public CreateUserPage(WebDriver driver) throws IOException {
         BasePage.driver = driver;
     }
-    public  void ClickUserBtn(){driver.findElement(UserBtn).click();}
+    public  void DoubleClickUserBtn() {
+        WebElement UserBtn1 = driver.findElement(By.xpath("//i[@class='mat-tooltip-trigger fa fa-users m-0 side-icon ng-star-inserted']"));
+
+        Actions s = new Actions(driver);
+        s.doubleClick(UserBtn1).perform();
+        //driver.findElement(UserBtn).click();
+    }
+    public By GetcreatedUser()
+    {
+        return this.createdUser;
+
+    }
+    public void ClickUserBtn(){driver.findElement(UserBtn).click();}
     public  void ClickOnCancelBtn(){driver.findElement(CancelButton).click();}
     //public void ClickCancelBtn(){driver.findElement(CancelBtn).click();}
     public void ClickCreateUserBtn(){driver.findElement(CreateUserBtn).click();}
@@ -50,6 +76,9 @@ public class CreateUserPage extends BasePage
     public void ClickToClearName(){driver.findElement(EnterUserName).clear();}
     public  void ClearPassword(){driver.findElement(Password).clear();}
     public void EnterPassword(String text){driver.findElement(Password).sendKeys(text);}
+    public  String errmsg="Please enter all the details before submitting.";
+    public  By errmsgBlankDataCreateRoleClick=By.xpath("//span[contains(text(),'Please enter all the details before submitting.')]");
+
 
     SoftAssert softAssert = new SoftAssert();
 
@@ -108,4 +137,6 @@ public class CreateUserPage extends BasePage
     {
         driver.findElement(UserUpdated).click();
     }
+
+
 }

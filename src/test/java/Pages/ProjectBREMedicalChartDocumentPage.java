@@ -10,9 +10,12 @@ public class ProjectBREMedicalChartDocumentPage {
     By OpenReadyDocumentICD = By.xpath("//span[contains(text(),'document (1).pdf')]");
     By OpenRejectedDocument = By.xpath("//span[contains(text(),'inputDocs.jpg')]");
     By ChartData = By.xpath("//mat-label[contains(text(),'Chart Data')]");
-    By Address = By.xpath("//div[@class='mat-form-field-infix ng-tns-c97-11']");
+    //By Address = By.xpath("//div[@class='mat-form-field-infix ng-tns-c97-11']");
+    By Address= By.xpath("//input[@pattern=\"^([a-zA-Z0-9,\\s])+([a-zA-Z0-9\\s()]+)*(-[()a-zA-Z0-9\\s]+)*$\"]");
+
+
     By SaveDraft = By.xpath("//span[contains(text(),'Save Draft')]");
-    By ChronicConditions = By.xpath("");
+    By ChronicConditions = By.xpath("//div[contains(text(),' Chronic Conditions ')]");
     By AddChronicCondition = By.xpath("//mat-icon[contains(text(),'add')]");
     By NPINumber = By.xpath("//input[@formcontrolname='npiNo']");
     By EncounterDetails = By.xpath("//span[contains(text(),'NPI No')]");
@@ -24,12 +27,13 @@ public class ProjectBREMedicalChartDocumentPage {
     By EditICDCodeDetails = By.xpath("//div[contains(text(),' Chronic Conditions ')]");
     By PickCommentAdd = By.xpath("//span[contains(text(),'ADD')]");
     By EndDate = By.xpath("//input[@formcontrolname='endDate']");
-    By ClickAddedChronicCondition = By.xpath("//span[@class='mat-content ng-tns-c158-21']");
+    By ClickAddedChronicCondition = By.xpath("//div[contains(text(),' Chronic Conditions ')]//following::button[1]/span/mat-icon");
     By SaveBtn = By.xpath("//button[@class='mat-focus-indicator mat-raised-button mat-button-base mat-primary']");
     By DeleteCC = By.xpath("//mat-icon[contains(text(),'delete')]");
     By CancelCC = By.xpath("//button[@class='mat-focus-indicator mr-2 mat-stroked-button mat-button-base mat-accent']");
     By EditEncounterDetails = By.xpath("//mat-expansion-panel-header/span[1]/mat-panel-description[1]/button[1]/span[1]/mat-icon[1]");
-    By EditEncounterDetailsCC = By.xpath("//mat-icon[contains(text(),'create')]");
+    By EditEncounterDetailsCC = By.xpath("//div[contains(text(),'DOS End Date')]/following::button/span/mat-icon[contains(text(),'create')]");
+    By endDate=By.xpath("//div[contains(text(),'DOS End Date')]");
     By CancelEditEncounterDetails = By.xpath("//button[@class='mat-focus-indicator mr-2 mat-stroked-button mat-button-base mat-accent']");
     By AddDiagnosisDetails = By.xpath("//mat-expansion-panel-header/span[1]/mat-panel-description[1]/button[2]/span[1]/mat-icon[1]");
     By CancelDiagnosisDetails = By.xpath("//button[@id='category-close-modal']");
@@ -38,13 +42,15 @@ public class ProjectBREMedicalChartDocumentPage {
     By CancelBtnICD = By.xpath("//span[contains(text(),'Cancel')]");
     By SelectICDCode = By.xpath("//span[contains(text(),'A00.9 Cholera, unspecified')]");
     By OpenReadyDocumentICD1 = By.xpath("//span[contains(text(),'Karis Garner_only 8 page.pdf')]");
-
+    By npnNum=By.xpath("//mat-label[contains(text(),'NPI Number')]");
     //Constructor
     public ProjectBREMedicalChartDocumentPage(WebDriver driver) {
         this.driver = driver;
     }
 
     //Methods
+    public By getendDate(){return  this.endDate;}
+    public By getnpnNum(){return this.npnNum;}
     public void ClickOnEncounterDetails() {
         driver.findElement(EncounterDetails).click();
     }
@@ -57,7 +63,7 @@ public class ProjectBREMedicalChartDocumentPage {
     public void ClickOnClearICDCode() {
         driver.findElement(EditICDCodeDetailsOnEditDiagnosisDetails).clear();
     }
-
+    public void ClickOnendDate(){driver.findElement(endDate).click();}
     public void ClickOnEditICDCodeOnEditDiagnosisDetails() {
         driver.findElement(EditICDCodeDetails).click();
     }

@@ -84,7 +84,7 @@ public class EditProfileTest extends BasePage {
         EditProfileObj.EditProfileButton();
         Thread.sleep(3000);
         EditProfileObj.SaveButton();
-            Thread.sleep(2000);
+        Thread.sleep(2000);
 
         }
     }

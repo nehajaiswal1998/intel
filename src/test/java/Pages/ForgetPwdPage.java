@@ -14,7 +14,12 @@ public class ForgetPwdPage
         By Submit = By.xpath("//span[contains(text(),'Submit')]");
         By ErrorMsgForSW = By.xpath("//span[contains(text(),'Something Went Wrong ...!')]");
         By ErrorMsgEmailID = By.xpath("//span[contains(text(),'*Please Check Email Id ')]");
-
+        public By userDoseNotExist=By.xpath("//span[contains(text(),'User does not exist')]");
+        public By userInactive=By.xpath("//span[contains(text(),'User is inactive. Please contact Administration')]");
+        public String errmsguserInactive="User is inactive. Please contact Administration";
+        public String errMsguserDoseNotExist="User does not exist";
+        public String forgotPwdUrl="https://alpha.neutrino-ai.com/#/forgot-password";
+        public String loginPageUrl="https://alpha.neutrino-ai.com/#/login";
         public ForgetPwdPage(WebDriver driver) { this.driver = driver;}
 
         public void ClickForgetPwdBtn(){ driver.findElement(ForgetPwd).click();}

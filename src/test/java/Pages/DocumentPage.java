@@ -8,7 +8,7 @@ import org.testng.Assert;
 
 public class DocumentPage {
     WebDriver driver = null;
-
+                               ////mat-sidenav[@id='sidenav']/div/mat-nav-list/mat-list-item[6]
     By DocumentBtn = By.xpath("//mat-sidenav[@id='sidenav']/div/mat-nav-list/mat-list-item[6]");
     By DropDown = By.xpath("//span[@class='mat-tooltip-trigger projectname']");
     By SearchProject = By.xpath("//div[@class='cdk-overlay-pane']/div/div/div/input");
@@ -131,9 +131,13 @@ public class DocumentPage {
     By DeleteRule1Condition1 = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[4]/div[1]/project-rule-section[1]/mat-drawer-container[1]/mat-drawer-content[1]/div[2]/div[1]/div[1]/div[1]/div[2]/app-tree-node[1]/div[1]/div[1]/div[1]/div[2]/mat-card[1]/div[2]/mat-icon[1]");
     By CNFDeleteRule1Condition1 = By.xpath("//span[contains(text(),'Delete')]");
     By DeleteFirstRule = By.xpath("(//mat-icon[contains(text(),'delete')])[3]");
+    By patientDemographics=By.xpath("//div[@class='mat-ripple mat-tab-label mat-focus-indicator mat-tab-label-active ng-star-inserted']");
 
+    public String DocTabUrl="https://alpha.neutrino-ai.com/#/home/documents";
+    public String ClickOnReadyDocumentUrl="https://alpha.neutrino-ai.com/#/home/documents/processed-forms?faxPageId=61cb126c08e93e32e4e2ec79&imageName=Processed.pdf&type=pdf&_st=Ready";
     public DocumentPage(WebDriver driver) { this.driver = driver;}
 
+    public By getpatientDemographics(){return this.patientDemographics;}
     //Chart Level Flags
     public void ClickOnChartLevelFlagsBtn(){ driver.findElement(chartLevelFlagDropdown).click();}
     public void selectNONHCCBtn(){ driver.findElement(nonHCC).click();}
