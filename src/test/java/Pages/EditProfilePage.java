@@ -14,7 +14,7 @@ public class EditProfilePage
     By Cancel = By.xpath("//mat-icon[contains(text(),'close')]");
     By Visible = By.xpath("//mat-icon[contains(text(),'visibility')]");
     By Save=By.xpath(" //span[contains(text(),' Save')]");
-
+    public String loginTabUrl="https://alpha.neutrino-ai.com/#/home/project-management";
     public EditProfilePage(WebDriver driver) {
         this.driver = driver;
     }
@@ -36,6 +36,7 @@ public class EditProfilePage
         driver.findElement(Cancel).click();
     }
     public void SaveButton(){driver.findElement(Save).click();}
+
 
     public void verify_profile_icon()
     {

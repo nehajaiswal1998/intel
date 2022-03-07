@@ -25,7 +25,13 @@ public class DatasetPage {
         By DatasetName = By.xpath("//input[@formcontrolname='newDatasetName']");
         By ValidationDropDown1 = By.xpath("//tbody/tr[1]/td[3]/mat-form-field[1]/div[1]/div[1]/div[1]/mat-select[1]/div[1]/div[2]");
         By ValidationName= By.xpath("//div[@role='listbox']/mat-option[1]");
+        By ValidationEmail=By.xpath("//span[contains(text(),' Email ')]");
+        By ValidationText=By.xpath("//span[text()=' Text ']");
         By ValidationDropDown2 = By.xpath("//tbody/tr[2]/td[3]/mat-form-field[1]/div[1]/div[1]/div[1]/mat-select[1]/div[1]/div[2]");
+        By validationDropdown3=By.xpath("//span[@class='mat-select-placeholder mat-select-min-line ng-tns-c163-42 ng-star-inserted']");
+        By ValidationDropDown4=By.xpath("//span[@class='mat-select-placeholder mat-select-min-line ng-tns-c163-63 ng-star-inserted']");
+        By ValidationDropDown5=By.xpath("//span[@class='mat-select-placeholder mat-select-min-line ng-tns-c163-48 ng-star-inserted']");
+        By ValidationdropDown6=By.xpath("//span[@class='mat-select-placeholder mat-select-min-line ng-tns-c163-150 ng-star-inserted']");
         By ValidationRoles = By.xpath("//span[contains(text(),'Phone')]");
         By DisableDataset = By.xpath("//div[@class='mat-slide-toggle-bar mat-slide-toggle-bar-no-side-margin']");
         By CreateNewDataset=By.xpath("(//span[contains(text(),'Create New Dataset')])[2]");
@@ -51,7 +57,14 @@ public class DatasetPage {
         public void ClickDatasetName(String text){ driver.findElement(DatasetName).sendKeys(text);}
         public void ClickValidationDropDown(){driver.findElement(ValidationDropDown1).click();}
         public void ClickValidationName(){driver.findElement(ValidationName).click();}
+        public void ClickValidationEmail(){driver.findElement(ValidationEmail).click();}
+        public void ClickValidationText(){driver.findElement(ValidationText).click();}
         public void ClickValidationDropDown2(){driver.findElement(ValidationDropDown2).click();}
+        public void ClickValidationDropDown3(){driver.findElement(validationDropdown3).click();}
+        public void ClickValidationDropDown4(){driver.findElement(ValidationDropDown4).click();}
+        public void ClickValidationDropDown5(){driver.findElement(ValidationDropDown5).click();}
+        public void ClickValidationDropDown6(){driver.findElement(ValidationdropDown6).click();}
+
         public void ClickValidationRoles(){driver.findElement(ValidationRoles).click();}
         public void ClickCreateDataset(){driver.findElement(CreateDataset).click();}
         public void ClickCategoryCancelBtn(){driver.findElement(CategoryCancelBtn).click();}

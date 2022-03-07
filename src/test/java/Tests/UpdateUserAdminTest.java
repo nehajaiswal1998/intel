@@ -32,7 +32,7 @@ public class UpdateUserAdminTest extends BasePage {
             Thread.sleep(2000);
             UserPageObj1.clickLoginButton();
             Thread.sleep(8000);
-            verifyAssertionsobj.verify_webpage_url(UserPageObj1.loginHoempPageUrl);
+          //  verifyAssertionsobj.verify_webpage_url(UserPageObj1.loginHoempPageUrl);
             UserPageObj1.ClickUserBtn();
             Thread.sleep(3000);
             verifyAssertionsobj.verify_webpage_url(UserPageObj1.userTabUrl);

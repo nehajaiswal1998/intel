@@ -31,9 +31,9 @@ public class RoleWiseTest extends BasePage {
             roleAccessObj.clickLoginButton();
             Thread.sleep(10000);
             roleAccessObj.clickprofileIconAdmin();
-           Thread.sleep(2000);
-           roleAccessObj.verify_login_with_valid_username_password();
-         Thread.sleep(2000);
+            Thread.sleep(2000);
+            roleAccessObj.verify_login_with_valid_username_password();
+            Thread.sleep(2000);
 
     }
         @Test(priority = 2)

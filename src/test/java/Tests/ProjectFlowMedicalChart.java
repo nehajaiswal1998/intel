@@ -68,8 +68,10 @@ public class ProjectFlowMedicalChart extends BasePage {
                 Thread.sleep(3000);
                 ProjectPageObj.ClickOnAddEntity();
                 Thread.sleep(3000);
-                ProjectPageObj.SelectChronicConditions();
-                Thread.sleep(3000);
+               // ProjectPageObj.SelectChronicConditions();
+                ProjectPageObj.SelectHCCConditions();
+
+            Thread.sleep(3000);
                 ProjectPageObj.ClickOnCreate();
                 ProjectPageObj.VerifyAssertForRole();
             Thread.sleep(2000);

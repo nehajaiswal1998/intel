@@ -103,7 +103,6 @@ public class UpdateUserPlatformAdminTest extends BasePage {
                 Thread.sleep(3000);
                 UserPageObj1.ClickUpdateUser();
                 verifyAssertionsobj.verifyAdminProfile(UserPageObj1.errmsg,UserPageObj1.errmsgBlankDataCreateRoleClick);
-
                 Thread.sleep(5000);
                 UserPageObj1.ClickOnCancelBtn();
                 Thread.sleep(10000);
@@ -121,7 +120,7 @@ public class UpdateUserPlatformAdminTest extends BasePage {
                 UserPageObj1.ClearPassword();
                 Thread.sleep(2000);
                 UserPageObj1.ClickUpdateUser();
-                verifyAssertionsobj.verifyAdminProfile(UserPageObj1.errmsg,UserPageObj1.errmsgBlankDataCreateRoleClick);
+                verifyAssertionsobj.verifyAdminProfile(UserPageObj1.errmsg, UserPageObj1.errmsgBlankDataCreateRoleClick);
                 Thread.sleep(2000);
                 UserPageObj1.ClickOnCancelBtn();
                 Thread.sleep(5000);
@@ -159,7 +158,6 @@ public class UpdateUserPlatformAdminTest extends BasePage {
                 Thread.sleep(3000);
                 UserPageObj1.ClickUpdateUser();
                 Thread.sleep(10000);
-             //   verifyAssertionsobj.verifyAdminProfile(UserPageObj1.errmsg,UserPageObj1.errmsgBlankDataCreateRoleClick);
         }
 
         @Test(priority = 8)
@@ -252,8 +250,7 @@ public class UpdateUserPlatformAdminTest extends BasePage {
         UserPageObj1.ClickUpdateUser();
         Thread.sleep(3000);
         Thread.sleep(10000);
-
-                verifyAssertionsobj.verify_webpage_url(UserPageObj1.userTabUrl);
+        verifyAssertionsobj.verify_webpage_url(UserPageObj1.userTabUrl);
 
         }
 //            //Only Digits

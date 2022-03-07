@@ -21,9 +21,10 @@ public class ProjectPage {
     By SelectLeadSample = By.xpath("//span[contains(text(),'new@gmail.com')]");
     By SelectLeadAdmin = By.xpath("//span[contains(text(),' admin@test.com ')]");
     By SelectLead = By.xpath("//span[contains(text(),'qa1@email.com')]");
+
     By ClickStartDate = By.cssSelector("button[aria-label='Open calendar'][tabindex='0']");
     By ClearStartDate = By.xpath("//input[@id='mat-input-3']");
-    By SelectStartDate = By.xpath("//div[contains(text()," + currentDate + ")]");//Change this before running
+    By SelectStartDate = By.xpath("//div[contains(text()," + currentDate + ")]");
     By ClickEndDate = By.xpath("/html/body/app-root/div/app-landing/div/div/main/div/app-create-project/div[2]/div/form/mat-card/div/div[4]/mat-form-field/div/div[1]/div[4]/mat-datepicker-toggle/button");
     By ClearEndDate = By.xpath("//input[@id='mat-input-4']");
     By SelectEndDate = By.xpath("//div[contains(text()," + currentDate + ")]");
@@ -35,7 +36,7 @@ public class ProjectPage {
     By AddEntity = By.xpath("//span[contains(text(),' Add Entity ')]");
 
     By PatientDemoGraphics = By.xpath("//button[contains(text(),' Patient Demographics')]");
-    By ChronicConditions = By.xpath("//button[contains(text(),' Chronic Conditions')]");
+    By HCCConditions = By.xpath("//button[contains(text(),' HCC Conditions')]");
 
     By ClickProcessingEngine = By.xpath("//*[@formcontrolname='processingEngine']/div[1]/div[2]");
     By SelectProcessingEngine = By.xpath("//span[contains(text(),'NN High')]");
@@ -102,6 +103,8 @@ public class ProjectPage {
     By BackButtonDataPage = By.xpath("//project-data-section/following-sibling::div/button/span[text()='Back']/parent::button");
     By ErrorMsgEntities = By.xpath("//span[contains(text(),'Please add the entities before creating the project.')]");
 
+    public String projectTabUrl="https://alpha.neutrino-ai.com/#/home/project-management";
+    public String createProjectUrl="https://alpha.neutrino-ai.com/#/home/project-management/create-project";
 
     public ProjectPage(WebDriver driver) {
         this.driver = driver;
@@ -112,7 +115,17 @@ public class ProjectPage {
     public void ClickOnDeleteAttributeFieldName() {
         driver.findElement(DeleteAttributeFieldName).click();
     }
-
+    public By GetSelectUserAdmin(){return this.SelectUserAdmin;}
+    public By GetSelectRoleAdmin(){return this.SelectRoleAdmin;}
+    public By GetHCCConditions(){
+        System.out.println(HCCConditions);
+        return this.HCCConditions;}
+    public By getPatientDemoGraphics(){
+        System.out.println(PatientDemoGraphics);
+        return this.PatientDemoGraphics;}
+    public By GetSelectMedical(){return this.SelectMedical;}
+    public By GetLead(){return this.Lead;}
+    public By GetselectLead(){return this.SelectLead;}
     public void ClickOnProjectBtn() {
         driver.findElement(ProjectBtn).click();
     }
@@ -133,8 +146,8 @@ public class ProjectPage {
         driver.findElement(PatientDemoGraphics).click();
     }
 
-    public void SelectChronicConditions() {
-        driver.findElement(ChronicConditions).click();
+    public void SelectHCCConditions() {
+        driver.findElement(HCCConditions).click();
     }
 
 

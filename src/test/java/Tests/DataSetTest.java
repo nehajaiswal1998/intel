@@ -19,7 +19,7 @@ public class DataSetTest extends BasePage {
         BasePage.driverInit();
         BasePage.LoginTest();
     }
-    @AfterClass
+    @AfterClass(enabled = false)
     public void cleanUp() throws Exception {
         driver.quit();
     }
@@ -121,28 +121,45 @@ public class DataSetTest extends BasePage {
         Thread.sleep(2000);
         DatasetPageObj.ClickValidationName();
         Thread.sleep(2000);
-       // Assert.assertTrue(Functions.isSelectedOption(DatasetPageObj.getNameOptionValidationDropdown()));
+      //  Assert.assertTrue(Functions.isSelectedOption(DatasetPageObj.getNameOptionValidationDropdown()));
     }
-    @Test(priority = 9)
-    public void validation_type_as_phone_role_to_create_new_dataset() throws Exception {
-        //TC 6.9 - Validation type as "phone" for roles to create a new dataset.
-        DatasetPageObj.ClickValidationDropDown2();
-        Thread.sleep(2000);
-        DatasetPageObj.ClickValidationRoles();
-        Thread.sleep(2000);
-        DatasetPageObj.ClickCreateDataset();
-        Thread.sleep(4000);
-        verifyAssertionsobj.verify_webpage_url(DatasetPageObj.dataSetTabUrl);
 
-    }
-    @Test(priority = 10)
-    public void search_created_document_and_expand() throws Exception {
-        //TC 6.10 - Search created category and click to expand it.
-        DatasetPageObj.ClickSearchBox(ReadProps.readAttr("DName"));//Change before executing
-        Thread.sleep(2000);
-        DatasetPageObj.ClickExpand1();
-        Thread.sleep(2000);
-    }
+//    @Test(priority = 9)
+//    public void validation_type_as_phone_role_to_create_new_dataset() throws Exception {
+//        //TC 6.9 - Validation type as "phone" for roles to create a new dataset.
+//        DatasetPageObj.ClickValidationDropDown2();
+//        Thread.sleep(2000);
+//        DatasetPageObj.ClickValidationName();
+//        Thread.sleep(2000);
+//        DatasetPageObj.ClickValidationDropDown3();
+//        Thread.sleep(2000);
+//        DatasetPageObj.ClickValidationRoles();
+//        Thread.sleep(2000);
+//        DatasetPageObj.ClickValidationDropDown4();
+//        Thread.sleep(2000);
+//        DatasetPageObj.ClickValidationEmail();
+//        Thread.sleep(2000);
+//        DatasetPageObj.ClickValidationDropDown5();
+//        Thread.sleep(2000);
+//        DatasetPageObj.ClickValidationText();
+//        Thread.sleep(2000);
+//        DatasetPageObj.ClickValidationDropDown6();
+//        Thread.sleep(2000);
+//        DatasetPageObj.ClickValidationText();
+//        Thread.sleep(2000);
+//        DatasetPageObj.ClickCreateDataset();
+//        Thread.sleep(4000);
+//        verifyAssertionsobj.verify_webpage_url(DatasetPageObj.dataSetTabUrl);
+//
+//    }
+//    @Test(priority = 10)
+//    public void search_created_document_and_expand() throws Exception {
+//        //TC 6.10 - Search created category and click to expand it.
+//        DatasetPageObj.ClickSearchBox(ReadProps.readAttr("DName"));//Change before executing
+//        Thread.sleep(4000);
+//        DatasetPageObj.ClickExpand1();
+//        Thread.sleep(2000);
+//    }
 //    @Test(priority = 11)
 //    public void select_open_file_and_cancel() throws Exception {
 //        //TC 6.11 - Select file to open it and cancel.

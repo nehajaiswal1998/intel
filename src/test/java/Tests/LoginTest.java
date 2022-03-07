@@ -245,10 +245,9 @@ public class LoginTest extends BasePage {
         loginPageObjects.clickLoginButton();
         Thread.sleep(15000);
         loginPageObjects.VerifyHomePage();
-        Thread.sleep(1000);
         loginPageObjects.ClickLogoutBtn();
         Thread.sleep(4000);
-        loginPageObjects.VerifyAssertBack1();
+       loginPageObjects.VerifyAssertBack1();
     }
 
     @Test(priority = 16)
