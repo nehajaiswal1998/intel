@@ -38,6 +38,8 @@ public class ProjectFlowFreeFormTest extends BasePage {
             Thread.sleep(2000);
             ProjectPageObj.SelectOnLeadBtn();
             Thread.sleep(2000);
+        ProjectPageObj.verifyElementSelected(ProjectPageObj.SelectLead);
+        Thread.sleep(1000);
             ProjectPageObj.ClickOnStartDateBtn();
             Thread.sleep(2000);
             ProjectPageObj.SelectStartDateBtn();
@@ -50,6 +52,8 @@ public class ProjectFlowFreeFormTest extends BasePage {
             Thread.sleep(2000);
             ProjectPageObj.SelectOnFreeFormStructure();
             Thread.sleep(2000);
+        ProjectPageObj.verifyElementSelected(ProjectPageObj.SelectFreeForm);
+        Thread.sleep(1000);
             ProjectPageObj.ClickOnStraightThroughProcessBtn();
             Thread.sleep(2000);
             ProjectPageObj.ClickOnDocumentScoreBtn(ReadProps.readAttr("Score"));
@@ -69,6 +73,8 @@ public class ProjectFlowFreeFormTest extends BasePage {
                 Thread.sleep(2000);
                 ProjectPageObj.SelectFieldValue();
                 Thread.sleep(4000);
+            ProjectPageObj.verifyElementSelected(ProjectPageObj.SelectedPatientNameField);
+            Thread.sleep(1000);
                 ProjectPageObj.ClickOnCreate();
                 ProjectPageObj.VerifyAssertForRole();
                 Thread.sleep(2000);
@@ -82,6 +88,8 @@ public class ProjectFlowFreeFormTest extends BasePage {
                 Thread.sleep(2000);
                 ProjectPageObj.ClickOnSelectRoleBtn();
                 Thread.sleep(2000);
+            ProjectPageObj.verifyElementSelected(ProjectPageObj.SelectedRoleAdmin);
+            Thread.sleep(1000);
                 ProjectPageObj.ClickOnCreate();
                 ProjectPageObj.VerifyAssertForUser();
                 Thread.sleep(2000);
@@ -93,26 +101,32 @@ public class ProjectFlowFreeFormTest extends BasePage {
                 Thread.sleep(2000);
                 ProjectPageObj.ClickOnSelectUserBtn();
                 Thread.sleep(2000);
-                Robot r = new Robot();
+                ProjectPageObj.verifyElementSelected(ProjectPageObj.SelectUserAdmin);
+            Robot r = new Robot();
                 r.keyPress(KeyEvent.VK_ESCAPE);
-                Thread.sleep(2000);
+                Thread.sleep(4000);
         }
         @Test(priority = 5)
         public void next_to_data() throws Exception {
                 //TC 15.5 Navigate Next to Data Page and Rules Page and Back to Project Page.
                 ProjectPageObj.ClickNextPage();
-                Thread.sleep(2000);
+                Thread.sleep(4000);
                 ProjectPageObj.ClickRulesPage();
-                Thread.sleep(2000);
+                Thread.sleep(4000);
                 ProjectPageObj.ClickBackRulePage();
-                Thread.sleep(2000);
+                Thread.sleep(4000);
                 ProjectPageObj.CLickBackDataPage();
-                Thread.sleep(2000);
+                Thread.sleep(4000);
         }
         @Test(priority = 6)
         public void create_project_with_valid_details() throws Exception {
             //TC 15.6 Verify Create Project with Valid Details.
             ProjectPageObj.ClickOnCreate();
-            Thread.sleep(9000);
+            Thread.sleep(12000);
+            ProjectPageObj.TableStructure();
+            Thread.sleep(15000);
+            ProjectPageObj.verifyProjectCreated("FreeFormProject");
+            Thread.sleep(2000);
+
         }
 }

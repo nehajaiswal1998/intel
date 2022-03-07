@@ -5,6 +5,8 @@ import Pages.DocumentPage;
 import Utilities.ReadProps;
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.*;
+
+import javax.print.Doc;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 @Listeners(Utilities.TestListeners.class)
@@ -29,24 +31,41 @@ public class DocProcessSemiStructuredTest extends BasePage {
         DocPageObj.ClickDropDownBtn();
         Thread.sleep(1000);
         DocPageObj.ClickSearchProject(ReadProps.readAttr("SemiStructuredProjectName"));
-        Thread.sleep(1000);
+        Thread.sleep(4000);
         DocPageObj.ClickSelectSemiStructuredProject();
+        Thread.sleep(1000);
+        DocPageObj.verifyElementSelected(DocPageObj.SelectSemiStructuredProject);
         Thread.sleep(1000);
         DocPageObj.ClickStatusFilter();
         Thread.sleep(1000);
         DocPageObj.ClickCheckProcessed();
         Thread.sleep(2000);
+        DocPageObj.verifyElementSelected(DocPageObj.CheckProcessed);
         r.keyPress(KeyEvent.VK_ESCAPE);
         Thread.sleep(2000);
     }
 
     @Test(priority = 2)
     public void searchbox_document() throws Exception {
-        //TC 9.2 SearchBox Document.
+        //TC 9.2 SearchBox Document and status of the document should goes according to Document typw either Processed or Rejected .
+
+        DocPageObj.ClickSearchBox("form 1040.pdf");
+        Thread.sleep(2000);
+        DocPageObj.ClickSearchDocument();
+        Thread.sleep(6000);
+        DocPageObj.verifyElementText("Rejected",DocPageObj.StatusOfDoc);
+        Thread.sleep(4000);
+        DocPageObj.ClickClearSearch();
+        Thread.sleep(2000);
         DocPageObj.ClickSearchBox("AN - OOLU2604599081.pdf");
         Thread.sleep(2000);
         DocPageObj.ClickSearchDocument();
-        Thread.sleep(2000);
+        Thread.sleep(6000);
+        DocPageObj.verifyElementPresent(DocPageObj.SearchedDocument);
+        Thread.sleep(1000);
+        DocPageObj.verifyElementText("Processed",DocPageObj.StatusOfDoc);
+        Thread.sleep(3000);
+
     }
 
     @Test(priority = 3)
@@ -54,7 +73,9 @@ public class DocProcessSemiStructuredTest extends BasePage {
         //TC 9.3 Update document and cancel it.
         DocPageObj.ClickViewDocIcon2();
         Thread.sleep(10000);
-        DocPageObj.ClickDocumentBtn();
+        DocPageObj.ClickCancelDoc2();
+        Thread.sleep(4000);
+        DocPageObj.verifyTargetPageURL(DocPageObj.DocumentPageURL);
         Thread.sleep(2000);
         DocPageObj.ClickClearSearch();
         Thread.sleep(2000);
@@ -66,14 +87,20 @@ public class DocProcessSemiStructuredTest extends BasePage {
         //TC 9.4 Hide and UnHide Analytics.
         DocPageObj.ClickHideAnalytics();
         Thread.sleep(2000);
+        DocPageObj.verifyElementPresent(DocPageObj.Analyticshide);
         DocPageObj.ClickUnHideAnalytics();
         Thread.sleep(2000);
+        DocPageObj.verifyElementPresent(DocPageObj.AnalyticsUnhide);
+        Thread.sleep(2000);
+
     }
     @Test(priority = 5)
     public void documents_filter() throws Exception {
         //TC 9.5 Documents filter.
         DocPageObj.ClickFilterDoc();
         Thread.sleep(2000);
+        DocPageObj.verifyElementPresent(DocPageObj.SearchFilterDoc);
+        Thread.sleep(1000);
         DocPageObj.ClickSearchFilterDoc("AN");
         Thread.sleep(2000);
         DocPageObj.ClickFilterSearchIcon();
@@ -111,13 +138,16 @@ public class DocProcessSemiStructuredTest extends BasePage {
         js.executeScript("window.scrollBy(0,10000)", "");
         Thread.sleep(3000);
     }
-    @Test(priority = 7)
+   @Test(priority = 7)
     public void items_page() throws Exception {
         //TC 9.7 Items Per Page.
         DocPageObj.ClickItemsPerPage();
         Thread.sleep(2000);
         DocPageObj.SelectItemsPerPage();
         Thread.sleep(2000);
+        DocPageObj.verifyElementText("10",DocPageObj.ItemSelectedNumber );
+        Thread.sleep(1000);
+
     }
     @Test(priority = 8)
     public void next_page_previous_page_first_page_last_page() throws Exception {
@@ -140,18 +170,29 @@ public class DocProcessSemiStructuredTest extends BasePage {
         Thread.sleep(2000);
         DocPageObj.ClickViewDocIcon3();
         Thread.sleep(6000);
-        DocPageObj.ClickAntiWiseIcon();
+        DocPageObj.verifyElementPresent(DocPageObj.DocView);
         Thread.sleep(2000);
         DocPageObj.ClickClockWiseIcon();
+        Thread.sleep(4000);
+        DocPageObj.verifyElementPresent(DocPageObj.Clockwise);
+        Thread.sleep(1000);
+        DocPageObj.ClickAntiWiseIcon();
         Thread.sleep(2000);
+        DocPageObj.verifyElementPresent(DocPageObj.Anticlockwise);
+        Thread.sleep(2000);
+
+
 
         // Zoom In.
         DocPageObj.ClickZoomIN();
         Thread.sleep(2000);
+        DocPageObj.verifyElementPresent(DocPageObj.ZoomInDoc);
+        Thread.sleep(1000);
+
 
         // ZoomOut.
         DocPageObj.ClickZoomOut();
-        Thread.sleep(2000);
+        Thread.sleep(4000);
 
         // Navigate Right.
         DocPageObj.ClickNvgtRt();

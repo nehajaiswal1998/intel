@@ -1,23 +1,33 @@
 package Pages;
+import Utilities.AssertionsFunction;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
-public class ProjectBREPage {
+public class ProjectBREPage extends AssertionsFunction {
 
     WebDriver driver = null;
 
+    public String ProjectPageURL ="https://alpha.neutrino-ai.com/#/home/project-management/create-project";
+
     By NextPageOnRulesPage = By.xpath("(//span[contains(text(),'Next')])[2]");
     By ThreeDots = By.xpath("//mat-icon[contains(text(),'menu')]");
+    public static By ExpandPanelOnRulePage = By.xpath("//*[@style='width: 20vw; height: 78vh; transform: none; visibility: visible;']");
+    public static By ScaleDownPanelOnRulePage = By.xpath("//*[@style='width: 20vw; height: 78vh; box-shadow: none; visibility: hidden;']");
+
     By ProjectData = By.xpath("//mat-panel-title[contains(text(),'Project DATA')]");
     By DataSets = By.xpath("//mat-panel-title[contains(text(),'Datasets')]");
     By Variables = By.xpath("//mat-panel-title[contains(text(),'Variables')]");
     By AddRules = By.xpath("//span[contains(text(),'Rules')]");
+    public static By RuleBoxDisplay = By.xpath("//span[@class='py-2 rulesetName']");
     By DeleteRules = By.xpath("//span[@class='rulesetVisibilityIcon px-3 bgcolor2']");
     By ExpandRule = By.xpath("//mat-icon[@class='mat-icon notranslate addRuleRoundedIcon mt-2 ml-2 material-icons mat-icon-no-color ng-star-inserted']");
+    public static By ConditionBoxDisplay = By.xpath("//mat-card[@data-target='#RuleModal']");
+    public static By ConditionPanelDisplay = By.xpath("//div[@class='row m-1 ng-star-inserted']");
 
 
+    //div[@class='row m-1 ng-star-inserted']
     //BREMedicalChart.
     By PNameCheck= By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[4]/div[1]/project-rule-section[1]/mat-drawer-container[1]/mat-drawer-content[1]/div[2]/div[1]/div[1]/div[1]/div[2]/app-tree-node[1]/div[1]/div[1]/div[1]/div[2]/mat-card[1]/div[1]/div[1]/span[1]");
     By SetDocumentStatus = By.xpath("//span[contains(text(),'Set Document Status')]");
@@ -33,7 +43,7 @@ public class ProjectBREPage {
     By FirstCondition = By.xpath("//div[@class='opacity7 font-12 pt-3 text-center actionCardHeading']");
     By AndCondition = By.xpath("//span[contains(text(),'AND')]");
 
-    By SelectPatientDemographics = By.xpath("(//span[contains(text(),' Patient Demographics ')])[2]");
+    By SelectPatientDemographics = By.xpath("//span[contains(text(),' Patient Demographics ')]");
     By AddBREEntity = By.xpath("(//span[contains(text(),'Entity')])[3]");
     By AddBREEntity1 = By.xpath("(//span[contains(text(),'Entity')])[4]");
     By AttributeValue = By.xpath("//span[contains(text(),'Attribute / Variable')]");
@@ -50,6 +60,11 @@ public class ProjectBREPage {
     By OperatorValueEqualTo = By.xpath("//span[contains(text(),'==')]");
     By OperatorValueExistsIN = By.xpath("//span[contains(text(),'Exists In')]");
     By Save = By.xpath("//span[contains(text(),'Save ')]");
+    public static By ConditionSaved = By.xpath("//*[@style='height: 78vh;']");
+    public static By RightConditionPanelDisplay = By.xpath("//*[@style='height: 78vh;']");
+    public static By AttributeList= By.xpath("//div[@role='listbox']");
+
+
     By AddAction = By.xpath("//span[contains(text(),'Add Action')]");
     By ClickOnBREDataSet = By.xpath("//span[contains(text(),'dataset')]");
     By ClickOnAddBREDataSet = By.xpath("//span[contains(text(),'Auto-DataSet - Auto-SampleDataSet')]");
@@ -58,9 +73,9 @@ public class ProjectBREPage {
     By SelectBREDatasetHeaderDXCode = By.xpath("//body/div[1]/div[2]/div[1]/div[1]/div[1]/mat-option[1]/span[1]");
     By SelectBREDatasetHeaderDOB = By.xpath("//span[contains(text(),'DOB')]");
     By ExpandVariables = By.xpath("//span[contains(text(),'Variables')]");
-    By AddVariablesButton = By.xpath("//span[contains(text(),' Add Variable ')]");
+    public static By AddVariablesButton = By.xpath("//span[contains(text(),' Add Variable ')]");
     By VariableName = By.xpath("//input[@id='variableName']");
-    By ValidationType = By.xpath("//span[@class='mat-select-placeholder mat-select-min-line ng-tns-c164-23 ng-star-inserted']");
+    By ValidationType = By.xpath("//*[@id='validationType']");
     By Name = By.xpath("//span[contains(text(),'Name')]");
     By Address = By.xpath("//span[contains(text(),'Address')]");
     By City = By.xpath("//span[contains(text(),'City')]");
@@ -108,6 +123,10 @@ public class ProjectBREPage {
 
     By VariableDropdown = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[4]/div[1]/project-rule-section[1]/mat-drawer-container[1]/mat-drawer[2]/div[1]/rule-edit-sidebar[1]/div[1]/div[3]/div[2]/div[1]/div[3]/mat-form-field[1]/div[1]/div[1]/div[3]/mat-select[1]/div[1]/div[1]/span[1]");
     By Project = By.xpath("//span[contains(text(),'AutoSample3')]");
+
+    public static By VariableAddWindow = By.xpath("//div[@class='modal-body']");
+    public static By VariableAddedTable = By.xpath("//div[@role='region']/div/div/div/mat-table");
+    public static By FalseConditionBox = By.xpath("//div[@class='d-flex mt-1 pt-1 border-l falseConditionPath']");
 
 
     //Constructor

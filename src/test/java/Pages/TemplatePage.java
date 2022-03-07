@@ -1,12 +1,11 @@
 package Pages;
 
-import Utilities.VerifyAssertion;
+import Utilities.AssertionsFunction;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import org.testng.asserts.SoftAssert;
 
-public class TemplatePage extends VerifyAssertion {
+public class TemplatePage extends AssertionsFunction {
     WebDriver driver = null;
 
 
@@ -47,25 +46,38 @@ public class TemplatePage extends VerifyAssertion {
     By ExistingTemplateNameErr = By.xpath("//div[text()='Template Name Already In Use.']");
     By CancelDeleteTemplate = By.xpath("//span[text()='Cancel']");
 
+    //Navigation Page
+    By UploadTemplatePage = By.xpath("//span[text()='Create New Template']");
+    By TemplateExpanded = By.xpath("//div[text()=' Classification ']");
+    By ClassificationListBox = By.xpath("//div[@role='listbox']");
+    By DeleteTemplatePage = By.xpath("//*[text()=' Do you want to delete Template1 ? ']");
+
+    String InvalidTemplateError = "";
+    String TemplatePageURL = "https://alpha.neutrino-ai.com/#/home/n-training";
+
+
     //Methods
     public TemplatePage(WebDriver driver) {
         this.driver = driver;
     }
 
-    public void ClickTemplateBtn() {
+    public void ClickTemplateBtn() throws InterruptedException {
         driver.findElement(TemplateBtn).click();
     }
 
-    public void ClickOnUploadTemplateBtn() {
+    public void ClickOnUploadTemplateBtn() throws InterruptedException {
         driver.findElement(UploadTemplate).click();
+        Thread.sleep(2000);
+        verifyElementPresent(UploadTemplatePage);
     }
 
     public void ClickCreateTemplate() {
         driver.findElement(CreateTemplate).click();
     }
 
-    public void ClickCancelCreateTemplate() {
+    public void ClickCancelCreateTemplate()throws InterruptedException {
         driver.findElement(CancelCreateTemplate).click();
+        Thread.sleep(2000);
     }
 
     public void ClickOnTemplateName(String text) {
@@ -82,12 +94,31 @@ public class TemplatePage extends VerifyAssertion {
         driver.findElement(CloseBtn).click();
     }
 
-    public void ClickOnSearchTemplate(String tName) {
+    public void ClickOnSearchSinglePageTemplate(String tName) throws InterruptedException {
         driver.findElement(SearchTemplate).sendKeys(tName);
+        Thread.sleep(2000);
+        verifyElementTextWithTrim("AutoSampleSPTemp", ExpandTemplate);
+
+    }
+    public void ClickOnSearchMultiplePageTemplate(String tName) throws InterruptedException {
+        driver.findElement(SearchTemplate).sendKeys(tName);
+        Thread.sleep(2000);
+        verifyElementTextWithTrim("AutoSampleMPTemp", ExpandTemplate);
+
     }
 
-    public void ClickOnExpandTemplate() {
+    public void ClickOnSearchTemplate(String tName) throws InterruptedException {
+        driver.findElement(SearchTemplate).sendKeys(tName);
+        Thread.sleep(2000);
+        verifyElementTextWithTrim("QA-AutoTemplate", ExpandTemplate);
+
+    }
+
+
+    public void ClickOnExpandTemplate() throws InterruptedException {
         driver.findElement(ExpandTemplate).click();
+        Thread.sleep(2000);
+        verifyElementPresent (TemplateExpanded);
     }
 
     public void ClickExpandMore() {
@@ -106,6 +137,14 @@ public class TemplatePage extends VerifyAssertion {
         driver.findElement(TemplateDelete).click();
     }
 
+    public void DeleteTemplateSinglePage() throws InterruptedException {
+        driver.findElement(TemplateDelete).click();
+        Thread.sleep(1000);
+        verifyElementPresent (DeleteTemplatePage);
+    }
+
+
+
     public void ConfirmDeleteTemplate() {
         driver.findElement(ConfirmDeleteTemplate).click();
     }
@@ -122,9 +161,12 @@ public class TemplatePage extends VerifyAssertion {
         driver.findElement(ZoomOutIcon).click();
     }
 
-    public void ClickClassificationBox()
+    public void ClickClassificationBox () throws InterruptedException
     {
         driver.findElement(ClickClassification).click();
+        Thread.sleep(1000);
+        verifyElementPresent (ClassificationListBox);
+
     }
 
     public void SelectClassification() {
@@ -162,8 +204,11 @@ public class TemplatePage extends VerifyAssertion {
         driver.findElement(CompleteTraining).click();
     }
 
-    public void ClickCancelTraining() {
+    public void ClickCancelTraining() throws InterruptedException {
         driver.findElement(CancelTraining).click();
+        Thread.sleep(1000);
+        verifyTargetPageURL ("https://alpha.neutrino-ai.com/#/home/n-training");
+
     }
 
     public void ClickNavigateNext() {
@@ -180,45 +225,46 @@ public class TemplatePage extends VerifyAssertion {
     }
 
     public void verifyInvalidTemplatNameErr() {
-        verify_assert_equal("Only alphabets,digits,parenthesis and hyphens are allowed while naming a template.", InvalidTemplateNameErr);
+        verifyElementText("Only alphabets,digits,parenthesis and hyphens are allowed while naming a template.", InvalidTemplateNameErr);
     }
 
     public void verifyExistingTemplateName() {
-        verify_assert_equal("Template Name Already In Use.", ExistingTemplateNameErr);
+        verifyElementText("Template Name Already In Use.", ExistingTemplateNameErr);
 
     }
 
     public void verifyTemplateMap() {
 
-        verify_assert_equal("Please select the portion on image for which the field name and validations have been given.", MapErrorMsg);
+        verifyElementText("Please select the portion on image for which the field name and validations have been given.", MapErrorMsg);
 
     }
 
     public void AssertTrainingStatus() {
 
-        verify_assert_equal("In Progress", TrainingStatus);
+        verifyElementText("In Progress", TrainingStatus);
 
     }
 
     public void verifySinglePageTemplateCreated()
     {
-        verify_assertequal_withtrim("AutoSampleSPTemp", ExpandTemplate);
+
+        verifyElementTextWithTrim("AutoSampleSPTemp", ExpandTemplate);
     }
 
     public void verifySinglePageTemplateDelete()
     {
-        verify_assertequal_withtrim("AutoSampleSPTemp", ExpandTemplate);
+        verifyElementDeletedTextWithTrim("AutoSampleSPTemp", ExpandTemplate);
     }
 
     public void verifyMultiPageTemplateCreated()
     {
-        verify_assertequal_withtrim("AutoSampleMPTemp", ExpandTemplate);
+        verifyElementTextWithTrim("AutoSampleMPTemp", ExpandTemplate);
 
     }
 
     public void verifyMultiPageTemplateDelete()
     {
-        verify_assertequal_withtrim("AutoSampleMPTemp", ExpandTemplate);
+        verifyElementDeletedTextWithTrim("AutoSampleMPTemp", ExpandTemplate);
     }
 
     public void verifyDeleteAssociatedTemplate()
