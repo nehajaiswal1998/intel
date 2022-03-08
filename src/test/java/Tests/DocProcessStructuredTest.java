@@ -2,6 +2,7 @@ package Tests;
 
 import Base.BasePage;
 import Pages.DocumentPage;
+import Utilities.AssertionsFunction;
 import Utilities.ReadProps;
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.*;
@@ -40,13 +41,13 @@ public class DocProcessStructuredTest extends BasePage {
         Thread.sleep(2000);
         DocPageObj.ClickSelectStructuredProject();
         Thread.sleep(2000);
-        DocPageObj.verifyElementSelected(DocPageObj.SelectStructuredProject);
+        AssertionsFunction.verifyElementText(ReadProps.readAttr("StructuredProjectName"),DocPageObj.SelectStructuredProject);
         Thread.sleep(1000);
         DocPageObj.ClickStatusFilter();
         Thread.sleep(2000);
         DocPageObj.ClickCheckProcessed();
         Thread.sleep(3000);
-        DocPageObj.verifyElementSelected(DocPageObj.CheckProcessed);
+        AssertionsFunction.verifyElementSelected(DocPageObj.CheckProcessed);
         r.keyPress(KeyEvent.VK_ESCAPE);
         Thread.sleep(2000);
     }
@@ -59,7 +60,7 @@ public class DocProcessStructuredTest extends BasePage {
         Thread.sleep(2000);
         DocPageObj.ClickSearchDocument();
         Thread.sleep(6000);
-        DocPageObj.verifyElementText("Rejected", DocPageObj.StatusOfDoc);
+        AssertionsFunction.verifyElementText("Rejected", DocPageObj.StatusOfDoc);
         Thread.sleep(4000);
         DocPageObj.ClickClearSearch();
         Thread.sleep(2000);
@@ -67,7 +68,7 @@ public class DocProcessStructuredTest extends BasePage {
         Thread.sleep(2000);
         DocPageObj.ClickSearchDocument();
         Thread.sleep(6000);
-        DocPageObj.verifyElementText("Processed", DocPageObj.StatusOfDoc);
+        AssertionsFunction.verifyElementText("Processed", DocPageObj.StatusOfDoc);
         Thread.sleep(3000);
     }
 
@@ -80,7 +81,7 @@ public class DocProcessStructuredTest extends BasePage {
         Thread.sleep(2000);
         DocPageObj.ClickCancelDoc2();
         Thread.sleep(4000);
-        DocPageObj.verifyTargetPageURL(DocPageObj.DocumentPageURL);
+        AssertionsFunction.verifyTargetPageURL(DocPageObj.DocumentPageURL);
         DocPageObj.ClickClearSearch();
         Thread.sleep(2000);
         DocPageObj.ClickRefreshDocument();
@@ -92,10 +93,10 @@ public class DocProcessStructuredTest extends BasePage {
         //TC 10.4 Hide and UnHide Analytics.
         DocPageObj.ClickHideAnalytics();
         Thread.sleep(2000);
-        DocPageObj.verifyElementPresent(DocPageObj.Analyticshide);
+        AssertionsFunction.verifyElementPresent(DocPageObj.Analyticshide);
         DocPageObj.ClickUnHideAnalytics();
         Thread.sleep(2000);
-        DocPageObj.verifyElementPresent(DocPageObj.AnalyticsUnhide);
+        AssertionsFunction.verifyElementPresent(DocPageObj.AnalyticsUnhide);
         Thread.sleep(2000);
     }
 
@@ -104,7 +105,7 @@ public class DocProcessStructuredTest extends BasePage {
         //TC 10.5 Documents filter.
         DocPageObj.ClickFilterDoc();
         Thread.sleep(4000);
-        DocPageObj.verifyElementPresent(DocPageObj.SearchFilterDoc);
+        AssertionsFunction.verifyElementPresent(DocPageObj.SearchFilterDoc);
         Thread.sleep(1000);
         DocPageObj.ClickSearchFilterDoc("BRE");
         Thread.sleep(2000);
@@ -152,7 +153,7 @@ public class DocProcessStructuredTest extends BasePage {
         Thread.sleep(2000);
         DocPageObj.SelectItemsPerPage();
         Thread.sleep(2000);
-        DocPageObj.verifyElementText("10", DocPageObj.ItemSelectedNumber);
+        AssertionsFunction.verifyElementText("10", DocPageObj.ItemSelectedNumber);
         Thread.sleep(1000);
 
     }
@@ -178,14 +179,14 @@ public class DocProcessStructuredTest extends BasePage {
         DocPageObj.ClickSearchDocument();
         Thread.sleep(2000);
         DocPageObj.ClickViewDocIcon1();
-        Thread.sleep(20000);
+        Thread.sleep(40000);
         DocPageObj.ClickClockWiseIcon();
         Thread.sleep(4000);
-        DocPageObj.verifyElementPresent(DocPageObj.Clockwise);
+        AssertionsFunction.verifyElementPresent(DocPageObj.Clockwise);
         Thread.sleep(1000);
         DocPageObj.ClickAntiWiseIcon();
         Thread.sleep(2000);
-        DocPageObj.verifyElementPresent(DocPageObj.Anticlockwise);
+        AssertionsFunction.verifyElementPresent(DocPageObj.Anticlockwise);
         Thread.sleep(2000);
         //Zoom In.
         DocPageObj.ClickZoomIN();
@@ -201,13 +202,13 @@ public class DocProcessStructuredTest extends BasePage {
 
         //Navigate Back.
         DocPageObj.ClickNvgtLft();
-        Thread.sleep(8000);
+        Thread.sleep(10000);
     }
 
     @Test(priority = 10)
     public void verify_tooltip() throws InterruptedException, IOException, AWTException {
         DocPageObj.ClickDocumentBtn();
-        Thread.sleep(106789000);
+        Thread.sleep(10000);
         //TC 10.1 Search Project.
         DocPageObj.ClickDropDownBtn();
         Thread.sleep(2000);

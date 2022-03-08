@@ -3,6 +3,7 @@ package Tests;
 import Base.BasePage;
 import Pages.DocumentPage;
 import Pages.ProjectPage;
+import Utilities.AssertionsFunction;
 import Utilities.ReadProps;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -38,7 +39,7 @@ public class ProjectFlowFreeFormTest extends BasePage {
             Thread.sleep(2000);
             ProjectPageObj.SelectOnLeadBtn();
             Thread.sleep(2000);
-        ProjectPageObj.verifyElementSelected(ProjectPageObj.SelectLead);
+        AssertionsFunction.verifyElementSelected(ProjectPageObj.SelectLead);
         Thread.sleep(1000);
             ProjectPageObj.ClickOnStartDateBtn();
             Thread.sleep(2000);
@@ -52,7 +53,7 @@ public class ProjectFlowFreeFormTest extends BasePage {
             Thread.sleep(2000);
             ProjectPageObj.SelectOnFreeFormStructure();
             Thread.sleep(2000);
-        ProjectPageObj.verifyElementSelected(ProjectPageObj.SelectFreeForm);
+        AssertionsFunction.verifyElementSelected(ProjectPageObj.SelectFreeForm);
         Thread.sleep(1000);
             ProjectPageObj.ClickOnStraightThroughProcessBtn();
             Thread.sleep(2000);
@@ -73,7 +74,7 @@ public class ProjectFlowFreeFormTest extends BasePage {
                 Thread.sleep(2000);
                 ProjectPageObj.SelectFieldValue();
                 Thread.sleep(4000);
-            ProjectPageObj.verifyElementSelected(ProjectPageObj.SelectedPatientNameField);
+            AssertionsFunction.verifyElementSelected(ProjectPageObj.SelectedPatientNameField);
             Thread.sleep(1000);
                 ProjectPageObj.ClickOnCreate();
                 ProjectPageObj.VerifyAssertForRole();
@@ -88,7 +89,7 @@ public class ProjectFlowFreeFormTest extends BasePage {
                 Thread.sleep(2000);
                 ProjectPageObj.ClickOnSelectRoleBtn();
                 Thread.sleep(2000);
-            ProjectPageObj.verifyElementSelected(ProjectPageObj.SelectedRoleAdmin);
+            AssertionsFunction.verifyElementSelected(ProjectPageObj.SelectedRoleAdmin);
             Thread.sleep(1000);
                 ProjectPageObj.ClickOnCreate();
                 ProjectPageObj.VerifyAssertForUser();
@@ -101,7 +102,7 @@ public class ProjectFlowFreeFormTest extends BasePage {
                 Thread.sleep(2000);
                 ProjectPageObj.ClickOnSelectUserBtn();
                 Thread.sleep(2000);
-                ProjectPageObj.verifyElementSelected(ProjectPageObj.SelectUserAdmin);
+            AssertionsFunction.verifyElementSelected(ProjectPageObj.SelectUserAdmin);
             Robot r = new Robot();
                 r.keyPress(KeyEvent.VK_ESCAPE);
                 Thread.sleep(4000);

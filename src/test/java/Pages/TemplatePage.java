@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
-public class TemplatePage extends AssertionsFunction {
+public class TemplatePage   {
     WebDriver driver = null;
 
 
@@ -68,7 +68,7 @@ public class TemplatePage extends AssertionsFunction {
     public void ClickOnUploadTemplateBtn() throws InterruptedException {
         driver.findElement(UploadTemplate).click();
         Thread.sleep(2000);
-        verifyElementPresent(UploadTemplatePage);
+        AssertionsFunction.verifyElementPresent(UploadTemplatePage);
     }
 
     public void ClickCreateTemplate() {
@@ -97,20 +97,20 @@ public class TemplatePage extends AssertionsFunction {
     public void ClickOnSearchSinglePageTemplate(String tName) throws InterruptedException {
         driver.findElement(SearchTemplate).sendKeys(tName);
         Thread.sleep(2000);
-        verifyElementTextWithTrim("AutoSampleSPTemp", ExpandTemplate);
+        AssertionsFunction.verifyElementTextWithTrim("AutoSampleSPTemp", ExpandTemplate);
 
     }
     public void ClickOnSearchMultiplePageTemplate(String tName) throws InterruptedException {
         driver.findElement(SearchTemplate).sendKeys(tName);
         Thread.sleep(2000);
-        verifyElementTextWithTrim("AutoSampleMPTemp", ExpandTemplate);
+        AssertionsFunction.verifyElementTextWithTrim("AutoSampleMPTemp", ExpandTemplate);
 
     }
 
     public void ClickOnSearchTemplate(String tName) throws InterruptedException {
         driver.findElement(SearchTemplate).sendKeys(tName);
         Thread.sleep(2000);
-        verifyElementTextWithTrim("QA-AutoTemplate", ExpandTemplate);
+        AssertionsFunction.verifyElementTextWithTrim("QA-AutoTemplate", ExpandTemplate);
 
     }
 
@@ -118,7 +118,7 @@ public class TemplatePage extends AssertionsFunction {
     public void ClickOnExpandTemplate() throws InterruptedException {
         driver.findElement(ExpandTemplate).click();
         Thread.sleep(2000);
-        verifyElementPresent (TemplateExpanded);
+        AssertionsFunction.verifyElementPresent (TemplateExpanded);
     }
 
     public void ClickExpandMore() {
@@ -140,7 +140,7 @@ public class TemplatePage extends AssertionsFunction {
     public void DeleteTemplateSinglePage() throws InterruptedException {
         driver.findElement(TemplateDelete).click();
         Thread.sleep(1000);
-        verifyElementPresent (DeleteTemplatePage);
+        AssertionsFunction.verifyElementPresent (DeleteTemplatePage);
     }
 
 
@@ -165,7 +165,7 @@ public class TemplatePage extends AssertionsFunction {
     {
         driver.findElement(ClickClassification).click();
         Thread.sleep(1000);
-        verifyElementPresent (ClassificationListBox);
+        AssertionsFunction.verifyElementPresent (ClassificationListBox);
 
     }
 
@@ -207,7 +207,7 @@ public class TemplatePage extends AssertionsFunction {
     public void ClickCancelTraining() throws InterruptedException {
         driver.findElement(CancelTraining).click();
         Thread.sleep(1000);
-        verifyTargetPageURL ("https://alpha.neutrino-ai.com/#/home/n-training");
+        AssertionsFunction.verifyTargetPageURL ("https://alpha.neutrino-ai.com/#/home/n-training");
 
     }
 
@@ -225,46 +225,46 @@ public class TemplatePage extends AssertionsFunction {
     }
 
     public void verifyInvalidTemplatNameErr() {
-        verifyElementText("Only alphabets,digits,parenthesis and hyphens are allowed while naming a template.", InvalidTemplateNameErr);
+        AssertionsFunction.verifyElementText("Only alphabets,digits,parenthesis and hyphens are allowed while naming a template.", InvalidTemplateNameErr);
     }
 
     public void verifyExistingTemplateName() {
-        verifyElementText("Template Name Already In Use.", ExistingTemplateNameErr);
+        AssertionsFunction.verifyElementText("Template Name Already In Use.", ExistingTemplateNameErr);
 
     }
 
     public void verifyTemplateMap() {
 
-        verifyElementText("Please select the portion on image for which the field name and validations have been given.", MapErrorMsg);
+        AssertionsFunction.verifyElementText("Please select the portion on image for which the field name and validations have been given.", MapErrorMsg);
 
     }
 
     public void AssertTrainingStatus() {
 
-        verifyElementText("In Progress", TrainingStatus);
+        AssertionsFunction.verifyElementText("In Progress", TrainingStatus);
 
     }
 
     public void verifySinglePageTemplateCreated()
     {
 
-        verifyElementTextWithTrim("AutoSampleSPTemp", ExpandTemplate);
+        AssertionsFunction.verifyElementTextWithTrim("AutoSampleSPTemp", ExpandTemplate);
     }
 
     public void verifySinglePageTemplateDelete()
     {
-        verifyElementDeletedTextWithTrim("AutoSampleSPTemp", ExpandTemplate);
+        AssertionsFunction.verifyElementDeletedTextWithTrim("AutoSampleSPTemp", ExpandTemplate);
     }
 
     public void verifyMultiPageTemplateCreated()
     {
-        verifyElementTextWithTrim("AutoSampleMPTemp", ExpandTemplate);
+        AssertionsFunction.verifyElementTextWithTrim("AutoSampleMPTemp", ExpandTemplate);
 
     }
 
     public void verifyMultiPageTemplateDelete()
     {
-        verifyElementDeletedTextWithTrim("AutoSampleMPTemp", ExpandTemplate);
+        AssertionsFunction.verifyElementDeletedTextWithTrim("AutoSampleMPTemp", ExpandTemplate);
     }
 
     public void verifyDeleteAssociatedTemplate()

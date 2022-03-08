@@ -3,6 +3,7 @@ package Tests;
 import Base.BasePage;
 import Pages.DocumentPage;
 import Pages.ProjectPage;
+import Utilities.AssertionsFunction;
 import Utilities.ReadProps;
 import org.testng.annotations.*;
 
@@ -43,7 +44,7 @@ public class ProjectFlowSemiStructureTest extends BasePage {
         Thread.sleep(2000);
         ProjectPageObj.SelectOnLeadBtn();
         Thread.sleep(2000);
-        ProjectPageObj.verifyElementSelected(ProjectPageObj.SelectLead);
+        AssertionsFunction.verifyElementSelected(ProjectPageObj.SelectLead);
         Thread.sleep(1000);
         ProjectPageObj.ClickOnStartDateBtn();
         Thread.sleep(2000);
@@ -57,7 +58,7 @@ public class ProjectFlowSemiStructureTest extends BasePage {
         Thread.sleep(2000);
         ProjectPageObj.SelectOnSemiStructure();
         Thread.sleep(3000);
-        ProjectPageObj.verifyElementSelected(ProjectPageObj.SelectSemiStructure);
+        AssertionsFunction.verifyElementSelected(ProjectPageObj.SelectSemiStructure);
         Thread.sleep(1000);
         ProjectPageObj.ClickOnStraightThroughProcessBtn();
         Thread.sleep(2000);
@@ -70,7 +71,7 @@ public class ProjectFlowSemiStructureTest extends BasePage {
         //TC 17.2 Checking Delete Attribute.
         ProjectPageObj.ClickOnDeleteAttributeFieldName();
         Thread.sleep(3000);
-        ProjectPageObj.verifyDeletedElementText("Invoice No",ProjectPageObj.DeletedInvoiceAttribute);
+        AssertionsFunction.verifyDeletedElementText("Invoice No",ProjectPageObj.DeletedInvoiceAttribute);
         Thread.sleep(1000);
 
     }

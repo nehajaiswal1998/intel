@@ -2,6 +2,7 @@ package Tests;
 
 import Base.BasePage;
 import Pages.TemplatePage;
+import Utilities.AssertionsFunction;
 import Utilities.ReadProps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -37,7 +38,7 @@ public class TemplateTest extends BasePage {
         Robot r = new Robot();
         TemplatePageObj.ClickTemplateBtn();
         Thread.sleep(8000);
-        TemplatePageObj.verifyTargetPageURL (TemplatePageURL);
+        AssertionsFunction.verifyTargetPageURL (TemplatePageURL);
         Thread.sleep(1000);
 
 
@@ -55,7 +56,7 @@ public class TemplateTest extends BasePage {
         Thread.sleep(2000);
         TemplatePageObj.ClickCancelCreateTemplate();
         Thread.sleep(5000);
-        TemplatePageObj.verifyTargetPageURL (TemplatePageURL);
+        AssertionsFunction.verifyTargetPageURL (TemplatePageURL);
         Thread.sleep(2000);
     }
 

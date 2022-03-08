@@ -11,14 +11,14 @@ import Base.BasePage;
 
 public class AssertionsFunction extends BasePage{
 
-    public void verifyElementText(String expectedValue, By element_Locator)
+    public static void verifyElementText(String expectedValue, By element_Locator)
     {
         String actualValue= driver.findElement(element_Locator).getText();
         System.out.println(actualValue);
         Assert.assertEquals(actualValue,expectedValue);
     }
 
-    public void verifyElementTextWithTrim(String expectedValue, By element_Locator)
+    public static void verifyElementTextWithTrim(String expectedValue, By element_Locator)
     {
         String[] Value = driver.findElement(element_Locator).getText().split(" ");
         String actualValue = Value[1].trim();
@@ -27,13 +27,13 @@ public class AssertionsFunction extends BasePage{
     }
 
 
-    public void verifyElementDeletedTextWithTrim(String expectedValue, By element_Locator)
+    public static void verifyElementDeletedTextWithTrim(String expectedValue, By element_Locator)
     {
         String[] Value = driver.findElement(element_Locator).getText().split(" ");
         String actualValue = Value[1].trim();
         Assert.assertNotEquals(expectedValue,actualValue);
     }
-    public void verifyDeletedElementText(String expectedValue, By element_Locator)
+    public static void verifyDeletedElementText(String expectedValue, By element_Locator)
     {
         String actualValue= driver.findElement(element_Locator).getText();
         System.out.println(actualValue);
@@ -44,7 +44,7 @@ public class AssertionsFunction extends BasePage{
 
 
 
-    public void  verify_ElementHover(String expectedValue, By element_Locator)
+    public static void  verify_ElementHover(String expectedValue, By element_Locator)
     {
         Actions action = new Actions(driver);
         WebElement element= driver.findElement(element_Locator);
@@ -53,12 +53,12 @@ public class AssertionsFunction extends BasePage{
         Assert.assertEquals(actualvalue, expectedValue);
     }
 
-    public void verifyElementPresent(By element_Locator)
+    public static void verifyElementPresent(By element_Locator)
     {
         Assert.assertTrue(isPresent(element_Locator),"element "+element_Locator+"not present");
 
     }
-    public boolean isPresent(By locator){
+    public static boolean isPresent(By locator){
         try{
             driver.findElement(locator).isDisplayed();
             return true;
@@ -69,18 +69,18 @@ public class AssertionsFunction extends BasePage{
         }
     }
 
-    public void verifyTargetPageURL (String expectedValue)
+    public static void verifyTargetPageURL (String expectedValue)
     {
         String actualValue = driver.getCurrentUrl();
         Assert.assertEquals(actualValue , expectedValue);
     }
 
-    public void verifyElementSelected(By element_Locator)
+    public static void verifyElementSelected(By element_Locator)
     {
         driver.findElement(element_Locator).isSelected();
     }
 
-    public void verifyElementAttribute(String expectedValue, By element_Locator)
+    public static void verifyElementAttribute(String expectedValue, By element_Locator)
     {
         String actualValue= driver.findElement(element_Locator).getAttribute("textContent");
         Assert.assertEquals(actualValue,expectedValue);

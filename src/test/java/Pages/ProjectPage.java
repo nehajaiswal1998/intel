@@ -4,14 +4,13 @@ import Utilities.AssertionsFunction;
 import Utilities.ReadProps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class ProjectPage extends AssertionsFunction {
+public class ProjectPage   {
     String currentDate = new SimpleDateFormat("dd").format(new Date());
     WebDriver driver = null;
 
@@ -19,6 +18,7 @@ public class ProjectPage extends AssertionsFunction {
     //Define Project
     public String ProjectPageURl = "https://alpha.neutrino-ai.com/#/home/project-management";
     public  String  EditProjectURL = "https://alpha.neutrino-ai.com/#/home/project-management/edit-project/6221eeaa994e456345dd1030";
+    public String EditProjectAdmin = "https://alpha.neutrino-ai.com/#/home/project-management/edit-project/6200fd11cc453f40a6baf157";
 
     By ProjectBtn = By.xpath("//i[@class='mat-tooltip-trigger fa fa-briefcase m-0 side-icon ng-star-inserted']");
     By CreateProject = By.xpath("//span[contains(text(),' Create Project ')]");
@@ -26,7 +26,8 @@ public class ProjectPage extends AssertionsFunction {
     By Lead = By.xpath("//*[@formcontrolname='lead']");
     By SearchLead = By.xpath("//input[@placeholder='Search']");
     public static By SelectLeadSample = By.xpath("//span[contains(text(),'new@gmail.com')]");
-    By SelectLeadAdmin = By.xpath("//span[contains(text(),' admin@test.com ')]");
+    public static By DisableRoleSearchError = By.xpath("//div[contains(text(),' No Records Found ! ')]");
+    public static By SelectLeadAdmin = By.xpath("//span[contains(text(),' admin@test.com ')]");
     public static By SelectLead = By.xpath("//span[contains(text(),'qa1@email.com')]");
     By ClickStartDate = By.cssSelector("button[aria-label='Open calendar'][tabindex='0']");
     By ClearStartDate = By.xpath("//input[@id='mat-input-3']");
@@ -46,8 +47,8 @@ public class ProjectPage extends AssertionsFunction {
     public static By PatientDemoGraphics = By.xpath("//button[contains(text(),' Patient Demographics')]");
     public static By PatientDemoGraphicsSelected = By.xpath("//*[text()=' Patient Demographics ']");
 
-    public static By ChronicConditions = By.xpath("//button[contains(text(),' Chronic Conditions')]");
-    public static By ChronicConditionsSelected = By.xpath("//*[text()=' Chronic Conditions '][1]");
+    public static By HCCConditions = By.xpath("//button[contains(text(),' HCC Conditions')]");
+    public static By HCCCConditionsSelected = By.xpath("//*[text()=' HCC Conditions ']");
 
 
     By ClickProcessingEngine = By.xpath("//*[@formcontrolname='processingEngine']/div[1]/div[2]");
@@ -70,9 +71,10 @@ public class ProjectPage extends AssertionsFunction {
 
 
     By ClickRoles = By.xpath("//span[contains(text(),'Roles')]");
-    By AddRoleAdmin = By.xpath("//span[contains(text(),'Add Role')]");
+    public static   By AddRoleAdmin = By.xpath("//span[contains(text(),'Add Role')]");
     public static By SelectRoleAdmin = By.xpath("//button[contains(text(),'AE Admin')]");
     public static By SelectedRoleAdmin = By.xpath("//*[text()=' AE Admin ']");
+
 
     By SelectRoleSuperVisor = By.xpath("//button[contains(text(),'AE Supervisor')]");
     By AddUser = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[2]/div[1]/form[1]/project-info-section[1]/mat-accordion[1]/project-roles[1]/mat-expansion-panel[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[2]/button[1]/span[1]/mat-icon[1]");
@@ -145,14 +147,14 @@ public class ProjectPage extends AssertionsFunction {
     public void ClickOnProjectBtn() throws  InterruptedException{
         driver.findElement(ProjectBtn).click();
         Thread.sleep(4000);
-        verifyTargetPageURL ("https://alpha.neutrino-ai.com/#/home/project-management");
+        AssertionsFunction.verifyTargetPageURL ("https://alpha.neutrino-ai.com/#/home/project-management");
 
     }
 
     public void ClickOnCreateProjectBtn() throws InterruptedException {
         driver.findElement(CreateProject).click();
         Thread.sleep(4000);
-        verifyTargetPageURL ("https://alpha.neutrino-ai.com/#/home/project-management/create-project");
+        AssertionsFunction.verifyTargetPageURL ("https://alpha.neutrino-ai.com/#/home/project-management/create-project");
     }
 
     public void ClickOnProjectNameBtn(String text) {
@@ -167,8 +169,8 @@ public class ProjectPage extends AssertionsFunction {
         driver.findElement(PatientDemoGraphics).click();
     }
 
-    public void SelectChronicConditions() {
-        driver.findElement(ChronicConditions).click();
+    public void SelectHCCConditions() {
+        driver.findElement(HCCConditions).click();
     }
 
 
@@ -341,37 +343,37 @@ public class ProjectPage extends AssertionsFunction {
 
     public void VerifyAssertForBlank()
     {
-        verifyElementText("Please add the attributes before creating the project.",ErrorMsgBlank);
+        AssertionsFunction.verifyElementText("Please add the attributes before creating the project.",ErrorMsgBlank);
     }
 
     public void VerifyAssertForUser()
     {
-        verifyElementText("Role cannot have empty users",ErrorMsgRoleUser);
+        AssertionsFunction.verifyElementText("Role cannot have empty users",ErrorMsgRoleUser);
     }
 
     public void VerifyAssertForNoTemplate()
     {
 
-        verifyElementText("Please add the template before creating the project.",ErrorMsgTemplate);
+        AssertionsFunction.verifyElementText("Please add the template before creating the project.",ErrorMsgTemplate);
 
     }
 
     public void VerifyAssertForData()
     {
 
-        verifyElementText("Please check form data",ErrorMsgData);
+        AssertionsFunction.verifyElementText("Please check form data",ErrorMsgData);
 
     }
 
     public void VerifyAssertForDataAndRole()
     {
-        verifyElementText("Please check form data and role(s) cannot be empty",ErrorMsgDataRole);
+        AssertionsFunction.verifyElementText("Please check form data and role(s) cannot be empty",ErrorMsgDataRole);
 
     }
 
     public void VerifyAssertForRole() {
 
-        verifyElementText("Role(s) cannot be empty",ErrorMsgRole);
+        AssertionsFunction.verifyElementText("Role(s) cannot be empty",ErrorMsgRole);
 
     }
 
@@ -390,7 +392,7 @@ public class ProjectPage extends AssertionsFunction {
 
     public void VerifyAssertForEntities() {
 
-        verifyElementText("Please add the entities before creating the project.",ErrorMsgEntities);
+        AssertionsFunction.verifyElementText("Please add the entities before creating the project.",ErrorMsgEntities);
 
     }
 
@@ -492,22 +494,22 @@ public class ProjectPage extends AssertionsFunction {
     public void verifyProjectCreated(String TupeOfProject) throws IOException {
         switch (TupeOfProject) {
             case "MedicalChartProject": {
-                verifyElementText(ReadProps.readAttr("MedicalChartProjectName1"), ProjectCreated);
+                AssertionsFunction.verifyElementText(ReadProps.readAttr("MedicalChartProjectName1"), ProjectCreated);
                 break;
             }
 
             case "FreeFormProject": {
-                verifyElementText(ReadProps.readAttr("FreeFormProjectName1"), ProjectCreated);
+                AssertionsFunction.verifyElementText(ReadProps.readAttr("FreeFormProjectName1"), ProjectCreated);
                 break;
             }
 
             case "StructuredProject": {
-                verifyElementText(ReadProps.readAttr("StructuredProjectName1"), ProjectCreated);
+                AssertionsFunction.verifyElementText(ReadProps.readAttr("StructuredProjectName1"), ProjectCreated);
                 break;
             }
 
             case "SemiStructuredProject": {
-                verifyElementText(ReadProps.readAttr("SemiStructuredProjectName1"), ProjectCreated);
+                AssertionsFunction.verifyElementText(ReadProps.readAttr("SemiStructuredProjectName1"), ProjectCreated);
                 break;
             }
 
