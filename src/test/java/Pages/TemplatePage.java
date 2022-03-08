@@ -1,12 +1,13 @@
 package Pages;
 
+import Utilities.AssertionsFunction;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import org.testng.asserts.SoftAssert;
 
-public class TemplatePage {
+public class TemplatePage extends AssertionsFunction {
     WebDriver driver = null;
+
 
     By TemplateBtn = By.xpath("//i[@aria-describedby='cdk-describedby-message-4']");
     By UploadTemplate = By.xpath("//*[contains (text(),'Upload Template')]");
@@ -33,7 +34,7 @@ public class TemplatePage {
     By SaveDraft = By.xpath("//span[contains(text(),'Save Draft')]");
     By CompleteTraining = By.xpath("//*[contains(text(),'Complete Training')]");
     By ClickClassification = By.xpath("//*[@id='docClassificationField']");
-    By SelectClassification= By.xpath("//body/div[1]/div[1]/div[1]/div[1]/mat-option[1]/span[1]");
+    By SelectClassification = By.xpath("//body/div[1]/div[1]/div[1]/div[1]/mat-option[1]/span[1]");
     By ClickValidation = By.xpath("//*[@formcontrolname='validation']");
     By SelectValidation = By.xpath("//span[contains(text(),' Name ')]");
     By CancelTraining = By.xpath("//div[@class='tr-button white_bg']/button[3]");
@@ -41,28 +42,42 @@ public class TemplatePage {
     By NavigateBack = By.xpath("//*[contains(text(),'navigate_before')]");
     By TrainingStatus = By.xpath("//tbody/tr[1]/td[4]");
 
-    By InvalidTemplateNameErr= By.xpath("//mat-error[text()='Only alphabets,digits,parenthesis and hyphens are allowed while naming a template.']");
-    By ExistingTemplateNameErr= By.xpath("//div[text()='Template Name Already In Use.']");
+    By InvalidTemplateNameErr = By.xpath("//mat-error[text()='Only alphabets,digits,parenthesis and hyphens are allowed while naming a template.']");
+    By ExistingTemplateNameErr = By.xpath("//div[text()='Template Name Already In Use.']");
     By CancelDeleteTemplate = By.xpath("//span[text()='Cancel']");
+
+    //Navigation Page
+    By UploadTemplatePage = By.xpath("//span[text()='Create New Template']");
+    By TemplateExpanded = By.xpath("//div[text()=' Classification ']");
+    By ClassificationListBox = By.xpath("//div[@role='listbox']");
+    By DeleteTemplatePage = By.xpath("//*[text()=' Do you want to delete Template1 ? ']");
+
+    String InvalidTemplateError = "";
+    String TemplatePageURL = "https://alpha.neutrino-ai.com/#/home/n-training";
+
+
     //Methods
     public TemplatePage(WebDriver driver) {
         this.driver = driver;
     }
 
-    public void ClickTemplateBtn() {
+    public void ClickTemplateBtn() throws InterruptedException {
         driver.findElement(TemplateBtn).click();
     }
 
-    public void ClickOnUploadTemplateBtn() {
+    public void ClickOnUploadTemplateBtn() throws InterruptedException {
         driver.findElement(UploadTemplate).click();
+        Thread.sleep(2000);
+        verifyElementPresent(UploadTemplatePage);
     }
 
     public void ClickCreateTemplate() {
         driver.findElement(CreateTemplate).click();
     }
 
-    public void ClickCancelCreateTemplate() {
+    public void ClickCancelCreateTemplate()throws InterruptedException {
         driver.findElement(CancelCreateTemplate).click();
+        Thread.sleep(2000);
     }
 
     public void ClickOnTemplateName(String text) {
@@ -79,14 +94,34 @@ public class TemplatePage {
         driver.findElement(CloseBtn).click();
     }
 
-    public void ClickOnSearchTemplate(String tName) {
+    public void ClickOnSearchSinglePageTemplate(String tName) throws InterruptedException {
         driver.findElement(SearchTemplate).sendKeys(tName);
+        Thread.sleep(2000);
+        verifyElementTextWithTrim("AutoSampleSPTemp", ExpandTemplate);
+
+    }
+    public void ClickOnSearchMultiplePageTemplate(String tName) throws InterruptedException {
+        driver.findElement(SearchTemplate).sendKeys(tName);
+        Thread.sleep(2000);
+        verifyElementTextWithTrim("AutoSampleMPTemp", ExpandTemplate);
+
     }
 
-    public void ClickOnExpandTemplate() {
-        driver.findElement(ExpandTemplate).click();
+    public void ClickOnSearchTemplate(String tName) throws InterruptedException {
+        driver.findElement(SearchTemplate).sendKeys(tName);
+        Thread.sleep(2000);
+        verifyElementTextWithTrim("QA-AutoTemplate", ExpandTemplate);
+
     }
-    public void ClickExpandMore(){
+
+
+    public void ClickOnExpandTemplate() throws InterruptedException {
+        driver.findElement(ExpandTemplate).click();
+        Thread.sleep(2000);
+        verifyElementPresent (TemplateExpanded);
+    }
+
+    public void ClickExpandMore() {
         driver.findElement(ExpandTemplateMore).click();
     }
 
@@ -101,6 +136,14 @@ public class TemplatePage {
     public void DeleteTemplate() {
         driver.findElement(TemplateDelete).click();
     }
+
+    public void DeleteTemplateSinglePage() throws InterruptedException {
+        driver.findElement(TemplateDelete).click();
+        Thread.sleep(1000);
+        verifyElementPresent (DeleteTemplatePage);
+    }
+
+
 
     public void ConfirmDeleteTemplate() {
         driver.findElement(ConfirmDeleteTemplate).click();
@@ -118,24 +161,26 @@ public class TemplatePage {
         driver.findElement(ZoomOutIcon).click();
     }
 
-    public void ClickClassificationBox(){
+    public void ClickClassificationBox () throws InterruptedException
+    {
         driver.findElement(ClickClassification).click();
+        Thread.sleep(1000);
+        verifyElementPresent (ClassificationListBox);
+
     }
 
-    public void SelectClassification()
-    {
+    public void SelectClassification() {
         driver.findElement(SelectClassification).click();
     }
 
-    public void ClickValidation()
-    {
+    public void ClickValidation() {
         driver.findElement(ClickValidation).click();
     }
 
-    public void SelectValidation()
-    {
+    public void SelectValidation() {
         driver.findElement(SelectValidation).click();
     }
+
     public void ClickCropIcon() {
         driver.findElement(CropDragIcon).click();
     }
@@ -151,105 +196,88 @@ public class TemplatePage {
     }
 
 
-
-    public void ClickSaveDraft()
-    {
+    public void ClickSaveDraft() {
         driver.findElement(SaveDraft).click();
     }
 
-    public void ClickCompleteTraining()
-    {
+    public void ClickCompleteTraining() {
         driver.findElement(CompleteTraining).click();
     }
 
-    public void ClickCancelTraining(){driver.findElement(CancelTraining).click();}
+    public void ClickCancelTraining() throws InterruptedException {
+        driver.findElement(CancelTraining).click();
+        Thread.sleep(1000);
+        verifyTargetPageURL ("https://alpha.neutrino-ai.com/#/home/n-training");
 
-    public void ClickNavigateNext()
-    {
+    }
+
+    public void ClickNavigateNext() {
         driver.findElement(NavigateNext).click();
     }
 
 
-    public void ClickNavigateBack()
-    {
+    public void ClickNavigateBack() {
         driver.findElement(NavigateBack).click();
     }
-    public void ClickOnTemplateMorePagesInfo()
-    {
+
+    public void ClickOnTemplateMorePagesInfo() {
         driver.findElement(TemplateDataInfo1).click();
     }
 
-    public void verifyInvalidTemplatNameErr()
-    {
-        String ActualErrorInvalidTemplateName = driver.findElement(InvalidTemplateNameErr).getText();
-        String ExpectedInvalidTemplateName = "Only alphabets,digits,parenthesis and hyphens are allowed while naming a template.";
-        Assert.assertEquals(ActualErrorInvalidTemplateName,ExpectedInvalidTemplateName);
+    public void verifyInvalidTemplatNameErr() {
+        verifyElementText("Only alphabets,digits,parenthesis and hyphens are allowed while naming a template.", InvalidTemplateNameErr);
+    }
+
+    public void verifyExistingTemplateName() {
+        verifyElementText("Template Name Already In Use.", ExistingTemplateNameErr);
 
     }
 
-    public void verifyExistingTemplateName()
-    {
-        String ActualErrorExistingTemplateName = driver.findElement(ExistingTemplateNameErr).getText();
-        String ExpectedExistingTemplateName = "Template Name Already In Use.";
-        Assert.assertEquals(ActualErrorExistingTemplateName,ExpectedExistingTemplateName);
-    }
     public void verifyTemplateMap() {
-        String ActualMapError = driver.findElement(MapErrorMsg).getText();
-        String ExpectedMapError = "Please select the portion on image for which the field name and validations have been given.";
-        Assert.assertEquals(ActualMapError, ExpectedMapError);
+
+        verifyElementText("Please select the portion on image for which the field name and validations have been given.", MapErrorMsg);
+
     }
 
-    public void AssertTrainingStatus()
+    public void AssertTrainingStatus() {
+
+        verifyElementText("In Progress", TrainingStatus);
+
+    }
+
+    public void verifySinglePageTemplateCreated()
     {
-        String ActualStaus = driver.findElement(TrainingStatus).getText();
-        String ExpectedStatus = "In Progress";
-        Assert.assertEquals(ActualStaus,ExpectedStatus);
+
+        verifyElementTextWithTrim("AutoSampleSPTemp", ExpandTemplate);
     }
 
-    public void verifySinglePageTemplateCreated() {
-        String[] TemplateName = driver.findElement(ExpandTemplate).getText().split(" ");
-        String ActualTemplate = TemplateName[1].trim();
-        String ExpectedTemplate = "AutoSampleSPTemp";
-        Assert.assertEquals(ActualTemplate, ExpectedTemplate);
-
+    public void verifySinglePageTemplateDelete()
+    {
+        verifyElementDeletedTextWithTrim("AutoSampleSPTemp", ExpandTemplate);
     }
 
-    public void verifySinglePageTemplateDelete() {
-        String[] TemplateName = driver.findElement(ExpandTemplate).getText().split(" ");
-        String ActualTemplate = TemplateName[1].trim();
-        String ExpectedTemplate = "AutoSampleSPTemp";
-        Assert.assertNotEquals(ActualTemplate, ExpectedTemplate);
+    public void verifyMultiPageTemplateCreated()
+    {
+        verifyElementTextWithTrim("AutoSampleMPTemp", ExpandTemplate);
 
     }
 
-    public void verifyMultiPageTemplateCreated() {
-        String[] TemplateName = driver.findElement(ExpandTemplate).getText().split(" ");
-        String ActualTemplate = TemplateName[1].trim();
-        String ExpectedTemplate = "AutoSampleMPTemp";
-        Assert.assertEquals(ActualTemplate, ExpectedTemplate);
-
-    }
-
-    public void verifyMultiPageTemplateDelete() {
-
-            String[] TemplateName = driver.findElement(ExpandTemplate).getText().split(" ");
-            String ActualTemplate = TemplateName[1].trim();
-            String ExpectedTemplate = "AutoSampleMPTemp";
-            Assert.assertNotEquals(ActualTemplate, ExpectedTemplate);
-
-
-
+    public void verifyMultiPageTemplateDelete()
+    {
+        verifyElementDeletedTextWithTrim("AutoSampleMPTemp", ExpandTemplate);
     }
 
     public void verifyDeleteAssociatedTemplate()
     {
         Assert.assertTrue(driver.findElement(By.xpath("//*[text()=' Sample-page1 is associated with QA-AutoProject-Structured,QA-AutoProject-Structured4 projects ']")).isDisplayed());
-
     }
 
-    public void cancelDeleteTemplate()
-    {
+    public void cancelDeleteTemplate() {
         driver.findElement(CancelDeleteTemplate).click();
+    }
+
+    public void refreshPage() {
+        driver.navigate().refresh();
     }
 
 

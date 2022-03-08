@@ -1,22 +1,23 @@
 package Pages;
 
+import Utilities.AssertionsFunction;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 
-public class DocumentPage {
+public class DocumentPage extends AssertionsFunction {
     WebDriver driver = null;
 
     By DocumentBtn = By.xpath("//mat-sidenav[@id='sidenav']/div/mat-nav-list/mat-list-item[6]");
     By DropDown = By.xpath("//span[@class='mat-tooltip-trigger projectname']");
     By SearchProject = By.xpath("//div[@class='cdk-overlay-pane']/div/div/div/input");
     By SearchBox = By.xpath("//input[@data-placeholder='Search']");
-    By SelectStructuredProject = By.xpath("//span[contains(text(),'QA-AutoProject-Structured')]");
-    By SelectSemiStructuredProject = By.xpath("//span[contains(text(),'QA-AutoProject-SemiStructured')]");
-    By SelectFreeFormProject = By.xpath("//span[contains(text(),'QA-AutoProject-FreeForm')]");
-    By SelectMedicalChartProject = By.xpath("//span[contains(text(),'QA-AutoProject-MedicalChart')]");
+    public static By SelectStructuredProject = By.xpath("//span[contains(text(),'QA-AutoProject-Structured')]");
+    public static By SelectSemiStructuredProject = By.xpath("//span[contains(text(),'QA-AutoProject-SemiStructured')]");
+    public static By SelectFreeFormProject = By.xpath("//span[contains(text(),'QA-AutoProject-FreeForm')]");
+    public static By SelectMedicalChartProject = By.xpath("//span[contains(text(),'QA-AutoProject-MedicalChart')]");
     By SelectMedicalChartProjectICD = By.xpath("//span[contains(text(),'J17012022')]");
     By SearchDocument = By.xpath("//mat-icon[contains(text(),'search')]");
     By CancelDoc2 = By.xpath("//span[contains(text(),'Cancel')]");
@@ -27,8 +28,8 @@ public class DocumentPage {
     By ViewDoc4 = By.xpath("//span[contains(text(),'3.tif')]");
     By ViewDoc5 = By.xpath("//span[contains(text(),'Processed.pdf')]");
     By ViewDoc6 = By.xpath("//span[contains(text(),'33559446-2.pdf')]");
-    By ViewFreeFormRejectedDoc = By.xpath("//span[contains(text(),'Pfizer9.jpg')]");
-    By ViewStructuredReadyDoc = By.xpath("//span[contains(text(),'Pfizer9.jpg')]");
+    By ViewFreeFormRejectedDoc = By.xpath("//span[contains(text(),'Pfizer10.jpg')]");
+    By ViewStructuredReadyDoc = By.xpath("//span[contains(text(),'Pfizer10.jpg')]");
 
     By ExpansionPanel = By.xpath("//mat-expansion-panel-header/span[2]");
     By HideAnalytics = By.xpath("//mat-expansion-panel-header/span[2]");
@@ -37,7 +38,7 @@ public class DocumentPage {
     By RefreshDocuments = By.xpath("//mat-icon[contains(text(),'refresh')]");
 
     By FilterDoc = By.xpath("//div[contains(text(),'Documents')]/button");
-    By SearchFilterDoc = By.xpath("//div[@class='popover-body']/mat-form-field/div/div[1]/div[1]/input");
+    public static By SearchFilterDoc = By.xpath("//div[@class='popover-body']/mat-form-field/div/div[1]/div[1]/input");
     By FilterSearchIcon = By.xpath("//thead/tr[1]/th[1]/div[1]/div[1]/ngb-popover-window[1]/div[2]/mat-form-field[1]/div[1]/div[1]/div[2]/button[1]/span[1]");
     By CancelFilterSearch = By.xpath("//thead/tr[1]/th[1]/div[1]/div[1]/ngb-popover-window[1]/div[2]/mat-form-field[1]/div[1]/div[1]/div[2]/button[2]/span[1]/mat-icon[1]");
 
@@ -54,12 +55,14 @@ public class DocumentPage {
 
     //status filter
     By StatusFilter = By.xpath("//div[contains(text(),'Status')]/button");
-    By CheckProcessed = By.xpath("//div[@role='listbox']/mat-option[3]");
+    public static By CheckProcessed = By.xpath("//div[@role='listbox']/mat-option[3]");
 
 
     By ItemsPerPage = By.xpath("//*[@aria-label='Items per page:']");
 
-    By SelectItems = By.xpath("//div[@role='listbox']/mat-option[1]");
+     By SelectItems = By.xpath("//div[@role='listbox']/mat-option[1]");
+    public static By ItemSelectedNumber =  By.xpath("//span[text()='10']");
+
     By NextPage = By.xpath("//button[@aria-label='Next page']");
     By LastPage = By.xpath("//button[@aria-label='Last page']");
     By PreviousPage = By.xpath("//button[@aria-label='Previous page']");
@@ -76,9 +79,9 @@ public class DocumentPage {
     By NPINo = By.xpath("//input[@formcontrolname='npiNo']");
     By PhysicianName = By.xpath("//input[@formcontrolname='physicianName']");
     By StartDate = By.xpath("//*[@id='mat-dialog-0']/app-rcm-edit-header/div/form/div/div[2]/div[3]/div[1]/mat-form-field/div/div[1]/div[4]/mat-datepicker-toggle/button");
-    By SelectStartDate = By.xpath("//div[contains(text(),'11')]");
+    By SelectStartDate = By.xpath("//div[contains(text(),'10')]");
     By EndDate = By.xpath("//*[@id='mat-dialog-0']/app-rcm-edit-header/div/form/div/div[2]/div[3]/div[2]/mat-form-field/div/div[1]/div[4]/mat-datepicker-toggle/button");
-    By SelectEndDate = By.xpath("//div[contains(text(),'25')]");
+    By SelectEndDate = By.xpath("//div[contains(text(),'24')]");
     By SaveCondition = By.xpath("//*[@id='mat-dialog-0']/app-rcm-edit-header/div/form/div/div[2]/div[4]/button[2]/span[1]");
 
     By AddData = By.xpath("//mat-label[contains(text(),'Data')]");
@@ -110,7 +113,8 @@ public class DocumentPage {
     By SaveDraft = By.xpath("//span[contains(text(),'Save Draft')]");
     By Submit = By.xpath("//span[contains(text(),'Submit')]");
     By SubmitChanges = By.xpath("//*[@id='mat-dialog-0']/app-confirmation-dialog/div/div/div[2]/button[1]");
-    By StatusFreeFormDoc = By.xpath("//tbody[@role='rowgroup']/tr[1]/td[3]");
+    public static By StatusOfDoc = By.xpath("//tbody[@role='rowgroup']/tr[1]/td[3]");
+
     By UpdtAttributeValue = By.xpath("//mat-row[@id='tableRow'][2]/mat-cell[2]");
     By SelectAddress = By.xpath("//span[contains(text(),' 2472 Rose Peak Drive Dietz ')]");
 
@@ -131,6 +135,24 @@ public class DocumentPage {
     By DeleteRule1Condition1 = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[4]/div[1]/project-rule-section[1]/mat-drawer-container[1]/mat-drawer-content[1]/div[2]/div[1]/div[1]/div[1]/div[2]/app-tree-node[1]/div[1]/div[1]/div[1]/div[2]/mat-card[1]/div[2]/mat-icon[1]");
     By CNFDeleteRule1Condition1 = By.xpath("//span[contains(text(),'Delete')]");
     By DeleteFirstRule = By.xpath("(//mat-icon[contains(text(),'delete')])[3]");
+
+    By ProjectList = By.xpath("//div[@role='menu']");
+    By ProjectSearch =By.xpath("//input[@class='p-2 theme_color']");
+    By DocumentSearched = By.xpath("//span[text()=' AN - OOLU2604599081.pdf ']");
+    public static By SearchedDocument = By.xpath("//span[text()=' AN - OOLU2604599081.pdf ']");
+    public static By Anticlockwise = By.xpath("//img[@style='transform: rotate(0deg);']");
+    public static By Clockwise     = By.xpath("//img[@style='transform: rotate(90deg);']");
+    public static By DocView = By.xpath("//img[@id='image']");
+    public static String  DocumentPageURL = "https://alpha.neutrino-ai.com/#/home/documents";
+    public static By Analyticshide = By.xpath("//div[@style='height: 0px; visibility: hidden;']");
+    public static By AnalyticsUnhide = By.xpath("//div[@style='visibility: visible;']");
+    public static By ZoomInDoc= By.xpath("//div[@style='transform: translateX(-19.6%) scale(1.1);']");
+    public static By ZoomOutDoc= By.xpath("//div[@style='transform: translateX(-21%) scale(1)']");
+
+
+
+
+
 
     public DocumentPage(WebDriver driver) { this.driver = driver;}
 
@@ -170,6 +192,7 @@ public class DocumentPage {
 
     public void ClickDropDownBtn() {
         driver.findElement(DropDown).click();
+        verifyElementPresent(ProjectList);
     }
 
     public void ClickSearchProject(String text) {
@@ -185,10 +208,14 @@ public class DocumentPage {
 
     public void ClickSelectFreeFormProject() {
         driver.findElement(SelectFreeFormProject).click();
+        verifyElementText("QA-AutoProject-FreeForm",SelectFreeFormProject);
     }
 
-    public void ClickSelectSemiStructuredProject() {
+    public void ClickSelectSemiStructuredProject() throws Exception {
         driver.findElement(SelectSemiStructuredProject).click();
+        Thread.sleep(2000);
+        verifyElementText("QA-AutoProject-SemiStructured",SelectSemiStructuredProject);
+
     }
 
     public void ClickSelectMedicalChartProject() {
@@ -223,8 +250,9 @@ public class DocumentPage {
         driver.findElement(ViewDoc1).click();
     }
 
-    public void ClickViewDocIcon2() {
+    public void ClickViewDocIcon2()  {
         driver.findElement(ViewDoc2).click();
+
     }
 
     public void ClickViewDocIcon3() {
@@ -311,6 +339,7 @@ public class DocumentPage {
 
     public void ClickCheckProcessed() {
         driver.findElement(CheckProcessed).click();
+
     }
 
     public void ClickItemsPerPage() {
@@ -512,10 +541,8 @@ public class DocumentPage {
     }
 
     public void assertFreeFormDocument() {
-        String FreeFormDocStatus = driver.findElement(StatusFreeFormDoc).getText();
-        String ActualStatus = FreeFormDocStatus;
-        String ExpectedStatus = "Processed";
-        Assert.assertEquals(ActualStatus, ExpectedStatus);
+
+        verifyElementText("Processed",StatusOfDoc);
     }
 
 
@@ -529,34 +556,22 @@ public class DocumentPage {
 
     }
 
-    public void tooltipOnHoverProjectSearchList()
+    public void verifytooltipOnHoverProjectSearchList()
     {
-        Actions action = new Actions(driver);
-        WebElement element= driver.findElement(HoverProjectSearch);
-        action.moveToElement(element).build().perform();
-        String ActualToolTip = driver.findElement(HoverProjectSearch).getText();
-        String ExpectedToolTip  = "QA-AutProject-For-Tool-Tip-Testing-In-Document-Window-View";
-        Assert.assertEquals(ActualToolTip, ExpectedToolTip);
+        verify_ElementHover("QA-AutProject-For-Tool-Tip-Testing-In-Document-Window-View" ,HoverProjectSearch );
     }
 
-    public void tooltipOnHoverProjectSearched ()
+    public void verifytooltipOnHoverProjectSearched ()
     {
-        Actions action = new Actions(driver);
-        WebElement element= driver.findElement(HoverSearcheProjectd);
-        action.moveToElement(element).build().perform();
-        String ActuaalToolTip = driver.findElement(HoverSearcheProjectd).getText();
-        String ExpectedToolTip  = "QA-AutProject-For-Tool-Tip-Testing-In-Document-Window-View";
-        Assert.assertEquals(ActuaalToolTip, ExpectedToolTip);
+        verify_ElementHover("QA-AutProject-For-Tool-Tip-Testing-In-Document-Window-View" ,HoverSearcheProjectd );
+
     }
 
-    public void tooltipOnHoverOnDocumentName ()
+    public void verifytooltipOnHoverOnDocumentName ()
     {
-        Actions action = new Actions(driver);
-        WebElement element= driver.findElement(HoverDocumentName);
-        action.moveToElement(element).build().perform();
-        String ActuaalToolTip = driver.findElement(HoverDocumentName).getText();
-        String ExpectedToolTip  = "inputDocs_QA-AutoProject-Structured_Pfizer.jpg";
-        Assert.assertEquals(ActuaalToolTip, ExpectedToolTip);
+        verify_ElementHover("inputDocs_QA-AutoProject-Structured_Pfizer.jpg" ,HoverDocumentName );
     }
+
+
 
 }

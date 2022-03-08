@@ -5,6 +5,7 @@ import Pages.DocumentPage;
 import Utilities.ReadProps;
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.*;
+
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
@@ -13,15 +14,18 @@ import java.io.IOException;
 
 public class DocProcessStructuredTest extends BasePage {
     static DocumentPage DocPageObj;
+
     @BeforeClass
     public void login() throws Exception {
         BasePage.driverInit();
         BasePage.LoginTest();
     }
+
     @AfterClass
     public void cleanUp() throws Exception {
         driver.quit();
     }
+
     @Test(priority = 1)
     public void search_project() throws Exception {
         DocPageObj = new DocumentPage(driver);
@@ -36,21 +40,37 @@ public class DocProcessStructuredTest extends BasePage {
         Thread.sleep(2000);
         DocPageObj.ClickSelectStructuredProject();
         Thread.sleep(2000);
+        DocPageObj.verifyElementSelected(DocPageObj.SelectStructuredProject);
+        Thread.sleep(1000);
         DocPageObj.ClickStatusFilter();
         Thread.sleep(2000);
         DocPageObj.ClickCheckProcessed();
         Thread.sleep(3000);
+        DocPageObj.verifyElementSelected(DocPageObj.CheckProcessed);
         r.keyPress(KeyEvent.VK_ESCAPE);
         Thread.sleep(2000);
     }
+
     @Test(priority = 2)
     public void searchbox_document() throws Exception {
         //TC 10.2 SearchBox Document.
-        DocPageObj.ClickSearchBox("BRE US Citizen.jpg");
-        Thread.sleep(3000);
-        DocPageObj.ClickSearchDocument();
+
+        DocPageObj.ClickSearchBox("4.tif");
         Thread.sleep(2000);
+        DocPageObj.ClickSearchDocument();
+        Thread.sleep(6000);
+        DocPageObj.verifyElementText("Rejected", DocPageObj.StatusOfDoc);
+        Thread.sleep(4000);
+        DocPageObj.ClickClearSearch();
+        Thread.sleep(2000);
+        DocPageObj.ClickSearchBox("BRE US Citizen.jpg");
+        Thread.sleep(2000);
+        DocPageObj.ClickSearchDocument();
+        Thread.sleep(6000);
+        DocPageObj.verifyElementText("Processed", DocPageObj.StatusOfDoc);
+        Thread.sleep(3000);
     }
+
     @Test(priority = 3)
     public void update_document_cancel() throws Exception {
         //TC 10.3 Update Document and Cancel it.
@@ -60,24 +80,32 @@ public class DocProcessStructuredTest extends BasePage {
         Thread.sleep(2000);
         DocPageObj.ClickCancelDoc2();
         Thread.sleep(4000);
+        DocPageObj.verifyTargetPageURL(DocPageObj.DocumentPageURL);
         DocPageObj.ClickClearSearch();
         Thread.sleep(2000);
         DocPageObj.ClickRefreshDocument();
         Thread.sleep(5000);
     }
+
     @Test(priority = 4)
     public void hide_unhide_analytics() throws Exception {
         //TC 10.4 Hide and UnHide Analytics.
         DocPageObj.ClickHideAnalytics();
         Thread.sleep(2000);
+        DocPageObj.verifyElementPresent(DocPageObj.Analyticshide);
         DocPageObj.ClickUnHideAnalytics();
         Thread.sleep(2000);
+        DocPageObj.verifyElementPresent(DocPageObj.AnalyticsUnhide);
+        Thread.sleep(2000);
     }
+
     @Test(priority = 5)
     public void documents_filter() throws Exception {
         //TC 10.5 Documents filter.
         DocPageObj.ClickFilterDoc();
         Thread.sleep(4000);
+        DocPageObj.verifyElementPresent(DocPageObj.SearchFilterDoc);
+        Thread.sleep(1000);
         DocPageObj.ClickSearchFilterDoc("BRE");
         Thread.sleep(2000);
         DocPageObj.ClickFilterSearchIcon();
@@ -92,6 +120,7 @@ public class DocProcessStructuredTest extends BasePage {
         r.keyPress(KeyEvent.VK_ESCAPE);
         Thread.sleep(2000);
     }
+
     @Test(priority = 6)
     public void sorting() throws Exception {
         //TC 10.6 sorting.
@@ -115,14 +144,19 @@ public class DocProcessStructuredTest extends BasePage {
         js.executeScript("window.scrollBy(0,10000)", "");
         Thread.sleep(3000);
     }
-   @Test(priority = 7)
+
+    @Test(priority = 7)
     public void items_page() throws Exception {
         //TC 10.7 Items Per Page.
         DocPageObj.ClickItemsPerPage();
         Thread.sleep(2000);
         DocPageObj.SelectItemsPerPage();
         Thread.sleep(2000);
+        DocPageObj.verifyElementText("10", DocPageObj.ItemSelectedNumber);
+        Thread.sleep(1000);
+
     }
+
     @Test(priority = 8)
     public void next_page_previous_page_first_page_last_page() throws Exception {
         //TC 10.8 Next Page, Previous Page, Last Page and First Page.
@@ -135,59 +169,62 @@ public class DocProcessStructuredTest extends BasePage {
         DocPageObj.ClickFirstPage();
         Thread.sleep(1000);
     }
+
     @Test(priority = 9)
     public void anticlockwise_clockwise_zoomin_zoomout_navigate_right_left() throws Exception {
-            //TC 10.9 Anti-Clock Wise, Clock Wise, Zoom IN, Zoom Out, Navigate Right and Navigate Left.
-            DocPageObj.ClickSearchBox("form 1040.pdf");
-            Thread.sleep(1000);
-            DocPageObj.ClickSearchDocument();
-            Thread.sleep(1000);
-            DocPageObj.ClickViewDocIcon1();
-            Thread.sleep(20000);
-            DocPageObj.ClickAntiWiseIcon();
-            Thread.sleep(2000);
+        //TC 10.9 Anti-Clock Wise, Clock Wise, Zoom IN, Zoom Out, Navigate Right and Navigate Left.
+        DocPageObj.ClickSearchBox("form 1040.pdf");
+        Thread.sleep(1000);
+        DocPageObj.ClickSearchDocument();
+        Thread.sleep(2000);
+        DocPageObj.ClickViewDocIcon1();
+        Thread.sleep(20000);
+        DocPageObj.ClickClockWiseIcon();
+        Thread.sleep(4000);
+        DocPageObj.verifyElementPresent(DocPageObj.Clockwise);
+        Thread.sleep(1000);
+        DocPageObj.ClickAntiWiseIcon();
+        Thread.sleep(2000);
+        DocPageObj.verifyElementPresent(DocPageObj.Anticlockwise);
+        Thread.sleep(2000);
+        //Zoom In.
+        DocPageObj.ClickZoomIN();
+        Thread.sleep(2000);
 
-            //Clockwise.
-            DocPageObj.ClickClockWiseIcon();
-            Thread.sleep(2000);
+        //ZoomOut.
+        DocPageObj.ClickZoomOut();
+        Thread.sleep(2000);
 
-            //Zoom In.
-            DocPageObj.ClickZoomIN();
-            Thread.sleep(2000);
+        //Navigate Right.
+        DocPageObj.ClickNvgtRt();
+        Thread.sleep(2000);
 
-            //ZoomOut.
-            DocPageObj.ClickZoomOut();
-            Thread.sleep(2000);
-
-            //Navigate Right.
-            DocPageObj.ClickNvgtRt();
-            Thread.sleep(2000);
-
-            //Navigate Back.
-            DocPageObj.ClickNvgtLft();
-            Thread.sleep(8000);
+        //Navigate Back.
+        DocPageObj.ClickNvgtLft();
+        Thread.sleep(8000);
     }
 
-    @Test (priority = 10)
+    @Test(priority = 10)
     public void verify_tooltip() throws InterruptedException, IOException, AWTException {
         DocPageObj.ClickDocumentBtn();
-        Thread.sleep(8000);
+        Thread.sleep(106789000);
         //TC 10.1 Search Project.
         DocPageObj.ClickDropDownBtn();
         Thread.sleep(2000);
         DocPageObj.ClickSearchProject("QA-AutProject-For-Tool-Tip-Testing-In-Document-Window-View");
         Thread.sleep(2000);
-        DocPageObj.tooltipOnHoverProjectSearchList();
+        DocPageObj.verifytooltipOnHoverProjectSearchList();
         Thread.sleep(3000);
         Robot r = new Robot();
         r.keyPress(KeyEvent.VK_ESCAPE);
         DocPageObj.ClickSelectStructuredProjectTooltip();
         Thread.sleep(2000);
-        DocPageObj.tooltipOnHoverProjectSearched();
+        DocPageObj.verifytooltipOnHoverProjectSearched();
         Thread.sleep(2000);
-        DocPageObj.tooltipOnHoverOnDocumentName();
-    }
+        DocPageObj.verifytooltipOnHoverOnDocumentName();
+        Thread.sleep(2000);
 
+    }
 
 
 }

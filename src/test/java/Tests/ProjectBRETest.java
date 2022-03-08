@@ -81,13 +81,18 @@ public class ProjectBRETest extends BasePage {
                 JavascriptExecutor js = (JavascriptExecutor) driver;
                 js.executeScript("window.scrollBy(0,-1000)", "");
                 Thread.sleep(2000);
+
                 //Navigate to Data Page. Adding Variables for Name, Address, State.
                 ProjectPageObj.ClickNextPage();
                 Thread.sleep(2000);
                 ProjectBREPageObj.ClickOnExpandVariables();
                 Thread.sleep(2000);
+                ProjectBREPageObj.verifyElementPresent(ProjectBREPageObj.AddVariablesButton);
+                Thread.sleep(1000);
                 ProjectBREPageObj.ClickOnAddVariables();
                 Thread.sleep(2000);
+                ProjectBREPageObj.verifyElementPresent(ProjectBREPageObj.VariableAddWindow);
+                Thread.sleep(1000);
                 ProjectBREPageObj.EnterVariableName(ReadProps.readAttr("VariableName1"));
                 Thread.sleep(2000);
                 ProjectBREPageObj.ClickOnValidationType();
@@ -98,6 +103,7 @@ public class ProjectBRETest extends BasePage {
                 Thread.sleep(2000);
                 ProjectBREPageObj.ClickOnAddButton();
                 Thread.sleep(2000);
+
                 //Adding Second Variable for Name.
                 ProjectBREPageObj.EnterVariableName(ReadProps.readAttr("VariableName2"));
                 Thread.sleep(2000);
@@ -109,6 +115,7 @@ public class ProjectBRETest extends BasePage {
                 Thread.sleep(2000);
                 ProjectBREPageObj.ClickOnAddButton();
                 Thread.sleep(2000);
+
                 //Adding Third Variable for Address.
                 ProjectBREPageObj.EnterVariableName(ReadProps.readAttr("VariableName3"));
                 Thread.sleep(2000);
@@ -120,6 +127,7 @@ public class ProjectBRETest extends BasePage {
                 Thread.sleep(2000);
                 ProjectBREPageObj.ClickOnAddButton();
                 Thread.sleep(2000);
+
                 //Adding Fourth Variable for Address.
                 ProjectBREPageObj.EnterVariableName(ReadProps.readAttr("VariableName4"));
                 Thread.sleep(2000);
@@ -131,6 +139,7 @@ public class ProjectBRETest extends BasePage {
                 Thread.sleep(2000);
                 ProjectBREPageObj.ClickOnAddButton();
                 Thread.sleep(2000);
+
                 //Adding Fifth Variable for State.
                 ProjectBREPageObj.EnterVariableName(ReadProps.readAttr("VariableName5"));
                 Thread.sleep(2000);
@@ -142,6 +151,7 @@ public class ProjectBRETest extends BasePage {
                 Thread.sleep(2000);
                 ProjectBREPageObj.ClickOnAddButton();
                 Thread.sleep(2000);
+
                 //Adding Sixth Variable for State.
                 ProjectBREPageObj.EnterVariableName(ReadProps.readAttr("VariableName6"));
                 Thread.sleep(2000);
@@ -153,6 +163,7 @@ public class ProjectBRETest extends BasePage {
                 Thread.sleep(2000);
                 ProjectBREPageObj.ClickOnAddButton();
                 Thread.sleep(2000);
+
                 //Adding Seventh Variable for City.
                 ProjectBREPageObj.EnterVariableName(ReadProps.readAttr("VariableName7"));
                 Thread.sleep(2000);
@@ -164,6 +175,7 @@ public class ProjectBRETest extends BasePage {
                 Thread.sleep(2000);
                 ProjectBREPageObj.ClickOnAddButton();
                 Thread.sleep(2000);
+
                 //Adding Eight Variable for City.
                 ProjectBREPageObj.EnterVariableName(ReadProps.readAttr("VariableName8"));
                 Thread.sleep(2000);
@@ -175,6 +187,7 @@ public class ProjectBRETest extends BasePage {
                 Thread.sleep(2000);
                 ProjectBREPageObj.ClickOnAddButton();
                 Thread.sleep(2000);
+
                 //Adding Ninth Variable for ZIP.
                 ProjectBREPageObj.EnterVariableName(ReadProps.readAttr("VariableName9"));
                 Thread.sleep(2000);
@@ -186,6 +199,7 @@ public class ProjectBRETest extends BasePage {
                 Thread.sleep(2000);
                 ProjectBREPageObj.ClickOnAddButton();
                 Thread.sleep(2000);
+
                 //Adding Tenth Variable for ZIP.
                 ProjectBREPageObj.EnterVariableName(ReadProps.readAttr("VariableName10"));
                 Thread.sleep(2000);
@@ -199,6 +213,12 @@ public class ProjectBRETest extends BasePage {
                 Thread.sleep(2000);
                 ProjectBREPageObj.ClickOnCancelButton();
                 Thread.sleep(2000);
+                ProjectBREPageObj.verifyTargetPageURL(ProjectBREPageObj.ProjectPageURL);
+                Thread.sleep(1000);
+                ProjectBREPageObj.verifyElementPresent(ProjectBREPageObj.VariableAddedTable);
+                Thread.sleep(1000);
+
+
                 //Navigate to Rules Page.
                 ProjectBREPageObj.ClickOnNextPageButton();
                 Thread.sleep(3000);
@@ -218,6 +238,7 @@ public class ProjectBRETest extends BasePage {
                 Thread.sleep(2000);
                 ProjectBREPageObj.ClickOnDeleteRulesButton();
                 Thread.sleep(2000);
+
                 //Adding First Rule for Name.
                 //TC-1 BRE Applied to NAME-Pass.
                 ProjectBREPageObj.ClickOnAddRulesButton();
@@ -240,6 +261,7 @@ public class ProjectBRETest extends BasePage {
                 Thread.sleep(2000);
                 ProjectBREPageObj.EnterRuleName("SampleRule1");
                 Thread.sleep(2000);
+
                 //Add Condition.
                 ProjectBREPageObj.EnterAddNameOfCondition("Name");
                 Thread.sleep(2000);
@@ -247,6 +269,8 @@ public class ProjectBRETest extends BasePage {
                 Thread.sleep(2000);
                 ProjectBREPageObj.ClickOnAttributeValue();
                 Thread.sleep(2000);
+                ProjectBREPageObj.verifyElementPresent(ProjectBREPageObj.AttributeList);
+                Thread.sleep(1000);
                 ProjectBREPageObj.SelectNameAttribute();
                 Thread.sleep(2000);
                 ProjectBREPageObj.ClickOnOperator();
@@ -257,8 +281,11 @@ public class ProjectBRETest extends BasePage {
                 Thread.sleep(2000);
                 ProjectBREPageObj.ClickOnSave();
                 Thread.sleep(2000);
+                ProjectBREPageObj.verifyElementPresent(ProjectBREPageObj.ConditionSaved);
+                Thread.sleep(1000);
                 ProjectBREPageObj.ClickOnFirstDecisionBox();
                 Thread.sleep(2000);
+
                 //Add Action.
                 ProjectBREPageObj.DoubleClickOnTrue1();
                 Thread.sleep(2000);
@@ -282,6 +309,8 @@ public class ProjectBRETest extends BasePage {
                 Thread.sleep(2000);
                 ProjectBREPageObj.ClickOnFalseBoxButton1();
                 Thread.sleep(2000);
+                ProjectBREPageObj.verifyElementPresent(ProjectBREPageObj.FalseConditionBox);
+                Thread.sleep(1000);
                 ProjectBREPageObj.EnterActionValue("Name Doesn't Exists");
                 Thread.sleep(2000);
                 ProjectBREPageObj.ClickOnAddAction();
@@ -292,10 +321,11 @@ public class ProjectBRETest extends BasePage {
                 Thread.sleep(2000);
                 ProjectBREPageObj.ClickOnSave();
                 Thread.sleep(2000);
+                ProjectBREPageObj.verifyElementPresent(ProjectBREPageObj.ConditionSaved);
                 ProjectBREPageObj.ClickOnFalseBoxButton1();
                 Thread.sleep(2000);
         }
-        @Test(priority = 3)
+       @Test(priority = 3)
         public void bre_applied_to_address_pass() throws Exception {
                 //Adding Second Rule for Address.
                 //TC-3 BRE Applied to Address = Pass.

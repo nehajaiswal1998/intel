@@ -29,7 +29,7 @@ public class ManualInterventionDocument extends BasePage {
         //Object Creation
         documentPageObj = new DocumentPage(driver);
         Robot r = new Robot();
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         documentPageObj.ClickDocumentBtn();
         Thread.sleep(15000);
         documentPageObj.ClickDropDownBtn();

@@ -1,9 +1,10 @@
 package Tests;
 import Base.BasePage;
-import Pages.LoginPage;
 import Pages.ProjectPage;
 import Utilities.ReadProps;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.testng.Assert;
 import org.testng.annotations.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -11,6 +12,7 @@ import java.awt.event.KeyEvent;
 
 public class ProjectFlowStructuredTest extends BasePage {
     static ProjectPage ProjectPageObj;
+
     @BeforeClass
     public void login() throws Exception {
         BasePage.driverInit();
@@ -45,6 +47,8 @@ public class ProjectFlowStructuredTest extends BasePage {
         js.executeScript("window.scrollBy(0,10000)", "");
         Thread.sleep(2000);
         ProjectPageObj.ClickNextPage();
+        Thread.sleep(1000);
+        ProjectPageObj.VerifyAssertForBlank();
         Thread.sleep(2000);
     }
     @Test(priority = 3)
@@ -59,6 +63,9 @@ public class ProjectFlowStructuredTest extends BasePage {
         Thread.sleep(2000);
         ProjectPageObj.ClickOnCancelProject();
         Thread.sleep(5000);
+        ProjectPageObj.verifyTargetPageURL (ProjectPageObj.ProjectPageURl);
+        Thread.sleep(2000);
+
     }
     @Test(priority = 4)
     public void create_project_with_invalid_name() throws Exception {
@@ -123,12 +130,13 @@ public class ProjectFlowStructuredTest extends BasePage {
         Thread.sleep(2000);
         Robot r = new Robot();
         r.keyPress(KeyEvent.VK_ESCAPE);
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         ProjectPageObj.ClickOnCreate();
+        Thread.sleep(1000);
         ProjectPageObj.VerifyAssertForData();
         Thread.sleep(2000);
         driver.navigate().refresh();
-        Thread.sleep(4000);
+        Thread.sleep(7000);
         ProjectPageObj.ClickRoleManagementBtn();
         Thread.sleep(4000);
         ProjectPageObj.SearchCreatedRole(ReadProps.readAttr("EditRole"));
@@ -139,6 +147,7 @@ public class ProjectFlowStructuredTest extends BasePage {
         Thread.sleep(4000);
         ProjectPageObj.ClickUpdateBtn();
         Thread.sleep(4000);
+
     }
 
    @Test(priority = 5)
@@ -154,6 +163,8 @@ public class ProjectFlowStructuredTest extends BasePage {
         Thread.sleep(2000);
         ProjectPageObj.SelectOnLeadBtn();
         Thread.sleep(2000);
+       ProjectPageObj.verifyElementSelected(ProjectPageObj.SelectLead);
+       Thread.sleep(1000);
         ProjectPageObj.ClickOnStartDateBtn();
         Thread.sleep(2000);
         ProjectPageObj.SelectStartDateBtn();
@@ -166,6 +177,8 @@ public class ProjectFlowStructuredTest extends BasePage {
         Thread.sleep(2000);
         ProjectPageObj.SelectDocumentStructureBtn();
         Thread.sleep(2000);
+       ProjectPageObj.verifyElementSelected(ProjectPageObj.SelectStructure);
+       Thread.sleep(1000);
         ProjectPageObj.ClickOnStraightThroughProcessBtn();
         Thread.sleep(2000);
         ProjectPageObj.ClickOnDocumentScoreBtn(ReadProps.readAttr("Score"));
@@ -185,8 +198,11 @@ public class ProjectFlowStructuredTest extends BasePage {
          Thread.sleep(2000);
          ProjectPageObj.ClickOnTemplateBtn();
          Thread.sleep(2000);
+         ProjectPageObj.verifyElementText("PE_TEMPLATE",ProjectPage.TemplateSelected);
+         Thread.sleep(1000);
          ProjectPageObj.ClickOnCreate();
-         ProjectPageObj.VerifyAssertForData();
+         Thread.sleep(2000);
+         ProjectPageObj.VerifyAssertForDataAndRole();
          Thread.sleep(2000);
          ProjectPageObj.ClickOnProcessingEngineBtn();
          Thread.sleep(2000);
@@ -194,11 +210,14 @@ public class ProjectFlowStructuredTest extends BasePage {
          Thread.sleep(2000);
          ProjectPageObj.ClickOnStraightThroughProcessBtn();
          Thread.sleep(2000);
+         ProjectPageObj.verifyElementSelected(ProjectPage.StraightThroughProcess);
+         Thread.sleep(1000);
          ProjectPageObj.ClickOnCreate();
+         Thread.sleep(1000);
          ProjectPageObj.VerifyAssertForRole();
          Thread.sleep(2000);
     }
-    @Test(priority = 7)
+   @Test(priority = 7)
     public void create_project_without_user_and_with_valid_data() throws Exception {
         //TC 18.7 Create Project without User for Platform Admin and
         //TC 18.8 Create Project with Valid Data.
@@ -208,19 +227,28 @@ public class ProjectFlowStructuredTest extends BasePage {
         Thread.sleep(2000);
         ProjectPageObj.ClickOnSelectRoleBtn();
         Thread.sleep(2000);
-        ProjectPageObj.ClickOnCreate();
+       ProjectPageObj.verifyElementSelected(ProjectPageObj.SelectedRoleAdmin);
+       Thread.sleep(1000);
+       ProjectPageObj.ClickOnCreate();
+        Thread.sleep(2000);
         ProjectPageObj.VerifyAssertForUser();
         Thread.sleep(2000);
         ProjectPageObj.ClickOnAddUserBtn();
         Thread.sleep(2000);
         ProjectPageObj.ClickOnSelectUserBtn();
         Thread.sleep(2000);
-        Robot r = new Robot();
+       ProjectPageObj.verifyElementSelected(ProjectPageObj.SelectUserAdmin);
+       Robot r = new Robot();
         r.keyPress(KeyEvent.VK_ESCAPE);
         Thread.sleep(3000);
         ProjectPageObj.ClickOnCreate();
-        Thread.sleep(9000);
-    }
+        Thread.sleep(10000);
+        ProjectPageObj.TableStructure();
+       Thread.sleep(10000);
+       ProjectPageObj.verifyProjectCreated("StructuredProject");
+       Thread.sleep(1000);
+
+   }
     @Test(priority = 8)
     public void create_project_with_disable_status() throws Exception {
         //TC 18.9 Create Project with Disable Status for Platform Admin.
@@ -275,6 +303,7 @@ public class ProjectFlowStructuredTest extends BasePage {
         Thread.sleep(3000);
         ProjectPageObj.ClickOnCreate();
         Thread.sleep(9000);
+
     }
     @Test(priority = 9)
     public void create_project_only_with_role_info() throws Exception {
@@ -298,6 +327,8 @@ public class ProjectFlowStructuredTest extends BasePage {
         Thread.sleep(3000);
         ProjectPageObj.ClickOnCreate();
         Thread.sleep(2000);
+        ProjectPageObj.VerifyAssertForBlank();
+        Thread.sleep(2000);
         ProjectPageObj.ClickLogout();
         Thread.sleep(10000);
     }
@@ -313,6 +344,7 @@ public class ProjectFlowStructuredTest extends BasePage {
         ProjectPageObj.ClickOnCreateProjectBtn();
         Thread.sleep(3000);
         ProjectPageObj.ClickOnCreate();
+        Thread.sleep(2000);
         ProjectPageObj.VerifyAssertForBlank();
         Thread.sleep(2000);
     }
@@ -460,6 +492,7 @@ public class ProjectFlowStructuredTest extends BasePage {
         Thread.sleep(1000);
         ProjectPageObj.VerifyAssertForUser();
         Thread.sleep(2000);
+
     }
     @Test(priority = 17)
     public void create_project_with_disable_status_for_admin() throws Exception {
@@ -538,31 +571,10 @@ public class ProjectFlowStructuredTest extends BasePage {
         Thread.sleep(3000);
         ProjectPageObj.ClickOnCreate();
         Thread.sleep(2000);
+        ProjectPageObj.VerifyAssertForBlank();
+        Thread.sleep(2000);
         ProjectPageObj.ClickLogout();
         Thread.sleep(8000);
     }
-    @Test(priority = 19)
-    public void table_structure() throws Exception {
-        //TC 18.20 Table Structure.
-        LoginPage loginPageObjects = new LoginPage(driver);
-        ProjectPageObj.EnterUsername(ReadProps.readAttr("UserID"));
-        Thread.sleep(1000);
-        loginPageObjects.setPassword(ReadProps.readAttr("Password"));
-        Thread.sleep(1000);
-        loginPageObjects.clickLoginButton();
-        Thread.sleep(8000);
-        ProjectPageObj.TableStructure();
-        Thread.sleep(6000);
-    }
-    @Test(priority = 20)
-    public void items_per_page() throws Exception {
-        //TC 18.21 Verify Items per Page.
-        ProjectPageObj.ClickItemsPerPage();
-        Thread.sleep(2000);
-        ProjectPageObj.SelectItemsPerPage();
-        Thread.sleep(2000);
-        Robot r = new Robot();
-        r.keyPress(KeyEvent.VK_ESCAPE);
-        Thread.sleep(3000);
-    }
+
 }
