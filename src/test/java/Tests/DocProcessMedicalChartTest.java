@@ -2,6 +2,8 @@ package Tests;
 import Base.BasePage;
 import Pages.DocumentPage;
 import Pages.ProjectBREMedicalChartDocumentPage;
+import Utilities.AssertionsFunction;
+import Utilities.ReadProps;
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.*;
 import java.awt.*;
@@ -25,16 +27,21 @@ public class DocProcessMedicalChartTest extends BasePage
         Robot r = new Robot();
         DocPageObj = new DocumentPage(driver);
         DocPageObj.ClickDocumentBtn();
-        Thread.sleep(5000);
+        Thread.sleep(8000);
         //TC 8.1 Search Project.
         DocPageObj.ClickDropDownBtn();
         Thread.sleep(2000);
-        DocPageObj.ClickSelectMedicalChartProject();
+        DocPageObj.ClickSearchProject(ReadProps.readAttr("MedicalChartProjectName"));
         Thread.sleep(2000);
+        DocPageObj.ClickSelectMedicalChartProject();
+        Thread.sleep(3000);
+        AssertionsFunction.verifyElementText(ReadProps.readAttr("MedicalChartProjectName"),DocPageObj.SelectMedicalChartProject);
+        Thread.sleep(1000);
         DocPageObj.ClickStatusFilter();
         Thread.sleep(2000);
         DocPageObj.ClickCheckProcessed();
         Thread.sleep(2000);
+        AssertionsFunction.verifyElementSelected(DocPageObj.CheckProcessed);
         r.keyPress(KeyEvent.VK_ESCAPE);
         Thread.sleep(2000);
     }
@@ -43,7 +50,7 @@ public class DocProcessMedicalChartTest extends BasePage
         //TC 8.2 SearchBox Document.
         DocPageObj.ClickSearchBox("Processed");
         Thread.sleep(2000);
-        DocPageObj.ClickSearchDocument();
+        //DocPageObj.ClickSearchDocument();
         Thread.sleep(2000);
     }
     @Test(priority = 3)
@@ -66,11 +73,11 @@ public class DocProcessMedicalChartTest extends BasePage
         DocPageObj.ClickExpansionPanel();
         Thread.sleep(2000);
         DocPageObj.ClickCancelDoc2();
-        Thread.sleep(2000);
-        DocPageObj.ClickClearSearch();
+        Thread.sleep(5000);
+        AssertionsFunction.verifyTargetPageURL(DocPageObj.DocumentPageURL);
         Thread.sleep(2000);
         DocPageObj.ClickRefreshDocument();
-        Thread.sleep(5000);
+        Thread.sleep(7000);
     }
     @Test(priority = 4)
     public void hide_unhide_analytics() throws Exception {
@@ -85,6 +92,8 @@ public class DocProcessMedicalChartTest extends BasePage
         //TC 8.5 Documents filter.
         DocPageObj.ClickFilterDoc();
         Thread.sleep(2000);
+        AssertionsFunction.verifyElementPresent(DocPageObj.SearchFilterDoc);
+        Thread.sleep(1000);
         DocPageObj.ClickSearchFilterDoc("Processed");
         Thread.sleep(2000);
         DocPageObj.ClickFilterSearchIcon();
@@ -107,7 +116,7 @@ public class DocProcessMedicalChartTest extends BasePage
         DocPageObj.ClickAssigneeSort();
         Thread.sleep(2000);
         DocPageObj.ClickStatusSort();
-        Thread.sleep(2000);
+        Thread.sleep(3000);
         DocPageObj.ClickTypeSort();
         Thread.sleep(2000);
         DocPageObj.ClickSizeSort();
@@ -116,7 +125,7 @@ public class DocProcessMedicalChartTest extends BasePage
         Thread.sleep(2000);
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,5000)", "");
-        Thread.sleep(3000);
+        Thread.sleep(4000);
     }
     @Test(priority = 7)
     public void items_page() throws Exception {
@@ -125,6 +134,8 @@ public class DocProcessMedicalChartTest extends BasePage
         Thread.sleep(2000);
         DocPageObj.SelectItemsPerPage();
         Thread.sleep(2000);
+        AssertionsFunction.verifyElementText("10",DocPageObj.ItemSelectedNumber );
+        Thread.sleep(1000);
     }
     @Test(priority = 8)
     public void next_page_previous_page_first_page_last_page() throws Exception {
@@ -136,7 +147,7 @@ public class DocProcessMedicalChartTest extends BasePage
         DocPageObj.ClickLastPage();
         Thread.sleep(2000);
         DocPageObj.ClickFirstPage();
-        Thread.sleep(2000);
+        Thread.sleep(5000);
     }
     @Test(priority = 9)
     public void create_chronic_condition() throws Exception {
@@ -145,7 +156,7 @@ public class DocProcessMedicalChartTest extends BasePage
         Thread.sleep(6000);
         ProjectBREMedicalChartDocumentPage ProjectBREMedicalChartDocumentPageObj = new ProjectBREMedicalChartDocumentPage(driver);
         ProjectBREMedicalChartDocumentPageObj.ClickOnChartData();
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         DocPageObj.ClickChronicCondition();
         Thread.sleep(3000);
         DocPageObj.ClickAddCondition();
@@ -155,16 +166,19 @@ public class DocProcessMedicalChartTest extends BasePage
         DocPageObj.AddPhysicianName();
         Thread.sleep(2000);
         DocPageObj.ClickStartDate();
-        Thread.sleep(2000);
+        Thread.sleep(4000);
         DocPageObj.SelectStartDate();
         Thread.sleep(2000);
         DocPageObj.ClickEndDate();
-        Thread.sleep(2000);
+        Thread.sleep(4000);
         DocPageObj.SelectEndDate();
         Thread.sleep(2000);
         DocPageObj.SaveChronicCondition();
         Thread.sleep(3000);
         ProjectBREMedicalChartDocumentPageObj.ClickOnSaveDraft();
         Thread.sleep(4000);
+        AssertionsFunction.verifyTargetPageURL(DocPageObj.DocumentPageURL);
+        Thread.sleep(2000);
+
     }
 }

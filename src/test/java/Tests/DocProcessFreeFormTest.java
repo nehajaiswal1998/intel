@@ -1,6 +1,7 @@
 package Tests;
 import Base.BasePage;
 import Pages.DocumentPage;
+import Utilities.AssertionsFunction;
 import Utilities.ReadProps;
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.*;
@@ -24,52 +25,74 @@ public class DocProcessFreeFormTest extends BasePage {
         Robot r = new Robot();
         DocPageObj = new DocumentPage(driver);
         DocPageObj.ClickDocumentBtn();
-        Thread.sleep(5000);
+        Thread.sleep(7000);
         //TC 7.1 Search Project.
         DocPageObj.ClickDropDownBtn();
         Thread.sleep(2000);
         DocPageObj.ClickSearchProject(ReadProps.readAttr("FreeFormProjectName"));
         Thread.sleep(2000);
         DocPageObj.ClickSelectFreeFormProject();
-        Thread.sleep(2000);
+        Thread.sleep(3000);
+        AssertionsFunction.verifyElementText(ReadProps.readAttr("FreeFormProjectName"),DocPageObj.SelectFreeFormProject);
         DocPageObj.ClickStatusFilter();
         Thread.sleep(2000);
         DocPageObj.ClickCheckProcessed();
         Thread.sleep(2000);
+        AssertionsFunction.verifyElementSelected(DocPageObj.CheckProcessed);
         r.keyPress(KeyEvent.VK_ESCAPE);
         Thread.sleep(2000);
     }
     @Test(priority = 2)
     public void search_document() throws Exception {
         //TC 7.2 SearchBox Document.
+        DocPageObj.ClickSearchBox("Pfizer");
+        Thread.sleep(2000);
+        DocPageObj.ClickSearchDocument();
+        Thread.sleep(6000);
+        AssertionsFunction.verifyElementText("Rejected",DocPageObj.StatusOfDoc);
+        Thread.sleep(4000);
+        DocPageObj.ClickClearSearch();
+        Thread.sleep(2000);
         DocPageObj.ClickSearchBox("AN - OOLU2604599081.pdf");
         Thread.sleep(2000);
         DocPageObj.ClickSearchDocument();
-        Thread.sleep(2000);
+        Thread.sleep(3000);
+        AssertionsFunction.verifyElementPresent(DocPageObj.SearchedDocument);
+        Thread.sleep(1000);
+        AssertionsFunction.verifyElementText("Processed",DocPageObj.StatusOfDoc);
+        Thread.sleep(3000);
     }
     @Test(priority = 3)
     public void update_document_cancel_it() throws Exception {
         //TC 7.3 Update document and cancel it.
         DocPageObj.ClickViewDocIcon2();
         Thread.sleep(10000);
-        DocPageObj.ClickDocumentBtn();
-        Thread.sleep(3000);
-        DocPageObj.ClickRefreshDocument();
-        Thread.sleep(3000);
+        DocPageObj.ClickCancelDoc2();
+        Thread.sleep(5000);
+        AssertionsFunction.verifyTargetPageURL(DocPageObj.DocumentPageURL);
+        Thread.sleep(2000);
+
     }
     @Test(priority = 4)
     public void hide_unhide_analytics() throws Exception {
         //TC 7.4 Hide and UnHide Analytics.
         DocPageObj.ClickHideAnalytics();
         Thread.sleep(2000);
+        AssertionsFunction.verifyElementPresent(DocPageObj.Analyticshide);
         DocPageObj.ClickUnHideAnalytics();
         Thread.sleep(2000);
+        AssertionsFunction.verifyElementPresent(DocPageObj.AnalyticsUnhide);
+        Thread.sleep(1000);
+
+
     }
     @Test(priority = 5)
     public void documents_filter() throws Exception {
         //TC 7.5 Documents filter.
         DocPageObj.ClickFilterDoc();
         Thread.sleep(2000);
+        AssertionsFunction.verifyElementPresent(DocPageObj.SearchFilterDoc);
+        Thread.sleep(1000);
         DocPageObj.ClickSearchFilterDoc("AN");
         Thread.sleep(2000);
         DocPageObj.ClickFilterSearchIcon();
@@ -114,6 +137,10 @@ public class DocProcessFreeFormTest extends BasePage {
         Thread.sleep(2000);
         DocPageObj.SelectItemsPerPage();
         Thread.sleep(2000);
+        AssertionsFunction.verifyElementText("10",DocPageObj.ItemSelectedNumber );
+        Thread.sleep(1000);
+
+
     }
     @Test(priority = 8)
     public void next_page_previous_page_first_page_last_page() throws Exception {
@@ -136,24 +163,23 @@ public class DocProcessFreeFormTest extends BasePage {
         Thread.sleep(2000);
         DocPageObj.ClickViewDocIcon4();
         Thread.sleep(10000);
+        AssertionsFunction.verifyElementPresent(DocPageObj.DocView);
+        Thread.sleep(1000);
+        DocPageObj.ClickClockWiseIcon();
+        Thread.sleep(4000);
+        AssertionsFunction.verifyElementPresent(DocPageObj.Clockwise);
+        Thread.sleep(1000);
         DocPageObj.ClickAntiWiseIcon();
         Thread.sleep(2000);
-        DocPageObj.ClickClockWiseIcon();
+        AssertionsFunction.verifyElementPresent(DocPageObj.Anticlockwise);
         Thread.sleep(2000);
-
-        // Zoom In.
         DocPageObj.ClickZoomIN();
         Thread.sleep(2000);
-
-        // ZoomOut.
+        AssertionsFunction.verifyElementPresent(DocPageObj.ZoomInDoc);
         DocPageObj.ClickZoomOut();
         Thread.sleep(2000);
-
-        // Navigate Right.
         DocPageObj.ClickNvgtRt();
         Thread.sleep(2000);
-
-        // Navigate Back.
         DocPageObj.ClickNvgtLft();
         Thread.sleep(2000);
     }

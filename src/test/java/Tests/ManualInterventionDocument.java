@@ -1,6 +1,7 @@
 package Tests;
 import Base.BasePage;
 import Pages.DocumentPage;
+import Utilities.AssertionsFunction;
 import Utilities.ReadProps;
 import Utilities.UploadObject;
 import org.testng.annotations.*;
@@ -29,13 +30,14 @@ public class ManualInterventionDocument extends BasePage {
         //Object Creation
         documentPageObj = new DocumentPage(driver);
         Robot r = new Robot();
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         documentPageObj.ClickDocumentBtn();
         Thread.sleep(15000);
         documentPageObj.ClickDropDownBtn();
         Thread.sleep(3000);
         documentPageObj.ClickSelectFreeFormProject();
         Thread.sleep(2000);
+        AssertionsFunction.verifyElementText(ReadProps.readAttr("FreeFormProjectName"),documentPageObj.SelectFreeFormProject);
         documentPageObj.ClickSearchBox("Pfizer"+ ReadProps.readAttr("exec_id")+".jpg");//rejected document for free from project.
         Thread.sleep(2000);
         documentPageObj.ClickSearchDocument();

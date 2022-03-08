@@ -1,10 +1,11 @@
 package Pages;
 
+import Utilities.AssertionsFunction;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 
-public class ProjectBREDataSetPage {
+public class ProjectBREDataSetPage   {
 
 
     WebDriver driver = null;
@@ -14,10 +15,12 @@ public class ProjectBREDataSetPage {
     }
 
     By DataSets = By.xpath("//span[contains(text(),'Datasets')]");
-    By AddDataSet = By.xpath("//span[contains(text(),' Add Dataset ')]");
-    By ChooseDataSet = By.xpath("//button[contains(text(),' Test ')]");
+    public static By AddDataSet = By.xpath("//span[contains(text(),' Add Dataset ')]");
+    public static By DatasetNameList = By.xpath("//div[@role='menu']");
+    By ChooseDataSet = By.xpath("//button[contains(text(),'Test')]");
     By BREChooseDataSet = By.xpath("//button[contains(text(),' Auto-DataSet ')]");
     By SelectDataSet = By.xpath("//button[contains(text(),' Patient Info ')]");
+    public static By DataSetSelected = By.xpath("//span[text()=' Patient Info ']");
     By SelectDataSet1 = By.xpath("//button[contains(text(),' Providerdetails ')]");
     By BRESelectDataSet = By.xpath("//button[contains(text(),' Auto-SampleDataSet ')]");
     By OperatorValueExistsIn = By.xpath("//span[contains(text(),'Exists In')]");

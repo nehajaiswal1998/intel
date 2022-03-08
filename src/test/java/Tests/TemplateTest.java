@@ -2,6 +2,7 @@ package Tests;
 
 import Base.BasePage;
 import Pages.TemplatePage;
+import Utilities.AssertionsFunction;
 import Utilities.ReadProps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -15,6 +16,8 @@ import java.util.concurrent.TimeUnit;
 
 public class TemplateTest extends BasePage {
     static TemplatePage TemplatePageObj;
+    String TemplatePageURL = "https://alpha.neutrino-ai.com/#/home/n-training";
+
 
 
     @BeforeClass
@@ -35,12 +38,16 @@ public class TemplateTest extends BasePage {
         Robot r = new Robot();
         TemplatePageObj.ClickTemplateBtn();
         Thread.sleep(8000);
+        AssertionsFunction.verifyTargetPageURL (TemplatePageURL);
+        Thread.sleep(1000);
+
+
+
         //TC 20.1 - Create Template with Invalid Name and Chosen File.
         TemplatePageObj.ClickOnUploadTemplateBtn();
         Thread.sleep(4000);
         TemplatePageObj.ClickOnTemplateName(ReadProps.readAttr("TInvalidName"));
         Thread.sleep(3000);
-        Thread.sleep(2000);
         TemplatePageObj.ClickCreateTemplate();
         Thread.sleep(2000);
         TemplatePageObj.verifyInvalidTemplatNameErr();
@@ -49,6 +56,8 @@ public class TemplateTest extends BasePage {
         Thread.sleep(2000);
         TemplatePageObj.ClickCancelCreateTemplate();
         Thread.sleep(5000);
+        AssertionsFunction.verifyTargetPageURL (TemplatePageURL);
+        Thread.sleep(2000);
     }
 
    @Test(priority = 2)
@@ -88,10 +97,10 @@ public class TemplateTest extends BasePage {
         TemplatePageObj.ClickOnTemplateName(ReadProps.readAttr("TNameUnique"));
         Thread.sleep(2000);
         WebElement upload_file = driver.findElement(By.xpath("//*[@id='faxDetailModal']/div/div/div[2]/div/form/div/input"));
-	upload_file.sendKeys(System.getProperty("user.dir")+"\\src\\test\\resources\\Template1.jpg");
+	    upload_file.sendKeys(System.getProperty("user.dir")+"\\src\\test\\resources\\Template1.jpg");
         Thread.sleep(2000);
         TemplatePageObj.ClickCreateTemplate();
-        Thread.sleep(8000);
+        Thread.sleep(9000);
         TemplatePageObj.ClickCancel();
         Thread.sleep(8000);
         TemplatePageObj.verifySinglePageTemplateCreated();
@@ -102,9 +111,8 @@ public class TemplateTest extends BasePage {
     @Test(priority = 5)
     public void search_created_template() throws Exception {
         //TC 20.5 Search Created template.
-        TemplatePageObj.ClickOnSearchTemplate(ReadProps.readAttr("TNameUnique"));
+        TemplatePageObj.ClickOnSearchSinglePageTemplate(ReadProps.readAttr("TNameUnique"));
         Thread.sleep(4000);
-        // TemplatePageObj.verifySinglePageTemplateCreated();
         TemplatePageObj.ClickOnExpandTemplate();
         Thread.sleep(2000);
         TemplatePageObj.ClickOnTemplateDataInfo();
@@ -116,6 +124,7 @@ public class TemplateTest extends BasePage {
         //TC 20.6 Zoom IN.
         TemplatePageObj.ClickOnZoomIn();
         Thread.sleep(2000);
+
         TemplatePageObj.ClickOnZoomIn();
         Thread.sleep(2000);
         JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -154,14 +163,19 @@ public class TemplateTest extends BasePage {
     @Test(priority = 8)
     public void delete_created_template_single_page() throws Exception {
         //TC 20.8 Delete created template (Single Page).
-        TemplatePageObj.ClickOnSearchTemplate(ReadProps.readAttr("TNameUnique"));
+        TemplatePageObj.ClickOnSearchSinglePageTemplate(ReadProps.readAttr("TNameUnique"));
         Thread.sleep(4000);
         TemplatePageObj.ClickOnExpandTemplate();
         Thread.sleep(2000);
         TemplatePageObj.DeleteTemplate();
         Thread.sleep(2000);
         TemplatePageObj.ConfirmDeleteTemplate();
-        Thread.sleep(3000);
+        Thread.sleep(4000);
+        TemplatePageObj.refreshPage();
+        Thread.sleep(4000);
+        TemplatePageObj.verifySinglePageTemplateDelete();
+        Thread.sleep(2000);
+
 
     }
 
@@ -178,16 +192,16 @@ public class TemplateTest extends BasePage {
         upload_file1.sendKeys(System.getProperty("user.dir")+"\\src\\test\\resources\\Sample.pdf");
         Thread.sleep(2000);
         TemplatePageObj.ClickCreateTemplate();
-        Thread.sleep(20000);
+        Thread.sleep(25000);
         TemplatePageObj.ClickCancel();
         Thread.sleep(5000);
         TemplatePageObj.verifyMultiPageTemplateCreated();
         Thread.sleep(2000);
-        TemplatePageObj.ClickOnSearchTemplate(ReadProps.readAttr("TNameMorePages"));
+        TemplatePageObj.ClickOnSearchMultiplePageTemplate(ReadProps.readAttr("TNameMorePages"));
         Thread.sleep(4000);
         TemplatePageObj.verifyMultiPageTemplateCreated();
         TemplatePageObj.ClickExpandMore();
-        Thread.sleep(2000);
+        Thread.sleep(4000);
         TemplatePageObj.ClickOnTemplateMorePagesInfo();
         Thread.sleep(15000);
         TemplatePageObj.ClickOnZoomIn();
@@ -201,6 +215,8 @@ public class TemplateTest extends BasePage {
         //TC 20.10 Navigate Next.
         TemplatePageObj.ClickNavigateNext();
         Thread.sleep(5000);
+
+
     }
 
     @Test(priority = 11)
@@ -210,7 +226,7 @@ public class TemplateTest extends BasePage {
         Thread.sleep(7000);
         TemplatePageObj.ClickCancelTraining();
         Thread.sleep(8000);
-        TemplatePageObj.ClickOnSearchTemplate(ReadProps.readAttr("TNameMorePages"));
+        TemplatePageObj.ClickOnSearchMultiplePageTemplate(ReadProps.readAttr("TNameMorePages"));
         Thread.sleep(2000);
         TemplatePageObj.ClickExpandMore();
         Thread.sleep(5000);
@@ -235,6 +251,11 @@ public class TemplateTest extends BasePage {
         Thread.sleep(3000);
         TemplatePageObj.ConfirmDeleteTemplate();
         Thread.sleep(4000);
+        TemplatePageObj.refreshPage();
+        Thread.sleep(3000);
+        TemplatePageObj.verifyMultiPageTemplateDelete();
+        Thread.sleep(3000);
+
 
 
     }
