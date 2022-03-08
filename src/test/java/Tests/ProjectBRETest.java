@@ -2,6 +2,7 @@ package Tests;
 import Base.BasePage;
 import Pages.ProjectBREPage;
 import Pages.ProjectPage;
+import Utilities.AssertionsFunction;
 import Utilities.ReadProps;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -87,11 +88,11 @@ public class ProjectBRETest extends BasePage {
                 Thread.sleep(2000);
                 ProjectBREPageObj.ClickOnExpandVariables();
                 Thread.sleep(2000);
-                ProjectBREPageObj.verifyElementPresent(ProjectBREPageObj.AddVariablesButton);
+                AssertionsFunction.verifyElementPresent(ProjectBREPageObj.AddVariablesButton);
                 Thread.sleep(1000);
                 ProjectBREPageObj.ClickOnAddVariables();
                 Thread.sleep(2000);
-                ProjectBREPageObj.verifyElementPresent(ProjectBREPageObj.VariableAddWindow);
+                AssertionsFunction.verifyElementPresent(ProjectBREPageObj.VariableAddWindow);
                 Thread.sleep(1000);
                 ProjectBREPageObj.EnterVariableName(ReadProps.readAttr("VariableName1"));
                 Thread.sleep(2000);
@@ -213,9 +214,9 @@ public class ProjectBRETest extends BasePage {
                 Thread.sleep(2000);
                 ProjectBREPageObj.ClickOnCancelButton();
                 Thread.sleep(2000);
-                ProjectBREPageObj.verifyTargetPageURL(ProjectBREPageObj.ProjectPageURL);
+                AssertionsFunction.verifyTargetPageURL(ProjectBREPageObj.ProjectPageURL);
                 Thread.sleep(1000);
-                ProjectBREPageObj.verifyElementPresent(ProjectBREPageObj.VariableAddedTable);
+                AssertionsFunction.verifyElementPresent(ProjectBREPageObj.VariableAddedTable);
                 Thread.sleep(1000);
 
 
@@ -269,7 +270,7 @@ public class ProjectBRETest extends BasePage {
                 Thread.sleep(2000);
                 ProjectBREPageObj.ClickOnAttributeValue();
                 Thread.sleep(2000);
-                ProjectBREPageObj.verifyElementPresent(ProjectBREPageObj.AttributeList);
+                AssertionsFunction.verifyElementPresent(ProjectBREPageObj.AttributeList);
                 Thread.sleep(1000);
                 ProjectBREPageObj.SelectNameAttribute();
                 Thread.sleep(2000);
@@ -281,7 +282,7 @@ public class ProjectBRETest extends BasePage {
                 Thread.sleep(2000);
                 ProjectBREPageObj.ClickOnSave();
                 Thread.sleep(2000);
-                ProjectBREPageObj.verifyElementPresent(ProjectBREPageObj.ConditionSaved);
+                AssertionsFunction.verifyElementPresent(ProjectBREPageObj.ConditionSaved);
                 Thread.sleep(1000);
                 ProjectBREPageObj.ClickOnFirstDecisionBox();
                 Thread.sleep(2000);
@@ -309,7 +310,7 @@ public class ProjectBRETest extends BasePage {
                 Thread.sleep(2000);
                 ProjectBREPageObj.ClickOnFalseBoxButton1();
                 Thread.sleep(2000);
-                ProjectBREPageObj.verifyElementPresent(ProjectBREPageObj.FalseConditionBox);
+                AssertionsFunction.verifyElementPresent(ProjectBREPageObj.FalseConditionBox);
                 Thread.sleep(1000);
                 ProjectBREPageObj.EnterActionValue("Name Doesn't Exists");
                 Thread.sleep(2000);
@@ -321,7 +322,7 @@ public class ProjectBRETest extends BasePage {
                 Thread.sleep(2000);
                 ProjectBREPageObj.ClickOnSave();
                 Thread.sleep(2000);
-                ProjectBREPageObj.verifyElementPresent(ProjectBREPageObj.ConditionSaved);
+                AssertionsFunction.verifyElementPresent(ProjectBREPageObj.ConditionSaved);
                 ProjectBREPageObj.ClickOnFalseBoxButton1();
                 Thread.sleep(2000);
         }

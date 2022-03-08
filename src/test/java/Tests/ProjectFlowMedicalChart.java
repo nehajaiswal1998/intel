@@ -2,6 +2,7 @@ package Tests;
 
 import Base.BasePage;
 import Pages.ProjectPage;
+import Utilities.AssertionsFunction;
 import Utilities.ReadProps;
 import org.testng.annotations.*;
 
@@ -39,7 +40,7 @@ public class ProjectFlowMedicalChart extends BasePage {
         Thread.sleep(2000);
         ProjectPageObj.SelectOnLeadBtn();
         Thread.sleep(2000);
-        ProjectPageObj.verifyElementSelected(ProjectPageObj.SelectLead);
+        AssertionsFunction.verifyElementSelected(ProjectPageObj.SelectLead);
         Thread.sleep(1000);
         ProjectPageObj.ClickOnStartDateBtn();
         Thread.sleep(2000);
@@ -53,15 +54,15 @@ public class ProjectFlowMedicalChart extends BasePage {
         Thread.sleep(2000);
         ProjectPageObj.SelectDocumentStructureMedicalBtn();
         Thread.sleep(2000);
-        ProjectPageObj.verifyElementSelected(ProjectPageObj.SelectMedical);
+        AssertionsFunction.verifyElementSelected(ProjectPageObj.SelectMedical);
         Thread.sleep(1000);
         ProjectPageObj.ClickOnStatusBtn();
         Thread.sleep(2000);
-        ProjectPageObj.verifyElementSelected(ProjectPageObj.Status);
+        AssertionsFunction.verifyElementSelected(ProjectPageObj.Status);
         Thread.sleep(1000);
         ProjectPageObj.ClickOnDocumentAutoAssignBtn();
         Thread.sleep(2000);
-        ProjectPageObj.verifyElementSelected(ProjectPageObj.DocumentAutoAssign);
+        AssertionsFunction.verifyElementSelected(ProjectPageObj.DocumentAutoAssign);
         Thread.sleep(1000);
 
 
@@ -82,13 +83,13 @@ public class ProjectFlowMedicalChart extends BasePage {
         Thread.sleep(3000);
         ProjectPageObj.SelectPatientGraphics();
         Thread.sleep(4000);
-        ProjectPageObj.verifyElementSelected(ProjectPageObj.PatientDemoGraphicsSelected);
+        AssertionsFunction.verifyElementSelected(ProjectPageObj.PatientDemoGraphicsSelected);
         Thread.sleep(1000);
         ProjectPageObj.ClickOnAddEntity();
         Thread.sleep(3000);
-        ProjectPageObj.SelectChronicConditions();
+        ProjectPageObj.SelectHCCConditions();
         Thread.sleep(3000);
-        ProjectPageObj.verifyElementSelected(ProjectPageObj.ChronicConditionsSelected);
+        AssertionsFunction.verifyElementSelected(ProjectPageObj.HCCCConditionsSelected);
         Thread.sleep(1000);
         ProjectPageObj.ClickOnCreate();
         ProjectPageObj.VerifyAssertForRole();
@@ -104,7 +105,7 @@ public class ProjectFlowMedicalChart extends BasePage {
         Thread.sleep(2000);
         ProjectPageObj.ClickOnSelectRoleBtn();
         Thread.sleep(5000);
-        ProjectPageObj.verifyElementSelected(ProjectPageObj.SelectedRoleAdmin);
+        AssertionsFunction.verifyElementSelected(ProjectPageObj.SelectedRoleAdmin);
         Thread.sleep(1000);
         ProjectPageObj.ClickOnCreate();
         Thread.sleep(1000);
@@ -118,7 +119,7 @@ public class ProjectFlowMedicalChart extends BasePage {
         Thread.sleep(2000);
         ProjectPageObj.ClickOnSelectUserBtn();
         Thread.sleep(2000);
-        ProjectPageObj.verifyElementSelected(ProjectPageObj.SelectUserAdmin);
+        AssertionsFunction.verifyElementSelected(ProjectPageObj.SelectUserAdmin);
         Robot r = new Robot();
         r.keyPress(KeyEvent.VK_ESCAPE);
         Thread.sleep(4000);
@@ -141,7 +142,7 @@ public class ProjectFlowMedicalChart extends BasePage {
     public void create_project_with_valid_details() throws Exception {
         //TC 16.7 Verify Create Project with Valid Details.
         ProjectPageObj.ClickOnCreate();
-        Thread.sleep(12000);
+        Thread.sleep(15000);
         ProjectPageObj.TableStructure();
         Thread.sleep(15000);
         ProjectPageObj.verifyProjectCreated("MedicalChartProject");

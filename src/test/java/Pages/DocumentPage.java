@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 
-public class DocumentPage extends AssertionsFunction {
+public class DocumentPage   {
     WebDriver driver = null;
 
     By DocumentBtn = By.xpath("//mat-sidenav[@id='sidenav']/div/mat-nav-list/mat-list-item[6]");
@@ -192,7 +192,7 @@ public class DocumentPage extends AssertionsFunction {
 
     public void ClickDropDownBtn() {
         driver.findElement(DropDown).click();
-        verifyElementPresent(ProjectList);
+        AssertionsFunction.verifyElementPresent(ProjectList);
     }
 
     public void ClickSearchProject(String text) {
@@ -208,13 +208,12 @@ public class DocumentPage extends AssertionsFunction {
 
     public void ClickSelectFreeFormProject() {
         driver.findElement(SelectFreeFormProject).click();
-        verifyElementText("QA-AutoProject-FreeForm",SelectFreeFormProject);
     }
 
     public void ClickSelectSemiStructuredProject() throws Exception {
         driver.findElement(SelectSemiStructuredProject).click();
         Thread.sleep(2000);
-        verifyElementText("QA-AutoProject-SemiStructured",SelectSemiStructuredProject);
+        AssertionsFunction.verifyElementText("QA-AutoProject-SemiStructured",SelectSemiStructuredProject);
 
     }
 
@@ -542,7 +541,7 @@ public class DocumentPage extends AssertionsFunction {
 
     public void assertFreeFormDocument() {
 
-        verifyElementText("Processed",StatusOfDoc);
+        AssertionsFunction.verifyElementText("Processed",StatusOfDoc);
     }
 
 
@@ -558,18 +557,18 @@ public class DocumentPage extends AssertionsFunction {
 
     public void verifytooltipOnHoverProjectSearchList()
     {
-        verify_ElementHover("QA-AutProject-For-Tool-Tip-Testing-In-Document-Window-View" ,HoverProjectSearch );
+        AssertionsFunction.verify_ElementHover("QA-AutProject-For-Tool-Tip-Testing-In-Document-Window-View" ,HoverProjectSearch );
     }
 
     public void verifytooltipOnHoverProjectSearched ()
     {
-        verify_ElementHover("QA-AutProject-For-Tool-Tip-Testing-In-Document-Window-View" ,HoverSearcheProjectd );
+        AssertionsFunction.verify_ElementHover("QA-AutProject-For-Tool-Tip-Testing-In-Document-Window-View" ,HoverSearcheProjectd );
 
     }
 
     public void verifytooltipOnHoverOnDocumentName ()
     {
-        verify_ElementHover("inputDocs_QA-AutoProject-Structured_Pfizer.jpg" ,HoverDocumentName );
+        AssertionsFunction.verify_ElementHover("inputDocs_QA-AutoProject-Structured_Pfizer.jpg" ,HoverDocumentName );
     }
 
 

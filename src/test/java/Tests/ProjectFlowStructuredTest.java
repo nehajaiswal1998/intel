@@ -1,6 +1,7 @@
 package Tests;
 import Base.BasePage;
 import Pages.ProjectPage;
+import Utilities.AssertionsFunction;
 import Utilities.ReadProps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -63,7 +64,7 @@ public class ProjectFlowStructuredTest extends BasePage {
         Thread.sleep(2000);
         ProjectPageObj.ClickOnCancelProject();
         Thread.sleep(5000);
-        ProjectPageObj.verifyTargetPageURL (ProjectPageObj.ProjectPageURl);
+        AssertionsFunction.verifyTargetPageURL (ProjectPageObj.ProjectPageURl);
         Thread.sleep(2000);
 
     }
@@ -163,7 +164,7 @@ public class ProjectFlowStructuredTest extends BasePage {
         Thread.sleep(2000);
         ProjectPageObj.SelectOnLeadBtn();
         Thread.sleep(2000);
-       ProjectPageObj.verifyElementSelected(ProjectPageObj.SelectLead);
+       AssertionsFunction.verifyElementSelected(ProjectPageObj.SelectLead);
        Thread.sleep(1000);
         ProjectPageObj.ClickOnStartDateBtn();
         Thread.sleep(2000);
@@ -177,7 +178,7 @@ public class ProjectFlowStructuredTest extends BasePage {
         Thread.sleep(2000);
         ProjectPageObj.SelectDocumentStructureBtn();
         Thread.sleep(2000);
-       ProjectPageObj.verifyElementSelected(ProjectPageObj.SelectStructure);
+       AssertionsFunction.verifyElementSelected(ProjectPageObj.SelectStructure);
        Thread.sleep(1000);
         ProjectPageObj.ClickOnStraightThroughProcessBtn();
         Thread.sleep(2000);
@@ -198,7 +199,7 @@ public class ProjectFlowStructuredTest extends BasePage {
          Thread.sleep(2000);
          ProjectPageObj.ClickOnTemplateBtn();
          Thread.sleep(2000);
-         ProjectPageObj.verifyElementText("PE_TEMPLATE",ProjectPage.TemplateSelected);
+         AssertionsFunction.verifyElementText("PE_TEMPLATE",ProjectPage.TemplateSelected);
          Thread.sleep(1000);
          ProjectPageObj.ClickOnCreate();
          Thread.sleep(2000);
@@ -210,7 +211,7 @@ public class ProjectFlowStructuredTest extends BasePage {
          Thread.sleep(2000);
          ProjectPageObj.ClickOnStraightThroughProcessBtn();
          Thread.sleep(2000);
-         ProjectPageObj.verifyElementSelected(ProjectPage.StraightThroughProcess);
+         AssertionsFunction.verifyElementSelected(ProjectPage.StraightThroughProcess);
          Thread.sleep(1000);
          ProjectPageObj.ClickOnCreate();
          Thread.sleep(1000);
@@ -227,7 +228,7 @@ public class ProjectFlowStructuredTest extends BasePage {
         Thread.sleep(2000);
         ProjectPageObj.ClickOnSelectRoleBtn();
         Thread.sleep(2000);
-       ProjectPageObj.verifyElementSelected(ProjectPageObj.SelectedRoleAdmin);
+       AssertionsFunction.verifyElementSelected(ProjectPageObj.SelectedRoleAdmin);
        Thread.sleep(1000);
        ProjectPageObj.ClickOnCreate();
         Thread.sleep(2000);
@@ -237,7 +238,7 @@ public class ProjectFlowStructuredTest extends BasePage {
         Thread.sleep(2000);
         ProjectPageObj.ClickOnSelectUserBtn();
         Thread.sleep(2000);
-       ProjectPageObj.verifyElementSelected(ProjectPageObj.SelectUserAdmin);
+       AssertionsFunction.verifyElementSelected(ProjectPageObj.SelectUserAdmin);
        Robot r = new Robot();
         r.keyPress(KeyEvent.VK_ESCAPE);
         Thread.sleep(3000);

@@ -2,6 +2,8 @@ package Tests;
 import Base.BasePage;
 import Pages.DocumentPage;
 import Pages.ProjectBREMedicalChartDocumentPage;
+import Utilities.AssertionsFunction;
+import Utilities.ReadProps;
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.*;
 import java.awt.*;
@@ -29,15 +31,17 @@ public class DocProcessMedicalChartTest extends BasePage
         //TC 8.1 Search Project.
         DocPageObj.ClickDropDownBtn();
         Thread.sleep(2000);
+        DocPageObj.ClickSearchProject(ReadProps.readAttr("MedicalChartProjectName"));
+        Thread.sleep(2000);
         DocPageObj.ClickSelectMedicalChartProject();
         Thread.sleep(3000);
-        DocPageObj.verifyElementSelected(DocPageObj.SelectMedicalChartProject);
+        AssertionsFunction.verifyElementText(ReadProps.readAttr("MedicalChartProjectName"),DocPageObj.SelectMedicalChartProject);
         Thread.sleep(1000);
         DocPageObj.ClickStatusFilter();
         Thread.sleep(2000);
         DocPageObj.ClickCheckProcessed();
         Thread.sleep(2000);
-        DocPageObj.verifyElementSelected(DocPageObj.CheckProcessed);
+        AssertionsFunction.verifyElementSelected(DocPageObj.CheckProcessed);
         r.keyPress(KeyEvent.VK_ESCAPE);
         Thread.sleep(2000);
     }
@@ -70,7 +74,7 @@ public class DocProcessMedicalChartTest extends BasePage
         Thread.sleep(2000);
         DocPageObj.ClickCancelDoc2();
         Thread.sleep(5000);
-        DocPageObj.verifyTargetPageURL(DocPageObj.DocumentPageURL);
+        AssertionsFunction.verifyTargetPageURL(DocPageObj.DocumentPageURL);
         Thread.sleep(2000);
         DocPageObj.ClickRefreshDocument();
         Thread.sleep(7000);
@@ -88,7 +92,7 @@ public class DocProcessMedicalChartTest extends BasePage
         //TC 8.5 Documents filter.
         DocPageObj.ClickFilterDoc();
         Thread.sleep(2000);
-        DocPageObj.verifyElementPresent(DocPageObj.SearchFilterDoc);
+        AssertionsFunction.verifyElementPresent(DocPageObj.SearchFilterDoc);
         Thread.sleep(1000);
         DocPageObj.ClickSearchFilterDoc("Processed");
         Thread.sleep(2000);
@@ -130,7 +134,7 @@ public class DocProcessMedicalChartTest extends BasePage
         Thread.sleep(2000);
         DocPageObj.SelectItemsPerPage();
         Thread.sleep(2000);
-        DocPageObj.verifyElementText("10",DocPageObj.ItemSelectedNumber );
+        AssertionsFunction.verifyElementText("10",DocPageObj.ItemSelectedNumber );
         Thread.sleep(1000);
     }
     @Test(priority = 8)
@@ -152,7 +156,7 @@ public class DocProcessMedicalChartTest extends BasePage
         Thread.sleep(6000);
         ProjectBREMedicalChartDocumentPage ProjectBREMedicalChartDocumentPageObj = new ProjectBREMedicalChartDocumentPage(driver);
         ProjectBREMedicalChartDocumentPageObj.ClickOnChartData();
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         DocPageObj.ClickChronicCondition();
         Thread.sleep(3000);
         DocPageObj.ClickAddCondition();
@@ -173,7 +177,7 @@ public class DocProcessMedicalChartTest extends BasePage
         Thread.sleep(3000);
         ProjectBREMedicalChartDocumentPageObj.ClickOnSaveDraft();
         Thread.sleep(4000);
-        DocPageObj.verifyTargetPageURL(DocPageObj.DocumentPageURL);
+        AssertionsFunction.verifyTargetPageURL(DocPageObj.DocumentPageURL);
         Thread.sleep(2000);
 
     }

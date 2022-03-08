@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 
-public class ProjectBREDataSetPage extends AssertionsFunction {
+public class ProjectBREDataSetPage   {
 
 
     WebDriver driver = null;

@@ -43,13 +43,13 @@ public class ProjectBREPage extends AssertionsFunction {
     By FirstCondition = By.xpath("//div[@class='opacity7 font-12 pt-3 text-center actionCardHeading']");
     By AndCondition = By.xpath("//span[contains(text(),'AND')]");
 
-    By SelectPatientDemographics = By.xpath("//span[contains(text(),' Patient Demographics ')]");
+    By SelectPatientDemographics = By.xpath("//div[@role='listbox']/mat-option[1]");
     By AddBREEntity = By.xpath("(//span[contains(text(),'Entity')])[3]");
     By AddBREEntity1 = By.xpath("(//span[contains(text(),'Entity')])[4]");
     By AttributeValue = By.xpath("//span[contains(text(),'Attribute / Variable')]");
 
     By NameAttribute = By.xpath("//span[contains(text(),'NAME')]");
-    By PatientName = By.xpath("(//span[contains(text(),'Patient Name')])[3]");
+    By PatientName = By.xpath("//div[@role='listbox']/mat-option[7]");
     By BRENameAttributePN = By.xpath("//span[contains(text(),'Patient Name')]");
     By BRENameAttributeDOB = By.xpath("//span[contains(text(),'Birthdate')]");
     By AddressAttribute = By.xpath("//span[contains(text(),'ADDRESS')]");
