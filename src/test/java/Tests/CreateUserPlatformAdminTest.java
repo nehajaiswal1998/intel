@@ -1,8 +1,8 @@
 package Tests;
 import Base.BasePage;
 import Pages.CreateUserPage;
+import Utilities.AssertionsFunction;
 import Utilities.ReadProps;
-import Utilities.verifyAssertions;
 import org.testng.annotations.*;
 
 import static Pages.CreateRolePage.errormsg;
@@ -11,7 +11,6 @@ import static Pages.CreateRolePage.errormsgBlankDataCreateRoleClick;
 @Listeners(Utilities.TestListeners.class)
 public class CreateUserPlatformAdminTest extends BasePage {
     static CreateUserPage UserPageObj;
-    static verifyAssertions verifyAssertionsobj;
 
     @BeforeClass
     public void login() throws Exception {
@@ -27,20 +26,19 @@ public class CreateUserPlatformAdminTest extends BasePage {
     @Test(priority = 1)
     public void blank_username_blank_password() throws Exception {
         UserPageObj = new CreateUserPage(driver);
-        verifyAssertionsobj = new verifyAssertions(driver);
         //TC 5.1 Blank Username and Blank Password.
         UserPageObj.ClickUserBtn();
         Thread.sleep(4000);
-        verifyAssertionsobj.verify_webpage_url(UserPageObj.userTabUrl);
+        AssertionsFunction.verifyTargetPageURL(UserPageObj.userTabUrl);
         UserPageObj.ClickCreateUserBtn();
         Thread.sleep(2000);
-        verifyAssertionsobj.verify_webpage_url(UserPageObj.createUserUrl);
+        AssertionsFunction.verifyTargetPageURL(UserPageObj.createUserUrl);
         UserPageObj.ClickCreateBtn();
         Thread.sleep(2000);
-        verifyAssertionsobj.verify_error_message(errormsg, errormsgBlankDataCreateRoleClick);
+        AssertionsFunction.verifyElementText(errormsg,errormsgBlankDataCreateRoleClick);
         driver.navigate().refresh();
         Thread.sleep(5000);
-        verifyAssertionsobj.verify_webpage_url(UserPageObj.createUserUrl);
+        AssertionsFunction.verifyTargetPageURL(UserPageObj.createUserUrl);
     }
     @Test(priority = 2)
     public void valid_username_blank_password() throws Exception {
@@ -49,10 +47,10 @@ public class CreateUserPlatformAdminTest extends BasePage {
         Thread.sleep(2000);
         UserPageObj.ClickCreateBtn();
         Thread.sleep(5000);
-       // verifyAssertionsobj.verify_error_message(errormsg, errormsgBlankDataCreateRoleClick);
+        AssertionsFunction.verifyElementText(errormsg,errormsgBlankDataCreateRoleClick);
         driver.navigate().refresh();
         Thread.sleep(5000);
-        verifyAssertionsobj.verify_webpage_url(UserPageObj.createUserUrl);
+        AssertionsFunction.verifyTargetPageURL(UserPageObj.createUserUrl);
 
 
     }
@@ -63,10 +61,10 @@ public class CreateUserPlatformAdminTest extends BasePage {
         Thread.sleep(2000);
         UserPageObj.ClickCreateBtn();
         Thread.sleep(2000);
-        verifyAssertionsobj.verify_error_message(errormsg, errormsgBlankDataCreateRoleClick);
+        AssertionsFunction.verifyElementText(errormsg,errormsgBlankDataCreateRoleClick);
         driver.navigate().refresh();
         Thread.sleep(5000);
-        verifyAssertionsobj.verify_webpage_url(UserPageObj.createUserUrl);
+        AssertionsFunction.verifyTargetPageURL(UserPageObj.createUserUrl);
 
     }
     @Test(priority = 4)
@@ -76,10 +74,10 @@ public class CreateUserPlatformAdminTest extends BasePage {
         Thread.sleep(2000);
         UserPageObj.ClickCreateBtn();
         Thread.sleep(2000);
-        verifyAssertionsobj.verify_error_message(errormsg, errormsgBlankDataCreateRoleClick);
+        AssertionsFunction.verifyElementText(errormsg,errormsgBlankDataCreateRoleClick);
         driver.navigate().refresh();
         Thread.sleep(5000);
-        verifyAssertionsobj.verify_webpage_url(UserPageObj.createUserUrl);
+        AssertionsFunction.verifyTargetPageURL(UserPageObj.createUserUrl);
 
     }
     @Test(priority = 5)
@@ -89,10 +87,11 @@ public class CreateUserPlatformAdminTest extends BasePage {
         Thread.sleep(2000);
         UserPageObj.ClickCreateBtn();
         Thread.sleep(2000);
-        verifyAssertionsobj.verify_error_message(errormsg, errormsgBlankDataCreateRoleClick);
+        AssertionsFunction.verifyElementText(errormsg,errormsgBlankDataCreateRoleClick);
+
         driver.navigate().refresh();
         Thread.sleep(5000);
-        verifyAssertionsobj.verify_webpage_url(UserPageObj.createUserUrl);
+        AssertionsFunction.verifyTargetPageURL(UserPageObj.createUserUrl);
 
     }
     @Test(priority = 6)
@@ -104,10 +103,10 @@ public class CreateUserPlatformAdminTest extends BasePage {
         Thread.sleep(2000);
         UserPageObj.ClickCreateBtn();
         Thread.sleep(2000);
-        verifyAssertionsobj.verify_error_message(errormsg, errormsgBlankDataCreateRoleClick);
+        AssertionsFunction.verifyElementText(errormsg,errormsgBlankDataCreateRoleClick);
         driver.navigate().refresh();
         Thread.sleep(5000);
-        verifyAssertionsobj.verify_webpage_url(UserPageObj.createUserUrl);
+        AssertionsFunction.verifyTargetPageURL(UserPageObj.createUserUrl);
 
     }
     @Test(priority = 7)
@@ -121,11 +120,11 @@ public class CreateUserPlatformAdminTest extends BasePage {
         Thread.sleep(2000);
         UserPageObj.ClickCreateBtn();
         Thread.sleep(1000);
-        verifyAssertionsobj.verify_error_message(errormsg, errormsgBlankDataCreateRoleClick);
+        AssertionsFunction.verifyElementText(errormsg,errormsgBlankDataCreateRoleClick);
         Thread.sleep(2000);
         UserPageObj.ClickOnCancelBtn();
         Thread.sleep(5000);
-        verifyAssertionsobj.verify_webpage_url(UserPageObj.userTabUrl);
+        AssertionsFunction.verifyTargetPageURL(UserPageObj.createUserUrl);
 
     }
     //Creation Of User-Whenever we have to run on new env then these lines are used.
@@ -203,22 +202,24 @@ public class CreateUserPlatformAdminTest extends BasePage {
         //TC 5.8 Search for Created user.
         UserPageObj.ClickUserBtn();
         Thread.sleep(3000);
-        verifyAssertionsobj.verify_webpage_url(UserPageObj.userTabUrl);
+        AssertionsFunction.verifyTargetPageURL(UserPageObj.userTabUrl);
         UserPageObj.SearchCreatedUser(ReadProps.readAttr("Username"));
         Thread.sleep(2000);
         UserPageObj.SelectSearchedUser();
         Thread.sleep(2000);
         UserPageObj.ClickOnCancelBtn();
         Thread.sleep(2000);
-        verifyAssertionsobj.verify_webpage_url(UserPageObj.userTabUrl);
+        AssertionsFunction.verifyTargetPageURL(UserPageObj.userTabUrl);
+
         UserPageObj.SelectSearchedUser();
         Thread.sleep(2000);
         UserPageObj.ClickUpdateUser();
         Thread.sleep(5000);
-        verifyAssertionsobj.verify_webpage_url(UserPageObj.userTabUrl);
+        AssertionsFunction.verifyTargetPageURL(UserPageObj.userTabUrl);
         UserPageObj.LogOut();
         Thread.sleep(5000);
-        verifyAssertionsobj.verify_webpage_url(UserPageObj.loginPageUrl);
+        AssertionsFunction.verifyTargetPageURL(UserPageObj.loginPageUrl);
+
     }
 }
 

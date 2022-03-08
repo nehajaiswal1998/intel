@@ -2,16 +2,14 @@ package Tests;
 import Base.BasePage;
 import Pages.DocumentPage;
 import Pages.ProjectBREMedicalChartDocumentPage;
-import Utilities.Functions;
+import Utilities.AssertionsFunction;
 import Utilities.ReadProps;
-import Utilities.verifyAssertions;
 import org.testng.Assert;
 import org.testng.annotations.*;
 @Listeners(Utilities.TestListeners.class)
 
 public class ProjectBREMedicalChartDocumentTest extends BasePage {
         static  ProjectBREMedicalChartDocumentPage ProjectBREMedicalChartDocumentPageObj;
-        static verifyAssertions verifyAssertionsobj;
     @BeforeClass
     public void login() throws Exception {
         BasePage.driverInit();
@@ -26,11 +24,11 @@ public class ProjectBREMedicalChartDocumentTest extends BasePage {
             //Object Creation.
             ProjectBREMedicalChartDocumentPageObj = new ProjectBREMedicalChartDocumentPage(driver);
             DocumentPage DocPageObj = new DocumentPage(driver);
-            verifyAssertionsobj=new verifyAssertions(driver);
             DocPageObj.ClickDocumentBtn();
             Thread.sleep(6000);
-            verifyAssertionsobj.verify_webpage_url(DocPageObj.DocTabUrl);
-            //TC 1 Verifying the Save Draft option for Patient Demographics.
+             AssertionsFunction.verifyTargetPageURL(DocPageObj.DocTabUrl);
+
+        //TC 1 Verifying the Save Draft option for Patient Demographics.
             DocPageObj.ClickDropDownBtn();
             Thread.sleep(2000);
             //Search Medical Chart Project.
@@ -41,10 +39,10 @@ public class ProjectBREMedicalChartDocumentTest extends BasePage {
             //Open Ready Document.
             ProjectBREMedicalChartDocumentPageObj.ClickOnReadyDocument();
             Thread.sleep(8000);
-            verifyAssertionsobj.verify_webpage_url(DocPageObj.ClickOnReadyDocumentUrl);
+            AssertionsFunction.verifyTargetPageURL(DocPageObj.ClickOnReadyDocumentUrl);
             ProjectBREMedicalChartDocumentPageObj.ClickOnChartData();
             Thread.sleep(2000);
-            Assert.assertTrue(Functions.isElementPresent(DocPageObj.getpatientDemographics()));
+            Assert.assertTrue(AssertionsFunction.isPresent(DocPageObj.getpatientDemographics()));
             //Clear the Address.
             ProjectBREMedicalChartDocumentPageObj.ClickOnClearAddress();
             Thread.sleep(2000);
@@ -54,11 +52,12 @@ public class ProjectBREMedicalChartDocumentTest extends BasePage {
             //Click on Save Draft.
             ProjectBREMedicalChartDocumentPageObj.ClickOnSaveDraft();
             Thread.sleep(6000);
-            verifyAssertionsobj.verify_webpage_url(DocPageObj.DocTabUrl);
+            AssertionsFunction.verifyTargetPageURL(DocPageObj.DocTabUrl);
+
             //Open the Same Ready document.
             ProjectBREMedicalChartDocumentPageObj.ClickOnReadyDocument();
             Thread.sleep(8000);
-            verifyAssertionsobj.verify_webpage_url(DocPageObj.ClickOnReadyDocumentUrl);
+            AssertionsFunction.verifyTargetPageURL(DocPageObj.ClickOnReadyDocumentUrl);
             //Verify the Saved Data.
             ProjectBREMedicalChartDocumentPageObj.ClickOnChartData();
             Thread.sleep(2000);
@@ -70,12 +69,12 @@ public class ProjectBREMedicalChartDocumentTest extends BasePage {
             Thread.sleep(2000);
             ProjectBREMedicalChartDocumentPageObj.ClickOnAddChronicCondition();
             Thread.sleep(2000);
-            Assert.assertTrue(Functions.isElementPresent(ProjectBREMedicalChartDocumentPageObj.getnpnNum()));
+            Assert.assertTrue(AssertionsFunction.isPresent(ProjectBREMedicalChartDocumentPageObj.getnpnNum()));
             ProjectBREMedicalChartDocumentPageObj.ClickOnCancelChronicCondition();
             Thread.sleep(2000);
             ProjectBREMedicalChartDocumentPageObj.ClickOnAddChronicCondition();
             Thread.sleep(2000);
-            Assert.assertTrue(Functions.isElementPresent(ProjectBREMedicalChartDocumentPageObj.getnpnNum()));
+            Assert.assertTrue(AssertionsFunction.isPresent(ProjectBREMedicalChartDocumentPageObj.getnpnNum()));
             ProjectBREMedicalChartDocumentPageObj.ClickOnEnterNPI(ReadProps.readAttr("NPINumber"));
             Thread.sleep(2000);
             ProjectBREMedicalChartDocumentPageObj.ClickOnEnterPhysicianName(ReadProps.readAttr("PhysicianName"));
@@ -94,14 +93,15 @@ public class ProjectBREMedicalChartDocumentTest extends BasePage {
             Thread.sleep(2000);
             ProjectBREMedicalChartDocumentPageObj.ClickOnAddedChronicCondition();
             Thread.sleep(2000);
-            Assert.assertTrue(Functions.isElementPresent(ProjectBREMedicalChartDocumentPageObj.getnpnNum()));
+            Assert.assertTrue(AssertionsFunction.isPresent(ProjectBREMedicalChartDocumentPageObj.getnpnNum()));
             ProjectBREMedicalChartDocumentPageObj.ClickOnCancelEditEncounterDetails();
             Thread.sleep(2000);
             ProjectBREMedicalChartDocumentPageObj.ClickOnendDate();
             Thread.sleep(2000);
             ProjectBREMedicalChartDocumentPageObj.ClickOnDeleteChronicCondition();
             Thread.sleep(2000);
-            Assert.assertFalse(Functions.isElementPresent(ProjectBREMedicalChartDocumentPageObj.getendDate()));
+            Assert.assertTrue(AssertionsFunction.isPresent(ProjectBREMedicalChartDocumentPageObj.getendDate()));
+
 
     }
 }

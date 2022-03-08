@@ -1,18 +1,14 @@
 package Tests;
 import Base.BasePage;
 import Pages.CreateUserPage;
+import Utilities.AssertionsFunction;
 import Utilities.ReadProps;
-import Utilities.verifyAssertions;
 import org.testng.annotations.*;
-
-import static Pages.CreateRolePage.errormsg;
-import static Pages.CreateRolePage.errormsgBlankDataCreateRoleClick;
 
 @Listeners(Utilities.TestListeners.class)
 
 public class UpdateUserPlatformAdminTest extends BasePage {
         static CreateUserPage UserPageObj1;
-        static verifyAssertions verifyAssertionsobj;
         @BeforeClass
         public void login() throws Exception {
                 BasePage.driverInit();
@@ -27,10 +23,9 @@ public class UpdateUserPlatformAdminTest extends BasePage {
         @Test(priority = 1)
         public void update_user_enable_disable() throws Exception {
                 UserPageObj1 = new CreateUserPage(driver);
-                verifyAssertionsobj=new verifyAssertions(driver);
                 UserPageObj1.ClickUserBtn();
                 Thread.sleep(5000);
-                verifyAssertionsobj.verify_webpage_url(UserPageObj1.userTabUrl);
+                AssertionsFunction.verifyTargetPageURL(UserPageObj1.userTabUrl);
                 //TC 23.1 Update User enable, disable.
                 UserPageObj1.SearchCreatedUser(ReadProps.readAttr("Username"));
                 Thread.sleep(2000);
@@ -40,7 +35,7 @@ public class UpdateUserPlatformAdminTest extends BasePage {
                 Thread.sleep(2000);
                 UserPageObj1.ClickUpdateUser();
                 Thread.sleep(5000);
-                verifyAssertionsobj.verify_webpage_url(UserPageObj1.userTabUrl);
+                AssertionsFunction.verifyTargetPageURL(UserPageObj1.userTabUrl);
                 UserPageObj1.SearchCreatedUser(ReadProps.readAttr("Username"));
                 Thread.sleep(1000);
                 UserPageObj1.SelectSearchedUser();
@@ -49,8 +44,7 @@ public class UpdateUserPlatformAdminTest extends BasePage {
                 Thread.sleep(2000);
                 UserPageObj1.ClickUpdateUser();
                 Thread.sleep(10000);
-                verifyAssertionsobj.verify_webpage_url(UserPageObj1.userTabUrl);
-
+                AssertionsFunction.verifyTargetPageURL(UserPageObj1.userTabUrl);
         }
 
         @Test(priority = 2)
@@ -61,11 +55,12 @@ public class UpdateUserPlatformAdminTest extends BasePage {
                 UserPageObj1.ClickToClearName();
                 Thread.sleep(2000);
                 UserPageObj1.ClickUpdateUser();
-                verifyAssertionsobj.verifyAdminProfile(UserPageObj1.errmsg,UserPageObj1.errmsgBlankDataCreateRoleClick);
+                Thread.sleep(5000);
+                AssertionsFunction.verifyElementText(UserPageObj1.errmsg,UserPageObj1.errmsgBlankDataCreateRoleClick);
                 Thread.sleep(5000);
                 UserPageObj1.ClickOnCancelBtn();
                 Thread.sleep(10000);
-                verifyAssertionsobj.verify_webpage_url(UserPageObj1.userTabUrl);
+                AssertionsFunction.verifyTargetPageURL(UserPageObj1.userTabUrl);
 
         }
 
@@ -81,11 +76,11 @@ public class UpdateUserPlatformAdminTest extends BasePage {
                 UserPageObj1.EnterPassword(ReadProps.readAttr("pwd"));
                 Thread.sleep(2000);
                 UserPageObj1.ClickUpdateUser();
-                verifyAssertionsobj.verifyAdminProfile(UserPageObj1.errmsg,UserPageObj1.errmsgBlankDataCreateRoleClick);
+                AssertionsFunction.verifyElementText(UserPageObj1.errmsg,UserPageObj1.errmsgBlankDataCreateRoleClick);
                 Thread.sleep(5000);
                 UserPageObj1.ClickOnCancelBtn();
                 Thread.sleep(5000);
-                verifyAssertionsobj.verify_webpage_url(UserPageObj1.userTabUrl);
+                AssertionsFunction.verifyTargetPageURL(UserPageObj1.userTabUrl);
         }
 
         @Test(priority = 4)
@@ -102,11 +97,11 @@ public class UpdateUserPlatformAdminTest extends BasePage {
                 UserPageObj1.ClearPassword();
                 Thread.sleep(3000);
                 UserPageObj1.ClickUpdateUser();
-                verifyAssertionsobj.verifyAdminProfile(UserPageObj1.errmsg,UserPageObj1.errmsgBlankDataCreateRoleClick);
+                AssertionsFunction.verifyElementText(UserPageObj1.errmsg,UserPageObj1.errmsgBlankDataCreateRoleClick);
                 Thread.sleep(5000);
                 UserPageObj1.ClickOnCancelBtn();
                 Thread.sleep(10000);
-                verifyAssertionsobj.verify_webpage_url(UserPageObj1.userTabUrl);
+                AssertionsFunction.verifyTargetPageURL(UserPageObj1.userTabUrl);
 
         }
 
@@ -120,11 +115,11 @@ public class UpdateUserPlatformAdminTest extends BasePage {
                 UserPageObj1.ClearPassword();
                 Thread.sleep(2000);
                 UserPageObj1.ClickUpdateUser();
-                verifyAssertionsobj.verifyAdminProfile(UserPageObj1.errmsg, UserPageObj1.errmsgBlankDataCreateRoleClick);
+                AssertionsFunction.verifyElementText(UserPageObj1.errmsg,UserPageObj1.errmsgBlankDataCreateRoleClick);
                 Thread.sleep(2000);
                 UserPageObj1.ClickOnCancelBtn();
                 Thread.sleep(5000);
-                verifyAssertionsobj.verify_webpage_url(UserPageObj1.userTabUrl);
+                AssertionsFunction.verifyTargetPageURL(UserPageObj1.userTabUrl);
 
         }
 
@@ -142,11 +137,11 @@ public class UpdateUserPlatformAdminTest extends BasePage {
                 UserPageObj1.EnterPassword(ReadProps.readAttr("pwd"));
                 Thread.sleep(2000);
                 UserPageObj1.ClickUpdateUser();
-                verifyAssertionsobj.verifyAdminProfile(UserPageObj1.errmsg,UserPageObj1.errmsgBlankDataCreateRoleClick);
+                AssertionsFunction.verifyElementText(UserPageObj1.errmsg,UserPageObj1.errmsgBlankDataCreateRoleClick);
                 Thread.sleep(2000);
                 UserPageObj1.ClickOnCancelBtn();
                 Thread.sleep(10000);
-                verifyAssertionsobj.verify_webpage_url(UserPageObj1.userTabUrl);
+                AssertionsFunction.verifyTargetPageURL(UserPageObj1.userTabUrl);
 
         }
         @Test(priority = 7)
@@ -171,10 +166,11 @@ public class UpdateUserPlatformAdminTest extends BasePage {
                 Thread.sleep(2000);
                 UserPageObj1.ClickUpdateUser();
                 Thread.sleep(2000);
-                verifyAssertionsobj.verifyAdminProfile(UserPageObj1.errmsg,UserPageObj1.errmsgBlankDataCreateRoleClick);
+                AssertionsFunction.verifyElementText(UserPageObj1.errmsg,UserPageObj1.errmsgBlankDataCreateRoleClick);
                 UserPageObj1.ClickOnCancelBtn();
                 Thread.sleep(2000);
-                verifyAssertionsobj.verify_webpage_url(UserPageObj1.userTabUrl);
+                AssertionsFunction.verifyTargetPageURL(UserPageObj1.userTabUrl);
+
 
 
         }
@@ -190,7 +186,7 @@ public class UpdateUserPlatformAdminTest extends BasePage {
                 Thread.sleep(2000);
                 UserPageObj1.ClickUpdateUser();
                 Thread.sleep(10000);
-                verifyAssertionsobj.verify_webpage_url(UserPageObj1.userTabUrl);
+                AssertionsFunction.verifyTargetPageURL(UserPageObj1.userTabUrl);
 
         }
 
@@ -205,7 +201,7 @@ public class UpdateUserPlatformAdminTest extends BasePage {
                 Thread.sleep(2000);
                 UserPageObj1.ClickUpdateUser();
                 Thread.sleep(10000);
-                verifyAssertionsobj.verify_webpage_url(UserPageObj1.userTabUrl);
+                AssertionsFunction.verifyTargetPageURL(UserPageObj1.userTabUrl);
 
         }
         @Test(priority = 11)
@@ -219,7 +215,7 @@ public class UpdateUserPlatformAdminTest extends BasePage {
             Thread.sleep(2000);
             UserPageObj1.ClickUpdateUser();
             Thread.sleep(10000);
-            verifyAssertionsobj.verify_webpage_url(UserPageObj1.userTabUrl);
+            AssertionsFunction.verifyTargetPageURL(UserPageObj1.userTabUrl);
 
 
         }
@@ -234,7 +230,7 @@ public class UpdateUserPlatformAdminTest extends BasePage {
         Thread.sleep(2000);
         UserPageObj1.ClickUpdateUser();
         Thread.sleep(10000);
-        verifyAssertionsobj.verify_webpage_url(UserPageObj1.userTabUrl);
+        AssertionsFunction.verifyTargetPageURL(UserPageObj1.userTabUrl);
 
 
         }
@@ -250,7 +246,7 @@ public class UpdateUserPlatformAdminTest extends BasePage {
         UserPageObj1.ClickUpdateUser();
         Thread.sleep(3000);
         Thread.sleep(10000);
-        verifyAssertionsobj.verify_webpage_url(UserPageObj1.userTabUrl);
+        AssertionsFunction.verifyTargetPageURL(UserPageObj1.userTabUrl);
 
         }
 //            //Only Digits

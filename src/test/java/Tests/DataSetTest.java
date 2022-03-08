@@ -1,19 +1,17 @@
 package Tests;
 import Base.BasePage;
 import Pages.DatasetPage;
+import Utilities.AssertionsFunction;
 import Utilities.Functions;
 import Utilities.ReadProps;
-import Utilities.verifyAssertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.seleniumhq.jetty9.server.Authentication;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
 @Listeners(Utilities.TestListeners.class)
 public class DataSetTest extends BasePage {
     static DatasetPage DatasetPageObj;
-    static verifyAssertions verifyAssertionsobj;
     @BeforeClass
     public void login() throws Exception {
         BasePage.driverInit();
@@ -26,14 +24,14 @@ public class DataSetTest extends BasePage {
     @Test(priority = 1)
     public void create_category_with_blank_name() throws Exception {
         DatasetPageObj = new DatasetPage(driver);
-        verifyAssertionsobj=new verifyAssertions(driver);
         DatasetPageObj.ClickDatasetBtn();
         Thread.sleep(4000);
-        verifyAssertionsobj.verify_webpage_url(DatasetPageObj.dataSetTabUrl);
+        AssertionsFunction.verifyTargetPageURL(DatasetPageObj.dataSetTabUrl);
+
         //TC 6.1 - Create category with blank name.
         DatasetPageObj.ClickAddCategoryBtn();
         Thread.sleep(2000);
-        Assert.assertTrue(Functions.isElementPresent(DatasetPageObj.getCreateNewDatasetCategory()));
+        Assert.assertTrue(AssertionsFunction.isPresent(DatasetPageObj.getCreateNewDatasetCategory()));
 
     }
     @Test(priority = 2)
@@ -41,10 +39,9 @@ public class DataSetTest extends BasePage {
         //TC 6.2 - Create Category with Invalid Name.
         DatasetPageObj.ClickCategoryName(ReadProps.readAttr("Invalid_Name"));
         Thread.sleep(2000);
-       // Assert.assertTrue(Functions.isElementPresent(DatasetPageObj.getNoRecordFound()));
         DatasetPageObj.ClickCategoryCancelBtn();
         Thread.sleep(2000);
-        verifyAssertionsobj.verify_webpage_url(DatasetPageObj.dataSetTabUrl);
+        AssertionsFunction.verifyTargetPageURL(DatasetPageObj.dataSetTabUrl);
 
     }
     @Test(priority = 3)
@@ -52,12 +49,12 @@ public class DataSetTest extends BasePage {
         //TC 6.3 - Create category with Valid name.
         DatasetPageObj.ClickAddCategoryBtn();
         Thread.sleep(2000);
-        Assert.assertTrue(Functions.isElementPresent(DatasetPageObj.getCreateNewDatasetCategory()));
+        Assert.assertTrue(AssertionsFunction.isPresent(DatasetPageObj.getCreateNewDatasetCategory()));
         DatasetPageObj.ClickCategoryName(ReadProps.readAttr("DName"));//Change Dataset Name before executing
         Thread.sleep(2000);
         DatasetPageObj.ClickCreateCategory();
         Thread.sleep(4000);
-        Assert.assertTrue(Functions.isElementPresent(DatasetPageObj.getcreatedCategory()));
+        Assert.assertTrue(AssertionsFunction.isPresent(DatasetPageObj.getcreatedCategory()));
 
     }
     @Test(priority = 4)
@@ -68,28 +65,26 @@ public class DataSetTest extends BasePage {
         Assert.assertTrue(Functions.isElementPresent(DatasetPageObj.getCreateNewDataset()));
         DatasetPageObj.ClickAddDatasetCancelBtn();
         Thread.sleep(2000);
-        verifyAssertionsobj.verify_webpage_url(DatasetPageObj.dataSetTabUrl);
-
+        AssertionsFunction.verifyTargetPageURL(DatasetPageObj.dataSetTabUrl);
     }
     @Test(priority = 5)
     public void add_dataset_with_blank_and_name_chosen_file() throws Exception {
         //TC 6.5 - Perform action to add dataset with name and no chosen file.
         DatasetPageObj.ClickActionBtn();
         Thread.sleep(2000);
-        Assert.assertTrue(Functions.isElementPresent(DatasetPageObj.getCreateNewDataset()));
+        Assert.assertTrue(AssertionsFunction.isPresent(DatasetPageObj.getCreateNewDataset()));
         DatasetPageObj.ClickDatasetName(ReadProps.readAttr("DName"));//Change before executing.
         Thread.sleep(2000);
         DatasetPageObj.ClickAddDatasetCancelBtn();
         Thread.sleep(2000);
-        verifyAssertionsobj.verify_webpage_url(DatasetPageObj.dataSetTabUrl);
-
+        AssertionsFunction.verifyTargetPageURL(DatasetPageObj.dataSetTabUrl);
     }
     @Test(priority = 6)
     public void add_dataset_with_csv_file_validation() throws Exception {
         //TC 6.6 - Perform action to add dataset with name, chosen file (.csv) but no validation type.
         DatasetPageObj.ClickActionBtn();
         Thread.sleep(2000);
-        Assert.assertTrue(Functions.isElementPresent(DatasetPageObj.getCreateNewDataset()));
+        Assert.assertTrue(AssertionsFunction.isPresent(DatasetPageObj.getCreateNewDataset()));
         DatasetPageObj.ClickDatasetName(ReadProps.readAttr("DName"));//Change before executing.
         Thread.sleep(2000);
         WebElement upload_file = driver.findElement(By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-dataset-editor[1]/div[4]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/div[1]/input[1]"));
@@ -97,7 +92,7 @@ public class DataSetTest extends BasePage {
         Thread.sleep(2000);
         DatasetPageObj.ClickAddDatasetCancelBtn();
         Thread.sleep(2000);
-        verifyAssertionsobj.verify_webpage_url(DatasetPageObj.dataSetTabUrl);
+        AssertionsFunction.verifyTargetPageURL(DatasetPageObj.dataSetTabUrl);
 
     }
     @Test(priority = 7)
@@ -105,13 +100,13 @@ public class DataSetTest extends BasePage {
         //TC 6.7 - Perform action to add dataset file in the created category with name, chosen file and validation type.
         DatasetPageObj.ClickActionBtn();
         Thread.sleep(2000);
-        Assert.assertTrue(Functions.isElementPresent(DatasetPageObj.getCreateNewDataset()));
+        Assert.assertTrue(AssertionsFunction.isPresent(DatasetPageObj.getCreateNewDataset()));
         DatasetPageObj.ClickDatasetName(ReadProps.readAttr("DName"));//Change before executing
         Thread.sleep(2000);
         WebElement upload_file1 = driver.findElement(By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-dataset-editor[1]/div[4]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/div[1]/input[1]"));
         upload_file1.sendKeys(System.getProperty("user.dir")+"\\src\\test\\resources\\sampledata.csv");
         Thread.sleep(2000);
-        verifyAssertionsobj.verify_webpage_url(DatasetPageObj.dataSetTabUrl);
+        AssertionsFunction.verifyTargetPageURL(DatasetPageObj.dataSetTabUrl);
 
     }
     @Test(priority = 8)
@@ -121,7 +116,6 @@ public class DataSetTest extends BasePage {
         Thread.sleep(2000);
         DatasetPageObj.ClickValidationName();
         Thread.sleep(2000);
-      //  Assert.assertTrue(Functions.isSelectedOption(DatasetPageObj.getNameOptionValidationDropdown()));
     }
 
 //    @Test(priority = 9)

@@ -99,7 +99,6 @@ public class RoleWiseTest extends BasePage {
                 //TC 19.9 Supervisor ROle Access Template.
                 roleAccessObj.Double_clickSupervisorTemplate();
                 Thread.sleep(6000);
-               // roleAccessObj.verify_supervisor_role_access_template();
 
         }
         @Test(priority = 10)

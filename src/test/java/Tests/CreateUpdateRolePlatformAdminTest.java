@@ -1,22 +1,20 @@
 package Tests;
 import Base.BasePage;
 import Pages.CreateRolePage;
-import Utilities.Functions;
+import Utilities.AssertionsFunction;
 import Utilities.ReadProps;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
-import Utilities.verifyAssertions;
+
 import static Pages.CreateRolePage.*;
 import static Pages.CreateRolePage.errormsgBlankDataCreateRoleClick;
-import static Tests.CreateUpdateRoleAdminTest.verifyAssertionsobj;
 
 @Listeners(Utilities.TestListeners.class)
 public class CreateUpdateRolePlatformAdminTest extends BasePage
 {
     static CreateRolePage CreateRolePageObj ;
-    static  verifyAssertions verifyAssertionsobj;
 
     @BeforeClass
     public void login() throws Exception {
@@ -30,24 +28,21 @@ public class CreateUpdateRolePlatformAdminTest extends BasePage
     @Test(priority = 1)
     public void create_role_with_blank_rolename_permission() throws Exception {
         CreateRolePageObj = new CreateRolePage(driver);
-        verifyAssertionsobj=new verifyAssertions(driver);
         Thread.sleep(2000);
         CreateRolePageObj.ClickRoleManagementBtn();
-        Thread.sleep(5000);
-        verifyAssertionsobj.verify_webpage_url(role_tab_url);
+        Thread.sleep(6000);
+        AssertionsFunction.verifyTargetPageURL(role_tab_url);
         CreateRolePageObj.ClickCreateRoleBtn();
         Thread.sleep(2000);
-        verifyAssertionsobj.verify_webpage_url(create_role_url);
+        AssertionsFunction.verifyTargetPageURL(create_role_url);
 
         //TC 3.1 Create Role with Blank RoleName and Permission.
         CreateRolePageObj.ClickCreateButton();
         Thread.sleep(2000);
-        verifyAssertionsobj.verify_error_message(errormsg,errormsgBlankDataCreateRoleClick);
+        AssertionsFunction.verifyElementText(errormsg,errormsgBlankDataCreateRoleClick);
         driver.navigate().refresh();
         Thread.sleep(4000);
-        verifyAssertionsobj.verify_webpage_url(create_role_url);
-
-
+        AssertionsFunction.verifyTargetPageURL(create_role_url);
     }
     @Test(priority = 2)
     public void create_role_with_valid_rolename_blank_permission() throws Exception {
@@ -58,10 +53,10 @@ public class CreateUpdateRolePlatformAdminTest extends BasePage
         Thread.sleep(2000);
         CreateRolePageObj.ClickCreateButton();
         Thread.sleep(2000);
-        verifyAssertionsobj.verify_error_message(errormsg,errormsgBlankDataCreateRoleClick);
+        AssertionsFunction.verifyElementText(errormsg,errormsgBlankDataCreateRoleClick);
         driver.navigate().refresh();
         Thread.sleep(5000);
-        verifyAssertionsobj.verify_webpage_url(create_role_url);
+        AssertionsFunction.verifyTargetPageURL(create_role_url);
     }
     @Test(priority = 3)
     public void create_role_with_blank_rolename_valid_permission() throws Exception {
@@ -72,18 +67,16 @@ public class CreateUpdateRolePlatformAdminTest extends BasePage
         Thread.sleep(2000);
         CreateRolePageObj.SelectViewDocumentPermission();
         Thread.sleep(2000);
-        Assert.assertTrue(Functions.isElementPresent(CreateRolePageObj.getViewDocumentPermission()));
+        Assert.assertTrue(AssertionsFunction.isPresent(CreateRolePageObj.getViewDocumentPermission()));
         Robot r = new Robot();
         r.keyPress(KeyEvent.VK_ESCAPE);
         Thread.sleep(3000);
         CreateRolePageObj.ClickCreateButton();
         Thread.sleep(2000);
-        verifyAssertionsobj.verify_error_message(errormsg,errormsgBlankDataCreateRoleClick);
+        AssertionsFunction.verifyElementText(errormsg,errormsgBlankDataCreateRoleClick);
         CreateRolePageObj.ClickCancelButton();
         Thread.sleep(4000);
-        verifyAssertionsobj.verify_webpage_url(role_tab_url);
-
-
+        AssertionsFunction.verifyTargetPageURL(role_tab_url);
     }
          /*   // Create AE admin role
             CreateRolePageObj.EnterRoleName(ReadProps.readAttr("AdminRole"));
@@ -156,14 +149,14 @@ public class CreateUpdateRolePlatformAdminTest extends BasePage
         //TC 3.4 Create Role with Valid Role Name and Permission.
         CreateRolePageObj.ClickCreateRoleBtn();
         Thread.sleep(4000);
-        verifyAssertionsobj.verify_webpage_url(create_role_url);
+        AssertionsFunction.verifyTargetPageURL(create_role_url);
         CreateRolePageObj.EnterRoleName(ReadProps.readAttr("RoleNamePA"));//Change everytime before u ran
         Thread.sleep(2000);
         CreateRolePageObj.AddPermissionPlusBtn();
         Thread.sleep(2000);
         CreateRolePageObj.SelectViewDocumentPermission();
         Thread.sleep(2000);
-        Assert.assertTrue(Functions.isElementPresent(CreateRolePageObj.getViewDocumentPermission()));
+        Assert.assertTrue(AssertionsFunction.isPresent(CreateRolePageObj.getViewDocumentPermission()));
         Robot r = new Robot();
         r.keyPress(KeyEvent.VK_ESCAPE);
         Thread.sleep(3000);
@@ -175,23 +168,23 @@ public class CreateUpdateRolePlatformAdminTest extends BasePage
         //TC 3.5 Create Role with Existing Name.
         CreateRolePageObj.ClickCreateRoleBtn();
         Thread.sleep(4000);
-        verifyAssertionsobj.verify_webpage_url(create_role_url);
+        AssertionsFunction.verifyTargetPageURL(create_role_url);
         CreateRolePageObj.EnterRoleName(ReadProps.readAttr("RoleNamePA"));//Change everytime before u ran
         Thread.sleep(2000);
         CreateRolePageObj.AddPermissionPlusBtn();
         Thread.sleep(2000);
         CreateRolePageObj.SelectViewDocumentPermission();
         Thread.sleep(2000);
-        Assert.assertTrue(Functions.isElementPresent(CreateRolePageObj.getViewDocumentPermission()));
+        Assert.assertTrue(AssertionsFunction.isPresent(CreateRolePageObj.getViewDocumentPermission()));
         Robot r = new Robot();
         r.keyPress(KeyEvent.VK_ESCAPE);
         Thread.sleep(3000);
         CreateRolePageObj.ClickCreateButton();
         Thread.sleep(4000);
-      //  verifyAssertionsobj.verify_error_message_Existing_role(CreateRolePageObj.RoleNamePA,CreateRolePageObj.errormsg_roleExist_CreateRoleClick);
         CreateRolePageObj.ClickCancelButton();
         Thread.sleep(3000);
-        verifyAssertionsobj.verify_webpage_url(role_tab_url);
+        AssertionsFunction.verifyTargetPageURL(role_tab_url);
+
 
     }
     @Test(priority = 6)
@@ -199,7 +192,7 @@ public class CreateUpdateRolePlatformAdminTest extends BasePage
         //TC 3.6 Search the Created Role.
         CreateRolePageObj.SearchCreatedRole(ReadProps.readAttr("RoleNamePA"));
         Thread.sleep(3000);
-        Assert.assertTrue(Functions.isElementPresent(CreateRolePageObj.getSearch_created_role_element()));
+        Assert.assertTrue(AssertionsFunction.isPresent(CreateRolePageObj.getSearch_created_role_element()));
     }
     @Test(priority = 7)
     public void update_role_with_valid_data() throws Exception {
@@ -212,14 +205,13 @@ public class CreateUpdateRolePlatformAdminTest extends BasePage
         Thread.sleep(2000);
         CreateRolePageObj.ClickProcessDocPermission();
         Thread.sleep(2000);
-        Assert.assertTrue(Functions.isElementPresent(CreateRolePageObj.getProcessDocumentPermission()));
+        Assert.assertTrue(AssertionsFunction.isPresent(CreateRolePageObj.getProcessDocumentPermission()));
         Robot r = new Robot();
         r.keyPress(KeyEvent.VK_ESCAPE);
         Thread.sleep(3000);
         CreateRolePageObj.ClickUpdateBtn();
         Thread.sleep(3000);
-        verifyAssertionsobj.verify_webpage_url(role_tab_url);
-
+        AssertionsFunction.verifyTargetPageURL(role_tab_url);
     }
     @Test(priority = 8)
     public void remove_all_permissions_update() throws Exception {
@@ -230,10 +222,11 @@ public class CreateUpdateRolePlatformAdminTest extends BasePage
         Thread.sleep(2000);
         CreateRolePageObj.ClickUpdateBtn();
         Thread.sleep(2000);
-        verifyAssertionsobj.verify_error_message(errormsg,errormsgBlankDataCreateRoleClick);
+        AssertionsFunction.verifyElementText(errormsg,errormsgBlankDataCreateRoleClick);
         CreateRolePageObj.ClickCancelButton();
         Thread.sleep(3000);
-        verifyAssertionsobj.verify_webpage_url(role_tab_url);
+        AssertionsFunction.verifyTargetPageURL(role_tab_url);
+
 
     }
     @Test(priority = 9)
@@ -245,7 +238,7 @@ public class CreateUpdateRolePlatformAdminTest extends BasePage
         Thread.sleep(2000);
         CreateRolePageObj.ClickUpdateBtn();
         Thread.sleep(4000);
-        verifyAssertionsobj.verify_webpage_url(role_tab_url);
+        AssertionsFunction.verifyTargetPageURL(role_tab_url);
 
     }
     @Test(priority = 10)
@@ -257,10 +250,11 @@ public class CreateUpdateRolePlatformAdminTest extends BasePage
         Thread.sleep(2000);
         CreateRolePageObj.ClickUpdateBtn();
         Thread.sleep(3000);
-        verifyAssertionsobj.verify_webpage_url(role_tab_url);
+        AssertionsFunction.verifyTargetPageURL(role_tab_url);
         CreateRolePageObj.ClickLogout();
         Thread.sleep(5000);
-        verifyAssertionsobj.verify_webpage_url(loginPage_url);
+        AssertionsFunction.verifyTargetPageURL(loginPage_url);
+
 
 
     }

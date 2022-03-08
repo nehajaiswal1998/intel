@@ -5,7 +5,6 @@ import Pages.ProjectBREPage;
 import Pages.ProjectPage;
 import Utilities.Functions;
 import Utilities.ReadProps;
-import Utilities.verifyAssertions;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import java.awt.*;

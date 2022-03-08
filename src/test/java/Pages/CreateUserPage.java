@@ -23,7 +23,7 @@ public class CreateUserPage extends BasePage
     By Password  = By.xpath("//input[@type='password']");
     By PlatformUser = By.xpath("//td[contains(text(),' AutoSampleBB ')]");
     By UserUpdated = By.xpath("//td[contains(text(),' AutoSampleUpdate ')]");
-    By AdminUser = By.xpath("//td[contains(text(),' AutoAdminUserad ')]");//Change everytime before u run.
+    By AdminUser = By.xpath("//td[contains(text(),' Nirbhay ')]");//Change everytime before u run.
     By UpdatedTime = By.xpath("//tbody[@role='rowgroup']/tr[1]/td[3]");
     By CreatedTime = By.xpath("//tbody[@role='rowgroup']/tr[1]/td[4]");
     By logout = By.xpath("//span[@mattooltip='Logout']");
@@ -53,11 +53,8 @@ public class CreateUserPage extends BasePage
         s.doubleClick(UserBtn1).perform();
         //driver.findElement(UserBtn).click();
     }
-    public By GetcreatedUser()
-    {
-        return this.createdUser;
-
-    }
+    public By getAdminUser(){return this.AdminUser;}
+    public By GetcreatedUser() {return this.createdUser;}
     public void ClickUserBtn(){driver.findElement(UserBtn).click();}
     public  void ClickOnCancelBtn(){driver.findElement(CancelButton).click();}
     //public void ClickCancelBtn(){driver.findElement(CancelBtn).click();}

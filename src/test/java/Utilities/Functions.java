@@ -24,15 +24,15 @@ public class Functions {
             return false;
         }
     }
-    public static boolean isSelectedOption(By locator){
-        try {
-            BasePage.driver.findElement(locator).isSelected();
-            return true;
-        }
-        catch (Exception e) {
-            return false;
-        }
-    }
+////    public static boolean isSelectedOption(By locator){
+//        try {
+//            BasePage.driver.findElement(locator).isSelected();
+//            return true;
+//        }
+//        catch (Exception e) {
+//            return false;
+//        }
+//    }
 
 
 

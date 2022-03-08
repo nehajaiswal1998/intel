@@ -2,7 +2,6 @@ package Tests;
 import Base.BasePage;
 import Pages.CreateUserPage;
 import Utilities.ReadProps;
-import Utilities.verifyAssertions;
 import org.testng.annotations.*;
 import java.io.IOException;
 @Listeners(Utilities.TestListeners.class)
@@ -14,7 +13,7 @@ public class UpdateUserAdminTest extends BasePage {
     public void login() throws Exception {
         BasePage.driverInit();
     }
-    @AfterClass
+    @AfterClass(enabled = false)
     public void cleanUp() throws Exception {
         driver.quit();
     }
@@ -32,32 +31,33 @@ public class UpdateUserAdminTest extends BasePage {
             Thread.sleep(2000);
             UserPageObj1.clickLoginButton();
             Thread.sleep(8000);
-          //  verifyAssertionsobj.verify_webpage_url(UserPageObj1.loginHoempPageUrl);
+            verifyAssertionsobj.verify_webpage_url(UserPageObj1.loginHoempPageUrl);
             UserPageObj1.ClickUserBtn();
             Thread.sleep(3000);
             verifyAssertionsobj.verify_webpage_url(UserPageObj1.userTabUrl);
-           // UserPageObj1.SelectSearchedUser();
+            Thread.sleep(3000);
             UserPageObj1.SelectSearchedAdminUser();
             Thread.sleep(2000);
     }
-//        @Test(priority = 2)
-//        public void disable_user_update() throws InterruptedException, IOException {
-//                //TC 22.2 Disable User and Update.
-//                UserPageObj1.ClickDisableUser();
-//                Thread.sleep(2000);
-//                UserPageObj1.ClickUpdateUser();
-//                Thread.sleep(2000);
-//                UserPageObj1.SelectSearchedAdminUser();
-//                Thread.sleep(2000);
-//        }
-//        @Test(priority = 3)
-//        public void enable_user_update() throws InterruptedException, IOException {
-//                //TC 22.3 Enable User and Update.
-//                UserPageObj1.ClickEnableUser();
-//                Thread.sleep(2000);
-//                UserPageObj1.ClickUpdateUser();
-//                Thread.sleep(2000);
-//        }
+        @Test(priority = 2)
+        public void disable_user_update() throws InterruptedException, IOException {
+                //TC 22.2 Disable User and Update.
+                UserPageObj1.ClickDisableUser();
+                Thread.sleep(2000);
+                UserPageObj1.ClickUpdateUser();
+                Thread.sleep(2000);
+                verifyAssertionsobj.verify_webpage_url(UserPageObj1.userTabUrl);
+                UserPageObj1.SelectSearchedAdminUser();
+                Thread.sleep(2000);
+        }
+        @Test(priority = 3)
+        public void enable_user_update() throws InterruptedException, IOException {
+                //TC 22.3 Enable User and Update.
+                UserPageObj1.ClickEnableUser();
+                Thread.sleep(2000);
+                UserPageObj1.ClickUpdateUser();
+                Thread.sleep(2000);
+        }
 //        @Test(priority = 4)
 //        public void update_with_blank_name() throws InterruptedException, IOException {
 //                //TC 22.4 Update with Blank Name.
