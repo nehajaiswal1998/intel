@@ -6,13 +6,20 @@ import Utilities.ReadProps;
 import com.relevantcodes.extentreports.ExtentTest;
 import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.PropertiesConfiguration;
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Properties;
+
 
 public class BasePage {
 
@@ -39,11 +46,10 @@ public class BasePage {
 
     @BeforeSuite
     public static void updateObjectRepo() throws IOException, ConfigurationException {
-    int exec_id = Integer.valueOf(ReadProps.readAttr("exec_id"));
-    exec_id++;
+        int exec_id = Integer.valueOf(ReadProps.readAttr("exec_id"));
+        exec_id++;
         PropertiesConfiguration config = new PropertiesConfiguration("Object_Repository.properties");
         config.setProperty("exec_id", String.valueOf(exec_id));
-
         config.setProperty("AdminUserName", "AutoAdminUser"+ exec_id);
         config.setProperty("AdminID", config.getProperty("AdminUserName")+"@test.com");
         config.setProperty("RoleName", "AutoAdmin"+ exec_id);
@@ -57,6 +63,7 @@ public class BasePage {
         config.setProperty("MedicalChartProjectName1","QA-AutoProject-MedicalChart"+ exec_id);
         config.setProperty("StartDate", new SimpleDateFormat("M/d/yyyy").format(new Date()));
         config.setProperty("EndDate", config.getProperty("StartDate"));
-        config.save();
+        config.save();}
+
     }
-}
+

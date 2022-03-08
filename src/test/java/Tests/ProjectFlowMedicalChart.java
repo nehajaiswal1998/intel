@@ -40,7 +40,7 @@ public class ProjectFlowMedicalChart extends BasePage {
         Thread.sleep(2000);
         ProjectPageObj.SelectOnLeadBtn();
         Thread.sleep(2000);
-        AssertionsFunction.verifyElementSelected(ProjectPageObj.SelectLead);
+        AssertionsFunction.verifyElementSelected(ProjectPageObj.GetselectLead());
         Thread.sleep(1000);
         ProjectPageObj.ClickOnStartDateBtn();
         Thread.sleep(2000);

@@ -1,20 +1,21 @@
 package Tests;
 import Base.BasePage;
 import Pages.CreateUserPage;
+import Utilities.AssertionsFunction;
 import Utilities.ReadProps;
 import org.testng.annotations.*;
+
 @Listeners(Utilities.TestListeners.class)
 
 public class UpdateUserPlatformAdminTest extends BasePage {
         static CreateUserPage UserPageObj1;
-
         @BeforeClass
         public void login() throws Exception {
                 BasePage.driverInit();
                 BasePage.LoginTest();
         }
 
-        @AfterClass
+        @AfterClass(enabled = false)
         public void cleanUp() throws Exception {
                 driver.quit();
         }
@@ -24,6 +25,7 @@ public class UpdateUserPlatformAdminTest extends BasePage {
                 UserPageObj1 = new CreateUserPage(driver);
                 UserPageObj1.ClickUserBtn();
                 Thread.sleep(5000);
+                AssertionsFunction.verifyTargetPageURL(UserPageObj1.userTabUrl);
                 //TC 23.1 Update User enable, disable.
                 UserPageObj1.SearchCreatedUser(ReadProps.readAttr("Username"));
                 Thread.sleep(2000);
@@ -33,6 +35,7 @@ public class UpdateUserPlatformAdminTest extends BasePage {
                 Thread.sleep(2000);
                 UserPageObj1.ClickUpdateUser();
                 Thread.sleep(5000);
+                AssertionsFunction.verifyTargetPageURL(UserPageObj1.userTabUrl);
                 UserPageObj1.SearchCreatedUser(ReadProps.readAttr("Username"));
                 Thread.sleep(1000);
                 UserPageObj1.SelectSearchedUser();
@@ -40,7 +43,8 @@ public class UpdateUserPlatformAdminTest extends BasePage {
                 UserPageObj1.ClickEnableUser();
                 Thread.sleep(2000);
                 UserPageObj1.ClickUpdateUser();
-                Thread.sleep(6000);
+                Thread.sleep(10000);
+                AssertionsFunction.verifyTargetPageURL(UserPageObj1.userTabUrl);
         }
 
         @Test(priority = 2)
@@ -51,10 +55,13 @@ public class UpdateUserPlatformAdminTest extends BasePage {
                 UserPageObj1.ClickToClearName();
                 Thread.sleep(2000);
                 UserPageObj1.ClickUpdateUser();
-                //UserPageObj1.UserBlankAssert();
+                Thread.sleep(5000);
+                AssertionsFunction.verifyElementText(UserPageObj1.errmsg,UserPageObj1.errmsgBlankDataCreateRoleClick);
                 Thread.sleep(5000);
                 UserPageObj1.ClickOnCancelBtn();
-                Thread.sleep(5000);
+                Thread.sleep(10000);
+                AssertionsFunction.verifyTargetPageURL(UserPageObj1.userTabUrl);
+
         }
 
         @Test(priority = 3)
@@ -69,9 +76,11 @@ public class UpdateUserPlatformAdminTest extends BasePage {
                 UserPageObj1.EnterPassword(ReadProps.readAttr("pwd"));
                 Thread.sleep(2000);
                 UserPageObj1.ClickUpdateUser();
+                AssertionsFunction.verifyElementText(UserPageObj1.errmsg,UserPageObj1.errmsgBlankDataCreateRoleClick);
                 Thread.sleep(5000);
                 UserPageObj1.ClickOnCancelBtn();
                 Thread.sleep(5000);
+                AssertionsFunction.verifyTargetPageURL(UserPageObj1.userTabUrl);
         }
 
         @Test(priority = 4)
@@ -88,10 +97,12 @@ public class UpdateUserPlatformAdminTest extends BasePage {
                 UserPageObj1.ClearPassword();
                 Thread.sleep(3000);
                 UserPageObj1.ClickUpdateUser();
-                //UserPageObj1.UserBlankAssert();
+                AssertionsFunction.verifyElementText(UserPageObj1.errmsg,UserPageObj1.errmsgBlankDataCreateRoleClick);
                 Thread.sleep(5000);
                 UserPageObj1.ClickOnCancelBtn();
-                Thread.sleep(5000);
+                Thread.sleep(10000);
+                AssertionsFunction.verifyTargetPageURL(UserPageObj1.userTabUrl);
+
         }
 
         @Test(priority = 5)
@@ -104,11 +115,12 @@ public class UpdateUserPlatformAdminTest extends BasePage {
                 UserPageObj1.ClearPassword();
                 Thread.sleep(2000);
                 UserPageObj1.ClickUpdateUser();
-                Thread.sleep(2000);
-                //UserPageObj1.UserBlankAssert();
+                AssertionsFunction.verifyElementText(UserPageObj1.errmsg,UserPageObj1.errmsgBlankDataCreateRoleClick);
                 Thread.sleep(2000);
                 UserPageObj1.ClickOnCancelBtn();
                 Thread.sleep(5000);
+                AssertionsFunction.verifyTargetPageURL(UserPageObj1.userTabUrl);
+
         }
 
         @Test(priority = 6)
@@ -125,12 +137,13 @@ public class UpdateUserPlatformAdminTest extends BasePage {
                 UserPageObj1.EnterPassword(ReadProps.readAttr("pwd"));
                 Thread.sleep(2000);
                 UserPageObj1.ClickUpdateUser();
-                //UserPageObj1.UserBlankAssert();
+                AssertionsFunction.verifyElementText(UserPageObj1.errmsg,UserPageObj1.errmsgBlankDataCreateRoleClick);
                 Thread.sleep(2000);
                 UserPageObj1.ClickOnCancelBtn();
-                Thread.sleep(5000);
-        }
+                Thread.sleep(10000);
+                AssertionsFunction.verifyTargetPageURL(UserPageObj1.userTabUrl);
 
+        }
         @Test(priority = 7)
         public void valid_name_and_blank_password() throws Exception {
                 //TC 23.7 Valid Name and Blank password.
@@ -139,9 +152,7 @@ public class UpdateUserPlatformAdminTest extends BasePage {
                 UserPageObj1.ClearPassword();
                 Thread.sleep(3000);
                 UserPageObj1.ClickUpdateUser();
-                Thread.sleep(5000);
-                UserPageObj1.UpdateTimeAssert();
-                Thread.sleep(2000);
+                Thread.sleep(10000);
         }
 
         @Test(priority = 8)
@@ -155,8 +166,13 @@ public class UpdateUserPlatformAdminTest extends BasePage {
                 Thread.sleep(2000);
                 UserPageObj1.ClickUpdateUser();
                 Thread.sleep(2000);
+                AssertionsFunction.verifyElementText(UserPageObj1.errmsg,UserPageObj1.errmsgBlankDataCreateRoleClick);
                 UserPageObj1.ClickOnCancelBtn();
                 Thread.sleep(2000);
+                AssertionsFunction.verifyTargetPageURL(UserPageObj1.userTabUrl);
+
+
+
         }
 
         @Test(priority = 9)
@@ -169,22 +185,25 @@ public class UpdateUserPlatformAdminTest extends BasePage {
                 UserPageObj1.EnterPassword(ReadProps.readAttr("SpecialCharPwd"));
                 Thread.sleep(2000);
                 UserPageObj1.ClickUpdateUser();
-                Thread.sleep(4000);
+                Thread.sleep(10000);
+                AssertionsFunction.verifyTargetPageURL(UserPageObj1.userTabUrl);
+
         }
 
         @Test(priority = 10)
         public void password_field_must_have_at_least_one_upper_lower_alphabet()  throws Exception{
                 //TC 23.10 The password field must have at least 1 uppercase and 1 lowercase alphabet.
                 UserPageObj1.SelectSearchedUser();
-                Thread.sleep(1000);
+                Thread.sleep(2000);
                 UserPageObj1.ClearPassword();
                 Thread.sleep(3000);
                 UserPageObj1.EnterPassword(ReadProps.readAttr("UpperLowerCasePwd"));
                 Thread.sleep(2000);
                 UserPageObj1.ClickUpdateUser();
-                Thread.sleep(5000);
-        }
+                Thread.sleep(10000);
+                AssertionsFunction.verifyTargetPageURL(UserPageObj1.userTabUrl);
 
+        }
         @Test(priority = 11)
         public void password_field_must_have_length_to_be_minimum_eight() throws Exception{
         //TC 23.11 The password field length has to be minimum 8.
@@ -195,9 +214,12 @@ public class UpdateUserPlatformAdminTest extends BasePage {
             UserPageObj1.EnterPassword(ReadProps.readAttr("UpperLowerCasePwd"));
             Thread.sleep(2000);
             UserPageObj1.ClickUpdateUser();
-            Thread.sleep(5000);
-}
-@Test(priority = 12)
+            Thread.sleep(10000);
+            AssertionsFunction.verifyTargetPageURL(UserPageObj1.userTabUrl);
+
+
+        }
+        @Test(priority = 12)
         public void password_field_length_max_length_twelve() throws Exception {
         //TC 23.12 The password field length has to be maximum 12.
         UserPageObj1.SelectSearchedUser();
@@ -207,9 +229,12 @@ public class UpdateUserPlatformAdminTest extends BasePage {
         UserPageObj1.EnterPassword(ReadProps.readAttr("MaxLimit"));
         Thread.sleep(2000);
         UserPageObj1.ClickUpdateUser();
-        Thread.sleep(5000);
-}
-@Test(priority = 13)
+        Thread.sleep(10000);
+        AssertionsFunction.verifyTargetPageURL(UserPageObj1.userTabUrl);
+
+
+        }
+        @Test(priority = 13)
         public void only_alphabets() throws Exception {
         //TC 23.13 Only Alphabets.
         UserPageObj1.SelectSearchedUser();
@@ -220,7 +245,10 @@ public class UpdateUserPlatformAdminTest extends BasePage {
         Thread.sleep(3000);
         UserPageObj1.ClickUpdateUser();
         Thread.sleep(3000);
-}
+        Thread.sleep(10000);
+        AssertionsFunction.verifyTargetPageURL(UserPageObj1.userTabUrl);
+
+        }
 //            //Only Digits
 //            UserPageObj1.SelectSearchedUser();
 //            Thread.sleep(1000);

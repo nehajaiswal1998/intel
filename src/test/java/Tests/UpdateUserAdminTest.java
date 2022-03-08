@@ -8,12 +8,12 @@ import java.io.IOException;
 
 public class UpdateUserAdminTest extends BasePage {
         static CreateUserPage UserPageObj1;
-
+        static verifyAssertions verifyAssertionsobj;
         @BeforeClass
     public void login() throws Exception {
         BasePage.driverInit();
     }
-    @AfterClass
+    @AfterClass(enabled = false)
     public void cleanUp() throws Exception {
         driver.quit();
     }
@@ -23,6 +23,7 @@ public class UpdateUserAdminTest extends BasePage {
             driver.manage().window().maximize();
             Thread.sleep(8000);
             UserPageObj1 = new CreateUserPage(driver);
+           verifyAssertionsobj=new verifyAssertions(driver);
             //TC 22.1 Admin Login with Valid Credentials.
             UserPageObj1.setUsername(ReadProps.readAttr("AdminUser"));
             Thread.sleep(2000);
@@ -30,7 +31,10 @@ public class UpdateUserAdminTest extends BasePage {
             Thread.sleep(2000);
             UserPageObj1.clickLoginButton();
             Thread.sleep(8000);
+            verifyAssertionsobj.verify_webpage_url(UserPageObj1.loginHoempPageUrl);
             UserPageObj1.ClickUserBtn();
+            Thread.sleep(3000);
+            verifyAssertionsobj.verify_webpage_url(UserPageObj1.userTabUrl);
             Thread.sleep(3000);
             UserPageObj1.SelectSearchedAdminUser();
             Thread.sleep(2000);
@@ -42,6 +46,7 @@ public class UpdateUserAdminTest extends BasePage {
                 Thread.sleep(2000);
                 UserPageObj1.ClickUpdateUser();
                 Thread.sleep(2000);
+                verifyAssertionsobj.verify_webpage_url(UserPageObj1.userTabUrl);
                 UserPageObj1.SelectSearchedAdminUser();
                 Thread.sleep(2000);
         }
@@ -53,59 +58,59 @@ public class UpdateUserAdminTest extends BasePage {
                 UserPageObj1.ClickUpdateUser();
                 Thread.sleep(2000);
         }
-        @Test(priority = 4)
-        public void update_with_blank_name() throws InterruptedException, IOException {
-                //TC 22.4 Update with Blank Name.
-                UserPageObj1.SelectSearchedAdminUser();
-                Thread.sleep(1000);
-                UserPageObj1.ClickToClearName();
-                Thread.sleep(2000);
-                UserPageObj1.ClickUpdateUser();
-                Thread.sleep(1000);
-                //UserPageObj1.UserBlankAssert();
-                Thread.sleep(2000);
-                UserPageObj1.ClickOnCancelBtn();
-                Thread.sleep(6000);
-        }
-        @Test(priority = 5)
-        public void update_with_invalid_username() throws InterruptedException, IOException {
-                //TC 22.5 Update with Invalid UserName.
-                UserPageObj1.SelectSearchedAdminUser();
-                Thread.sleep(1000);
-                UserPageObj1.ClickToClearName();
-                Thread.sleep(2000);
-                UserPageObj1.EnterUserName(ReadProps.readAttr("EnterName"));
-                Thread.sleep(2000);
-                UserPageObj1.ClickUpdateUser();
-                //UserPageObj1.UserBlankAssert();
-                Thread.sleep(2000);
-                UserPageObj1.ClickOnCancelBtn();
-                Thread.sleep(6000);
-        }
-        @Test(priority = 6)
-        public void update_with_valid_username() throws InterruptedException, IOException {
-            //TC 22.6 Update with Valid Name.
-            UserPageObj1.SelectSearchedAdminUser();
-            Thread.sleep(2000);
-            UserPageObj1.ClickToClearName();
-            Thread.sleep(2000);
-            UserPageObj1.EnterUserName(ReadProps.readAttr("ValidNameUP"));
-            Thread.sleep(2000);
-            UserPageObj1.ClickUpdateUser();
-            Thread.sleep(2000);
-            //Remove Update for script maintains only.
-            UserPageObj1.SearchCreatedUser(ReadProps.readAttr("ValidNameUP"));
-            Thread.sleep(2000);
-            UserPageObj1.SelectUpdatedUser();
-            Thread.sleep(1000);
-            UserPageObj1.ClickToClearName();
-            Thread.sleep(2000);
-            UserPageObj1.EnterUserName(ReadProps.readAttr("AdminUserName"));
-            Thread.sleep(2000);
-            UserPageObj1.ClickUpdateUser();
-            Thread.sleep(4000);
-            UserPageObj1.LogOut();
-            Thread.sleep(4000);
-        }
+//        @Test(priority = 4)
+//        public void update_with_blank_name() throws InterruptedException, IOException {
+//                //TC 22.4 Update with Blank Name.
+//                UserPageObj1.SelectSearchedAdminUser();
+//                Thread.sleep(1000);
+//                UserPageObj1.ClickToClearName();
+//                Thread.sleep(2000);
+//                UserPageObj1.ClickUpdateUser();
+//                Thread.sleep(1000);
+//                //UserPageObj1.UserBlankAssert();
+//                Thread.sleep(2000);
+//                UserPageObj1.ClickOnCancelBtn();
+//                Thread.sleep(6000);
+//        }
+//        @Test(priority = 5)
+//        public void update_with_invalid_username() throws InterruptedException, IOException {
+//                //TC 22.5 Update with Invalid UserName.
+//                UserPageObj1.SelectSearchedAdminUser();
+//                Thread.sleep(1000);
+//                UserPageObj1.ClickToClearName();
+//                Thread.sleep(2000);
+//                UserPageObj1.EnterUserName(ReadProps.readAttr("EnterName"));
+//                Thread.sleep(2000);
+//                UserPageObj1.ClickUpdateUser();
+//                //UserPageObj1.UserBlankAssert();
+//                Thread.sleep(2000);
+//                UserPageObj1.ClickOnCancelBtn();
+//                Thread.sleep(6000);
+//        }
+//        @Test(priority = 6)
+//        public void update_with_valid_username() throws InterruptedException, IOException {
+//            //TC 22.6 Update with Valid Name.
+//            UserPageObj1.SelectSearchedAdminUser();
+//            Thread.sleep(2000);
+//            UserPageObj1.ClickToClearName();
+//            Thread.sleep(2000);
+//            UserPageObj1.EnterUserName(ReadProps.readAttr("ValidNameUP"));
+//            Thread.sleep(2000);
+//            UserPageObj1.ClickUpdateUser();
+//            Thread.sleep(2000);
+//            //Remove Update for script maintains only.
+//            UserPageObj1.SearchCreatedUser(ReadProps.readAttr("ValidNameUP"));
+//            Thread.sleep(2000);
+//            UserPageObj1.SelectUpdatedUser();
+//            Thread.sleep(1000);
+//            UserPageObj1.ClickToClearName();
+//            Thread.sleep(2000);
+//            UserPageObj1.EnterUserName(ReadProps.readAttr("AdminUserName"));
+//            Thread.sleep(2000);
+//            UserPageObj1.ClickUpdateUser();
+//            Thread.sleep(4000);
+//            UserPageObj1.LogOut();
+//            Thread.sleep(4000);
+//        }
     }
 

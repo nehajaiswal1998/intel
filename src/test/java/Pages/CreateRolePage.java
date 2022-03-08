@@ -19,8 +19,8 @@ public class CreateRolePage {
     By ViewDocumentPermission = By.xpath("//span[contains(text(),'View Document' )]");
     By ClickCancel = By.xpath("//span[contains(text(),'Cancel')]");
     By SearchRole = By.xpath("//input[@data-placeholder='Search']");
-    By EditRole = By.xpath("//span[contains(text(),"+ReadProps.readAttr("RoleName")+")]");
-    By EditRolePA = By.xpath("//span[contains(text(),"+ ReadProps.readAttr("RoleNamePA")+")]");
+    By EditRole = By.xpath("//span[contains(text(),\""+ReadProps.readAttr("RoleName")+"\")]/following::button[@aria-label=\"edit role details\"]");
+    By EditRolePA = By.xpath("//span[contains(text(),\""+ ReadProps.readAttr("RoleNamePA")+"\")]");
 
     By ProcessDocumentPermission = By.xpath("//span[contains(text(),' Process Document ')]");
     By CreateUserPermission = By.xpath("//span[contains(text(),'Create User')]");
@@ -41,10 +41,30 @@ public class CreateRolePage {
     By LoginBtn = By.xpath("//button[@type='submit']");
     By Username = By.xpath("//input[@formcontrolname='userName']");
     By Password = By.xpath("//input[@formcontrolname='password']");
-    //By ErrorMsg = By.xpath("//simple-snack-bar[@class='mat-simple-snackbar ng-star-inserted']");
     By UpdatedTime = By.xpath("//tbody[@role='rowgroup']/tr[1]/td[3]");
     By CreatedTime = By.xpath("//tbody[@role='rowgroup']/tr[1]/td[4]");
+    By search_created_role_element=By.xpath("//*[@mattooltipposition='below']");
+    By createdRole=By.xpath("//span[contains(text(),\""+ReadProps.readAttr("RoleName")+"\")]");
 
+    public static By errormsgBlankDataCreateRoleClick=By.xpath("//span[contains(text(),'Please enter all the details before submitting.')]");
+    public static String loginPage_url="https://alpha.neutrino-ai.com/#/login";
+    public static String homepage_url="https://alpha.neutrino-ai.com/#/home/project-management";
+    public static String role_tab_url="https://alpha.neutrino-ai.com/#/home/role-management";
+    public static String create_role_url="https://alpha.neutrino-ai.com/#/home/role-management/create-role";
+    public static String edit_role_url="https://alpha.neutrino-ai.com/#/home/role-management/edit-role/61b8747950fd017465189427";
+    public static String errormsg="Please enter all the details before submitting.";
+    public static String role_exist_error_msg="Role exist with name AutoAdminPA41";
+    public String RoleNamePA=ReadProps.readAttr("RoleNamePA");
+    public By errormsg_roleExist_CreateRoleClick=By.xpath("//*[@class='mat-simple-snackbar ng-star-inserted']");
+    public By getCreatedRole(){return this.createdRole;}
+    public By getroleExist_errormsg(){
+        return this.errormsg_roleExist_CreateRoleClick;
+    }
+    public By getProcessDocumentPermission(){
+        return  this.ProcessDocumentPermission;
+    }
+    public By getViewDocumentPermission(){return this.ViewDocumentPermission;}
+    public By getSearch_created_role_element(){return this.search_created_role_element;}
     public CreateRolePage(WebDriver driver) throws IOException {
         this.driver = driver;
     }
@@ -135,48 +155,7 @@ public class CreateRolePage {
     public void ClickLoginButton() {
         driver.findElement(LoginBtn).click();
     }
-    SoftAssert softAssert = new SoftAssert();
 
-    public void CreateRoleAssert() {
-        String ActualRole= driver.findElement(EditRole).getText();
-        String ExpectedRole = "Auto Admin";
-        softAssert.assertEquals(ActualRole, ExpectedRole);
-    }
-//   public void VerifyError(){
-//       String Actual_Msg=driver.findElement(ErrorMsg).getText();
-//       String Expected_Msg="Please check form data and permission cannot be empty";
-//       softAssert.assertEquals(Actual_Msg, Expected_Msg);
-//   }
-//   public  void BlankName(){
-//       String Actual_Msg=driver.findElement(ErrorMsg).getText();
-//       String Expected_Msg="Please check form data";
-//       softAssert.assertEquals(Actual_Msg, Expected_Msg);
-//   }
-//   public void  BlankPermission(){
-//       String Actual_Msg=driver.findElement(ErrorMsg).getText();
-//       String Expected_Msg="Permission cannot be empty";
-//       softAssert.assertEquals(Actual_Msg, Expected_Msg);
-//   }
-//   public void RoleNameExist(){
-//       String Actual_Msg=driver.findElement(ErrorMsg).getText();
-//       String Expected_Msg="Role exist with name Auto Admin";
-//       softAssert.assertEquals(Actual_Msg, Expected_Msg);
-//    }
-    public void CreateTimeAssert()
-    {
-        String UpdateTime=driver.findElement(UpdatedTime).getText();
-        String CreateTime=driver.findElement(CreatedTime).getText();
-        softAssert.assertEquals(UpdateTime, CreateTime);
-    }
-    public void UpdateTimeAssert()
-    {
-        String UpdateTime=driver.findElement(UpdatedTime).getText();
-        String CreateTime=driver.findElement(CreatedTime).getText();
-        softAssert.assertNotEquals(UpdateTime,CreateTime);
 
-    }
-    public void AssertAll()
-    {
-        softAssert.assertAll();
-    }
+
 }

@@ -30,6 +30,7 @@ public class ProjectBREDataSetPage   {
     By SelectDataSetHeader = By.xpath("//span[contains(text(),'DxCode')]");
     By FirstDecisionBox = By.xpath("//div[contains(@class,'opacity7 font-12 conditionCardHeading')]");
 
+    public By getBRESelectDataSet(){return this.BRESelectDataSet;}
     public  void SelectDataSetHeader(){driver.findElement(SelectDataSetHeader).click();}
     public  void ClickOnDataSetHeader(){driver.findElement(DataSetHeader).click();}
     public  void ClickOnDataSets(){driver.findElement(DataSets).click();}

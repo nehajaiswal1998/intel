@@ -1,55 +1,71 @@
 package Tests;
 import Base.BasePage;
 import Pages.CreateUserPage;
+import Utilities.AssertionsFunction;
 import Utilities.ReadProps;
 import org.testng.annotations.*;
+
+import static Pages.CreateRolePage.errormsg;
+import static Pages.CreateRolePage.errormsgBlankDataCreateRoleClick;
 
 @Listeners(Utilities.TestListeners.class)
 public class CreateUserPlatformAdminTest extends BasePage {
     static CreateUserPage UserPageObj;
+
     @BeforeClass
     public void login() throws Exception {
         BasePage.driverInit();
         BasePage.LoginTest();
     }
+
     @AfterClass
     public void cleanUp() throws Exception {
         driver.quit();
     }
+
     @Test(priority = 1)
     public void blank_username_blank_password() throws Exception {
         UserPageObj = new CreateUserPage(driver);
         //TC 5.1 Blank Username and Blank Password.
         UserPageObj.ClickUserBtn();
         Thread.sleep(4000);
+        AssertionsFunction.verifyTargetPageURL(UserPageObj.userTabUrl);
         UserPageObj.ClickCreateUserBtn();
         Thread.sleep(2000);
+        AssertionsFunction.verifyTargetPageURL(UserPageObj.createUserUrl);
         UserPageObj.ClickCreateBtn();
         Thread.sleep(2000);
+        AssertionsFunction.verifyElementText(errormsg,errormsgBlankDataCreateRoleClick);
         driver.navigate().refresh();
         Thread.sleep(5000);
+        AssertionsFunction.verifyTargetPageURL(UserPageObj.createUserUrl);
     }
     @Test(priority = 2)
     public void valid_username_blank_password() throws Exception {
-        //TC 5.2 Valid Username Blank Password.
+        //TC 5.2 inValid Username no enter emailId.
         UserPageObj.EnterUserName(ReadProps.readAttr("InvalidUsernameU"));
         Thread.sleep(2000);
         UserPageObj.ClickCreateBtn();
-        // UserPageObj.UserBlankAssert();
-        Thread.sleep(3000);
+        Thread.sleep(5000);
+        AssertionsFunction.verifyElementText(errormsg,errormsgBlankDataCreateRoleClick);
         driver.navigate().refresh();
         Thread.sleep(5000);
+        AssertionsFunction.verifyTargetPageURL(UserPageObj.createUserUrl);
+
+
     }
     @Test(priority = 3)
     public void blank_username_valid_password() throws Exception {
-        //TC 5.3 Blank Username Valid Password.
+        //TC 5.3 Blank Username Valid email.
         UserPageObj.EnterEmail(ReadProps.readAttr("InvalidEmailU"));
         Thread.sleep(2000);
         UserPageObj.ClickCreateBtn();
-        // UserPageObj.UserBlankAssert();
         Thread.sleep(2000);
+        AssertionsFunction.verifyElementText(errormsg,errormsgBlankDataCreateRoleClick);
         driver.navigate().refresh();
         Thread.sleep(5000);
+        AssertionsFunction.verifyTargetPageURL(UserPageObj.createUserUrl);
+
     }
     @Test(priority = 4)
     public void invalid_username_blank_password() throws Exception {
@@ -57,10 +73,12 @@ public class CreateUserPlatformAdminTest extends BasePage {
         UserPageObj.EnterUserName(ReadProps.readAttr("InvalidUsernameU"));
         Thread.sleep(2000);
         UserPageObj.ClickCreateBtn();
-        //UserPageObj.UserBlankAssert();
         Thread.sleep(2000);
+        AssertionsFunction.verifyElementText(errormsg,errormsgBlankDataCreateRoleClick);
         driver.navigate().refresh();
         Thread.sleep(5000);
+        AssertionsFunction.verifyTargetPageURL(UserPageObj.createUserUrl);
+
     }
     @Test(priority = 5)
     public void blank_username_invalid_password() throws Exception {
@@ -68,10 +86,13 @@ public class CreateUserPlatformAdminTest extends BasePage {
         UserPageObj.EnterEmail(ReadProps.readAttr("InvalidEmailU"));
         Thread.sleep(2000);
         UserPageObj.ClickCreateBtn();
-        //UserPageObj.UserBlankAssert();
         Thread.sleep(2000);
+        AssertionsFunction.verifyElementText(errormsg,errormsgBlankDataCreateRoleClick);
+
         driver.navigate().refresh();
         Thread.sleep(5000);
+        AssertionsFunction.verifyTargetPageURL(UserPageObj.createUserUrl);
+
     }
     @Test(priority = 6)
     public void invalid_credentials() throws Exception {
@@ -81,10 +102,12 @@ public class CreateUserPlatformAdminTest extends BasePage {
         UserPageObj.EnterEmail(ReadProps.readAttr("InvalidEmailU"));
         Thread.sleep(2000);
         UserPageObj.ClickCreateBtn();
-        //UserPageObj.UserBlankAssert();
         Thread.sleep(2000);
+        AssertionsFunction.verifyElementText(errormsg,errormsgBlankDataCreateRoleClick);
         driver.navigate().refresh();
         Thread.sleep(5000);
+        AssertionsFunction.verifyTargetPageURL(UserPageObj.createUserUrl);
+
     }
     @Test(priority = 7)
     public void create_user_with_existing_username_password() throws Exception {
@@ -97,10 +120,12 @@ public class CreateUserPlatformAdminTest extends BasePage {
         Thread.sleep(2000);
         UserPageObj.ClickCreateBtn();
         Thread.sleep(1000);
-        //UserPageObj.UserExistAssert();
+        AssertionsFunction.verifyElementText(errormsg,errormsgBlankDataCreateRoleClick);
         Thread.sleep(2000);
         UserPageObj.ClickOnCancelBtn();
         Thread.sleep(5000);
+        AssertionsFunction.verifyTargetPageURL(UserPageObj.createUserUrl);
+
     }
     //Creation Of User-Whenever we have to run on new env then these lines are used.
           /*  UserPageObj.ClickCreateUserBtn();
@@ -177,18 +202,25 @@ public class CreateUserPlatformAdminTest extends BasePage {
         //TC 5.8 Search for Created user.
         UserPageObj.ClickUserBtn();
         Thread.sleep(3000);
+        AssertionsFunction.verifyTargetPageURL(UserPageObj.userTabUrl);
         UserPageObj.SearchCreatedUser(ReadProps.readAttr("Username"));
         Thread.sleep(2000);
         UserPageObj.SelectSearchedUser();
         Thread.sleep(2000);
         UserPageObj.ClickOnCancelBtn();
         Thread.sleep(2000);
+        AssertionsFunction.verifyTargetPageURL(UserPageObj.userTabUrl);
+
         UserPageObj.SelectSearchedUser();
         Thread.sleep(2000);
         UserPageObj.ClickUpdateUser();
         Thread.sleep(5000);
+        AssertionsFunction.verifyTargetPageURL(UserPageObj.userTabUrl);
         UserPageObj.LogOut();
         Thread.sleep(5000);
-    }}
+        AssertionsFunction.verifyTargetPageURL(UserPageObj.loginPageUrl);
+
+    }
+}
 
 

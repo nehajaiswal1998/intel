@@ -25,13 +25,13 @@ public class ProjectPage   {
     By ProjectName = By.xpath("//input[@formcontrolname='project']");
     By Lead = By.xpath("//*[@formcontrolname='lead']");
     By SearchLead = By.xpath("//input[@placeholder='Search']");
-    public static By SelectLeadSample = By.xpath("//span[contains(text(),'new@gmail.com')]");
+    By SelectLeadSample = By.xpath("//span[contains(text(),'new@gmail.com')]");
+    By SelectLeadAdmin = By.xpath("//span[contains(text(),' admin@test.com ')]");
+    By SelectLead = By.xpath("//span[contains(text(),'qa1@email.com')]");
     public static By DisableRoleSearchError = By.xpath("//div[contains(text(),' No Records Found ! ')]");
-    public static By SelectLeadAdmin = By.xpath("//span[contains(text(),' admin@test.com ')]");
-    public static By SelectLead = By.xpath("//span[contains(text(),'qa1@email.com')]");
     By ClickStartDate = By.cssSelector("button[aria-label='Open calendar'][tabindex='0']");
     By ClearStartDate = By.xpath("//input[@id='mat-input-3']");
-    By SelectStartDate = By.xpath("//div[contains(text()," + currentDate + ")]");//Change this before running
+    By SelectStartDate = By.xpath("//div[contains(text()," + currentDate + ")]");
     By ClickEndDate = By.xpath("/html/body/app-root/div/app-landing/div/div/main/div/app-create-project/div[2]/div/form/mat-card/div/div[4]/mat-form-field/div/div[1]/div[4]/mat-datepicker-toggle/button");
     By ClearEndDate = By.xpath("//input[@id='mat-input-4']");
     By SelectEndDate = By.xpath("//div[contains(text()," + currentDate + ")]");
@@ -44,10 +44,10 @@ public class ProjectPage   {
     public static  By SelectSemiStructure = By.xpath("//span[contains(text(),'Semi-Structured')]");
     By AddEntity = By.xpath("//span[contains(text(),' Add Entity ')]");
 
-    public static By PatientDemoGraphics = By.xpath("//button[contains(text(),' Patient Demographics')]");
-    public static By PatientDemoGraphicsSelected = By.xpath("//*[text()=' Patient Demographics ']");
 
-    public static By HCCConditions = By.xpath("//button[contains(text(),' HCC Conditions')]");
+    By PatientDemoGraphics = By.xpath("//button[contains(text(),' Patient Demographics')]");
+    By HCCConditions = By.xpath("//button[contains(text(),' HCC Conditions')]");
+    public static By PatientDemoGraphicsSelected = By.xpath("//*[text()=' Patient Demographics ']");
     public static By HCCCConditionsSelected = By.xpath("//*[text()=' HCC Conditions ']");
 
 
@@ -133,6 +133,8 @@ public class ProjectPage   {
     public static By DisableUserToggle = By.xpath("//*[@class='mat-slide-toggle mat-primary ng-valid ng-touched ng-dirty']");
     public static By ProjectNameInList = By.xpath("//tbody/tr[1]/td[1]");
 
+    public String projectTabUrl="https://alpha.neutrino-ai.com/#/home/project-management";
+    public String createProjectUrl="https://alpha.neutrino-ai.com/#/home/project-management/create-project";
 
     public ProjectPage(WebDriver driver) {
         this.driver = driver;
@@ -144,6 +146,17 @@ public class ProjectPage   {
         driver.findElement(DeleteAttributeFieldName).click();
     }
 
+    public By GetSelectUserAdmin(){return this.SelectUserAdmin;}
+    public By GetSelectRoleAdmin(){return this.SelectRoleAdmin;}
+    public By GetHCCConditions(){
+        System.out.println(HCCConditions);
+        return this.HCCConditions;}
+    public By getPatientDemoGraphics(){
+        System.out.println(PatientDemoGraphics);
+        return this.PatientDemoGraphics;}
+    public By GetSelectMedical(){return this.SelectMedical;}
+    public By GetLead(){return this.Lead;}
+    public By GetselectLead(){return this.SelectLead;}
     public void ClickOnProjectBtn() throws  InterruptedException{
         driver.findElement(ProjectBtn).click();
         Thread.sleep(4000);
