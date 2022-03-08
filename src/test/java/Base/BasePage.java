@@ -1,4 +1,5 @@
 package Base;
+
 import Pages.LoginPage;
 import Pages.ProjectPage;
 import Utilities.ReadProps;
@@ -45,33 +46,24 @@ public class BasePage {
 
     @BeforeSuite
     public static void updateObjectRepo() throws IOException, ConfigurationException {
-        int id = Integer.valueOf(ReadProps.readAttr("exec_id"));
-        id++;
+        int exec_id = Integer.valueOf(ReadProps.readAttr("exec_id"));
+        exec_id++;
         PropertiesConfiguration config = new PropertiesConfiguration("Object_Repository.properties");
-        config.setProperty("exec_id", String.valueOf(id));
-
-        config.setProperty("AdminUserName", "AutoAdminUser"+ id);
+        config.setProperty("exec_id", String.valueOf(exec_id));
+        config.setProperty("AdminUserName", "AutoAdminUser"+ exec_id);
         config.setProperty("AdminID", config.getProperty("AdminUserName")+"@test.com");
-        config.setProperty("RoleName", "AutoAdmin"+ id);
-        config.setProperty("RoleNamePA", "AutoAdminPA"+ id);
-        config.setProperty("DName", "QAAutoDataset"+ id);
-        config.setProperty("StructuredProjectName1", "QA-AutoProject-Structured" + id);
-        config.setProperty("ProjectDisabledNameFA","QA-AutoDisable"+ id);
-        config.setProperty("ProjectDisabledNameA","QA-AutoDisable"+ (id + 1));
-        config.setProperty("SemiStructuredProjectName1","QA-AutoProject-SemiStructured"+ id);
-        config.setProperty("FreeFormProjectName1","QA-AutoProject-FreeForm"+ id);
-        config.setProperty("MedicalChartProjectName1","QA-AutoProject-MedicalChart"+ id);
+        config.setProperty("RoleName", "AutoAdmin"+ exec_id);
+        config.setProperty("RoleNamePA", "AutoAdminPA"+ exec_id);
+        config.setProperty("DName", "QAAutoDataset"+ exec_id);
+        config.setProperty("StructuredProjectName1", "QA-AutoProject-Structured" + exec_id);
+        config.setProperty("ProjectDisabledNameFA","QA-AutoDisable"+ exec_id);
+        config.setProperty("ProjectDisabledNameA","QA-AutoDisable"+ (exec_id + 1));
+        config.setProperty("SemiStructuredProjectName1","QA-AutoProject-SemiStructured"+ exec_id);
+        config.setProperty("FreeFormProjectName1","QA-AutoProject-FreeForm"+ exec_id);
+        config.setProperty("MedicalChartProjectName1","QA-AutoProject-MedicalChart"+ exec_id);
         config.setProperty("StartDate", new SimpleDateFormat("M/d/yyyy").format(new Date()));
         config.setProperty("EndDate", config.getProperty("StartDate"));
-        config.save();
-        File file = new File(System.getProperty("user.dir")+"\\src\\test\\resources\\Pfizer.jpg");
-        File uploadFile = new File(System.getProperty("user.dir")+"\\src\\test\\resources\\file_upload\\Pfizer"+id+".jpg");
-        FileUtils.copyFile(file, uploadFile);
+        config.save();}
+
     }
 
-    @AfterSuite
-    public void cleanDirectory() throws IOException {
-        FileUtils.cleanDirectory(System.getProperty("user.dir")+"\\src\\test\\resources\\file_upload");
-    }
-
-}
