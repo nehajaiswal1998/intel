@@ -61,7 +61,7 @@ public class CreateUserAdminTest extends BasePage {
                 UserPageObj.ClickCreateUserBtn();
                 Thread.sleep(2000);
                 AssertionsFunction.verifyTargetPageURL(UserPageObj.createUserUrl);
-                UserPageObj.EnterUserName(ReadProps.readAttr("AdminUserName"));
+                UserPageObj.EnterUserName(ReadProps.readAttr("AdminUserName")); // change this value only latter no digit
                 Thread.sleep(2000);
                 UserPageObj.EnterEmail(ReadProps.readAttr("AdminID"));
                 Thread.sleep(2000);
@@ -117,7 +117,7 @@ public class CreateUserAdminTest extends BasePage {
             Thread.sleep(4000);
             UserPageObj.LogOut();
             Thread.sleep(5000);
-            AssertionsFunction.verifyTargetPageURL(UserPageObj.userTabUrl);
+            AssertionsFunction.verifyTargetPageURL(UserPageObj.loginPageUrl);
 
         }
    }

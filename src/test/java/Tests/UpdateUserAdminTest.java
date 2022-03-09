@@ -1,19 +1,22 @@
 package Tests;
 import Base.BasePage;
 import Pages.CreateUserPage;
+import Utilities.AssertionsFunction;
 import Utilities.ReadProps;
 import org.testng.annotations.*;
 import java.io.IOException;
+
+import static Pages.CreateRolePage.homepage_url;
+
 @Listeners(Utilities.TestListeners.class)
 
 public class UpdateUserAdminTest extends BasePage {
         static CreateUserPage UserPageObj1;
-        static verifyAssertions verifyAssertionsobj;
         @BeforeClass
     public void login() throws Exception {
         BasePage.driverInit();
     }
-    @AfterClass(enabled = false)
+    @AfterClass
     public void cleanUp() throws Exception {
         driver.quit();
     }
@@ -23,7 +26,6 @@ public class UpdateUserAdminTest extends BasePage {
             driver.manage().window().maximize();
             Thread.sleep(8000);
             UserPageObj1 = new CreateUserPage(driver);
-           verifyAssertionsobj=new verifyAssertions(driver);
             //TC 22.1 Admin Login with Valid Credentials.
             UserPageObj1.setUsername(ReadProps.readAttr("AdminUser"));
             Thread.sleep(2000);
@@ -31,10 +33,10 @@ public class UpdateUserAdminTest extends BasePage {
             Thread.sleep(2000);
             UserPageObj1.clickLoginButton();
             Thread.sleep(8000);
-            verifyAssertionsobj.verify_webpage_url(UserPageObj1.loginHoempPageUrl);
+            AssertionsFunction.verifyTargetPageURL(UserPageObj1.loginHoempPageUrl);
             UserPageObj1.ClickUserBtn();
             Thread.sleep(3000);
-            verifyAssertionsobj.verify_webpage_url(UserPageObj1.userTabUrl);
+            AssertionsFunction.verifyTargetPageURL(UserPageObj1.userTabUrl);
             Thread.sleep(3000);
             UserPageObj1.SelectSearchedAdminUser();
             Thread.sleep(2000);
@@ -45,8 +47,8 @@ public class UpdateUserAdminTest extends BasePage {
                 UserPageObj1.ClickDisableUser();
                 Thread.sleep(2000);
                 UserPageObj1.ClickUpdateUser();
-                Thread.sleep(2000);
-                verifyAssertionsobj.verify_webpage_url(UserPageObj1.userTabUrl);
+                Thread.sleep(3000);
+                AssertionsFunction.verifyTargetPageURL(UserPageObj1.userTabUrl);
                 UserPageObj1.SelectSearchedAdminUser();
                 Thread.sleep(2000);
         }
