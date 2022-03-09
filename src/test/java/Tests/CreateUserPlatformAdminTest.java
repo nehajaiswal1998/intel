@@ -46,7 +46,7 @@ public class CreateUserPlatformAdminTest extends BasePage {
         UserPageObj.EnterUserName(ReadProps.readAttr("InvalidUsernameU"));
         Thread.sleep(2000);
         UserPageObj.ClickCreateBtn();
-        Thread.sleep(5000);
+        Thread.sleep(1000);
         AssertionsFunction.verifyElementText(errormsg,errormsgBlankDataCreateRoleClick);
         driver.navigate().refresh();
         Thread.sleep(5000);
@@ -88,7 +88,6 @@ public class CreateUserPlatformAdminTest extends BasePage {
         UserPageObj.ClickCreateBtn();
         Thread.sleep(2000);
         AssertionsFunction.verifyElementText(errormsg,errormsgBlankDataCreateRoleClick);
-
         driver.navigate().refresh();
         Thread.sleep(5000);
         AssertionsFunction.verifyTargetPageURL(UserPageObj.createUserUrl);
@@ -124,7 +123,7 @@ public class CreateUserPlatformAdminTest extends BasePage {
         Thread.sleep(2000);
         UserPageObj.ClickOnCancelBtn();
         Thread.sleep(5000);
-        AssertionsFunction.verifyTargetPageURL(UserPageObj.createUserUrl);
+        AssertionsFunction.verifyTargetPageURL(UserPageObj.userTabUrl);
 
     }
     //Creation Of User-Whenever we have to run on new env then these lines are used.

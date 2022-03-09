@@ -50,7 +50,7 @@ public class BasePage {
         exec_id++;
         PropertiesConfiguration config = new PropertiesConfiguration("Object_Repository.properties");
         config.setProperty("exec_id", String.valueOf(exec_id));
-        config.setProperty("AdminUserName", "AutoAdminUser"+ exec_id);
+       // config.setProperty("AdminUserName", "AutoAdminUser"+ exec_id);
         config.setProperty("AdminID", config.getProperty("AdminUserName")+"@test.com");
         config.setProperty("RoleName", "AutoAdmin"+ exec_id);
         config.setProperty("RoleNamePA", "AutoAdminPA"+ exec_id);

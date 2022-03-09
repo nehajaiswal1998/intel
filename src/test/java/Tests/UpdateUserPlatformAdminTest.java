@@ -15,7 +15,7 @@ public class UpdateUserPlatformAdminTest extends BasePage {
                 BasePage.LoginTest();
         }
 
-        @AfterClass(enabled = false)
+        @AfterClass
         public void cleanUp() throws Exception {
                 driver.quit();
         }
@@ -55,7 +55,7 @@ public class UpdateUserPlatformAdminTest extends BasePage {
                 UserPageObj1.ClickToClearName();
                 Thread.sleep(2000);
                 UserPageObj1.ClickUpdateUser();
-                Thread.sleep(5000);
+                Thread.sleep(2000);
                 AssertionsFunction.verifyElementText(UserPageObj1.errmsg,UserPageObj1.errmsgBlankDataCreateRoleClick);
                 Thread.sleep(5000);
                 UserPageObj1.ClickOnCancelBtn();

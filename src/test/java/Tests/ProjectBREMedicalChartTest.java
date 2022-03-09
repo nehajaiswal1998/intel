@@ -3,12 +3,16 @@ import Base.BasePage;
 import Pages.ProjectBREDataSetPage;
 import Pages.ProjectBREPage;
 import Pages.ProjectPage;
+import Utilities.AssertionsFunction;
 import Utilities.Functions;
 import Utilities.ReadProps;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
+
+import static Pages.CreateRolePage.homepage_url;
+
 @Listeners(Utilities.TestListeners.class)
 
 public class ProjectBREMedicalChartTest extends BasePage
@@ -16,7 +20,6 @@ public class ProjectBREMedicalChartTest extends BasePage
         ProjectBREPage ProjectBREPageObj;
         static ProjectPage ProjectPageObj;
         static  ProjectBREDataSetPage ProjectBREDataSetPageObj;
-        static verifyAssertions verifyAssertionsobj;
     @BeforeClass
     public void login() throws Exception {
         BasePage.driverInit();
@@ -31,20 +34,19 @@ public class ProjectBREMedicalChartTest extends BasePage
             Robot r = new Robot();
             //Initializing Object for Project Page.
             ProjectPageObj = new ProjectPage(driver);
-            verifyAssertionsobj=new verifyAssertions(driver);
             //TC 1 Check all the Functionalities on the Project Page.
             ProjectPageObj.ClickOnProjectBtn();
             Thread.sleep(6000);
-            verifyAssertionsobj.verify_webpage_url(ProjectPageObj.projectTabUrl);
+             AssertionsFunction.verifyTargetPageURL(ProjectPageObj.projectTabUrl);
             ProjectPageObj.ClickOnCreateProjectBtn();
             Thread.sleep(2000);
-            verifyAssertionsobj.verify_webpage_url(ProjectPageObj.createProjectUrl);
+            AssertionsFunction.verifyTargetPageURL(ProjectPageObj.createProjectUrl);
             ProjectPageObj.ClickOnProjectNameBtn(ReadProps.readAttr("BREMedicalChartProjectName"));
             Thread.sleep(2000);
             ProjectPageObj.ClickOnLeadBtn();
             Thread.sleep(2000);
             ProjectPageObj.SelectOnLeadBtn();
-            Assert.assertTrue(Functions.isElementPresent(ProjectPageObj.GetLead()));
+            Assert.assertTrue(AssertionsFunction.isPresent(ProjectPageObj.GetLead()));
             Thread.sleep(2000);
             ProjectPageObj.ClickOnStartDateBtn();
             Thread.sleep(2000);
@@ -58,7 +60,7 @@ public class ProjectBREMedicalChartTest extends BasePage
             Thread.sleep(2000);
             ProjectPageObj.SelectDocumentStructureMedicalBtn();
             Thread.sleep(2000);
-            Assert.assertTrue(Functions.isElementPresent(ProjectPageObj.GetSelectMedical()));
+            Assert.assertTrue(AssertionsFunction.isPresent(ProjectPageObj.GetSelectMedical()));
             ProjectPageObj.ClickOnStatusBtn();
             Thread.sleep(2000);
             ProjectPageObj.ClickOnDocumentAutoAssignBtn();
@@ -68,24 +70,24 @@ public class ProjectBREMedicalChartTest extends BasePage
             Thread.sleep(2000);
             ProjectPageObj.SelectPatientGraphics();
             Thread.sleep(3000);
-           // Assert.assertTrue(Functions.isElementPresent(ProjectPageObj.getPatientDemoGraphics()));
+            Assert.assertTrue(AssertionsFunction.isPresent(ProjectPageObj.getPatientDemoGraphics()));
             ProjectPageObj.ClickOnAddEntity();
             Thread.sleep(2000);
             ProjectPageObj.SelectHCCConditions();
             Thread.sleep(2000);
-           // Assert.assertTrue(Functions.isElementPresent(ProjectPageObj.GetHCCConditions()));
+            Assert.assertTrue(AssertionsFunction.isPresent(ProjectPageObj.GetHCCConditions()));
             ProjectPageObj.ClickOnRolesBtn();
             Thread.sleep(2000);
             ProjectPageObj.ClickOnAddRoleBtn();
             Thread.sleep(2000);
             ProjectPageObj.ClickOnSelectRoleBtn();
             Thread.sleep(2000);
-           // Assert.assertTrue(Functions.isElementPresent(ProjectPageObj.GetSelectRoleAdmin()));
+            Assert.assertTrue(AssertionsFunction.isPresent(ProjectPageObj.GetSelectRoleAdmin()));
             ProjectPageObj.ClickOnAddUserBtn();
             Thread.sleep(2000);
             ProjectPageObj.ClickOnSelectUserBtn();
             Thread.sleep(2000);
-            Assert.assertTrue(Functions.isElementPresent(ProjectPageObj.GetSelectUserAdmin()));
+            Assert.assertTrue(AssertionsFunction.isPresent(ProjectPageObj.GetSelectUserAdmin()));
             r.keyPress(KeyEvent.VK_ESCAPE);
             Thread.sleep(2000);
             //Navigate to Data Page.
