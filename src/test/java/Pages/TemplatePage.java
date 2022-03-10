@@ -1,6 +1,7 @@
 package Pages;
 
 import Utilities.AssertionsFunction;
+import Utilities.ReadProps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -17,7 +18,7 @@ public class TemplatePage   {
     By ChooseFile = By.xpath("//*[@id='faxDetailModal']/div/div/div[2]/div/form/div/input");
     By CloseBtn = By.xpath("//*[@id='close-modal']/span[1]/mat-icon");
     By SearchTemplate = By.xpath("//*[@data-placeholder='Search']");
-    By ExpandTemplate = By.xpath("//tbody/tr[1]/td[1]");
+    public static By ExpandTemplate = By.xpath("//tbody/tr[1]/td[1]");
     By ExpandTemplateMore = By.xpath("//td[contains(text(),'AutoSampleMPTemp')]");
     By Cancel = By.xpath("//span[contains(text(),' Cancel ')]");
     By TemplateDataInfo = By.xpath("//td[contains(text(),'Template1')]");
@@ -30,7 +31,7 @@ public class TemplatePage   {
     By CropDragIcon = By.xpath("//button[@class='mat-focus-indicator mat-tooltip-trigger mx-1 mat-mini-fab mat-button-base mat-primary']/span[1]/mat-icon[1]");
     By FieldName = By.xpath("//input[@formcontrolname='attributeName']");
     By MapButton = By.xpath("//*[contains(text(),'Map')]");
-    By MapErrorMsg = By.xpath("//*[text()=' Please select the portion on image for which the field name and validations have been given. ']");
+    public static By MapErrorMsg = By.xpath("//*[text()=' Please select the portion on image for which the field name and validations have been given. ']");
     By SaveDraft = By.xpath("//span[contains(text(),'Save Draft')]");
     By CompleteTraining = By.xpath("//*[contains(text(),'Complete Training')]");
     By ClickClassification = By.xpath("//*[@id='docClassificationField']");
@@ -42,8 +43,8 @@ public class TemplatePage   {
     By NavigateBack = By.xpath("//*[contains(text(),'navigate_before')]");
     By TrainingStatus = By.xpath("//tbody/tr[1]/td[4]");
 
-    By InvalidTemplateNameErr = By.xpath("//mat-error[text()='Only alphabets,digits,parenthesis and hyphens are allowed while naming a template.']");
-    By ExistingTemplateNameErr = By.xpath("//div[text()='Template Name Already In Use.']");
+    public static By InvalidTemplateNameErr = By.xpath("//mat-error[text()='Only alphabets,digits,parenthesis and hyphens are allowed while naming a template.']");
+    public static By ExistingTemplateNameErr = By.xpath("//div[text()='Template Name Already In Use.']");
     By CancelDeleteTemplate = By.xpath("//span[text()='Cancel']");
 
     //Navigation Page
@@ -51,8 +52,25 @@ public class TemplatePage   {
     By TemplateExpanded = By.xpath("//div[text()=' Classification ']");
     By ClassificationListBox = By.xpath("//div[@role='listbox']");
     By DeleteTemplatePage = By.xpath("//*[text()=' Do you want to delete Template1 ? ']");
+    public static By TemplateStatus = By.xpath("//tbody/tr[1]/td[4]");
+    public static By TemplateCreatedTime = By.xpath("//tbody/tr[1]/td[5]");
+    public static By TemplateUpdatedTime = By.xpath("//tbody/tr[1]/td[6]");
+      By TemplateNameSort = By.xpath("//div[text()=' Templates ']/parent::div/div[2]");
+      By BeforeSort = By.xpath("//*[@aria-sort='none'][1]");
+      By AfterSort = By.xpath("//th[@aria-sort='ascending']");
+      By ProjectsSort = By.xpath("//div[text()=' Projects ']/parent::div/div[2]");
+    By PagesSort = By.xpath("//div[text()=' Pages ']/parent::div/div[2]");
+    By TrainingSort =By.xpath("//div[text()=' Training ']/parent::div/div[2]");
+    By UpdatedSort =By.xpath("//div[text()=' Updated ']/parent::div/div[2]");
+    By CreatedSort =By.xpath("//div[text()=' Created ']/parent::div/div[2]");
 
-    String InvalidTemplateError = "";
+
+
+
+
+
+
+
     String TemplatePageURL = "https://alpha.neutrino-ai.com/#/home/n-training";
 
 
@@ -224,60 +242,91 @@ public class TemplatePage   {
         driver.findElement(TemplateDataInfo1).click();
     }
 
-    public void verifyInvalidTemplatNameErr() {
-        AssertionsFunction.verifyElementText("Only alphabets,digits,parenthesis and hyphens are allowed while naming a template.", InvalidTemplateNameErr);
-    }
-
-    public void verifyExistingTemplateName() {
-        AssertionsFunction.verifyElementText("Template Name Already In Use.", ExistingTemplateNameErr);
-
-    }
-
-    public void verifyTemplateMap() {
-
-        AssertionsFunction.verifyElementText("Please select the portion on image for which the field name and validations have been given.", MapErrorMsg);
-
-    }
-
-    public void AssertTrainingStatus() {
-
-        AssertionsFunction.verifyElementText("In Progress", TrainingStatus);
-
-    }
-
-    public void verifySinglePageTemplateCreated()
-    {
-
-        AssertionsFunction.verifyElementTextWithTrim("AutoSampleSPTemp", ExpandTemplate);
-    }
-
-    public void verifySinglePageTemplateDelete()
-    {
-        AssertionsFunction.verifyElementDeletedTextWithTrim("AutoSampleSPTemp", ExpandTemplate);
-    }
-
-    public void verifyMultiPageTemplateCreated()
-    {
-        AssertionsFunction.verifyElementTextWithTrim("AutoSampleMPTemp", ExpandTemplate);
-
-    }
-
-    public void verifyMultiPageTemplateDelete()
-    {
-        AssertionsFunction.verifyElementDeletedTextWithTrim("AutoSampleMPTemp", ExpandTemplate);
-    }
-
-    public void verifyDeleteAssociatedTemplate()
-    {
-        Assert.assertTrue(driver.findElement(By.xpath("//*[text()=' Sample-page1 is associated with QA-AutoProject-Structured,QA-AutoProject-Structured4 projects ']")).isDisplayed());
-    }
-
     public void cancelDeleteTemplate() {
         driver.findElement(CancelDeleteTemplate).click();
     }
 
     public void refreshPage() {
         driver.navigate().refresh();
+    }
+
+    public void verifySortingOnTemplatePage(String SortingHeader) throws InterruptedException
+        {
+            switch ( SortingHeader)
+            {
+                case "TempalteName":
+                {
+
+                    AssertionsFunction.verifyElementPresent(BeforeSort);
+                    Thread.sleep(2000);
+                    driver.findElement(TemplateNameSort).click();
+                    Thread.sleep(5000);
+                    AssertionsFunction.verifyElementPresent(AfterSort);
+                    break;
+
+                }
+
+                case "Projects":
+                {
+
+                    AssertionsFunction.verifyElementPresent(BeforeSort);
+                    Thread.sleep(2000);
+                    driver.findElement(ProjectsSort).click();
+                    Thread.sleep(5000);
+                    AssertionsFunction.verifyElementPresent(AfterSort);
+                    break;
+
+                }
+                case "Pages":
+                {
+
+                    AssertionsFunction.verifyElementPresent(BeforeSort);
+                    Thread.sleep(2000);
+                    driver.findElement(PagesSort).click();
+                    Thread.sleep(5000);
+                    AssertionsFunction.verifyElementPresent(AfterSort);
+                    break;
+
+                }
+                case "Training":
+                {
+
+                    AssertionsFunction.verifyElementPresent(BeforeSort);
+                    Thread.sleep(2000);
+                    driver.findElement(TrainingSort).click();
+                    Thread.sleep(5000);
+                    AssertionsFunction.verifyElementPresent(AfterSort);
+                    break;
+
+                }
+                case "Updated":
+                {
+
+                    AssertionsFunction.verifyElementPresent(BeforeSort);
+                    Thread.sleep(2000);
+                    driver.findElement(UpdatedSort).click();
+                    Thread.sleep(5000);
+                    AssertionsFunction.verifyElementPresent(AfterSort);
+                    break;
+
+                }
+
+                case "Created":
+                {
+
+                    AssertionsFunction.verifyElementPresent(BeforeSort);
+                    Thread.sleep(2000);
+                    driver.findElement(CreatedSort).click();
+                    Thread.sleep(5000);
+                    AssertionsFunction.verifyElementPresent(AfterSort);
+                    break;
+
+                }
+
+
+            }
+
+
     }
 
 

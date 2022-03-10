@@ -16,7 +16,7 @@ public class ProjectPage   {
 
 
     //Define Project
-    public String ProjectPageURl = "https://alpha.neutrino-ai.com/#/home/project-management";
+    public static String ProjectPageURl = "https://alpha.neutrino-ai.com/#/home/project-management";
     public  String  EditProjectURL = "https://alpha.neutrino-ai.com/#/home/project-management/edit-project/6221eeaa994e456345dd1030";
     public String EditProjectAdmin = "https://alpha.neutrino-ai.com/#/home/project-management/edit-project/6200fd11cc453f40a6baf157";
 
@@ -81,6 +81,7 @@ public class ProjectPage   {
     By AddUserAdmin = By.xpath("//button[@class='mat-focus-indicator disabled-font-color mat-icon-button mat-button-base primary-font-color']");       //esc method
     public static By SelectUserAdmin = By.xpath("//span[contains(text(),'j1@gmail.com')]");
     By UpdateProject = By.xpath("//project-info-section/following-sibling::div/button/span[text()=' Update']/parent::button");
+    By UpdatePrjectOnRulePage = By.xpath("//project-rule-section/following-sibling::div/button/span[text()=' Update ']/parent::button");
     By RoleUserDisableEnable = By.xpath("//div[@class='row']/div[3]/mat-slide-toggle");
     By SupervisorRoleDisable = By.xpath("//project-roles/mat-expansion-panel/div/div/div[1]/div[3]/div/div[3]/mat-slide-toggle/label[@class='mat-slide-toggle-label']");
     By RulesPage = By.xpath("//span[text()='Next']");
@@ -132,6 +133,8 @@ public class ProjectPage   {
     By ErrorMsgEntities = By.xpath("//span[contains(text(),'Please add the entities before creating the project.')]");
     public static By DisableUserToggle = By.xpath("//*[@class='mat-slide-toggle mat-primary ng-valid ng-touched ng-dirty']");
     public static By ProjectNameInList = By.xpath("//tbody/tr[1]/td[1]");
+    public static By DataPageDispaly = By.xpath("//*[@class='mat-accordion example-headers-align']/parent::project-data-section");
+    public static By RulePageDispaly = By.xpath("//*[@class='mat-accordion example-headers-align']/parent::project-data-section");
 
     public String projectTabUrl="https://alpha.neutrino-ai.com/#/home/project-management";
     public String createProjectUrl="https://alpha.neutrino-ai.com/#/home/project-management/create-project";
@@ -470,6 +473,10 @@ public class ProjectPage   {
 
     public void ClickOnUpdateProject() {
         driver.findElement(UpdateProject).click();
+    }
+
+    public void ClickOnUpdateProjectOnRulePage() {
+        driver.findElement(UpdatePrjectOnRulePage).click();
     }
 
     // User Enable and disable

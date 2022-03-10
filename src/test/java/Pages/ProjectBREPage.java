@@ -20,6 +20,7 @@ public class ProjectBREPage extends AssertionsFunction {
     By DataSets = By.xpath("//mat-panel-title[contains(text(),'Datasets')]");
     By Variables = By.xpath("//mat-panel-title[contains(text(),'Variables')]");
     By AddRules = By.xpath("//span[contains(text(),'Rules')]");
+    public static By RuleBox = By.xpath("//div[@class='d-flex ml-3 mt-4 pt-3']");
     public static By RuleBoxDisplay = By.xpath("//span[@class='py-2 rulesetName']");
     By DeleteRules = By.xpath("//span[@class='rulesetVisibilityIcon px-3 bgcolor2']");
     By ExpandRule = By.xpath("//mat-icon[@class='mat-icon notranslate addRuleRoundedIcon mt-2 ml-2 material-icons mat-icon-no-color ng-star-inserted']");
@@ -35,18 +36,20 @@ public class ProjectBREPage extends AssertionsFunction {
     By Rejected = By.xpath("//span[contains(text(),'Rejected')]");
     By ActionType = By.xpath("//span[contains(text(),'Set Variable')]");
     By ContractFirstRule = By.xpath("//mat-icon[contains(text(),'visibility_off')]");
-    By AddNameOfCondition = By.xpath("//input[@data-placeholder='Enter name of Condition / Action']");
+    public static By AddNameOfCondition = By.xpath("//input[@data-placeholder='Enter name of Condition / Action']");
 
     By RuleName = By.xpath("//input[@data-placeholder='Rule Name']");
     By FirstDecisionBox =  By.xpath("//span[@class='mat-tooltip-trigger conditionCardHeadingspan']");
     By AddCondition = By.xpath("//span[contains(text(),'Add Condition')]");
+    public static By ConditionBox = By.xpath("//div[@class='p-2 conditionBox']");
     By FirstCondition = By.xpath("//div[@class='opacity7 font-12 pt-3 text-center actionCardHeading']");
     By AndCondition = By.xpath("//span[contains(text(),'AND')]");
 
-    By SelectPatientDemographics = By.xpath("//div[@role='listbox']/mat-option[1]");
+    public static By SelectPatientDemographics = By.xpath("//div[@role='listbox']/mat-option[1]");
     By AddBREEntity = By.xpath("(//span[contains(text(),'Entity')])[3]");
+    public static By PDEntitySelected = By.xpath("//*[@placeholder='Entity']");
     By AddBREEntity1 = By.xpath("(//span[contains(text(),'Entity')])[4]");
-    By AttributeValue = By.xpath("//span[contains(text(),'Attribute / Variable')]");
+    public static By AttributeValue = By.xpath("//*[@placeholder='Attribute / Variable']");
 
     By NameAttribute = By.xpath("//span[contains(text(),'NAME')]");
     By PatientName = By.xpath("//div[@role='listbox']/mat-option[7]");
@@ -57,7 +60,7 @@ public class ProjectBREPage extends AssertionsFunction {
 
     By Visibility = By.xpath("//mat-icon[contains(text(),'visibility')]");
     By Operator = By.xpath("//span[contains(text(),'Operator')]");
-    By OperatorValueEqualTo = By.xpath("//span[contains(text(),'==')]");
+    public static By OperatorValueEqualTo = By.xpath("//span[contains(text(),'==')]");
     By OperatorValueExistsIN = By.xpath("//span[contains(text(),'Exists In')]");
     By Save = By.xpath("//span[contains(text(),'Save ')]");
     public static By ConditionSaved = By.xpath("//*[@style='height: 78vh;']");
@@ -87,7 +90,7 @@ public class ProjectBREPage extends AssertionsFunction {
     By CancelButton = By.xpath("//button[@class='mat-focus-indicator ml-2 mat-stroked-button mat-button-base mat-accent']");
 
     By Value = By.xpath("//input[@placeholder='value']");
-    By ActionValue = By.xpath("//input[@data-placeholder='Enter name of Condition / Action']");
+    public static By ActionValue = By.xpath("//input[@data-placeholder='Enter name of Condition / Action']");
     By FalseBox = By.xpath("(//div[@class='opacity7 font-12 pt-3 text-center actionCardHeading'])[2]");
     By FalseBox2 = By.xpath("(//div[@class='opacity7 font-12 pt-3 text-center actionCardHeading'])[4]");
     By FalseBox3 = By.xpath("(//div[@class='opacity7 font-12 pt-3 text-center actionCardHeading'])[6]");
@@ -96,18 +99,18 @@ public class ProjectBREPage extends AssertionsFunction {
     By TrueBox2 = By.xpath("(//div[@class='opacity7 font-12 pt-3 text-center actionCardHeading'])[3]");
     By TrueBox3 = By.xpath("(//div[@class='opacity7 font-12 pt-3 text-center actionCardHeading'])[5]");
     //Replace String
-    By ReplaceString = By.xpath("//span[contains(text(),'Replace String')]");
+    public static By ReplaceString = By.xpath("//span[contains(text(),'Replace String')]");
     By Entity = By.xpath("(//span[contains(text(),'Entity')])[3]");
-    By PatientDemoGraphics = By.xpath("(//span[contains(text(),'Patient Demographics')])[2]");
-    By AttributesDropDown = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[4]/div[1]/project-rule-section[1]/mat-drawer-container[1]/mat-drawer[2]/div[1]/rule-edit-sidebar[1]/div[1]/div[3]/div[2]/div[1]/div[3]/div[1]/div[2]/mat-form-field[1]/div[1]/div[1]/div[3]");
+    By PatientDemoGraphics = By.xpath("//span[contains(text(),'PatientDemographics')]/parent::mat-option");
+    public static By AttributesDropDown = By.xpath("//mat-label[text()=' Attribute ']");
     By PatientNameAttributes = By.xpath("(//span[contains(text(),'Patient Name')])[2]");
-    By OperatorDropDown = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[4]/div[1]/project-rule-section[1]/mat-drawer-container[1]/mat-drawer[2]/div[1]/rule-edit-sidebar[1]/div[1]/div[3]/div[2]/div[1]/div[3]/div[1]/div[3]/mat-form-field[1]/div[1]/div[1]/div[3]/mat-select[1]/div[1]/div[1]/span[1]");
+    By OperatorDropDown = By.xpath("//mat-label[text()=' Operator ']");
     By ReplaceAll = By.xpath("//span[contains(text(),'replaceAll')]");
     By ReplaceFirst = By.xpath("//span[contains(text(),'replaceFirst')]");
 
     By Replace = By.xpath("(//input[@type='text'])[5]");
     By With = By.xpath("(//input[@type='text'])[4]");
-    By CaseSensitiveCheckBox = By.xpath("//span[contains(text(),'Case Sensitive')]");
+    public static By CaseSensitiveCheckBox = By.xpath("//span[contains(text(),'Case Sensitive')]");
 
 
     By SelectVariable1 = By.xpath("//span[contains(text(),'Variable1')]");

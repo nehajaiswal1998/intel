@@ -86,6 +86,16 @@ public class AssertionsFunction extends BasePage{
         Assert.assertEquals(actualValue,expectedValue);
     }
 
+    public static void verifyElementCreatedUpdatedTime(By element_Locator1, By element_Locator2)
+    {
+        String actualValue= driver.findElement(element_Locator1).getText();
+        System.out.println(actualValue);
+        String expectedValue= driver.findElement(element_Locator2).getText();
+        Assert.assertEquals(actualValue,expectedValue);
+    }
+
+
+
 
 
 
