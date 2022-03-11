@@ -9,8 +9,8 @@ import java.io.IOException;
 public class DatasetPage {
 
         WebDriver driver = null;
-        By DatasetBtn = By.xpath("//i[@aria-describedby='cdk-describedby-message-5']");
-        By AddCategoryBtn = By.xpath("//span[contains(text(),'Add Category')]");
+        public static By DatasetBtn = By.xpath("//i[@aria-describedby='cdk-describedby-message-5']");
+        public static By AddCategoryBtn = By.xpath("//span[contains(text(),'Add Category')]");
         By CategoryName = By.xpath("//input[@formcontrolname='newCategoryName']");
         By CreateCategory = By.xpath("//span[contains(text(),'Create Category')]");
         By CategoryCancelBtn = By.xpath("//button[@id='category-close-modal']");

@@ -10,8 +10,8 @@ public class CreateRolePage {
 
     WebDriver driver = null;
     //TC 6.1 element locators
-    By RoleManagementBtn = By.xpath("//i[@class='mat-tooltip-trigger fa fa-id-card m-0 side-icon ng-star-inserted']");
-    By CreateRoleBtn = By.xpath("//span[contains(text(),'Create Role')]");
+    public static By RoleManagementBtn = By.xpath("//i[@class='mat-tooltip-trigger fa fa-id-card m-0 side-icon ng-star-inserted']");
+    public static By CreateRoleBtn = By.xpath("//span[contains(text(),'Create Role')]");
     By ClickCreate = By.xpath("//span[contains(text(),'Create')]");
     By RoleName = By.xpath("//input[@formcontrolname='role']");
     By ActiveRole = By.xpath("//div[@class='mat-slide-toggle-thumb']");
@@ -34,7 +34,7 @@ public class CreateRolePage {
     By ViewAnalytics    = By.xpath("//span[contains(text(),'View Analytics')]");
     By RemoveProcessDocPermission = By.xpath("//mat-icon[contains(text(),'cancel')]");
     By UpdateRole = By.xpath("//span[contains(text(),'Update Role')]");
-    By ClickUpdateBtn = By.xpath("//span[contains(text(),'Update' )]");
+    public static By ClickUpdateBtn = By.xpath("//span[contains(text(),'Update' )]");
     By RemovePermission = By.xpath("//mat-icon[contains(text(),'cancel')]");
 
     By Logout = By.xpath("//i[@class='fa fa-power-off']");

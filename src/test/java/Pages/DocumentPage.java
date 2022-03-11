@@ -10,7 +10,8 @@ import org.testng.Assert;
 public class DocumentPage   {
     WebDriver driver = null;
                                ////mat-sidenav[@id='sidenav']/div/mat-nav-list/mat-list-item[6]
-    By DocumentBtn = By.xpath("//mat-sidenav[@id='sidenav']/div/mat-nav-list/mat-list-item[6]");
+    public static By DocumentBtn = By.xpath("//mat-sidenav[@id='sidenav']/div/mat-nav-list/mat-list-item[6]");
+    public static By DocumentTable= By.xpath("//div[@class='example-container documentTable']");
     By DropDown = By.xpath("//span[@class='mat-tooltip-trigger projectname']");
     By SearchProject = By.xpath("//div[@class='cdk-overlay-pane']/div/div/div/input");
     By SearchBox = By.xpath("//input[@data-placeholder='Search']");

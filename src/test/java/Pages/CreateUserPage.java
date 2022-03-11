@@ -11,17 +11,19 @@ import java.io.IOException;
 
 public class CreateUserPage extends BasePage
 {
-    By UserBtn = By.xpath("//i[@class='mat-tooltip-trigger fa fa-users m-0 side-icon ng-star-inserted']");
-    By CreateUserBtn = By.xpath("//span[contains(text(),' Create User ')]");
+    public static By UserBtn = By.xpath("//i[@class='mat-tooltip-trigger fa fa-users m-0 side-icon ng-star-inserted']");
+    public static By CreateUserBtn = By.xpath("//span[contains(text(),' Create User ')]");
     By CreateBtn = By.xpath("//span[contains(text(),'Create')]");
     By EnterUserName = By.xpath("//input[@formcontrolname='name']");
     By EnterEmail  = By.xpath("//input[@formcontrolname='email']");
     By ActiveUser = By.xpath("//div[@class='mat-slide-toggle-thumb']");
     By SearchBtn  = By.xpath("//input[@data-placeholder='Search']");
     By DisableUser = By.xpath("//div[@class='mat-slide-toggle-thumb']");
-    By UpdateUser  = By.xpath("//span[contains(text(),'Update')]");
+    public static By UpdateUser  = By.xpath("//span[contains(text(),'Update')]");
     By Password  = By.xpath("//input[@type='password']");
     By PlatformUser = By.xpath("//td[contains(text(),' AutoSampleBB ')]");
+    By SelectUser = By.xpath("//tbody[@role='rowgroup']");
+
     By UserUpdated = By.xpath("//td[contains(text(),' AutoSampleUpdate ')]");
     //By AdminUser = By.xpath("//td[contains(text(),' Nirbhay ')]");//Change everytime before u run.
     By AdminUser=By.xpath("//td[contains(text(),\""+ ReadProps.readAttr("AdminUserName") +"\")]");
@@ -68,6 +70,7 @@ public class CreateUserPage extends BasePage
 
     public  void SearchCreatedUser(String text){driver.findElement(SearchBtn).sendKeys(text);}
     public  void SelectSearchedUser(){driver.findElement(PlatformUser).click();}
+    public  void SelectUser(){driver.findElement(SelectUser).click();}
     public  void SelectSearchedAdminUser(){driver.findElement(AdminUser).click();}//change this value
     public void ClickDisableUser(){driver.findElement(DisableUser).click();}
     public void ClickEnableUser(){driver.findElement(DisableUser).click();}

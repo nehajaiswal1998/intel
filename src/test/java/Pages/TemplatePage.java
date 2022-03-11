@@ -10,8 +10,8 @@ public class TemplatePage   {
     WebDriver driver = null;
 
 
-    By TemplateBtn = By.xpath("//i[@aria-describedby='cdk-describedby-message-4']");
-    By UploadTemplate = By.xpath("//*[contains (text(),'Upload Template')]");
+    public static By TemplateBtn = By.xpath("//i[@aria-describedby='cdk-describedby-message-4']");
+    public static  By UploadTemplate = By.xpath("//*[contains (text(),'Upload Template')]");
     By CreateTemplate = By.xpath("//span[contains(text(),'Create Template')]");
     By CancelCreateTemplate = By.xpath("//*[@id='close-modal']/span[1]/mat-icon");
     By TemplateName = By.xpath("//*[@data-placeholder='Template Name']");

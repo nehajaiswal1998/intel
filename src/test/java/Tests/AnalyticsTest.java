@@ -1,8 +1,14 @@
 package Tests;
 import Base.BasePage;
 import Pages.AnalyticsPage;
+import Utilities.AssertionsFunction;
+import org.checkerframework.checker.units.qual.A;
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.*;
+
+import java.awt.*;
+import java.awt.event.KeyEvent;
+
 @Listeners(Utilities.TestListeners.class)
 public class AnalyticsTest extends BasePage
 {
@@ -12,7 +18,7 @@ public class AnalyticsTest extends BasePage
         BasePage.driverInit();
         BasePage.LoginTest();
     }
-    @AfterClass
+    @AfterClass (enabled = false)
     public void cleanUp() throws Exception {
         driver.quit();
     }
@@ -22,17 +28,38 @@ public class AnalyticsTest extends BasePage
         AnalyticsPageObj = new AnalyticsPage(driver);
         AnalyticsPageObj.ClickAnalyticsBtn();
         Thread.sleep(8000);
-        // 1.1 Organization Statistics Hide and UnHide.
+        AssertionsFunction.verifyTargetPageURL(AnalyticsPage.AnalyticsPageURL);
+        Thread.sleep(1000);
+        AssertionsFunction.verifyElementPresent(AnalyticsPage.AnalyticsPageDisplay);
+        Thread.sleep(1000);
+        // 1.1 Organization Statistics and Project Statistics Hide and UnHide.
         AnalyticsPageObj.ClickOrganizationArrow();
         Thread.sleep(4000);
+        AssertionsFunction.verifyElementPresent(AnalyticsPage.StatisticsHidden);
+        Thread.sleep(1000);
+        AnalyticsPageObj.clickProjectStatisticsarrow();
+        Thread.sleep(2000);
         AnalyticsPageObj.ClickOrganizationArrow();
         Thread.sleep(2000);
+        AssertionsFunction.verifyElementPresent(AnalyticsPage.StatisticsVisible);
+        Thread.sleep(1000);
+        AssertionsFunction.verifyElementPresent(AnalyticsPage.StatisticsHidden);
+        Thread.sleep(1000);
+        AnalyticsPageObj.clickProjectStatisticsarrow();
+        Thread.sleep(2000);
+        AssertionsFunction.verifyElementPresent(AnalyticsPage.StatisticsVisible);
+        Thread.sleep(1000);
+        AssertionsFunction.verifyElementPresent(AnalyticsPage.TotalUser);
+        Thread.sleep(1000);
+
+
     }
     @Test(priority = 2)
     public void hover_total_users_on_Analytics_page() throws Exception {
         // 1.2 Hover on Total Users.
         AnalyticsPageObj.HoverTotalUser();
         Thread.sleep(3000);
+
     }
     @Test(priority = 3)
     public void hover_total_documents_on_Analytics_page() throws Exception {
@@ -88,24 +115,30 @@ public class AnalyticsTest extends BasePage
         AnalyticsPageObj.HoverMedicalChart();
         Thread.sleep(3000);
         //Project Statistics.
-        AnalyticsPageObj.ClickOrganizationArrow();
-        Thread.sleep(3000);
         AnalyticsPageObj.ClickProjectDownArrow();
+        Thread.sleep(3000);
+        AssertionsFunction.verifyElementPresent(AnalyticsPage.SelectProject);
         Thread.sleep(2000);
+
     }
     @Test(priority = 12)
     public void search_project_on_Analytics_page() throws Exception {
         //1.12 Search Project.
         AnalyticsPageObj.ClickSearchProject();
         Thread.sleep(2000);
+        AssertionsFunction.verifyElementPresent(AnalyticsPage.SelectProject);
+        Thread.sleep(1000);
         AnalyticsPageObj.ClickSelectProject();
-        Thread.sleep(2000);
-        AnalyticsPageObj.ClickSelectDropDown();
         Thread.sleep(3000);
+        AssertionsFunction.verifyElementText("QA-AutoProject-Structured",AnalyticsPage.ProjectSelected);
+        Thread.sleep(2000);
+
     }
     @Test(priority = 13)
     public void select_overall_data_on_Analytics_page() throws InterruptedException {
         //1.13 OverAll Data.
+        AnalyticsPageObj.ClickSelectDropDown();
+        Thread.sleep(3000);
         AnalyticsPageObj.ClickSelectOverall();
         Thread.sleep(3000);
         AnalyticsPageObj.ClickSelectDropDown();
@@ -116,35 +149,31 @@ public class AnalyticsTest extends BasePage
         //1.14 Monthly Data.
         AnalyticsPageObj.ClickSelectMonthly();
         Thread.sleep(3000);
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollBy(0,10000)", "");
-        Thread.sleep(3000);
         AnalyticsPageObj.ClickSelectDropDown();
-        Thread.sleep(3000);
+        Thread.sleep(5000);
     }
     @Test(priority = 15)
     public void select_weekly_data_on_Analytics_page() throws Exception {
         //1.15 Weekly Data.
         AnalyticsPageObj.ClickSelectWeekly();
         Thread.sleep(3000);
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollBy(0,10000)", "");
-        Thread.sleep(3000);
         AnalyticsPageObj.ClickSelectDropDown();
-        Thread.sleep(3000);
+        Thread.sleep(5000);
     }
     @Test(priority = 16)
     public void select_daily_data_on_Analytics_page() throws Exception {
         //1.16 Daily Data.
         AnalyticsPageObj.ClickSelectDaily();
         Thread.sleep(3000);
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollBy(0,10000)", "");
-        Thread.sleep(3000);
         AnalyticsPageObj.ClickOnSortByReceived();
         Thread.sleep(3000);
         AnalyticsPageObj.ClickOnSortByDocuments();
         Thread.sleep(3000);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,10000)", "");
+        Thread.sleep(3000);
+
+
     }
 
     @Test(priority=17)
