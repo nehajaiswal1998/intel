@@ -10,6 +10,8 @@ import org.testng.annotations.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import static Pages.CreateRolePage.*;
 
@@ -25,7 +27,7 @@ public class CreateUpdateRoleAdminTest extends BasePage {
     public void login() throws Exception {
         BasePage.driverInit();
     }
-    @AfterClass(enabled = false)
+    @AfterClass
     public void cleanUp() throws Exception {
         driver.quit();
     }
@@ -50,7 +52,7 @@ public class CreateUpdateRoleAdminTest extends BasePage {
         Thread.sleep(4000);
         AssertionsFunction.verifyTargetPageURL(create_role_url);
 
-    }
+   }
     @Test(priority = 2)
     public void blank_role_name_permission() throws Exception {
         //TC 2.2 Blank RoleName and Permission.
@@ -61,8 +63,6 @@ public class CreateUpdateRoleAdminTest extends BasePage {
         driver.navigate().refresh();
         Thread.sleep(4000);
         AssertionsFunction.verifyTargetPageURL(create_role_url);
-
-
     }
     @Test(priority = 3)
     public void valid_role_name_blank_permission() throws Exception {
@@ -120,9 +120,14 @@ public class CreateUpdateRoleAdminTest extends BasePage {
         r.keyPress(KeyEvent.VK_ESCAPE);
         Thread.sleep(3000);
         CreateRolePageObj.ClickCreateButton();
-        Thread.sleep(5000);
-        AssertionsFunction.verifyTargetPageURL(role_tab_url);
+        Thread.sleep(4000);
+        // verify Created and Updated Time date Same
 
+        Assert.assertEquals(driver.findElement(CreatedTime).getText(),driver.findElement(UpdatedTime).getText());
+
+//        String expectedDate = new SimpleDateFormat("MM-dd-yyyy hh:mm").format(new Date());
+//        Assert.assertTrue(driver.findElement(CreatedTime).getText().contains(expectedDate));
+//        AssertionsFunction.verifyElementText(driver.findElement(CreatedTime).getText(),UpdatedTime);
     }
     @Test(priority = 6)
     public void create_role_with_existing_rolename() throws Exception {
@@ -174,6 +179,13 @@ public class CreateUpdateRoleAdminTest extends BasePage {
         Thread.sleep(4000);
         AssertionsFunction.verifyTargetPageURL(role_tab_url);
 
+        // verify Created and Updated Time date diff After Updation
+//        String expectedDate = new SimpleDateFormat("MM-dd-yyyy hh:mm").format(new Date());
+//
+//        Assert.assertTrue(driver.findElement(UpdatedTime).getText().contains(expectedDate));
+//        AssertionsFunction.verifyElementText(driver.findElement(CreatedTime).getText(),UpdatedTime);
+       Assert.assertNotEquals(driver.findElement(CreatedTime).getText(),driver.findElement(UpdatedTime).getText());
+
     }
     @Test(priority = 9)
     public void remove_all_permissions() throws Exception {
@@ -207,15 +219,75 @@ public class CreateUpdateRoleAdminTest extends BasePage {
     @Test(priority = 11)
     public void enable_status_role_update() throws Exception {
             //TC 2.11 Enable the Status of Role and Update.
-            CreateRolePageObj.ClickEditRole();//Change This
+            CreateRolePageObj.ClickEditRole();
             Thread.sleep(5000);
             CreateRolePageObj.ClickActiveRole();
             Thread.sleep(2000);
             CreateRolePageObj.ClickUpdateBtn();
             Thread.sleep(4000);
-            CreateRolePageObj.ClickLogout();
-            Thread.sleep(4000);
-            AssertionsFunction.verifyTargetPageURL(loginPage_url);
+    }
+    @Test(priority = 13)
+    public void Creating_role_invalid_data_in_RoleName_Permissions() throws InterruptedException, IOException {
+        //TC-3.2 Verify the working of admin for Creating role by putting invalid data in Role name, blank Permissions
+        CreateRolePageObj.ClickCreateRoleBtn();
+        Thread.sleep(4000);
+        AssertionsFunction.verifyTargetPageURL(create_role_url);
+        CreateRolePageObj.EnterRoleName(ReadProps.readAttr("InvalidRoleName"));
+        CreateRolePageObj.ClickActiveRole();
+        Thread.sleep(2000);
+        CreateRolePageObj.ClickCreateButton();
+        Thread.sleep(1000);
+        AssertionsFunction.verifyElementText(errormsg,errormsgBlankDataCreateRoleClick);
+        CreateRolePageObj.ClickCancelButton();
+        Thread.sleep(4000);
+        AssertionsFunction.verifyTargetPageURL(role_tab_url);
+    }
+    @Test(priority = 14)
+    public void Creating_role_invalid_data_with_disabled_status() throws InterruptedException, IOException, AWTException {
+       //TC 3.5 Verify the working of admin for Create role button when user status is disabled
+        CreateRolePageObj.ClickCreateRoleBtn();
+        Thread.sleep(4000);
+        AssertionsFunction.verifyTargetPageURL(create_role_url);
+        CreateRolePageObj.EnterRoleName(ReadProps.readAttr("InvalidRoleName"));
+        Thread.sleep(1000);
+        CreateRolePageObj.AddPermissionPlusBtn();
+        Thread.sleep(2000);
+        CreateRolePageObj.ClickProcessDocPermission();
+        Thread.sleep(2000);
+        Assert.assertTrue(AssertionsFunction.isPresent(CreateRolePageObj.getProcessDocumentPermission()));
+        Robot r = new Robot();
+        r.keyPress(KeyEvent.VK_ESCAPE);
+        Thread.sleep(3000);
+        CreateRolePageObj.ClickCreateButton();
+        Thread.sleep(1000);
+        AssertionsFunction.verifyElementText(errormsg,errormsgBlankDataCreateRoleClick);
+        CreateRolePageObj.ClickCancelButton();
+        Thread.sleep(4000);
+        AssertionsFunction.verifyTargetPageURL(role_tab_url);
+    }
+    @Test(priority = 15)
+    public void Updating_role_invalid_data_RolenamePermissions() throws InterruptedException, IOException {
+        //TC 4.2  Verify the working of admin for Updating the role by putting invalid data in Role name,Permissions
+        CreateRolePageObj.ClickEditRole();
+        Thread.sleep(5000);
+        CreateRolePageObj.enterInvalidRoleName();
+        Assert.assertTrue(AssertionsFunction.is_Enabled(CreateRolePageObj.RoleName));
+        CreateRolePageObj.ClickUpdateBtn();
+        Thread.sleep(4000);
+        AssertionsFunction.verifyTargetPageURL(role_tab_url);
+    }
+    @Test(priority = 16)
+    public void Sorting_role() throws InterruptedException {
+        //TC 6.1 Sorting by role, permission,updated,created
+        CreateRolePageObj.ClickSortRoleBtn();
+        Thread.sleep(1000);
+
+        CreateRolePageObj.ClickLogout();
+        Thread.sleep(4000);
+        AssertionsFunction.verifyTargetPageURL(loginPage_url);
+
 
     }
+
+
 }

@@ -69,6 +69,7 @@ public class CreateUserAdminTest extends BasePage {
                 Thread.sleep(2000);
                 UserPageObj.ClickCreateBtn();
                 Thread.sleep(6000);
+                //4.8 Verify that created user by admin should display in available user list
                 Assert.assertTrue(AssertionsFunction.isPresent(UserPageObj.GetcreatedUser()));
     }
         @Test(priority = 4)
@@ -115,9 +116,26 @@ public class CreateUserAdminTest extends BasePage {
             Thread.sleep(3000);
             UserPageObj.ClickUpdateUser();
             Thread.sleep(4000);
-            UserPageObj.LogOut();
-            Thread.sleep(5000);
-            AssertionsFunction.verifyTargetPageURL(UserPageObj.loginPageUrl);
-
+            AssertionsFunction.verifyTargetPageURL(UserPageObj.userTabUrl);
         }
+    @Test(priority = 7)
+    public void create_user_with_valid_data_status_disabled() throws Exception {
+            //4.7 Verify the working of admin role for Create user button when user status is disabled
+        UserPageObj.ClickCreateUserBtn();
+        Thread.sleep(2000);
+        AssertionsFunction.verifyTargetPageURL(UserPageObj.createUserUrl);
+        UserPageObj.EnterUserName(ReadProps.readAttr("AdminUsername")); // change this value only latter no digit
+        Thread.sleep(2000);
+        UserPageObj.EnterEmail(ReadProps.readAttr("AdminiD"));
+        Thread.sleep(2000);
+        UserPageObj.ClickCreateBtn();
+        Thread.sleep(6000);
+        //4.8 Verify that created user by admin should display in available user list
+        Assert.assertTrue(AssertionsFunction.isPresent(UserPageObj.getcreatedUser_withDisabledStatus()));
+
+        UserPageObj.LogOut();
+        Thread.sleep(5000);
+        AssertionsFunction.verifyTargetPageURL(UserPageObj.loginPageUrl);
+
+    }
    }
