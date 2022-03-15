@@ -119,6 +119,7 @@ public class ProjectPage   {
     By EditProject = By.xpath("//mat-icon[contains(text(),'create')]");
     By DeleteAttributeFieldName = By.xpath("//mat-table[@role='grid']/mat-row[1]/mat-cell[3]/button");
     public static By DeletedInvoiceAttribute = By.xpath("//*[@role='grid']/mat-row[1]");
+    public static By DisableProjectSearchMesage = By.xpath("//*[text()='No Records Found !']");
 
 
 
@@ -433,6 +434,10 @@ public class ProjectPage   {
     public void SearchProjectAdmin() {
         driver.findElement(SearchProject).sendKeys("QA-AutoAdmin1");
     }
+    public void SearchProjectForStatus() {
+        driver.findElement(SearchProject).sendKeys("QA-AutoAdminProject");
+    }
+
 
     public void ClickRoleManagementBtn() {
         driver.findElement(RoleManagementBtn).click();

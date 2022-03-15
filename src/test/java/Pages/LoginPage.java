@@ -18,6 +18,8 @@ public class LoginPage {
     ////span[contains (text(),'Please Enter Valid Data ...!')]
     By ErrorMsgInvalidData = By.xpath("//span[contains (text(),'Something Went Wrong ...!')]");
     public static By ErrorMsgDisableUser = By.xpath("//span[text()='User is inactive. Please contact Administration']");
+    public static String ErrorMsgIdPwdSame ="Password cannot be email Id";
+    public static By ErrMsgIdPwdSame= By.xpath("//span[text()='Password cannot be email Id']");
 
     //Constructor
     public LoginPage(WebDriver driver) {
@@ -159,7 +161,7 @@ public class LoginPage {
                 AssertionsFunction.verifyElementPresent(DocumentPage.DocumentBtn);
                 Thread.sleep(2000);
                 driver.findElement(DocumentPage.DocumentBtn).click();
-                Thread.sleep(8000);
+                Thread.sleep(10000);
                 AssertionsFunction.verifyElementPresent(DocumentPage.DocumentTable);
                 Thread.sleep(1000);
                 break;

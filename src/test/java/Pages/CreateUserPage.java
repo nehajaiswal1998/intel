@@ -80,6 +80,16 @@ public class CreateUserPage extends BasePage
     public void EnterPassword(String text){driver.findElement(Password).sendKeys(text);}
     public  String errmsg="Please enter all the details before submitting.";
     public  By errmsgBlankDataCreateRoleClick=By.xpath("//span[contains(text(),'Please enter all the details before submitting.')]");
+    public static By ErrMsgName = By.xpath("//mat-error[text()='Please enter only characters.']");
+    public static By ErrMsgOnlyDigitsPWD = By.xpath("//mat-error[text()=' A password should contain an uppercase and lowercase characters.  ']");
+    public static By ErrMsgPWD = By.xpath("//mat-error[text()=' A password should contain an uppercase and lowercase characters. and in between 8 to 12  ']");
+   public static By ErrMsgOnlyUpperCaseChar = By.xpath("//mat-error[text()=' A password should contain and lowercase characters.  ']");
+    public static By ErrMsgOnlylowerCaseChar = By.xpath("//mat-error[text()=' A password should contain an uppercase  ']");
+    public static By ErrMsgLwrLimitPWD = By.xpath("//mat-error[text()=' A password should be minimum 8 characters long.  ']");
+    public static By UserCreated = By.xpath("//tbody[@role='rowgroup']/tr[1]/td[1]");
+    public static By UserUpdatedTime = By.xpath("//tbody[@role='rowgroup']/tr[1]/td[3]");
+    public static By UserCreatedTime = By.xpath("//tbody[@role='rowgroup']/tr[1]/td[4]");
+
 
 
     SoftAssert softAssert = new SoftAssert();
