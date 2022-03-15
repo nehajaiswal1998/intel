@@ -1,8 +1,10 @@
 package Tests;
 
 import Base.BasePage;
+import Pages.CreateUserPage;
 import Pages.LoginPage;
 import Pages.ProjectPage;
+import Utilities.AssertionsFunction;
 import Utilities.ReadProps;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
@@ -19,6 +21,8 @@ import static org.testng.Assert.assertEquals;
 public class LoginTest extends BasePage {
     static ProjectPage ProjectPageObj;
     static LoginPage loginPageObjects;
+    static CreateUserPage userobj ;
+
 
     @BeforeClass
     public void login() throws Exception {
@@ -35,6 +39,7 @@ public class LoginTest extends BasePage {
         //Object creation
         loginPageObjects = new LoginPage(driver);
         ProjectPageObj = new ProjectPage(driver);
+        userobj = new CreateUserPage(driver);
         driver.get(ReadProps.readAttr("URL"));
         Thread.sleep(2000);
         String actualTitle = driver.getTitle();
@@ -115,12 +120,12 @@ public class LoginTest extends BasePage {
     public static void login_with_invalid_username_and_password() throws Exception {
         //TC 14.6 - Login with Invalid Username and Password for Platform Admin.
         ProjectPageObj.EnterUsername(ReadProps.readAttr("InvalidUsername"));
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         loginPageObjects.setPassword(ReadProps.readAttr("InvalidPassword"));
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         loginPageObjects.clickLoginButton();
-        Thread.sleep(1500);
-        loginPageObjects.VerifyAssertError1();
+        Thread.sleep(300);
+      //  loginPageObjects.VerifyAssertError1();
         Thread.sleep(2000);
     }
 
@@ -134,12 +139,12 @@ public class LoginTest extends BasePage {
         loginPageObjects.setPassword(ReadProps.readAttr("Password"));
         Thread.sleep(1000);
         loginPageObjects.clickLoginButton();
-        Thread.sleep(2000);
+        Thread.sleep(1500);
         loginPageObjects.VerifyAssertError1();
         Thread.sleep(2000);
     }
 
-    @Test(priority = 8)
+   @Test(priority = 8)
     public static void login_with_valid_username_and_invalid_password() throws Exception {
         //TC 14.8 - Login with Valid Username and Invalid Password for Platform Admin.
         loginPageObjects.RefreshPage();
@@ -149,12 +154,28 @@ public class LoginTest extends BasePage {
         loginPageObjects.setPassword(ReadProps.readAttr("InvalidPassword"));
         Thread.sleep(1000);
         loginPageObjects.clickLoginButton();
-        Thread.sleep(2000);
-       // loginPageObjects.VerifyAssertError1();
+        Thread.sleep(1000);
+        loginPageObjects.VerifyAssertError1();
         Thread.sleep(2000);
     }
 
     @Test(priority = 9)
+    public static void login_with_valid_username_and_usernameas_password() throws Exception {
+        //TC 14.8 - Login with Valid Username and Invalid Password for Platform Admin.
+        loginPageObjects.RefreshPage();
+        Thread.sleep(3000);
+        ProjectPageObj.EnterUsername(ReadProps.readAttr("UserID"));
+        Thread.sleep(1000);
+        loginPageObjects.setPassword(ReadProps.readAttr("UserID"));
+        Thread.sleep(1000);
+        loginPageObjects.clickLoginButton();
+        Thread.sleep(1000);
+        AssertionsFunction.verifyElementText(LoginPage.ErrorMsgIdPwdSame,LoginPage.ErrMsgIdPwdSame);
+        Thread.sleep(2000);
+    }
+
+
+    @Test(priority = 10)
     public static void login_with_valid_username_and_password() throws Exception {
         //TC 14.9 Login with Valid Username and Password for Platform Admin.
         loginPageObjects.RefreshPage();
@@ -164,22 +185,115 @@ public class LoginTest extends BasePage {
         loginPageObjects.setPassword(ReadProps.readAttr("Password"));
         Thread.sleep(1000);
         loginPageObjects.clickLoginButton();
-        Thread.sleep(12000);
+        Thread.sleep(15000);
         loginPageObjects.VerifyHomePage();
-        Thread.sleep(2000);
+        Thread.sleep(6000);
 
     }
 
-    @Test(priority = 10)
+   @Test(priority = 11)
+    public static void platfomrAdminAccess() throws Exception {
+        loginPageObjects.accessPermission("User");
+        Thread.sleep(4000);
+        loginPageObjects.accessPermission("Role");
+        Thread.sleep(4000);
+        loginPageObjects.accessPermission("Templates");
+        Thread.sleep(4000);
+        loginPageObjects.accessPermission("Dataset");
+        Thread.sleep(4000);
+        loginPageObjects.accessPermission("Projects");
+        Thread.sleep(4000);
+        loginPageObjects.accessPermission("Documents");
+        Thread.sleep(4000);
+        loginPageObjects.accessPermission("Analytics");
+        Thread.sleep(10000);
+       //loginPageObjects.accessPermission("Analytic");
+      // Thread.sleep(10000);
+    }
+
+    @Test(priority = 12)
+    public static void disableUserLogin() throws Exception
+    {
+        userobj.ClickUserBtn();
+        Thread.sleep(6000);
+        userobj.SearchCreatedUser("AE Supervisor");
+        Thread.sleep(2000);
+        userobj.SelectUser();
+        Thread.sleep(2000);
+        userobj.ClickDisableUser();
+        Thread.sleep(4000);
+        userobj.ClickUpdateUser();
+        Thread.sleep(6000);
+        loginPageObjects.ClickLogoutBtn();
+        Thread.sleep(6000);
+        ProjectPageObj.EnterUsername(ReadProps.readAttr("SupervisorUser"));
+        Thread.sleep(2000);
+        loginPageObjects.setPassword(ReadProps.readAttr("SupervisorPwd"));
+        Thread.sleep(2000);
+        loginPageObjects.clickLoginButton();
+        Thread.sleep(800);
+       AssertionsFunction.verifyElementText("User is inactive. Please contact Administration",LoginPage.ErrorMsgDisableUser);
+        Thread.sleep(4000);
+        loginPageObjects.RefreshPage();
+        Thread.sleep(4000);
+        ProjectPageObj.EnterUsername(ReadProps.readAttr("UserID"));
+        Thread.sleep(1000);
+        loginPageObjects.setPassword(ReadProps.readAttr("Password"));        Thread.sleep(1000);
+        loginPageObjects.clickLoginButton();
+        Thread.sleep(10000);
+        userobj.ClickUserBtn();
+        Thread.sleep(6000);
+        userobj.SearchCreatedUser("AE Supervisor");
+        Thread.sleep(2000);
+        userobj.SelectUser();
+        Thread.sleep(2000);
+        userobj.ClickDisableUser();
+        Thread.sleep(3000);
+        userobj.ClickUpdateUser();
+        Thread.sleep(12000);
+    }
+@Test(priority = 13)
+    public static void disableProjectAccess() throws Exception
+    {
+
+        ProjectPageObj.ClickOnProjectBtn();
+        Thread.sleep(8000);
+        ProjectPageObj.SearchProjectForStatus();
+        Thread.sleep(6000);
+        ProjectPageObj.ClickOnEditProject();
+        Thread.sleep(5000);
+        ProjectPageObj.ClickOnStatusBtn();
+        Thread.sleep(2000);
+        ProjectPageObj.ClickOnUpdateProject();
+        Thread.sleep(6000);
+        ProjectPageObj.SearchProjectForStatus();
+        Thread.sleep(4000);
+        AssertionsFunction.verifyElementPresent(ProjectPage.DisableProjectSearchMesage);
+        Thread.sleep(1000);
+        ProjectPageObj.TableStructure();
+        Thread.sleep(8000);ProjectPageObj.ClickOnEditProject();
+        Thread.sleep(5000);
+        ProjectPageObj.ClickOnStatusBtn();
+        Thread.sleep(2000);
+        ProjectPageObj.ClickOnUpdateProject();
+        Thread.sleep(8000);
+
+
+
+    }
+
+
+
+    @Test(priority = 14)
     public static void navigate_backward() throws Exception {
         //TC 14.10 - Navigate Backward for Platform Admin.
         loginPageObjects.NavigateBack();
-        Thread.sleep(2000);
+        Thread.sleep(4000);
         loginPageObjects.VerifyAssertBack();
-        Thread.sleep(2000);
+        Thread.sleep(4000);
     }
 
-    @Test(priority = 11)
+    @Test(priority = 15)
     public static void logout_for_platform_admin() throws Exception {
         //TC 14.11 - Logout for Platform Admin.
         loginPageObjects.ClickLogoutBtn();
@@ -187,8 +301,7 @@ public class LoginTest extends BasePage {
         loginPageObjects.VerifyAssertBack1();
         Thread.sleep(2000);
     }
-
-    @Test(priority = 12)
+    @Test(priority = 16)
     public static void login_with_invalid_username_password() throws Exception {
         //TC 14.2 - Admin Login with Invalid Username and Password.
         ProjectPageObj.EnterUsername(ReadProps.readAttr("AdminInvalidUser"));
@@ -202,7 +315,7 @@ public class LoginTest extends BasePage {
 
     }
 
-    @Test(priority = 13)
+    @Test(priority = 17)
     public static void login_with_invalid_username_and_valid_password_for_admin() throws Exception {
         //TC 14.13 - Admin Login with Invalid Username and Valid Password.
         loginPageObjects.RefreshPage();
@@ -218,7 +331,7 @@ public class LoginTest extends BasePage {
 
     }
 
-    @Test(priority = 14)
+    @Test(priority = 18)
     public static void login_with_valid_username_and_invalid_password_admin() throws Exception {
         //TC 14.14 - Admin Login with Valid Username and Invalid Password.
         loginPageObjects.RefreshPage();
@@ -233,7 +346,7 @@ public class LoginTest extends BasePage {
         Thread.sleep(2000);
     }
 
-    @Test(priority = 15)
+    @Test(priority = 19)
     public static void login_with_valid_username_and_password_admin() throws Exception {
         //TC 14.15 Admin Role Login with Valid Username and Password.
         loginPageObjects.RefreshPage();
@@ -245,12 +358,86 @@ public class LoginTest extends BasePage {
         loginPageObjects.clickLoginButton();
         Thread.sleep(15000);
         loginPageObjects.VerifyHomePage();
-        loginPageObjects.ClickLogoutBtn();
+
+    }
+    @Test(priority = 20)
+    public static void disableUserLoginByAdmin() throws Exception
+    {
+        userobj.ClickUserBtn();
+        Thread.sleep(6000);
+        userobj.SearchCreatedUser("AE Supervisor");
+        Thread.sleep(2000);
+        userobj.SelectUser();
+        Thread.sleep(2000);
+        userobj.ClickDisableUser();
+        Thread.sleep(3000);
+        userobj.ClickUpdateUser();
         Thread.sleep(4000);
-       loginPageObjects.VerifyAssertBack1();
+        loginPageObjects.ClickLogoutBtn();
+        Thread.sleep(6000);
+        ProjectPageObj.EnterUsername(ReadProps.readAttr("SupervisorUser"));
+        Thread.sleep(2000);
+        loginPageObjects.setPassword(ReadProps.readAttr("SupervisorPwd"));
+        Thread.sleep(2000);
+        loginPageObjects.clickLoginButton();
+        Thread.sleep(700);
+        AssertionsFunction.verifyElementText("User is inactive. Please contact Administration",LoginPage.ErrorMsgDisableUser);
+        Thread.sleep(2000);
+        loginPageObjects.RefreshPage();
+        Thread.sleep(4000);
+        ProjectPageObj.EnterUsername(ReadProps.readAttr("AdminUser"));
+        Thread.sleep(2000);
+        loginPageObjects.setPassword(ReadProps.readAttr("AdminPwd"));
+        Thread.sleep(2000);
+        loginPageObjects.clickLoginButton();
+        Thread.sleep(8000);
+        userobj.ClickUserBtn();
+        Thread.sleep(6000);
+        userobj.SearchCreatedUser("AE Supervisor");
+        Thread.sleep(3000);
+        userobj.SelectUser();
+        Thread.sleep(2000);
+        userobj.ClickDisableUser();
+        Thread.sleep(3000);
+        userobj.ClickUpdateUser();
+        Thread.sleep(7000);
+
+
     }
 
-    @Test(priority = 16)
+    @Test(priority = 21)
+    public static void disableProjectAccessAdmin() throws Exception
+    {
+
+        ProjectPageObj.ClickOnProjectBtn();
+        Thread.sleep(7000);
+        ProjectPageObj.SearchProjectForStatus();
+        Thread.sleep(6000);
+        ProjectPageObj.ClickOnEditProject();
+        Thread.sleep(7000);
+        ProjectPageObj.ClickOnStatusBtn();
+        Thread.sleep(2000);
+        ProjectPageObj.ClickOnUpdateProject();
+        Thread.sleep(6000);
+        ProjectPageObj.SearchProjectForStatus();
+        Thread.sleep(4000);
+        AssertionsFunction.verifyElementPresent(ProjectPage.DisableProjectSearchMesage);
+        Thread.sleep(1000);
+        ProjectPageObj.TableStructure();
+        Thread.sleep(8000);ProjectPageObj.ClickOnEditProject();
+        Thread.sleep(5000);
+        ProjectPageObj.ClickOnStatusBtn();
+        Thread.sleep(2000);
+        ProjectPageObj.ClickOnUpdateProject();
+        Thread.sleep(8000);
+        loginPageObjects.ClickLogoutBtn();
+        Thread.sleep(4000);
+        loginPageObjects.VerifyAssertBack1();
+
+
+    }
+
+    @Test(priority = 22)
     public static void login_with_invalid_username_and_password_supervisor() throws Exception {
         //TC 14.16 Supervisor Role Login with InValid Username and Password.
         loginPageObjects.RefreshPage();
@@ -266,7 +453,7 @@ public class LoginTest extends BasePage {
 
     }
 
-    @Test(priority = 17)
+    @Test(priority = 23)
     public static void login_with_invalid_username_and_valid_password_supervisor() throws Exception {
         //TC 14.17 - Supervisor Role  Login with Invalid Username and Valid Password.
         loginPageObjects.RefreshPage();
@@ -281,7 +468,7 @@ public class LoginTest extends BasePage {
         Thread.sleep(2000);
     }
 
-    @Test(priority = 18)
+    @Test(priority = 24)
     public static void login_with_valid_username_and_invalid_password_supervisor() throws Exception {
         //TC 14.18 - Supervisor Role  Login with Valid Username and Invalid Password.
         loginPageObjects.RefreshPage();
@@ -296,7 +483,7 @@ public class LoginTest extends BasePage {
         Thread.sleep(2000);
     }
 
-    @Test(priority = 19)
+    @Test(priority = 25)
     public static void login_with_valid_username_and_password_supervisor() throws Exception {
         //TC 14.19 Supervisor Role Valid Username and Password.
         loginPageObjects.RefreshPage();
@@ -314,7 +501,7 @@ public class LoginTest extends BasePage {
         loginPageObjects.VerifyAssertBack1();
     }
 
-    @Test(priority = 20)
+    @Test(priority = 26)
     public static void login_with_invalid_username_and_password_for_operator() throws Exception {
         //TC 14.20 - Operator Role  Login with Invalid Username and Password.
         loginPageObjects.RefreshPage();
@@ -326,10 +513,10 @@ public class LoginTest extends BasePage {
         loginPageObjects.clickLoginButton();
         Thread.sleep(2000);
         loginPageObjects.VerifyAssertError1();
-        //Thread.sleep(2000);
+        Thread.sleep(2000);
     }
 
-    @Test(priority = 21)
+    @Test(priority = 27)
     public static void login_with_invalid_username_and_valid_password_for_operator() throws Exception {
         //TC 14.21 - Operator Role  Login with Invalid Username and Valid Password.
         loginPageObjects.RefreshPage();
@@ -344,7 +531,7 @@ public class LoginTest extends BasePage {
         Thread.sleep(2000);
     }
 
-    @Test(priority = 22)
+    @Test(priority = 28)
     public static void login_with_valid_username_and_invalid_password_for_operator() throws Exception {
         //TC 14.22 - Operator ROle  Login with Valid Username and Invalid Password.
         loginPageObjects.RefreshPage();
@@ -359,7 +546,7 @@ public class LoginTest extends BasePage {
         Thread.sleep(2000);
     }
 
-    @Test(priority = 23)
+    @Test(priority = 29)
     public static void login_with_valid_username_and_password_for_operator() throws Exception {
         //TC 14.23 Operator Role Login with Valid Username and Password.
         loginPageObjects.RefreshPage();

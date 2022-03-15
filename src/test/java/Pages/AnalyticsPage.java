@@ -9,9 +9,14 @@ public class AnalyticsPage {
 
     WebDriver driver = null;
 
-    By AnalyticsBtn = By.xpath("//i[@class='mat-tooltip-trigger fa fa-cubes m-0 side-icon ng-star-inserted']");
-    By OrganizationStatistics =By.xpath("//span[contains(text(),'Organization Statistics')]");
-    By TotalUser = By.xpath("//div[contains(text(),' Users ')]");
+    public static String AnalyticsPageURL = "https://alpha.neutrino-ai.com/#/home/analytics";
+    public static By AnalyticsBtn = By.xpath("//i[@class='mat-tooltip-trigger fa fa-cubes m-0 side-icon ng-star-inserted']");
+    By OrganizationStatistics =By.xpath("//span[contains(text(),'Project Statistics')]");
+
+    public static By StatisticsHidden = By.xpath("//div[@style='height: 0px; visibility: hidden;']");
+    public static By StatisticsVisible = By.xpath("//div[@style='visibility: visible;']");
+
+    public static By TotalUser = By.xpath("//div[contains(text(),' Users ')]");
     By Document = By.xpath("//*[@id='cdk-accordion-child-0']/div/div/div[1]/div/div[2]/div/div");
     By Processed = By.xpath("//*[@id='cdk-accordion-child-0']/div/div/div[1]/div/div[3]/div/div/div[1]/div");
 
@@ -31,8 +36,9 @@ public class AnalyticsPage {
     By MCReadyBar = By.xpath("//div[@class='row ng-star-inserted']/div[4]/div[1]/div[2]/div[2]");
     By MCRejectedBar = By.xpath("//div[@class='row ng-star-inserted']/div[4]/div[1]/div[2]/div[3]");
     By ProjectDownArrow=By.xpath("//i[@class='fa fa-chevron-circle-down ml-2']");
+    public static By ProjectSelected = By.xpath("//span[@class='mat-tooltip-trigger projectname']");
     By SearchProject=By.xpath("//input[@placeholder='Search']");
-    By SelectProject=By.xpath("//span[contains(text(),'QA-AutoProject-Structured')]");
+    public static By SelectProject=By.xpath("//span[contains(text(),'QA-AutoProject-Structured')]");
     By SelectDropDown= By.xpath("//*[@id='mat-select-0']/div/div[2]");
     By SelectMonthly = By.xpath("//span[contains(text(),'Monthly')]");
     By SelectWeekly = By.xpath("//span[contains(text(),'Weekly')]");
@@ -41,6 +47,9 @@ public class AnalyticsPage {
     By SortByDocuments = By.xpath("//*[@id='mat-tab-content-0-0']/div/div/div/table/thead/tr/th[1]/div/div[2]");
     By SortByReceived = By.xpath("//div[contains(text(),'Received')]");
     By OperatorPerformanceSection = By.xpath("//div[text()=' Operator Performance']");
+    public static By AnalyticsPageDisplay= By.xpath("//div[@class='row ng-star-inserted']");
+    public static By ProjectStatistics = By.xpath("//span[text()='Project Statistics']");
+
 
 
     //Constructor for Analytics Page.
@@ -63,6 +72,11 @@ public class AnalyticsPage {
     public  void ClickOrganizationArrow(){
         driver.findElement(OrganizationStatistics).click();
     }
+
+    public  void clickProjectStatisticsarrow(){
+        driver.findElement(ProjectStatistics).click();
+    }
+
 
     public  void HoverTotalUser(){
         Actions action = new Actions(driver);

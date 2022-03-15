@@ -11,8 +11,8 @@ import java.io.IOException;
 
 public class CreateUserPage extends BasePage
 {
-    By UserBtn = By.xpath("//i[@class='mat-tooltip-trigger fa fa-users m-0 side-icon ng-star-inserted']");
-    By CreateUserBtn = By.xpath("//span[contains(text(),' Create User ')]");
+    public static By UserBtn = By.xpath("//i[@class='mat-tooltip-trigger fa fa-users m-0 side-icon ng-star-inserted']");
+    public static By CreateUserBtn = By.xpath("//span[contains(text(),' Create User ')]");
     By CreateBtn = By.xpath("//span[contains(text(),'Create')]");
     By EnterUserName = By.xpath("//input[@formcontrolname='name']");
     By EnterEmail  = By.xpath("//input[@formcontrolname='email']");
@@ -21,12 +21,15 @@ public class CreateUserPage extends BasePage
     By ValidationEmailID=By.xpath("//*[text()='Please enter a valid email id.']");
     By SearchBtn  = By.xpath("//input[@data-placeholder='Search']");
     By DisableUser = By.xpath("//div[@class='mat-slide-toggle-thumb']");
-    By UpdateUser  = By.xpath("//span[contains(text(),'Update')]");
+
+    public static By UpdateUser  = By.xpath("//span[contains(text(),'Update')]");
     public static By UpdatedTimeUser_Admin=By.xpath("//tbody[@role='rowgroup']/tr[2]/td[3]");
     public static   By CreatedTimeUser_Admin=By.xpath("//tbody[@role='rowgroup']/tr[2]/td[4]");
     By SortUser=By.xpath("//th[@class='mat-sort-header mat-header-cell cdk-header-cell font-14px ng-tns-c167-7 cdk-column-name mat-column-name ng-star-inserted mat-table-sticky mat-table-sticky-border-elem-top']");
     By Password  = By.xpath("//input[@type='password']");
     By PlatformUser = By.xpath("//td[contains(text(),' AutoSampleBB ')]");
+    By SelectUser = By.xpath("//tbody[@role='rowgroup']");
+
     By UserUpdated = By.xpath("//td[contains(text(),' AutoSampleUpdate ')]");
     //By AdminUser = By.xpath("//td[contains(text(),' Nirbhay ')]");//Change everytime before u run.
     By AdminUser=By.xpath("//td[contains(text(),\""+ ReadProps.readAttr("AdminUserName") +"\")]");
@@ -79,8 +82,13 @@ public class CreateUserPage extends BasePage
 
     public  void SearchCreatedUser(String text){driver.findElement(SearchBtn).sendKeys(text);}
 
+    public  void SelectSearchedUser_Juee(){driver.findElement(PlatformUser).click();}
+    public  void SelectUser(){driver.findElement(SelectUser).click();}
+    public  void SelectSearchedAdminUser_Juee(){driver.findElement(AdminUser).click();}//change this value
+
     public  void SelectSearchedUser(){driver.findElement(AdminUserExtraForDisabled).click();}
     public  void SelectSearchedAdminUser(){driver.findElement(AdminUserExtra).click();}//change this value
+    
     public void ClickDisableUser(){driver.findElement(DisableUser).click();}
     public void ClickEnableUser(){driver.findElement(DisableUser).click();}
     public void ClickUpdateUser(){driver.findElement(UpdateUser).click();}
@@ -90,6 +98,16 @@ public class CreateUserPage extends BasePage
     public void EnterPassword(String text){driver.findElement(Password).sendKeys(text);}
     public  String errmsg="Please enter all the details before submitting.";
     public  By errmsgBlankDataCreateRoleClick=By.xpath("//span[contains(text(),'Please enter all the details before submitting.')]");
+    public static By ErrMsgName = By.xpath("//mat-error[text()='Please enter only characters.']");
+    public static By ErrMsgOnlyDigitsPWD = By.xpath("//mat-error[text()=' A password should contain an uppercase and lowercase characters.  ']");
+    public static By ErrMsgPWD = By.xpath("//mat-error[text()=' A password should contain an uppercase and lowercase characters. and in between 8 to 12  ']");
+   public static By ErrMsgOnlyUpperCaseChar = By.xpath("//mat-error[text()=' A password should contain and lowercase characters.  ']");
+    public static By ErrMsgOnlylowerCaseChar = By.xpath("//mat-error[text()=' A password should contain an uppercase  ']");
+    public static By ErrMsgLwrLimitPWD = By.xpath("//mat-error[text()=' A password should be minimum 8 characters long.  ']");
+    public static By UserCreated = By.xpath("//tbody[@role='rowgroup']/tr[1]/td[1]");
+    public static By UserUpdatedTime = By.xpath("//tbody[@role='rowgroup']/tr[1]/td[3]");
+    public static By UserCreatedTime = By.xpath("//tbody[@role='rowgroup']/tr[1]/td[4]");
+
 
 
     SoftAssert softAssert = new SoftAssert();

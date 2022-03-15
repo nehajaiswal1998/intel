@@ -48,6 +48,7 @@ public class AssertionsFunction extends BasePage{
         System.out.println(actualValue);
         Assert.assertNotEquals(actualValue,expectedValue);
     }
+
     public static void  verify_ElementHover(String expectedValue, By element_Locator)
     {
         Actions action = new Actions(driver);
@@ -98,6 +99,24 @@ public class AssertionsFunction extends BasePage{
         String actualValue= driver.findElement(element_Locator).getAttribute("textContent");
         Assert.assertEquals(actualValue,expectedValue);
     }
+
+    public static void verifyElementCreatedUpdatedTime(By element_Locator1, By element_Locator2)
+    {
+        String actualValue= driver.findElement(element_Locator1).getText();
+        System.out.println(actualValue);
+        String expectedValue= driver.findElement(element_Locator2).getText();
+        Assert.assertEquals(actualValue,expectedValue);
+    }
+
+    public static void verifyElementCreatedUpdatedTimeUpdated(By element_Locator1, By element_Locator2)
+    {
+        String actualValue= driver.findElement(element_Locator1).getText();
+        System.out.println(actualValue);
+        String expectedValue= driver.findElement(element_Locator2).getText();
+        Assert.assertNotEquals(actualValue,expectedValue);
+    }
+
+
 
 
 

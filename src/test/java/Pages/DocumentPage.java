@@ -10,7 +10,8 @@ import org.testng.Assert;
 public class DocumentPage   {
     WebDriver driver = null;
                                ////mat-sidenav[@id='sidenav']/div/mat-nav-list/mat-list-item[6]
-    By DocumentBtn = By.xpath("//mat-sidenav[@id='sidenav']/div/mat-nav-list/mat-list-item[6]");
+    public static By DocumentBtn = By.xpath("//mat-sidenav[@id='sidenav']/div/mat-nav-list/mat-list-item[6]");
+    public static By DocumentTable= By.xpath("//div[@class='example-container documentTable']");
     By DropDown = By.xpath("//span[@class='mat-tooltip-trigger projectname']");
     By SearchProject = By.xpath("//div[@class='cdk-overlay-pane']/div/div/div/input");
     By SearchBox = By.xpath("//input[@data-placeholder='Search']");
@@ -137,7 +138,7 @@ public class DocumentPage   {
     By DeleteFirstRule = By.xpath("(//mat-icon[contains(text(),'delete')])[3]");
     By patientDemographics=By.xpath("//div[@class='mat-ripple mat-tab-label mat-focus-indicator mat-tab-label-active ng-star-inserted']");
 
-    public String DocTabUrl="https://alpha.neutrino-ai.com/#/home/documents";
+    public static String DocTabUrl="https://alpha.neutrino-ai.com/#/home/documents";
     public String ClickOnReadyDocumentUrl="https://alpha.neutrino-ai.com/#/home/documents/processed-forms?faxPageId=61cb126c08e93e32e4e2ec79&imageName=Processed.pdf&type=pdf&_st=Ready";
     By ProjectList = By.xpath("//div[@role='menu']");
     By ProjectSearch =By.xpath("//input[@class='p-2 theme_color']");
@@ -569,6 +570,8 @@ public class DocumentPage   {
     {
         AssertionsFunction.verify_ElementHover("inputDocs_QA-AutoProject-Structured_Pfizer.jpg" ,HoverDocumentName );
     }
+
+
 
 
 

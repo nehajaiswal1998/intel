@@ -1,5 +1,6 @@
 package Pages;
 
+import Utilities.AssertionsFunction;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -16,6 +17,9 @@ public class LoginPage {
     By ErrorMsgBlankData = By.xpath("//span[contains (text(),'Please Enter Valid Data ...!')]");
     ////span[contains (text(),'Please Enter Valid Data ...!')]
     By ErrorMsgInvalidData = By.xpath("//span[contains (text(),'Something Went Wrong ...!')]");
+    public static By ErrorMsgDisableUser = By.xpath("//span[text()='User is inactive. Please contact Administration']");
+    public static String ErrorMsgIdPwdSame ="Password cannot be email Id";
+    public static By ErrMsgIdPwdSame= By.xpath("//span[text()='Password cannot be email Id']");
 
     //Constructor
     public LoginPage(WebDriver driver) {
@@ -84,4 +88,101 @@ public class LoginPage {
     {
         driver.navigate().back();
     }
+
+    public void accessPermission(String TabName) throws InterruptedException {
+        switch (TabName){
+
+            case "User":
+            {
+                AssertionsFunction.verifyElementPresent(CreateUserPage.UserBtn);
+                Thread.sleep(2000);
+                driver.findElement(CreateUserPage.UserBtn).click();
+                Thread.sleep(5000);
+                AssertionsFunction.verifyElementPresent(CreateUserPage.CreateUserBtn);
+                Thread.sleep(4000);
+                driver.findElement(By.xpath("//tbody[@role='rowgroup']/tr[1]/td[5]")).click();
+                Thread.sleep(4000);
+                AssertionsFunction.verifyElementPresent(CreateUserPage.UpdateUser);
+                Thread.sleep(1000);
+                break;
+
+            }
+
+            case "Role":
+            {
+                AssertionsFunction.verifyElementPresent(CreateRolePage.RoleManagementBtn);
+                Thread.sleep(2000);
+                driver.findElement(CreateRolePage.RoleManagementBtn).click();
+                Thread.sleep(2000);
+                AssertionsFunction.verifyElementPresent(CreateRolePage.CreateRoleBtn);
+                Thread.sleep(4000);
+                driver.findElement(By.xpath("//tbody[@role='rowgroup']/tr[1]/td[5]")).click();
+                Thread.sleep(4000);
+                AssertionsFunction.verifyElementPresent(CreateRolePage.ClickUpdateBtn);
+                Thread.sleep(1000);
+                break;
+
+            }
+
+            case "Templates":
+            {
+                AssertionsFunction.verifyElementPresent(TemplatePage.TemplateBtn);
+                Thread.sleep(2000);
+                driver.findElement(TemplatePage.TemplateBtn).click();
+                Thread.sleep(8000);
+                AssertionsFunction.verifyElementPresent(TemplatePage.UploadTemplate);
+                Thread.sleep(1000);
+                break;
+            }
+
+            case "Dataset":
+            {
+                AssertionsFunction.verifyElementPresent(DatasetPage.DatasetBtn);
+                Thread.sleep(2000);
+                driver.findElement(DatasetPage.DatasetBtn).click();
+                Thread.sleep(6000);
+                AssertionsFunction.verifyElementPresent(DatasetPage.AddCategoryBtn);
+                Thread.sleep(1000);
+                break;
+            }
+            case "Projects":
+            {
+                AssertionsFunction.verifyElementPresent(ProjectPage.ProjectBtn);
+                Thread.sleep(2000);
+                driver.findElement(ProjectPage.ProjectBtn).click();
+                Thread.sleep(8000);
+                AssertionsFunction.verifyElementPresent(ProjectPage.CreateProject);
+                Thread.sleep(1000);
+                break;
+            }
+
+            case "Documents":
+            {
+                AssertionsFunction.verifyElementPresent(DocumentPage.DocumentBtn);
+                Thread.sleep(2000);
+                driver.findElement(DocumentPage.DocumentBtn).click();
+                Thread.sleep(10000);
+                AssertionsFunction.verifyElementPresent(DocumentPage.DocumentTable);
+                Thread.sleep(1000);
+                break;
+            }
+            case "Analytics":
+            {
+                AssertionsFunction.verifyElementPresent(AnalyticsPage.AnalyticsBtn);
+                Thread.sleep(2000);
+                driver.findElement(AnalyticsPage.AnalyticsBtn).click();
+                Thread.sleep(8000);
+                AssertionsFunction.verifyElementPresent(AnalyticsPage.AnalyticsPageDisplay);
+                Thread.sleep(1000);
+                break;
+            }
+            default:
+            {
+                System.out.println("Wrong Tab Name Entered");
+            }
+
+    }
+    }
+
+
 }
