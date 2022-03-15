@@ -12,6 +12,7 @@ import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.TimeZone;
 
 import static Pages.CreateRolePage.*;
 
@@ -123,11 +124,13 @@ public class CreateUpdateRoleAdminTest extends BasePage {
         Thread.sleep(4000);
         // verify Created and Updated Time date Same
 
-        Assert.assertEquals(driver.findElement(CreatedTime).getText(),driver.findElement(UpdatedTime).getText());
+      //  Assert.assertEquals(driver.findElement(CreatedTime).getText(),driver.findElement(UpdatedTime).getText());
+        String expectedDate = Functions.getCurrentDate();
+        System.out.println("expectedDate="+expectedDate);
+        System.out.println("driver.findElement(CreatedTime).getText()="+driver.findElement(CreatedTime).getText());
 
-//        String expectedDate = new SimpleDateFormat("MM-dd-yyyy hh:mm").format(new Date());
-//        Assert.assertTrue(driver.findElement(CreatedTime).getText().contains(expectedDate));
-//        AssertionsFunction.verifyElementText(driver.findElement(CreatedTime).getText(),UpdatedTime);
+        Assert.assertTrue(driver.findElement(CreatedTime).getText().contains(expectedDate));
+        AssertionsFunction.verifyElementText(driver.findElement(CreatedTime).getText(),UpdatedTime);
     }
     @Test(priority = 6)
     public void create_role_with_existing_rolename() throws Exception {
@@ -176,15 +179,18 @@ public class CreateUpdateRoleAdminTest extends BasePage {
         r.keyPress(KeyEvent.VK_ESCAPE);
         Thread.sleep(3000);
         CreateRolePageObj.ClickUpdateBtn();
-        Thread.sleep(4000);
+        String expectedDate = Functions.getCurrentDate();
+        Thread.sleep(5000);
         AssertionsFunction.verifyTargetPageURL(role_tab_url);
 
         // verify Created and Updated Time date diff After Updation
-//        String expectedDate = new SimpleDateFormat("MM-dd-yyyy hh:mm").format(new Date());
-//
-//        Assert.assertTrue(driver.findElement(UpdatedTime).getText().contains(expectedDate));
-//        AssertionsFunction.verifyElementText(driver.findElement(CreatedTime).getText(),UpdatedTime);
-       Assert.assertNotEquals(driver.findElement(CreatedTime).getText(),driver.findElement(UpdatedTime).getText());
+
+        System.out.println("expectedDate="+expectedDate);
+        System.out.println("driver.findElement(UpdatedTime).getText()="+driver.findElement(UpdatedTime).getText());
+
+        Assert.assertTrue(driver.findElement(UpdatedTime).getText().contains(expectedDate));
+        Assert.assertNotEquals(driver.findElement(CreatedTime).getText(),UpdatedTime);
+  //     Assert.assertNotEquals(driver.findElement(CreatedTime).getText(),driver.findElement(UpdatedTime).getText());
 
     }
     @Test(priority = 9)
@@ -195,6 +201,7 @@ public class CreateUpdateRoleAdminTest extends BasePage {
         CreateRolePageObj.ClickRemovePermission();
         Thread.sleep(2000);
         CreateRolePageObj.ClickUpdateBtn();
+        Thread.sleep(1000);
         AssertionsFunction.verifyElementText(errormsg,errormsgBlankDataCreateRoleClick);
         Thread.sleep(3000);
         CreateRolePageObj.ClickCancelButton();

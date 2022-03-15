@@ -8,6 +8,9 @@ import org.openqa.selenium.TakesScreenshot;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.TimeZone;
 
 public class Functions {
     public static void takescreenshot(String testname) throws IOException {
@@ -23,6 +26,12 @@ public class Functions {
         catch (Exception e){
             return false;
         }
+    }
+    public static String getCurrentDate(){
+        SimpleDateFormat formatter = new SimpleDateFormat("MM-dd-yyyy hh:mm");
+        formatter.setTimeZone(TimeZone.getTimeZone("UTC"));
+        String date = formatter.format(new Date());
+        return date;
     }
 ////    public static boolean isSelectedOption(By locator){
 //        try {
