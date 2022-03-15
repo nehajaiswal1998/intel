@@ -176,6 +176,10 @@ public class LoginPage {
                 Thread.sleep(1000);
                 break;
             }
+            default:
+            {
+                System.out.println("Wrong Tab Name Entered");
+            }
 
     }
     }

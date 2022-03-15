@@ -3,7 +3,9 @@ package Tests;
 import Base.BasePage;
 import Pages.CreateUserPage;
 import Utilities.AssertionsFunction;
+import Utilities.Functions;
 import Utilities.ReadProps;
+import org.testng.Assert;
 import org.testng.annotations.*;
 
 @Listeners(Utilities.TestListeners.class)
@@ -82,7 +84,7 @@ public class UpdateUserPlatformAdminTest extends BasePage {
         UserPageObj1.EnterPassword(ReadProps.readAttr("pwd"));
         Thread.sleep(2000);
         UserPageObj1.ClickUpdateUser();
-        Thread.sleep(2000);
+        Thread.sleep(3000);
         AssertionsFunction.verifyElementText(UserPageObj1.errmsg, UserPageObj1.errmsgBlankDataCreateRoleClick);
         Thread.sleep(5000);
         UserPageObj1.ClickOnCancelBtn();
@@ -261,7 +263,7 @@ public class UpdateUserPlatformAdminTest extends BasePage {
 
         //Only Digits
         UserPageObj1.SelectSearchedUser();
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         UserPageObj1.ClearPassword();
         Thread.sleep(3000);
         UserPageObj1.EnterPassword(ReadProps.readAttr("OnlyDigits"));
@@ -272,7 +274,7 @@ public class UpdateUserPlatformAdminTest extends BasePage {
         Thread.sleep(2000);
        // AssertionsFunction.verifyElementPresent(CreateUserPage.ErrMsgOnlyDigitsPWD);
         UserPageObj1.ClickOnCancelBtn();
-        Thread.sleep(3000);
+        Thread.sleep(4000);
     }
 
     @Test(priority = 14)
@@ -398,7 +400,13 @@ public class UpdateUserPlatformAdminTest extends BasePage {
         Thread.sleep(2000);
         UserPageObj1.ClickUpdateUser();
         Thread.sleep(4000);
-        AssertionsFunction.verifyElementCreatedUpdatedTimeUpdated(CreateUserPage.UserUpdatedTime, CreateUserPage.UserCreatedTime);
+      //  AssertionsFunction.verifyElementCreatedUpdatedTimeUpdated(CreateUserPage.UserUpdatedTime, CreateUserPage.UserCreatedTime);
+         String expectedDate = Functions.getCurrentDate();
+        System.out.println("expectedDate="+expectedDate);
+        System.out.println("driver.findElement(UserCreatedTime).getText()="+driver.findElement(CreateUserPage.UserCreatedTime).getText());
+
+        Assert.assertFalse(driver.findElement(CreateUserPage.UserCreatedTime).getText().contains(expectedDate));
+        Assert.assertNotEquals(driver.findElement(CreateUserPage.UserCreatedTime).getText(),CreateUserPage.UserCreatedTime);
         Thread.sleep(2000);
         UserPageObj1.LogOut();
 

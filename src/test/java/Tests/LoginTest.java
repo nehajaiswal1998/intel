@@ -207,6 +207,8 @@ public class LoginTest extends BasePage {
         Thread.sleep(4000);
         loginPageObjects.accessPermission("Analytics");
         Thread.sleep(10000);
+       //loginPageObjects.accessPermission("Analytic");
+      // Thread.sleep(10000);
     }
 
     @Test(priority = 12)

@@ -538,6 +538,11 @@ public class ProjectPage   {
                 break;
             }
 
+            default:
+            {
+                System.out.println("Wrong Project Type Is Entered");
+            }
+
         }
     }
 }
