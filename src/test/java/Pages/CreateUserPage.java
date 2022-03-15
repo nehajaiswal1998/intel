@@ -17,9 +17,15 @@ public class CreateUserPage extends BasePage
     By EnterUserName = By.xpath("//input[@formcontrolname='name']");
     By EnterEmail  = By.xpath("//input[@formcontrolname='email']");
     By ActiveUser = By.xpath("//div[@class='mat-slide-toggle-thumb']");
+    By ValidationUserName=By.xpath("//*[text()='Please enter only characters.']");
+    By ValidationEmailID=By.xpath("//*[text()='Please enter a valid email id.']");
     By SearchBtn  = By.xpath("//input[@data-placeholder='Search']");
     By DisableUser = By.xpath("//div[@class='mat-slide-toggle-thumb']");
+
     public static By UpdateUser  = By.xpath("//span[contains(text(),'Update')]");
+    public static By UpdatedTimeUser_Admin=By.xpath("//tbody[@role='rowgroup']/tr[2]/td[3]");
+    public static   By CreatedTimeUser_Admin=By.xpath("//tbody[@role='rowgroup']/tr[2]/td[4]");
+    By SortUser=By.xpath("//th[@class='mat-sort-header mat-header-cell cdk-header-cell font-14px ng-tns-c167-7 cdk-column-name mat-column-name ng-star-inserted mat-table-sticky mat-table-sticky-border-elem-top']");
     By Password  = By.xpath("//input[@type='password']");
     By PlatformUser = By.xpath("//td[contains(text(),' AutoSampleBB ')]");
     By SelectUser = By.xpath("//tbody[@role='rowgroup']");
@@ -27,7 +33,8 @@ public class CreateUserPage extends BasePage
     By UserUpdated = By.xpath("//td[contains(text(),' AutoSampleUpdate ')]");
     //By AdminUser = By.xpath("//td[contains(text(),' Nirbhay ')]");//Change everytime before u run.
     By AdminUser=By.xpath("//td[contains(text(),\""+ ReadProps.readAttr("AdminUserName") +"\")]");
-
+    By AdminUserExtra=By.xpath("//td[contains(text(),\""+ ReadProps.readAttr("UserName") +"\")]");
+    By AdminUserExtraForDisabled=By.xpath("//td[contains(text(),\""+ ReadProps.readAttr("UserNameDisabled") +"\")]");
     By UpdatedTime = By.xpath("//tbody[@role='rowgroup']/tr[1]/td[3]");
     By CreatedTime = By.xpath("//tbody[@role='rowgroup']/tr[1]/td[4]");
     By logout = By.xpath("//span[@mattooltip='Logout']");
@@ -38,7 +45,7 @@ public class CreateUserPage extends BasePage
     By ExistErrorMsg = By.xpath("//span[contains(text(),'User exists with email sampleemail@email.com')]");
     By ProfileIcon=By.xpath("//div[@class='profileImageIcon ng-star-inserted']");
     By createdUser=By.xpath("//td[contains(text(),\""+ ReadProps.readAttr("AdminUserName") +"\")]");
-
+    By createdUser_withDisabledStatus=By.xpath("//td[contains(text(),\""+ ReadProps.readAttr("AdminUserName") +"\")]");
     public By actualUserName=By.xpath("//span[contains(text(),' AE Admin ')]");
     public String UserText="AE Admin";
     public  String userTabUrl="https://alpha.neutrino-ai.com/#/home/user-management";
@@ -57,6 +64,11 @@ public class CreateUserPage extends BasePage
         s.doubleClick(UserBtn1).perform();
         //driver.findElement(UserBtn).click();
     }
+    public By getValidationEmailID(){return this.ValidationEmailID;}
+    public By getValidationUserName(){return this.ValidationUserName;}
+    public By getAdminUserExtra(){return this.AdminUserExtra;}
+    public By getAdminUserExtraForDisabled(){return this.AdminUserExtraForDisabled;}
+    public By getcreatedUser_withDisabledStatus(){return this.createdUser_withDisabledStatus;}
     public By getAdminUser(){return this.AdminUser;}
     public By GetcreatedUser() {return this.createdUser;}
     public void ClickUserBtn(){driver.findElement(UserBtn).click();}
@@ -69,12 +81,18 @@ public class CreateUserPage extends BasePage
     public void ClickActiveUser(){driver.findElement(ActiveUser).click();}
 
     public  void SearchCreatedUser(String text){driver.findElement(SearchBtn).sendKeys(text);}
-    public  void SelectSearchedUser(){driver.findElement(PlatformUser).click();}
+
+    public  void SelectSearchedUser_Juee(){driver.findElement(PlatformUser).click();}
     public  void SelectUser(){driver.findElement(SelectUser).click();}
-    public  void SelectSearchedAdminUser(){driver.findElement(AdminUser).click();}//change this value
+    public  void SelectSearchedAdminUser_Juee(){driver.findElement(AdminUser).click();}//change this value
+
+    public  void SelectSearchedUser(){driver.findElement(AdminUserExtraForDisabled).click();}
+    public  void SelectSearchedAdminUser(){driver.findElement(AdminUserExtra).click();}//change this value
+    
     public void ClickDisableUser(){driver.findElement(DisableUser).click();}
     public void ClickEnableUser(){driver.findElement(DisableUser).click();}
     public void ClickUpdateUser(){driver.findElement(UpdateUser).click();}
+    public void ClickOnSortUser(){driver.findElement(SortUser).click();}
     public void ClickToClearName(){driver.findElement(EnterUserName).clear();}
     public  void ClearPassword(){driver.findElement(Password).clear();}
     public void EnterPassword(String text){driver.findElement(Password).sendKeys(text);}

@@ -17,7 +17,18 @@ public class AssertionsFunction extends BasePage{
         System.out.println(actualValue);
         Assert.assertEquals(actualValue,expectedValue);
     }
-
+    public static void verifyElementTextNotSame(By eleOne,By eleTwo)
+    {
+        String act=driver.findElement(eleOne).getText();
+        String exp=driver.findElement(eleTwo).getText();
+        Assert.assertNotEquals(act,exp);
+    }
+    public static void verifyElementTextSametype(By eleOne,By eleTwo)
+    {
+        String act=driver.findElement(eleOne).getText();
+        String exp=driver.findElement(eleTwo).getText();
+        Assert.assertEquals(act,exp);
+    }
     public static void verifyElementTextWithTrim(String expectedValue, By element_Locator)
     {
         String[] Value = driver.findElement(element_Locator).getText().split(" ");
@@ -25,8 +36,6 @@ public class AssertionsFunction extends BasePage{
         System.out.println(actualValue);
         Assert.assertEquals(expectedValue,actualValue );
     }
-
-
     public static void verifyElementDeletedTextWithTrim(String expectedValue, By element_Locator)
     {
         String[] Value = driver.findElement(element_Locator).getText().split(" ");
@@ -39,9 +48,6 @@ public class AssertionsFunction extends BasePage{
         System.out.println(actualValue);
         Assert.assertNotEquals(actualValue,expectedValue);
     }
-
-
-
 
     public static void  verify_ElementHover(String expectedValue, By element_Locator)
     {
@@ -61,12 +67,21 @@ public class AssertionsFunction extends BasePage{
         try{
             driver.findElement(locator).isDisplayed();
             return true;
-
         }
         catch(Exception e){
             return false;
         }
     }
+    public static boolean is_Enabled(By locator){
+        try {
+            driver.findElement(locator).isEnabled();
+            return true;
+        }
+             catch(Exception e){
+                return false;
+            }
+        }
+
 
     public static void verifyTargetPageURL (String expectedValue)
     {

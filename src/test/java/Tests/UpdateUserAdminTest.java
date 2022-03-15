@@ -2,11 +2,16 @@ package Tests;
 import Base.BasePage;
 import Pages.CreateUserPage;
 import Utilities.AssertionsFunction;
+import Utilities.Functions;
 import Utilities.ReadProps;
+import org.testng.Assert;
 import org.testng.annotations.*;
 import java.io.IOException;
 
-import static Pages.CreateRolePage.homepage_url;
+import static Pages.CreateRolePage.*;
+import static Pages.CreateRolePage.UpdatedTime;
+import static Pages.CreateUserPage.CreatedTimeUser_Admin;
+import static Pages.CreateUserPage.UpdatedTimeUser_Admin;
 
 @Listeners(Utilities.TestListeners.class)
 
@@ -58,61 +63,75 @@ public class UpdateUserAdminTest extends BasePage {
                 UserPageObj1.ClickEnableUser();
                 Thread.sleep(2000);
                 UserPageObj1.ClickUpdateUser();
-                Thread.sleep(2000);
+                Thread.sleep(3000);
+                AssertionsFunction.verifyTargetPageURL(UserPageObj1.userTabUrl);
+
         }
-//        @Test(priority = 4)
-//        public void update_with_blank_name() throws InterruptedException, IOException {
-//                //TC 22.4 Update with Blank Name.
-//                UserPageObj1.SelectSearchedAdminUser();
-//                Thread.sleep(1000);
-//                UserPageObj1.ClickToClearName();
-//                Thread.sleep(2000);
-//                UserPageObj1.ClickUpdateUser();
-//                Thread.sleep(1000);
-//                //UserPageObj1.UserBlankAssert();
-//                Thread.sleep(2000);
-//                UserPageObj1.ClickOnCancelBtn();
-//                Thread.sleep(6000);
-//        }
-//        @Test(priority = 5)
-//        public void update_with_invalid_username() throws InterruptedException, IOException {
-//                //TC 22.5 Update with Invalid UserName.
-//                UserPageObj1.SelectSearchedAdminUser();
-//                Thread.sleep(1000);
-//                UserPageObj1.ClickToClearName();
-//                Thread.sleep(2000);
-//                UserPageObj1.EnterUserName(ReadProps.readAttr("EnterName"));
-//                Thread.sleep(2000);
-//                UserPageObj1.ClickUpdateUser();
-//                //UserPageObj1.UserBlankAssert();
-//                Thread.sleep(2000);
-//                UserPageObj1.ClickOnCancelBtn();
-//                Thread.sleep(6000);
-//        }
-//        @Test(priority = 6)
-//        public void update_with_valid_username() throws InterruptedException, IOException {
-//            //TC 22.6 Update with Valid Name.
-//            UserPageObj1.SelectSearchedAdminUser();
-//            Thread.sleep(2000);
-//            UserPageObj1.ClickToClearName();
-//            Thread.sleep(2000);
-//            UserPageObj1.EnterUserName(ReadProps.readAttr("ValidNameUP"));
-//            Thread.sleep(2000);
-//            UserPageObj1.ClickUpdateUser();
-//            Thread.sleep(2000);
-//            //Remove Update for script maintains only.
-//            UserPageObj1.SearchCreatedUser(ReadProps.readAttr("ValidNameUP"));
-//            Thread.sleep(2000);
-//            UserPageObj1.SelectUpdatedUser();
-//            Thread.sleep(1000);
-//            UserPageObj1.ClickToClearName();
-//            Thread.sleep(2000);
-//            UserPageObj1.EnterUserName(ReadProps.readAttr("AdminUserName"));
-//            Thread.sleep(2000);
-//            UserPageObj1.ClickUpdateUser();
-//            Thread.sleep(4000);
-//            UserPageObj1.LogOut();
-//            Thread.sleep(4000);
-//        }
+        @Test(priority = 4)
+        public void update_with_blank_name() throws InterruptedException, IOException {
+                //TC 22.4 Update with Blank Name.
+                UserPageObj1.SelectSearchedAdminUser();
+                Thread.sleep(2000);
+                UserPageObj1.ClickToClearName();
+                Thread.sleep(2000);
+                UserPageObj1.ClickUpdateUser();
+                Thread.sleep(1000);
+                AssertionsFunction.verifyElementText(UserPageObj1.errmsg,UserPageObj1.errmsgBlankDataCreateRoleClick);
+                UserPageObj1.ClickOnCancelBtn();
+                Thread.sleep(6000);
+                AssertionsFunction.verifyTargetPageURL(UserPageObj1.userTabUrl);
+
+        }
+        @Test(priority = 5)
+        public void update_with_invalid_username() throws InterruptedException, IOException {
+                //TC 22.5 Update with Invalid UserName.
+                UserPageObj1.SelectSearchedAdminUser();
+                Thread.sleep(1000);
+                UserPageObj1.ClickToClearName();
+                Thread.sleep(2000);
+                UserPageObj1.EnterUserName(ReadProps.readAttr("EnterName"));
+                Thread.sleep(2000);
+                UserPageObj1.ClickUpdateUser();
+                Thread.sleep(1000);
+                AssertionsFunction.verifyElementText(UserPageObj1.errmsg,UserPageObj1.errmsgBlankDataCreateRoleClick);
+                UserPageObj1.ClickOnCancelBtn();
+                Thread.sleep(6000);
+                AssertionsFunction.verifyTargetPageURL(UserPageObj1.userTabUrl);
+
+        }
+        @Test(priority = 6)
+        public void update_with_valid_username() throws InterruptedException, IOException {
+            //TC 22.6 Update with Valid Name.
+            UserPageObj1.SelectSearchedAdminUser();
+            Thread.sleep(2000);
+            UserPageObj1.ClickToClearName();
+            Thread.sleep(2000);
+            UserPageObj1.EnterUserName(ReadProps.readAttr("ValidNameUP")); // change name
+            Thread.sleep(2000);
+            UserPageObj1.ClickUpdateUser();
+
+            // Created Updated time diff
+            String expectedDate = Functions.getCurrentDate();
+            Thread.sleep(4000);
+            AssertionsFunction.verifyTargetPageURL(UserPageObj1.userTabUrl);
+            System.out.println("expectedDate="+expectedDate);
+            System.out.println("driver.findElement(UpdatedTimeUser_Admin).getText()="+driver.findElement(UpdatedTimeUser_Admin).getText());
+
+            Assert.assertTrue(driver.findElement(UpdatedTimeUser_Admin).getText().contains(expectedDate));
+            Assert.assertNotEquals(driver.findElement(CreatedTimeUser_Admin).getText(),UpdatedTimeUser_Admin);
+
+        }
+    @Test(priority = 7)
+        public  void Sorting_User() throws InterruptedException {
+            // 22.10 Sorting by Name, email,updated,created time
+
+            UserPageObj1.ClickOnSortUser();
+            Thread.sleep(2000);
+
+            UserPageObj1.LogOut();
+            Thread.sleep(4000);
+            AssertionsFunction.verifyTargetPageURL(UserPageObj1.loginPageUrl);
+
+        }
     }
 
