@@ -22,6 +22,8 @@ public class CreateUserPage extends BasePage
     By SearchBtn  = By.xpath("//input[@data-placeholder='Search']");
     By DisableUser = By.xpath("//div[@class='mat-slide-toggle-thumb']");
     By UpdateUser  = By.xpath("//span[contains(text(),'Update')]");
+    public static By UpdatedTimeUser_Admin=By.xpath("//tbody[@role='rowgroup']/tr[2]/td[3]");
+    public static   By CreatedTimeUser_Admin=By.xpath("//tbody[@role='rowgroup']/tr[2]/td[4]");
     By SortUser=By.xpath("//th[@class='mat-sort-header mat-header-cell cdk-header-cell font-14px ng-tns-c167-7 cdk-column-name mat-column-name ng-star-inserted mat-table-sticky mat-table-sticky-border-elem-top']");
     By Password  = By.xpath("//input[@type='password']");
     By PlatformUser = By.xpath("//td[contains(text(),' AutoSampleBB ')]");

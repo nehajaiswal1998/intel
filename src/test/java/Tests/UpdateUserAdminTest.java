@@ -2,12 +2,16 @@ package Tests;
 import Base.BasePage;
 import Pages.CreateUserPage;
 import Utilities.AssertionsFunction;
+import Utilities.Functions;
 import Utilities.ReadProps;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import java.io.IOException;
 
-import static Pages.CreateRolePage.homepage_url;
+import static Pages.CreateRolePage.*;
+import static Pages.CreateRolePage.UpdatedTime;
+import static Pages.CreateUserPage.CreatedTimeUser_Admin;
+import static Pages.CreateUserPage.UpdatedTimeUser_Admin;
 
 @Listeners(Utilities.TestListeners.class)
 
@@ -105,9 +109,18 @@ public class UpdateUserAdminTest extends BasePage {
             UserPageObj1.EnterUserName(ReadProps.readAttr("ValidNameUP")); // change name
             Thread.sleep(2000);
             UserPageObj1.ClickUpdateUser();
+
+            // Created Updated time diff
+            String expectedDate = Functions.getCurrentDate();
             Thread.sleep(4000);
             AssertionsFunction.verifyTargetPageURL(UserPageObj1.userTabUrl);
-           }
+            System.out.println("expectedDate="+expectedDate);
+            System.out.println("driver.findElement(UpdatedTimeUser_Admin).getText()="+driver.findElement(UpdatedTimeUser_Admin).getText());
+
+            Assert.assertTrue(driver.findElement(UpdatedTimeUser_Admin).getText().contains(expectedDate));
+            Assert.assertNotEquals(driver.findElement(CreatedTimeUser_Admin).getText(),UpdatedTimeUser_Admin);
+
+        }
     @Test(priority = 7)
         public  void Sorting_User() throws InterruptedException {
             // 22.10 Sorting by Name, email,updated,created time
