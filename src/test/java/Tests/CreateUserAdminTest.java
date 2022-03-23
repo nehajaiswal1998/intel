@@ -4,6 +4,7 @@ import Pages.CreateUserPage;
 import Utilities.AssertionsFunction;
 import Utilities.Functions;
 import Utilities.ReadProps;
+import com.google.cloud.storage.Acl;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
@@ -86,8 +87,10 @@ public class CreateUserAdminTest extends BasePage {
                 Thread.sleep(2000);
                 AssertionsFunction.verifyElementText(errormsg,errormsgBlankDataCreateRoleClick);
                 UserPageObj.ClickOnCancelBtn();
-                Thread.sleep(3000);
+                Thread.sleep(4000);
                 AssertionsFunction.verifyTargetPageURL(UserPageObj.userTabUrl);
+          //  Thread.sleep(1000);
+
 
 
         }
@@ -96,7 +99,8 @@ public class CreateUserAdminTest extends BasePage {
                 //TC 4.5 Disable user.
                 UserPageObj.SearchCreatedUser(ReadProps.readAttr("AdminUserName"));
                 Thread.sleep(3000);
-                UserPageObj.SelectSearchedAdminUser();//change this every time u run
+               // UserPageObj.SelectSearchedAdminUser();//change this every time u run
+               UserPageObj.SelectSearchedAdmin();
                 Thread.sleep(2000);
                 UserPageObj.ClickDisableUser();
                 Thread.sleep(2000);
@@ -110,7 +114,9 @@ public class CreateUserAdminTest extends BasePage {
             //TC 4.6 Enable the Disabled user.
             UserPageObj.SearchCreatedUser(ReadProps.readAttr("AdminUserName"));
             Thread.sleep(2000);
-            UserPageObj.SelectSearchedAdminUser();
+           // UserPageObj.SelectSearchedAdminUser();
+            UserPageObj.SelectSearchedAdmin();
+
             Thread.sleep(2000);
             UserPageObj.ClickActiveUser();
             Thread.sleep(3000);

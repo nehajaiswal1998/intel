@@ -35,7 +35,7 @@ public class UpdateUserPlatformAdminTest extends BasePage {
         Thread.sleep(2000);
         AssertionsFunction.verifyElementPresent(CreateUserPage.UserCreated);
         Thread.sleep(1000);
-        UserPageObj1.SelectSearchedUser();
+        UserPageObj1.SelectSearchedUserPA();
         Thread.sleep(1000);
         UserPageObj1.ClickDisableUser();
         Thread.sleep(2000);
@@ -44,7 +44,7 @@ public class UpdateUserPlatformAdminTest extends BasePage {
         AssertionsFunction.verifyTargetPageURL(UserPageObj1.userTabUrl);
         UserPageObj1.SearchCreatedUser(ReadProps.readAttr("Username"));
         Thread.sleep(1000);
-        UserPageObj1.SelectSearchedUser();
+        UserPageObj1.SelectSearchedUserPA();
         Thread.sleep(1000);
         UserPageObj1.ClickEnableUser();
         Thread.sleep(2000);
@@ -58,7 +58,7 @@ public class UpdateUserPlatformAdminTest extends BasePage {
     @Test(priority = 2)
     public void blank_name_valid_password() throws Exception {
         //TC 23.2 Blank Name and Valid Password.
-        UserPageObj1.SelectSearchedUser();
+        UserPageObj1.SelectSearchedUserPA();
         Thread.sleep(1000);
         UserPageObj1.ClickToClearName();
         Thread.sleep(2000);
@@ -75,7 +75,7 @@ public class UpdateUserPlatformAdminTest extends BasePage {
     @Test(priority = 3)
     public void blank_username_invalid_password() throws Exception {
         //TC 23.3 Blank UserName and Invalid Password.
-        UserPageObj1.SelectSearchedUser();
+        UserPageObj1.SelectSearchedUserPA();
         Thread.sleep(1000);
         UserPageObj1.ClickToClearName();
         Thread.sleep(2000);
@@ -84,8 +84,8 @@ public class UpdateUserPlatformAdminTest extends BasePage {
         UserPageObj1.EnterPassword(ReadProps.readAttr("pwd"));
         Thread.sleep(2000);
         UserPageObj1.ClickUpdateUser();
-        Thread.sleep(3000);
-        AssertionsFunction.verifyElementText(UserPageObj1.errmsg, UserPageObj1.errmsgBlankDataCreateRoleClick);
+        Thread.sleep(500);
+       AssertionsFunction.verifyElementText(UserPageObj1.errmsg, UserPageObj1.errmsgBlankDataCreateRoleClick);
         Thread.sleep(5000);
         UserPageObj1.ClickOnCancelBtn();
         Thread.sleep(5000);
@@ -99,7 +99,7 @@ public class UpdateUserPlatformAdminTest extends BasePage {
         //TC 23.4 Invalid Name Blank Password.
         UserPageObj1.SearchCreatedUser(ReadProps.readAttr("Username"));
         Thread.sleep(2000);
-        UserPageObj1.SelectSearchedUser();
+        UserPageObj1.SelectSearchedUserPA();
         Thread.sleep(1000);
         UserPageObj1.ClickToClearName();
         Thread.sleep(2000);
@@ -120,7 +120,7 @@ public class UpdateUserPlatformAdminTest extends BasePage {
     @Test(priority = 5)
     public void blank_username_blank_password() throws Exception {
         //TC 23.5 Blank UserName Blank Password.
-        UserPageObj1.SelectSearchedUser();
+        UserPageObj1.SelectSearchedUserPA();
         Thread.sleep(3000);
         UserPageObj1.ClickToClearName();
         Thread.sleep(3000);
@@ -141,7 +141,7 @@ public class UpdateUserPlatformAdminTest extends BasePage {
     @Test(priority = 6)
     public void invalid_username_invalid_password() throws Exception {
         //TC 23.6 Invalid UserName Invalid Password.
-        UserPageObj1.SelectSearchedUser();
+        UserPageObj1.SelectSearchedUserPA();
         Thread.sleep(1000);
         UserPageObj1.ClickToClearName();
         Thread.sleep(3000);
@@ -164,11 +164,10 @@ public class UpdateUserPlatformAdminTest extends BasePage {
     @Test(priority = 7)
     public void valid_name_and_blank_password() throws Exception {
         //TC 23.7 Valid Name and Blank password.//Not showing error by Automation
-        UserPageObj1.SelectSearchedUser();
+        UserPageObj1.SelectSearchedUserPA();
         Thread.sleep(4000);
         UserPageObj1.ClearPassword();
         Thread.sleep(6000);
-
         UserPageObj1.ClickUpdateUser();
         Thread.sleep(2000);
         // AssertionsFunction.verifyElementText(UserPageObj1.errmsg,UserPageObj1.errmsgBlankDataCreateRoleClick);
@@ -182,7 +181,7 @@ public class UpdateUserPlatformAdminTest extends BasePage {
     @Test(priority = 8)
     public void password_field_contains_alphabet_digit_special_char() throws Exception {
         //TC 23.9 The password field should only contain alphabets, digits, and special characters.
-        UserPageObj1.SelectSearchedUser();
+        UserPageObj1.SelectSearchedUserPA();
         Thread.sleep(1000);
         UserPageObj1.ClearPassword();
         Thread.sleep(3000);
@@ -197,7 +196,7 @@ public class UpdateUserPlatformAdminTest extends BasePage {
     @Test(priority = 9)
     public void password_field_must_have_at_least_one_upper_lower_alphabet() throws Exception {
         //TC 23.10 The password field must have at least 1 uppercase and 1 lowercase alphabet.
-        UserPageObj1.SelectSearchedUser();
+        UserPageObj1.SelectSearchedUserPA();
         Thread.sleep(2000);
         UserPageObj1.ClearPassword();
         Thread.sleep(3000);
@@ -212,7 +211,7 @@ public class UpdateUserPlatformAdminTest extends BasePage {
     @Test(priority = 10)
     public void password_field_must_have_length_to_be_minimum_eight() throws Exception {
         //TC 23.11 The password field length has to be minimum 8.
-        UserPageObj1.SelectSearchedUser();
+        UserPageObj1.SelectSearchedUserPA();
         Thread.sleep(2000);
         UserPageObj1.ClearPassword();
         Thread.sleep(3000);
@@ -228,7 +227,7 @@ public class UpdateUserPlatformAdminTest extends BasePage {
     @Test(priority = 11)
     public void password_field_length_max_length_twelve() throws Exception {
         //TC 23.12 The password field length has to be maximum 12.
-        UserPageObj1.SelectSearchedUser();
+        UserPageObj1.SelectSearchedUserPA();
         Thread.sleep(2000);
         UserPageObj1.ClearPassword();
         Thread.sleep(3000);
@@ -244,7 +243,7 @@ public class UpdateUserPlatformAdminTest extends BasePage {
     @Test(priority = 12)
     public void only_alphabets() throws Exception {
         //TC 23.13 Only Alphabets.
-        UserPageObj1.SelectSearchedUser();
+        UserPageObj1.SelectSearchedUserPA();
         Thread.sleep(2000);
         UserPageObj1.ClearPassword();
         Thread.sleep(3000);
@@ -262,7 +261,7 @@ public class UpdateUserPlatformAdminTest extends BasePage {
     public void password_field_onlyDigits() throws Exception {
 
         //Only Digits
-        UserPageObj1.SelectSearchedUser();
+        UserPageObj1.SelectSearchedUserPA();
         Thread.sleep(2000);
         UserPageObj1.ClearPassword();
         Thread.sleep(3000);
@@ -282,7 +281,7 @@ public class UpdateUserPlatformAdminTest extends BasePage {
     public void password_field_onlySpecialCharectors() throws Exception {
 
         //Only SpecialCharacter
-        UserPageObj1.SelectSearchedUser();
+        UserPageObj1.SelectSearchedUserPA();
         Thread.sleep(1000);
         UserPageObj1.ClearPassword();
         Thread.sleep(2000);
@@ -304,7 +303,7 @@ public class UpdateUserPlatformAdminTest extends BasePage {
 
 
         //Only UpperCase
-        UserPageObj1.SelectSearchedUser();
+        UserPageObj1.SelectSearchedUserPA();
         Thread.sleep(1000);
         UserPageObj1.ClearPassword();
         Thread.sleep(3000);
@@ -323,7 +322,7 @@ public class UpdateUserPlatformAdminTest extends BasePage {
     public void password_field_onlyLowerCase() throws Exception {
 
         //Only LowerCase
-        UserPageObj1.SelectSearchedUser();
+        UserPageObj1.SelectSearchedUserPA();
         Thread.sleep(1000);
         UserPageObj1.ClearPassword();
         Thread.sleep(3000);
@@ -343,7 +342,7 @@ public class UpdateUserPlatformAdminTest extends BasePage {
 
 
         // Only LessLowerLimit  less than minimum password length 7
-        UserPageObj1.SelectSearchedUser();
+        UserPageObj1.SelectSearchedUserPA();
         Thread.sleep(1000);
         UserPageObj1.ClearPassword();
         Thread.sleep(3000);
@@ -368,7 +367,7 @@ public class UpdateUserPlatformAdminTest extends BasePage {
 
 
         //Valid Update scenario required
-        UserPageObj1.SelectSearchedUser();
+        UserPageObj1.SelectSearchedUserPA();
         Thread.sleep(3000);
         UserPageObj1.ClickToClearName();
         Thread.sleep(5000);

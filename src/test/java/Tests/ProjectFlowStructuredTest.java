@@ -34,6 +34,7 @@ public class ProjectFlowStructuredTest extends BasePage {
         js.executeScript("window.scrollBy(0,10000)", "");
         Thread.sleep(1000);
         ProjectPageObj.ClickOnCreate();
+        Thread.sleep(500);
         ProjectPageObj.VerifyAssertForBlank();
         Thread.sleep(2000);
     }
@@ -74,7 +75,7 @@ public class ProjectFlowStructuredTest extends BasePage {
         ProjectPageObj.ClickRoleManagementBtn();
         Thread.sleep(6000);
         ProjectPageObj.SearchCreatedRole(ReadProps.readAttr("EditRole"));
-        Thread.sleep(4000);
+        Thread.sleep(6000);
         ProjectPageObj.ClickEditRole();
         Thread.sleep(4000);
         ProjectPageObj.ClickActiveRole();
