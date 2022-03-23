@@ -199,7 +199,7 @@ public class TemplateTest extends BasePage {
             upload_file1.sendKeys(System.getProperty("user.dir")+"\\src\\test\\resources\\Sample.pdf");
             Thread.sleep(2000);
             TemplatePageObj.ClickCreateTemplate();
-            Thread.sleep(25000);
+            Thread.sleep(20000);
             TemplatePageObj.ClickCancel();
             Thread.sleep(5000);
             AssertionsFunction.verifyElementTextWithTrim("AutoSampleMPTemp", TemplatePage.ExpandTemplate);

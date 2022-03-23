@@ -149,7 +149,7 @@ public class DocProcessMedicalChartTest extends BasePage
         DocPageObj.ClickFirstPage();
         Thread.sleep(5000);
     }
-    @Test(priority = 9)
+    @Test(enabled = false)
     public void create_chronic_condition() throws Exception {
         //TC 8.9 Create Chronic condition.
         DocPageObj.ClickViewDocIcon2();

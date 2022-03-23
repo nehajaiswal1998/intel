@@ -92,7 +92,8 @@ public class ProjectFlowFreeFormTest extends BasePage {
             AssertionsFunction.verifyElementSelected(ProjectPageObj.SelectedRoleAdmin);
             Thread.sleep(1000);
                 ProjectPageObj.ClickOnCreate();
-                ProjectPageObj.VerifyAssertForUser();
+            Thread.sleep(500);
+            ProjectPageObj.VerifyAssertForUser();
                 Thread.sleep(2000);
         }
         @Test(priority = 4)

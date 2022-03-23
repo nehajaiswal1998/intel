@@ -23,14 +23,13 @@ public class CreateUserPage extends BasePage
     By DisableUser = By.xpath("//div[@class='mat-slide-toggle-thumb']");
 
     public static By UpdateUser  = By.xpath("//span[contains(text(),'Update')]");
-    public static By UpdatedTimeUser_Admin=By.xpath("//tbody[@role='rowgroup']/tr[2]/td[3]");
-    public static   By CreatedTimeUser_Admin=By.xpath("//tbody[@role='rowgroup']/tr[2]/td[4]");
-    By SortUser=By.xpath("//th[@class='mat-sort-header mat-header-cell cdk-header-cell font-14px ng-tns-c167-7 cdk-column-name mat-column-name ng-star-inserted mat-table-sticky mat-table-sticky-border-elem-top']");
+    public static By UpdatedTimeUser_Admin=By.xpath("//tbody[@role='rowgroup']/tr[1]/td[3]");
+    public static   By CreatedTimeUser_Admin=By.xpath("//tbody[@role='rowgroup']/tr[1]/td[4]");
+    By SortUser=By.xpath("//div[contains(text(),'Name ')]");
     By Password  = By.xpath("//input[@type='password']");
     By PlatformUser = By.xpath("//td[contains(text(),' AutoSampleBB ')]");
     By SelectUser = By.xpath("//tbody[@role='rowgroup']");
-
-    By UserUpdated = By.xpath("//td[contains(text(),' AutoSampleUpdate ')]");
+    By UserUpdated = By.xpath("//td[contains(text(),\""+ ReadProps.readAttr("ValidNameUP") +"\")]");
     //By AdminUser = By.xpath("//td[contains(text(),' Nirbhay ')]");//Change everytime before u run.
     By AdminUser=By.xpath("//td[contains(text(),\""+ ReadProps.readAttr("AdminUserName") +"\")]");
     By AdminUserExtra=By.xpath("//td[contains(text(),\""+ ReadProps.readAttr("UserName") +"\")]");
@@ -82,9 +81,9 @@ public class CreateUserPage extends BasePage
 
     public  void SearchCreatedUser(String text){driver.findElement(SearchBtn).sendKeys(text);}
 
-    public  void SelectSearchedUser_Juee(){driver.findElement(PlatformUser).click();}
+    public  void SelectSearchedUserPA(){driver.findElement(PlatformUser).click();}
     public  void SelectUser(){driver.findElement(SelectUser).click();}
-    public  void SelectSearchedAdminUser_Juee(){driver.findElement(AdminUser).click();}//change this value
+    public  void SelectSearchedAdmin(){driver.findElement(AdminUser).click();}//change this value
 
     public  void SelectSearchedUser(){driver.findElement(AdminUserExtraForDisabled).click();}
     public  void SelectSearchedAdminUser(){driver.findElement(AdminUserExtra).click();}//change this value

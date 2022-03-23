@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
-    <parameter name="env" value="local"/>
-    <test verbose="2" preserve-order="true" name="C:/Users/kishor_ghadge/IdeaProjects/Maven_Project">
+    <test verbose="2" preserve-order="true"
+          name="C:/Users/kishor_ghadge/IdeaProjects/IntilliDocOne/IntilliDoc_Product_JAN2022">
         <classes>
             <class name="Tests.AnalyticsTest">
                 <methods>
@@ -22,6 +22,7 @@
                     <include name="select_monthly_data_on_Analytics_page"/>
                     <include name="select_weekly_data_on_Analytics_page"/>
                     <include name="select_daily_data_on_Analytics_page"/>
+                    <include name="verify_operator_performance_section"/>
                 </methods>
             </class>
             <class name="Tests.CreateUpdateRoleAdminTest">
@@ -37,6 +38,10 @@
                     <include name="remove_all_permissions"/>
                     <include name="disable_the_status_of_role_update"/>
                     <include name="enable_status_role_update"/>
+                    <include name="Creating_role_invalid_data_in_RoleName_Permissions"/>
+                    <include name="Creating_role_invalid_data_with_disabled_status"/>
+                    <include name="Updating_role_invalid_data_RolenamePermissions"/>
+                    <include name="Sorting_role"/>
                 </methods>
             </class>
             <class name="Tests.CreateUpdateRolePlatformAdminTest">
@@ -47,10 +52,16 @@
                     <include name="create_role_with_valid_rolename_permission"/>
                     <include name="create_role_with_existing_name"/>
                     <include name="search_created_role"/>
+                    <include name="ClickOnCancelBtnOn_RoleUpdation"/>
                     <include name="update_role_with_valid_data"/>
                     <include name="remove_all_permissions_update"/>
+                    <include name="adding_new_permission"/>
                     <include name="disable_status_role_update"/>
                     <include name="enable_status_role_update"/>
+                    <include name="CreateRole_with_Valid_Rolename_Valid_Permission_with_Active"/>
+                    <include name="ClickOn_Cancel_button_on_Role_Creation_Page"/>
+                    <include name="validation_Role_Name_New_Role_creation_Page"/>
+                    <include name="Creating_role_with_invalid_data"/>
                 </methods>
             </class>
             <class name="Tests.CreateUserAdminTest">
@@ -61,6 +72,7 @@
                     <include name="create_user_with_invalid_data"/>
                     <include name="disable_user"/>
                     <include name="enable_disabled_user"/>
+                    <include name="create_user_with_valid_data_status_disabled"/>
                 </methods>
             </class>
             <class name="Tests.CreateUserPlatformAdminTest">
@@ -72,6 +84,9 @@
                     <include name="blank_username_invalid_password"/>
                     <include name="invalid_credentials"/>
                     <include name="create_user_with_existing_username_password"/>
+                    <include name="ClickOnCancelbutton_on_User_Creation_Page"/>
+                    <include name="create_userWith_valid_credential"/>
+                    <include name="create_userWith_valid_credential_status_Disabled"/>
                     <include name="search_user"/>
                 </methods>
             </class>
@@ -85,10 +100,6 @@
                     <include name="add_dataset_with_csv_file_validation"/>
                     <include name="add_dataset_created_category_name_chosen_file_valid_type"/>
                     <include name="validation_type_as_name_to_create_new_dataset"/>
-                    <include name="validation_type_as_phone_role_to_create_new_dataset"/>
-                    <include name="search_created_document_and_expand"/>
-                    <include name="select_open_file_and_cancel"/>
-                    <include name="disable_dataset"/>
                 </methods>
             </class>
             <class name="Tests.DocProcessFreeFormTest">
@@ -108,7 +119,7 @@
                 <methods>
                     <include name="search_project"/>
                     <include name="searchbox_document"/>
-                    <include name="update_document_cancel"/>
+                    <include name="update_document_cancel_and_check_Chart_level_flags"/>
                     <include name="hide_unhide_analytics"/>
                     <include name="documents_filter"/>
                     <include name="sorting"/>
@@ -141,6 +152,7 @@
                     <include name="items_page"/>
                     <include name="next_page_previous_page_first_page_last_page"/>
                     <include name="anticlockwise_clockwise_zoomin_zoomout_navigate_right_left"/>
+                    <include name="verify_tooltip"/>
                 </methods>
             </class>
             <class name="Tests.EditProfileTest">
@@ -151,6 +163,7 @@
                     <include name="night_mode_day_mode"/>
                     <include name="edit_profile"/>
                     <include name="edit_profile_cancel"/>
+                    <include name="edit_profile_save"/>
                 </methods>
             </class>
             <class name="Tests.ForgetPwdTest">
@@ -191,13 +204,19 @@
                     <include name="login_with_invalid_username_and_password"/>
                     <include name="login_with_invalid_username_and_valid_password"/>
                     <include name="login_with_valid_username_and_invalid_password"/>
+                    <include name="login_with_valid_username_and_usernameas_password"/>
                     <include name="login_with_valid_username_and_password"/>
+                    <include name="platfomrAdminAccess"/>
+                    <include name="disableUserLogin"/>
+                    <include name="disableProjectAccess"/>
                     <include name="navigate_backward"/>
                     <include name="logout_for_platform_admin"/>
                     <include name="login_with_invalid_username_password"/>
                     <include name="login_with_invalid_username_and_valid_password_for_admin"/>
                     <include name="login_with_valid_username_and_invalid_password_admin"/>
                     <include name="login_with_valid_username_and_password_admin"/>
+                    <include name="disableUserLoginByAdmin"/>
+                    <include name="disableProjectAccessAdmin"/>
                     <include name="login_with_invalid_username_and_password_supervisor"/>
                     <include name="login_with_invalid_username_and_valid_password_supervisor"/>
                     <include name="login_with_valid_username_and_invalid_password_supervisor"/>
@@ -211,37 +230,12 @@
             <class name="Tests.ManualInterventionDocument">
                 <methods>
                     <include name="manual_intervention_freeform_rejected_document"/>
+                    <include name="manual_intervention_structured_ready_document"/>
                 </methods>
             </class>
             <class name="Tests.ProjectBREDataSetTest">
                 <methods>
                     <include name="bre_applied_to_name_using_dataset_fail"/>
-                </methods>
-            </class>
-            <class name="Tests.ProjectBREMedicalChartDocumentTest">
-                <methods>
-                    <include name="verify_save_draft_option_for_patient_demographics"/>
-                    <include name="verify_save_draft_option_for_chronic_conditions"/>
-                </methods>
-            </class>
-            <class name="Tests.ProjectBREMedicalChartDocumentTest1">
-                <methods>
-                    <include name="verify_rejected_document_no_data_extracted_on_medical_chart"/>
-                    <include name="edit_encounter_detail_and_enter_invalid_npi_physician_on_medical_chart"/>
-                    <include name="run_rule_for_invalid_physicians_sign_on_medical_chart"/>
-                    <include name="verify_icd_on_medical_chart"/>
-                    <include name="save_without_hcc_comments_on_medical_chart"/>
-                    <include name="save_with_hcc_comments_on_medical_chart"/>
-                </methods>
-            </class>
-            <class name="Tests.ProjectBREMedicalChartTest">
-                <methods>
-                    <include name="check_all_functions_on_project_page"/>
-                    <include name="add_dataset"/>
-                    <include name="add_condition"/>
-                    <include name="add_action"/>
-                    <include name="set_document_status_ready"/>
-                    <include name="set_document_status_rejected"/>
                 </methods>
             </class>
             <class name="Tests.ProjectBRETest">
@@ -254,6 +248,7 @@
                     <include name="bre_applied_to_state_fail"/>
                 </methods>
             </class>
+
             <class name="Tests.ProjectFlowFreeFormTest">
                 <methods>
                     <include name="create_project_without_adding_attributes_and_role"/>
@@ -304,8 +299,6 @@
                     <include name="create_project_without_user_for_admin"/>
                     <include name="create_project_with_disable_status_for_admin"/>
                     <include name="create_project_only_with_role_info_for_admin"/>
-                    <include name="table_structure"/>
-                    <include name="items_per_page"/>
                 </methods>
             </class>
             <class name="Tests.ProjectFlowStructuredTest1">
@@ -320,7 +313,7 @@
                     <include name="admin_role_access_users_tab"/>
                     <include name="admin_role_access_roles_tab"/>
                     <include name="admin_role_access_templates_tab"/>
-                    <include name="admin_role_access_user_tab"/>
+                    <include name="admin_role_access_project_tab"/>
                     <include name="admin_role_access_analytics_tab"/>
                     <include name="admin_role_access_logout"/>
                     <include name="supervisor_role_valid_login"/>
@@ -346,6 +339,8 @@
                     <include name="navigate_next"/>
                     <include name="navigate_back"/>
                     <include name="delete_more_page_template"/>
+                    <include name="delete_template_assciatewithproject"/>
+                    <include name="sortingOnTemplatePage"/>
                 </methods>
             </class>
             <class name="Tests.UpdateProjectTest">
@@ -378,6 +373,7 @@
                     <include name="update_with_blank_name"/>
                     <include name="update_with_invalid_username"/>
                     <include name="update_with_valid_username"/>
+                    <include name="Sorting_User"/>
                 </methods>
             </class>
             <class name="Tests.UpdateUserPlatformAdminTest">
@@ -389,12 +385,18 @@
                     <include name="blank_username_blank_password"/>
                     <include name="invalid_username_invalid_password"/>
                     <include name="valid_name_and_blank_password"/>
-                    <include name="all_combinations_of_password_policy_as_userid"/>
                     <include name="password_field_contains_alphabet_digit_special_char"/>
                     <include name="password_field_must_have_at_least_one_upper_lower_alphabet"/>
                     <include name="password_field_must_have_length_to_be_minimum_eight"/>
                     <include name="password_field_length_max_length_twelve"/>
                     <include name="only_alphabets"/>
+                    <include name="password_field_onlyDigits"/>
+                    <include name="password_field_onlySpecialCharectors"/>
+                    <include name="password_field_onlyUpperCase"/>
+                    <include name="password_field_onlyLowerCase"/>
+                    <include name="password_field_LessThan8CharLimit"/>
+                    <include name="cancelUpdate"/>
+                    <include name="userUpdateValidData"/>
                 </methods>
             </class>
         </classes>

@@ -112,7 +112,7 @@ public class UpdateUserAdminTest extends BasePage {
 
             // Created Updated time diff
             String expectedDate = Functions.getCurrentDate();
-            Thread.sleep(4000);
+            Thread.sleep(6000);
             AssertionsFunction.verifyTargetPageURL(UserPageObj1.userTabUrl);
             System.out.println("expectedDate="+expectedDate);
             System.out.println("driver.findElement(UpdatedTimeUser_Admin).getText()="+driver.findElement(UpdatedTimeUser_Admin).getText());

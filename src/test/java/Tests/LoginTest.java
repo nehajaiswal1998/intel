@@ -69,6 +69,7 @@ public class LoginTest extends BasePage {
         ProjectPageObj.EnterUsername(ReadProps.readAttr("InvalidUsername"));
         Thread.sleep(2000);
         loginPageObjects.clickLoginButton();
+        Thread.sleep(500);
         loginPageObjects.VerifyAssertError();
         Thread.sleep(3000);
 
@@ -277,8 +278,8 @@ public class LoginTest extends BasePage {
         Thread.sleep(2000);
         ProjectPageObj.ClickOnUpdateProject();
         Thread.sleep(8000);
-
-
+        driver.navigate().refresh();
+        Thread.sleep(10000);
 
     }
 
