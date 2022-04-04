@@ -1,5 +1,6 @@
 package Pages;
 import Utilities.AssertionsFunction;
+import Utilities.ReadProps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -100,13 +101,16 @@ public class ProjectBREPage extends AssertionsFunction {
     By TrueBox3 = By.xpath("(//div[@class='opacity7 font-12 pt-3 text-center actionCardHeading'])[5]");
     //Replace String
     public static By ReplaceString = By.xpath("//span[contains(text(),'Replace String')]");
-    By Entity = By.xpath("(//span[contains(text(),'Entity')])[3]");
+    By Entity = By.xpath("//span[contains(text(),'Entity')]//parent::div");
+
     By PatientDemoGraphics = By.xpath("//span[contains(text(),'PatientDemographics')]/parent::mat-option");
-    public static By AttributesDropDown = By.xpath("//mat-label[text()=' Attribute ']");
+     public static By AttributeDropDown = By.xpath("//*[starts-with(@class,'mat-select-placeholder mat-select-min-line ng-tns')]/following::span[132]");
+
     By PatientNameAttributes = By.xpath("(//span[contains(text(),'Patient Name')])[2]");
-    By OperatorDropDown = By.xpath("//mat-label[text()=' Operator ']");
+    By OperatorDropDown = By.xpath("//*[starts-with(@class,'mat-select-placeholder mat-select-min-line ng-tns')]/following::span[135]");
+
     By ReplaceAll = By.xpath("//span[contains(text(),'replaceAll')]");
-    By ReplaceFirst = By.xpath("//span[contains(text(),'replaceFirst')]");
+    public static By ReplaceFirst = By.xpath("//span[contains(text(),'replaceFirst')]");
 
     By Replace = By.xpath("(//input[@type='text'])[5]");
     By With = By.xpath("(//input[@type='text'])[4]");
@@ -160,7 +164,7 @@ public class ProjectBREPage extends AssertionsFunction {
     public void SelectReplaceStringBtn(){driver.findElement(ReplaceString).click();}
     public void SelectEntityBtn(){driver.findElement(Entity).click();}
     public void SelectPatientGraphicsBtn(){driver.findElement(PatientDemoGraphics).click();}
-    public void ClickOnAttributeBtn(){driver.findElement(AttributesDropDown).click();}
+    public void ClickOnAttributeBtn(){driver.findElement(AttributeDropDown).click();}
     public void SelectPatientNameAttributesBtn(){driver.findElement(PatientNameAttributes).click();}
     public void ClickOnOperatorDropdownBtn(){driver.findElement(OperatorDropDown).click();}
     public void SelectReplaceAllBtn(){driver.findElement(ReplaceAll).click();}
@@ -335,4 +339,8 @@ public class ProjectBREPage extends AssertionsFunction {
         WebElement ele = driver.findElement(By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[4]/div[1]/project-rule-section[1]/mat-drawer-container[1]/mat-drawer-content[1]/div[2]/div[5]/div[1]/div[1]/div[2]/app-tree-node[1]/div[1]/div[1]/div[1]/div[2]/mat-card[1]/div[1]/button[2]"));
         act.doubleClick(ele).perform();
     }
+
+
+
+
 }
