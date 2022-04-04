@@ -49,7 +49,7 @@ public class ProjectBREMedicalChartDocumentTest1 extends BasePage {
             ProjectBREMedicalChartDocumentPageObj.ClickOnChartData();
             Thread.sleep(1000);
             //open Chronic Conditions.
-            ProjectBREMedicalChartDocumentPageObj.ClickOnChronicConditions();
+            ProjectBREMedicalChartDocumentPageObj.ClickOnDiagnosisTab();
             Thread.sleep(2000);
             //Click on edit encounter details.
             ProjectBREMedicalChartDocumentPageObj.ClickOnEncounterDetails();
@@ -61,90 +61,96 @@ public class ProjectBREMedicalChartDocumentTest1 extends BasePage {
             ProjectBREMedicalChartDocumentPageObj.ClearDoctorName();
             Thread.sleep(1000);
             //save chronic conditions.
-            ProjectBREMedicalChartDocumentPageObj.ClickOnSaveChronicCondition();
+            ProjectBREMedicalChartDocumentPageObj.ClickOnSaveDiagosisConditionButton();
             Thread.sleep(2000);
             //Error message for NPI and Physician details.
         }
-    @Test(priority = 3)
-    public void run_rule_for_invalid_physicians_sign_on_medical_chart() throws Exception {
-            ProjectBREMedicalChartDocumentPage ProjectBREMedicalChartDocumentPageObj = new ProjectBREMedicalChartDocumentPage(driver);
-            //TC 1.3 Perform Run rule.
-            //Entering valid NPI number.
-            ProjectBREMedicalChartDocumentPageObj.ClickOnEnterNPI(ReadProps.readAttr("NPINumber"));
-            Thread.sleep(2000);
-            //Entering INVALID Doctor name.
-            ProjectBREMedicalChartDocumentPageObj.ClickOnEnterPhysicianName(ReadProps.readAttr("DoctorName"));
-            Thread.sleep(2000);
-            //Save chronic condition.
-            ProjectBREMedicalChartDocumentPageObj.ClickOnSaveChronicCondition();
-            Thread.sleep(2000);
-            //Click on RUN RULE button
-            ProjectBREMedicalChartDocumentPageObj.ClickOnRunRuleBtn();
-            Thread.sleep(2000);
-            //Click on cancel button.
-            ProjectBREMedicalChartDocumentPageObj.ClickOnCancelButtonICD();
-            Thread.sleep(5000);
-        }
-    @Test(priority = 4)
-    public void verify_icd_on_medical_chart() throws Exception {
-
-            ProjectBREMedicalChartDocumentPage ProjectBREMedicalChartDocumentPageObj = new ProjectBREMedicalChartDocumentPage(driver);
-            //TC 1.4 verify all conditions for ICD Code.
-            //Open Ready document
-            Thread.sleep(1000);
-            ProjectBREMedicalChartDocumentPageObj.ClickOnReadyDocumentICD1();
-            Thread.sleep(8000);
-            ProjectBREMedicalChartDocumentPageObj.ClickOnChartData();
-            Thread.sleep(2000);
-            ProjectBREMedicalChartDocumentPageObj.ClickOnChronicConditions();
-            Thread.sleep(2000);
-            ProjectBREMedicalChartDocumentPageObj.ClickOnEncounterDetails();
-            Thread.sleep(2000);
-            ProjectBREMedicalChartDocumentPageObj.ClickOnEditICDCodeOnEditDiagnosisDetails();
-            Thread.sleep(2000);
-            //Cancel button.
-            ProjectBREMedicalChartDocumentPageObj.ClickOnCancelEditDiagnosisDetails();
-            Thread.sleep(2000);
-            ProjectBREMedicalChartDocumentPageObj.ClickOnEditICDCodeOnEditDiagnosisDetails();
-            Thread.sleep(2000);
-            //Clear ICD code.
-            ProjectBREMedicalChartDocumentPageObj.ClickOnClearICDCode();
-            Thread.sleep(2000);
-            //Enter Invalid ICD Code.
-            ProjectBREMedicalChartDocumentPageObj.ClickOnEnterInvalidICDCode(ReadProps.readAttr("InvalidICDCode"));
-            Thread.sleep(2000);
-            //Clear Invalid ICD code.
-            ProjectBREMedicalChartDocumentPageObj.ClickOnClearICDCode();
-            Thread.sleep(1000);
-            //Waiting for suggestions of ICD code.
-            ProjectBREMedicalChartDocumentPageObj.ClickOnEnterInvalidICDCode(ReadProps.readAttr("ValidICDCode"));
-            Thread.sleep(4000);
-            //Select the ICD code from Suggestions Dropdown.
-            ProjectBREMedicalChartDocumentPageObj.ClickOnPickICDCode();
-            Thread.sleep(1000);
-        }
-    @Test(priority = 5)
-    public void save_without_hcc_comments_on_medical_chart() throws Exception {
-
-            ProjectBREMedicalChartDocumentPage ProjectBREMedicalChartDocumentPageObj = new ProjectBREMedicalChartDocumentPage(driver);
-            Thread.sleep(1000);
-            //Save without HCC and Comments.
-            ProjectBREMedicalChartDocumentPageObj.ClickOnSaveEditDiagnosisDetails();
-        }
-    @Test(priority = 6)
-    public void save_with_hcc_comments_on_medical_chart() throws Exception {
-            ProjectBREMedicalChartDocumentPage ProjectBREMedicalChartDocumentPageObj = new ProjectBREMedicalChartDocumentPage(driver);
-            Thread.sleep(1000);
-            //Enter valid HCC code.
-            ProjectBREMedicalChartDocumentPageObj.ClickOnEnterHCCCodes(ReadProps.readAttr("HCCCodes"));
-            Thread.sleep(1000);
-            ProjectBREMedicalChartDocumentPageObj.ClickOnAddComment();
-            Thread.sleep(1000);
-            //Select comment 'ADD' from suggestions.
-            ProjectBREMedicalChartDocumentPageObj.ClickOnSelectCommentAdd();
-            Thread.sleep(1000);
-            ProjectBREMedicalChartDocumentPageObj.ClickOnSaveEditDiagnosisDetails();
-            Thread.sleep(2000);
-            ProjectBREMedicalChartDocumentPageObj.ClickOnCancelButtonICD();
-            Thread.sleep(2000);
-        }}
+		
+		
+		  @Test(priority = 3) public void run_rule_for_invalid_physicians_sign_on_medical_chart() throws Exception 
+		  {
+		  ProjectBREMedicalChartDocumentPage ProjectBREMedicalChartDocumentPageObj =new ProjectBREMedicalChartDocumentPage(driver); 
+	       //TC 1.3 Perform Run rule.
+		   //Entering valid NPI number.
+		 ProjectBREMedicalChartDocumentPageObj.ClickOnEnterNPI(ReadProps.readAttr("NPINumber")); 
+		 Thread.sleep(2000); 
+		 //Entering INVALID Doctor name.
+		 ProjectBREMedicalChartDocumentPageObj.ClickOnEnterPhysicianName(ReadProps.readAttr("DoctorName")); 
+		 Thread.sleep(2000); 
+		 //Save chronic condition.
+		 ProjectBREMedicalChartDocumentPageObj.ClickOnSaveDiagosisConditionButton();
+		 Thread.sleep(2000); 
+		 //Click on RUN RULE button
+		 ProjectBREMedicalChartDocumentPageObj.ClickOnRunRuleBtn();
+		 Thread.sleep(2000); 
+		 //Click on cancel button.
+		 ProjectBREMedicalChartDocumentPageObj.ClickOnCancelButtonICD();
+		 Thread.sleep(5000); 
+		 }
+		
+		
+		
+		  @Test(priority = 4) public void verify_icd_on_medical_chart() throws Exception 
+		 {
+		 
+		   ProjectBREMedicalChartDocumentPage ProjectBREMedicalChartDocumentPageObj =new ProjectBREMedicalChartDocumentPage(driver); 
+		 //TC 1.4 verify all conditions for ICD Code. 
+		 //Open Ready document Thread.sleep(1000);
+		  ProjectBREMedicalChartDocumentPageObj.ClickOnReadyDocumentICD1();
+		  Thread.sleep(8000); ProjectBREMedicalChartDocumentPageObj.ClickOnChartData();
+		  Thread.sleep(2000);
+		  ProjectBREMedicalChartDocumentPageObj.ClickOnDiagnosisTab();
+		  Thread.sleep(2000);
+		  ProjectBREMedicalChartDocumentPageObj.ClickOnEncounterDetails();
+		  Thread.sleep(2000); 
+		  ProjectBREMedicalChartDocumentPageObj.ClickOnEditICDCodeOnEditDiagnosisDetails(); 
+		  Thread.sleep(2000); 
+		  //Cancel button.
+		  ProjectBREMedicalChartDocumentPageObj.ClickOnCancelEditDiagnosisDetails();
+		  Thread.sleep(2000); 
+		  ProjectBREMedicalChartDocumentPageObj.ClickOnEditICDCodeOnEditDiagnosisDetails(); 
+		  Thread.sleep(2000); 
+		  //Clear ICD code. 
+		  ProjectBREMedicalChartDocumentPageObj.ClickOnClearICDCode();
+		  Thread.sleep(2000); 
+		  //Enter Invalid ICD Code.
+		  ProjectBREMedicalChartDocumentPageObj.ClickOnEnterInvalidICDCode(ReadProps.readAttr("InvalidICDCode")); 
+		  Thread.sleep(2000); 
+		  //Clear Invalid ICD code.
+		  ProjectBREMedicalChartDocumentPageObj.ClickOnClearICDCode();
+		  Thread.sleep(1000); 
+		  //Waiting for suggestions of ICD code.
+		  ProjectBREMedicalChartDocumentPageObj.ClickOnEnterInvalidICDCode(ReadProps.readAttr("ValidICDCode")); 
+		  Thread.sleep(4000); 
+		  //Select the ICD code from Suggestions Dropdown.
+		  Thread.sleep(5000);
+		  ProjectBREMedicalChartDocumentPageObj.ClickOnPickICDCode();
+		 Thread.sleep(1000); 
+		 }
+		  
+		  @Test(priority = 5) public void save_without_hcc_comments_on_medical_chart() throws Exception {
+		 
+		  ProjectBREMedicalChartDocumentPage ProjectBREMedicalChartDocumentPageObj =new ProjectBREMedicalChartDocumentPage(driver); 
+		  Thread.sleep(1000); 
+		  //Save without HCC and Comments.
+		  ProjectBREMedicalChartDocumentPageObj.ClickOnSaveEditDiagnosisDetails(); 
+		  }
+		 
+		  @Test(priority = 6) public void save_with_hcc_comments_on_medical_chart() throws Exception 
+		  { 
+			  ProjectBREMedicalChartDocumentPage ProjectBREMedicalChartDocumentPageObj = new ProjectBREMedicalChartDocumentPage(driver); 
+			  Thread.sleep(1000); 
+			  //Enter valid HCC code.
+		      //ProjectBREMedicalChartDocumentPageObj.ClickOnEnterHCCCodes(ReadProps.readAttr("HCCCodes")); 
+		      Thread.sleep(1000);
+		      ProjectBREMedicalChartDocumentPageObj.ClickOnAddComment();
+		      Thread.sleep(1000); 
+		      //Select comment 'ADD' from suggestions.
+		      ProjectBREMedicalChartDocumentPageObj.ClickOnSelectCommentAdd();
+		      Thread.sleep(1000);
+		      ProjectBREMedicalChartDocumentPageObj.ClickOnSaveEditDiagnosisDetails();
+		      Thread.sleep(2000);
+		      ProjectBREMedicalChartDocumentPageObj.ClickOnCancelButtonICD();
+		      Thread.sleep(2000); }
+		 
+    }
