@@ -68,7 +68,7 @@ public class ProjectBREMedicalChartDocumentTest extends BasePage {
      //   @Test(priority = 2)
         public void verify_save_draft_option_for_chronic_conditions() throws Exception {
             //TC 2 Verifying the Save Draft Option for Chronic Conditions.
-            ProjectBREMedicalChartDocumentPageObj.ClickOnChronicConditions();
+            ProjectBREMedicalChartDocumentPageObj.ClickOnDiagnosisTab();
             Thread.sleep(2000);
             ProjectBREMedicalChartDocumentPageObj.ClickOnAddChronicCondition();
             Thread.sleep(2000);
@@ -87,6 +87,7 @@ public class ProjectBREMedicalChartDocumentTest extends BasePage {
             ProjectBREMedicalChartDocumentPageObj.ClickOnEnterEndDate(ReadProps.readAttr("EndDate"));//Change this Date
             Thread.sleep(2000);
             //ProjectBREMedicalChartDocumentPageObj.ClickOnSaveChronicCondition();
+
             Thread.sleep(4000);
             ProjectBREMedicalChartDocumentPageObj.ClickOnendDate();
             Thread.sleep(1000);
