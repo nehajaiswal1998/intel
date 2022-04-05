@@ -246,6 +246,7 @@ public class CreateUserPlatformAdminTest extends BasePage {
         Thread.sleep(2000);
         UserPageObj.ClickCreateBtn();
         Thread.sleep(5000);
+        // Verify that created user by platform admin should display in available user list
         Assert.assertTrue(AssertionsFunction.isPresent(UserPageObj.getAdminUserExtraForDisabled()));
 
     }
