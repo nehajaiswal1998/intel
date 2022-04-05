@@ -5,7 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 
-public class AnalyticsPage {
+public class
+AnalyticsPage {
 
     WebDriver driver = null;
 

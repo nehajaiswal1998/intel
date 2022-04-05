@@ -137,7 +137,6 @@ public class DocumentPage   {
     By CNFDeleteRule1Condition1 = By.xpath("//span[contains(text(),'Delete')]");
     By DeleteFirstRule = By.xpath("(//mat-icon[contains(text(),'delete')])[3]");
     By patientDemographics=By.xpath("//div[@class='mat-ripple mat-tab-label mat-focus-indicator mat-tab-label-active ng-star-inserted']");
-
     public static String DocTabUrl="https://alpha.neutrino-ai.com/#/home/documents";
     public String ClickOnReadyDocumentUrl="https://alpha.neutrino-ai.com/#/home/documents/processed-forms?faxPageId=61cb126c08e93e32e4e2ec79&imageName=Processed.pdf&type=pdf&_st=Ready";
     By ProjectList = By.xpath("//div[@role='menu']");
@@ -171,11 +170,9 @@ public class DocumentPage   {
     public void ClickOnDeleteRule1Condition1(){ driver.findElement(DeleteRule1Condition1).click();}
     public void ClickOnCNFRule1Condition1(){ driver.findElement(CNFDeleteRule1Condition1).click();}
     public void ClickOnDeleteFirstRuleBtn(){ driver.findElement(DeleteFirstRule).click();}
-
-
     public void ClickSelectBREProject(){driver.findElement(SelectBREProject).click();}
-
     public void ClickViewDocIcon6(){ driver.findElement(ViewDoc6).click();}
+
 
 
     public void assertAttributeValue () {
