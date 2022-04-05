@@ -130,7 +130,8 @@ public class DocumentPage   {
     By nonHCC = By.xpath("//span[contains(text(),' Non-HCC ')]");
     By invalidRecord = By.xpath("//span[contains(text(),' Invalid record ')]");
     By patientNameMismatch = By.xpath("//span[contains(text(),' Patient name mismatch ')]");
-    By PatientNameValue = By.xpath("//input[@pattern='^([a-zA-Z.s\\s])+([a-zA-Z.s\\s()]+)*(-[()a-zA-Z.s\\s]+)*$']");
+
+    //public static  By PatientNameValue = By.xpath("//input[@pattern='^([a-zA-Z.s\\s])+([a-zA-Z.s\\s()]+)*(-[()a-zA-Z.s\\s]+)*$']");
     By ClassificationNameBtn = By.xpath("//mat-label[contains(text(),'Classification')]");
     By PatientNameBtn = By.xpath("(//mat-cell[contains(text(),' Patient Name ')])[2]");
     By DeleteRule1Condition1 = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[4]/div[1]/project-rule-section[1]/mat-drawer-container[1]/mat-drawer-content[1]/div[2]/div[1]/div[1]/div[1]/div[2]/app-tree-node[1]/div[1]/div[1]/div[1]/div[2]/mat-card[1]/div[2]/mat-icon[1]");
@@ -151,6 +152,8 @@ public class DocumentPage   {
     public static By AnalyticsUnhide = By.xpath("//div[@style='visibility: visible;']");
     public static By ZoomInDoc= By.xpath("//div[@style='transform: translateX(-19.6%) scale(1.1);']");
     public static By ZoomOutDoc= By.xpath("//div[@style='transform: translateX(-21%) scale(1)']");
+    By PatientNameValue = By.xpath("//*[text()=' Patient Name ']//following::input[1]");
+
 
     public DocumentPage(WebDriver driver) { this.driver = driver;}
 
