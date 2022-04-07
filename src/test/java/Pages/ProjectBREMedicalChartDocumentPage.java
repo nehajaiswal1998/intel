@@ -68,6 +68,12 @@ public class ProjectBREMedicalChartDocumentPage {
     By NonHCC=By.xpath("//div[text()='HCC']//following::div[text()='Non HCC']");
     By DignosisNonHCC=By.xpath("//div[text()='HCC']//following::div[text()='Non HCC']//following::mat-label[text()='Diagnosis']");
     By CommentNonHCC=By.xpath("//following::mat-label[text()='Diagnosis']//following::input[@name='NonHccPageRange']//following::mat-select[@name='NonHccComment']");
+    By diagnosis_Tab = By.xpath("//*[text()='Patient Demographics']//following::div[1]");
+    By addEncounterDetails = By.xpath("//*[text()='Cancel']//following::span[10]"); //+button
+
+
+
+
     //Constructor
     public ProjectBREMedicalChartDocumentPage(WebDriver driver) throws IOException {
         this.driver = driver;
@@ -144,6 +150,10 @@ public class ProjectBREMedicalChartDocumentPage {
 
     public void clickOnEnterNPI(String text) {driver.findElement(NPINumber).sendKeys(text);}
     public void clearNPINUM(){driver.findElement(NPINumber).clear();}
+    public void ClickOnEnterNPI(String text) {
+        driver.findElement(NPINumber).sendKeys(text);
+    }
+
 
     public void ClickOnEnterPhysicianName(String text) {driver.findElement(DoctorName).sendKeys(text);}
     public void clearPhysicianName(){driver.findElement(DoctorName).clear();}
@@ -163,7 +173,11 @@ public class ProjectBREMedicalChartDocumentPage {
     }
 
     public void clickOnSaveDiagonis() {
+        driver.findElement(SaveBtn).click();
+    }
     public void ClickOnSaveDiagosisConditionButton() {
+            driver.findElement(SaveBtn).click();
+        }
 
 
 

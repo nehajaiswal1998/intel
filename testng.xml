@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
     <test verbose="2" preserve-order="true"
-          name="C:/Users/kishor_ghadge/IdeaProjects/IntilliDocOne/IntilliDoc_Product_JAN2022">
+          name="C:/Users/kishor_ghadge/IdeaProjects/IntilliDocBRE/IntilliDoc_Product_JAN2022">
         <classes>
             <class name="Tests.AnalyticsTest">
                 <methods>
@@ -23,6 +23,31 @@
                     <include name="select_weekly_data_on_Analytics_page"/>
                     <include name="select_daily_data_on_Analytics_page"/>
                     <include name="verify_operator_performance_section"/>
+                </methods>
+            </class>
+            <class name="Tests.BREAppliedToProjectWithDataset">
+                <methods>
+                    <include name="bre_applied_to_name_using_dataset_fail"/>
+                </methods>
+            </class>
+            <class name="Tests.BREAppliedToProjectWithoutDataset">
+                <methods>
+                    <include name="enterProjecPagetData"/>
+                    <include name="enterVariable"/>
+                    <include name="addAndDeleteRulesButton"/>
+                    <include name="bre_applied_to_name_fail"/>
+                    <include name="bre_applied_to_address_pass"/>
+                    <include name="bre_applied_to_address_fail"/>
+                    <include name="bre_applied_to_state_pass"/>
+                    <include name="bre_applied_to_state_fail"/>
+                </methods>
+            </class>
+            <class name="Tests.BREForReplaceWithStringRule">
+                <methods>
+                    <include name="bre_applied_to_patient_name"/>
+                    <include name="verify_replace_first"/>
+                    <include name="verify_replace_all"/>
+                    <include name="delete_created_rule"/>
                 </methods>
             </class>
             <class name="Tests.CreateUpdateRoleAdminTest">
@@ -238,17 +263,25 @@
                     <include name="bre_applied_to_name_using_dataset_fail"/>
                 </methods>
             </class>
-            <class name="Tests.ProjectBRETest">
+            <class name="Tests.ProjectBREMedicalChartDocumentTest">
                 <methods>
-                    <include name="bre_applied_to_name_pass"/>
-                    <include name="bre_applied_to_name_fail"/>
-                    <include name="bre_applied_to_address_pass"/>
-                    <include name="bre_applied_to_address_fail"/>
-                    <include name="bre_applied_to_state_pass"/>
-                    <include name="bre_applied_to_state_fail"/>
+                    <include name="verify_save_draft_option_for_patient_demographics"/>
+                    <include name="verify_save_draft_option_for_DignosisHCC"/>
+                    <include name="verifyemptyEncounterDetailsSaveDraft"/>
+                    <include name="verifyeditEncounterDetails"/>
+                    <include name="verifyDeletandsaveEncounterDetails"/>
                 </methods>
             </class>
-
+            <class name="Tests.ProjectBREMedicalChartTest">
+                <methods>
+                    <include name="check_all_functions_on_project_page"/>
+                    <include name="add_dataset"/>
+                    <include name="add_condition"/>
+                    <include name="add_action"/>
+                    <include name="set_document_status_ready"/>
+                    <include name="set_document_status_rejected"/>
+                </methods>
+            </class>
             <class name="Tests.ProjectFlowFreeFormTest">
                 <methods>
                     <include name="create_project_without_adding_attributes_and_role"/>
