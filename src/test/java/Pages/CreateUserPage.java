@@ -27,10 +27,10 @@ public class CreateUserPage extends BasePage
     public static   By CreatedTimeUser_Admin=By.xpath("//tbody[@role='rowgroup']/tr[1]/td[4]");
     By SortUser=By.xpath("//div[contains(text(),'Name ')]");
     By Password  = By.xpath("//input[@type='password']");
-    By PlatformUser = By.xpath("//td[contains(text(),' AutoSampleBB ')]");
+    By PlatformUser = By.xpath("//*[text()=' Create User ']//following::tr[2]/td[1]");  //change by suwarna
     By SelectUser = By.xpath("//tbody[@role='rowgroup']");
     By UserUpdated = By.xpath("//td[contains(text(),\""+ ReadProps.readAttr("ValidNameUP") +"\")]");
-    //By AdminUser = By.xpath("//td[contains(text(),' Nirbhay ')]");//Change everytime before u run.
+    //By AdminUser = By.xpath("//td[contains(text(),' Nirbhay ')]");                //Change everytime before u run.
     By AdminUser=By.xpath("//td[contains(text(),\""+ ReadProps.readAttr("AdminUserName") +"\")]");
     By AdminUserExtra=By.xpath("//td[contains(text(),\""+ ReadProps.readAttr("UserName") +"\")]");
     By AdminUserExtraForDisabled=By.xpath("//td[contains(text(),\""+ ReadProps.readAttr("UserNameDisabled") +"\")]");
@@ -77,7 +77,11 @@ public class CreateUserPage extends BasePage
     public void ClickCreateBtn(){driver.findElement(CreateBtn).click();}
     public void EnterUserName(String text) {driver.findElement(EnterUserName).sendKeys(text);}
     public void EnterEmail(String text){driver.findElement(EnterEmail).sendKeys(text);}
-    public void ClickActiveUser(){driver.findElement(ActiveUser).click();}
+    public void ClickActiveUser() throws Exception   //change by suwarna
+    {
+    	Thread.sleep(5000);
+    	driver.findElement(ActiveUser).click();
+    	}
 
     public  void SearchCreatedUser(String text){driver.findElement(SearchBtn).sendKeys(text);}
 

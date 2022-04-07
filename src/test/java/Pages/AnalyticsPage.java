@@ -10,42 +10,43 @@ AnalyticsPage {
 
     WebDriver driver = null;
 
+    //xpath change by suwarna
     public static String AnalyticsPageURL = "https://alpha.neutrino-ai.com/#/home/analytics";
-    public static By AnalyticsBtn = By.xpath("//i[@class='mat-tooltip-trigger fa fa-cubes m-0 side-icon ng-star-inserted']");
-    By OrganizationStatistics =By.xpath("//span[contains(text(),'Project Statistics')]");
+    public static By AnalyticsBtn = By.xpath("//*[@class='mat-nav-list mat-list-base side-bar-menue ng-star-inserted']//following::i[7]");
+    By OrganizationStatistics =By.xpath("//span[text()='Project Statistics']");
 
-    public static By StatisticsHidden = By.xpath("//div[@style='height: 0px; visibility: hidden;']");
-    public static By StatisticsVisible = By.xpath("//div[@style='visibility: visible;']");
+    public static By StatisticsHidden = By.xpath("//span[text()='Project Statistics']//following::span[2]");
+    public static By StatisticsVisible = By.xpath("//span[text()='Project Statistics']//following::span[2]");
 
-    public static By TotalUser = By.xpath("//div[contains(text(),' Users ')]");
-    By Document = By.xpath("//*[@id='cdk-accordion-child-0']/div/div/div[1]/div/div[2]/div/div");
-    By Processed = By.xpath("//*[@id='cdk-accordion-child-0']/div/div/div[1]/div/div[3]/div/div/div[1]/div");
+    public static By TotalUser = By.xpath("//div[text()=' Users ']");
+    By Document = By.xpath("//*[text()=' Users ']//following::div[5]");
+    By Processed = By.xpath("//*[text()=' Users ']//following::div[22]");
 
-    By ReadyToProcess = By.xpath("//*[@id='cdk-accordion-child-0']/div/div/div[1]/div/div[4]/div/div/div[1]/div");
-    By Rejected = By.xpath("//*[@id='cdk-accordion-child-0']/div/div/div[1]/div/div[5]/div/div/div[1]/div");
-    By ValidationTime = By.xpath("//div[contains(text(),' Validation Time ')]");
-    By SProcessedBar = By.xpath("//div[@class='row ng-star-inserted']/div[1]/div[1]/div[2]/div[1]");
-    By SReadyBar = By.xpath("//div[@class='row ng-star-inserted']/div[1]/div[1]/div[2]/div[2]");
-    By SRejectedBar = By.xpath("//div[@class='row ng-star-inserted']/div[1]/div[1]/div[2]/div[3]");
-    By SSProcessedBar = By.xpath("//div[@class='row ng-star-inserted']/div[2]/div[1]/div[2]/div[1]");
-    By SSReadyBar = By.xpath("//div[@class='row ng-star-inserted']/div[2]/div[1]/div[2]/div[2]");
-    By SSRejectedBar = By.xpath("//div[@class='row ng-star-inserted']/div[2]/div[1]/div[2]/div[3]");
-    By FFProcessedBar = By.xpath("//div[@class='row ng-star-inserted']/div[3]/div[1]/div[2]/div[1]");
-    By FFReadyBar = By.xpath("//div[@class='row ng-star-inserted']/div[3]/div[1]/div[2]/div[2]");
-    By FFRejectedBar = By.xpath("//div[@class='row ng-star-inserted']/div[3]/div[1]/div[2]/div[3]");
-    By MCProcessedBar = By.xpath("//div[@class='row ng-star-inserted']/div[4]/div[1]/div[2]/div[1]");
-    By MCReadyBar = By.xpath("//div[@class='row ng-star-inserted']/div[4]/div[1]/div[2]/div[2]");
-    By MCRejectedBar = By.xpath("//div[@class='row ng-star-inserted']/div[4]/div[1]/div[2]/div[3]");
-    By ProjectDownArrow=By.xpath("//i[@class='fa fa-chevron-circle-down ml-2']");
+    By ReadyToProcess = By.xpath("//div[text()=' Users ']//following::div[32]");
+    By Rejected = By.xpath("//*[text()=' Users ']//following::div[40]");
+    By ValidationTime = By.xpath("//*[text()=' Validation Time ']");
+    By SProcessedBar = By.xpath("//*[text()=' Structured ']//following::div[2]");
+    By SReadyBar = By.xpath("//*[text()=' Structured ']//following::div[3]");
+    By SRejectedBar = By.xpath("//*[text()=' Structured ']//following::div[4]");
+    By SSProcessedBar = By.xpath("//*[text()=' Semi-Structured ']//following::div[1]");
+    By SSReadyBar = By.xpath("//*[text()=' Semi-Structured ']//following::div[3]");
+    By SSRejectedBar = By.xpath("//*[text()=' Semi-Structured ']//following::div[4]");
+    By FFProcessedBar = By.xpath("//*[text()=' Free-Form ']//following::div[2]");
+    By FFReadyBar = By.xpath("//*[text()=' Free-Form ']//following::div[3]");
+    By FFRejectedBar = By.xpath("//*[text()=' Free-Form ']//following::div[4]");
+    By MCProcessedBar = By.xpath("//*[text()=' Medical Chart ']//following::div[2]");
+    By MCReadyBar = By.xpath("//*[text()=' Medical Chart ']//following::div[3]");
+    By MCRejectedBar = By.xpath("//*[text()=' Medical Chart ']//following::div[4]");
+    By ProjectDownArrow=By.xpath("//*[@class='mat-icon notranslate docStIconPos material-icons mat-icon-no-color']//following::i");
     public static By ProjectSelected = By.xpath("//span[@class='mat-tooltip-trigger projectname']");
     By SearchProject=By.xpath("//input[@placeholder='Search']");
-    public static By SelectProject=By.xpath("//span[contains(text(),'QA-AutoProject-Structured')]");
-    By SelectDropDown= By.xpath("//*[@id='mat-select-0']/div/div[2]");
+    public static By SelectProject=By.xpath("//input[@placeholder='Search']//following::span[1]");
+    By SelectDropDown= By.xpath("//*[@id=\"mat-select-0\"]/div/div[2]");
     By SelectMonthly = By.xpath("//span[contains(text(),'Monthly')]");
     By SelectWeekly = By.xpath("//span[contains(text(),'Weekly')]");
     By SelectDaily = By.xpath("//span[contains(text(),'Daily')]");
     By SelectOverall = By.xpath("//*[@id='mat-option-3']/span");
-    By SortByDocuments = By.xpath("//*[@id='mat-tab-content-0-0']/div/div/div/table/thead/tr/th[1]/div/div[2]");
+    By SortByDocuments = By.xpath("//*[text()=' Received ']//preceding::div[3]");
     By SortByReceived = By.xpath("//div[contains(text(),'Received')]");
     By OperatorPerformanceSection = By.xpath("//div[text()=' Operator Performance']");
     public static By AnalyticsPageDisplay= By.xpath("//div[@class='row ng-star-inserted']");
@@ -58,23 +59,28 @@ AnalyticsPage {
         this.driver = driver;
     }
 
-    public void ClickAnalyticsBtn() {
+    public void ClickAnalyticsBtn() throws Exception {
+    	Thread.sleep(5000);
         driver.findElement(AnalyticsBtn).click();
     }
 
-    public void ClickOnSortByReceived() {
+    public void ClickOnSortByReceived() throws Exception {
+    	Thread.sleep(5000);
         driver.findElement(SortByReceived).click();
     }
 
-    public void ClickOnSortByDocuments() {
+    public void ClickOnSortByDocuments() throws Exception {
+    	Thread.sleep(5000);
         driver.findElement(SortByDocuments).click();
     }
 
-    public  void ClickOrganizationArrow(){
+    public  void ClickOrganizationArrow() throws Exception{
+    	Thread.sleep(5000);
         driver.findElement(OrganizationStatistics).click();
     }
 
-    public  void clickProjectStatisticsarrow(){
+    public  void clickProjectStatisticsarrow() throws Exception{
+    	Thread.sleep(5000);
         driver.findElement(ProjectStatistics).click();
     }
 
