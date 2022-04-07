@@ -68,6 +68,9 @@ public class ProjectBREMedicalChartDocumentPage {
     By NonHCC=By.xpath("//div[text()='HCC']//following::div[text()='Non HCC']");
     By DignosisNonHCC=By.xpath("//div[text()='HCC']//following::div[text()='Non HCC']//following::mat-label[text()='Diagnosis']");
     By CommentNonHCC=By.xpath("//following::mat-label[text()='Diagnosis']//following::input[@name='NonHccPageRange']//following::mat-select[@name='NonHccComment']");
+    By diagnosis_Tab = By.xpath("//*[text()='Patient Demographics']//following::div[1]");
+
+
     //Constructor
     public ProjectBREMedicalChartDocumentPage(WebDriver driver) throws IOException {
         this.driver = driver;
@@ -163,7 +166,11 @@ public class ProjectBREMedicalChartDocumentPage {
     }
 
     public void clickOnSaveDiagonis() {
+        driver.findElement(SaveBtn).click();
+    }
     public void ClickOnSaveDiagosisConditionButton() {
+            driver.findElement(SaveBtn).click();
+        }
 
 
 

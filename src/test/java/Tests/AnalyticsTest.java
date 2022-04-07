@@ -18,7 +18,7 @@ public class AnalyticsTest extends BasePage
         BasePage.driverInit();
         BasePage.LoginTest();
     }
-    @AfterClass (enabled = false)
+    @AfterClass
     public void cleanUp() throws Exception {
         driver.quit();
     }
