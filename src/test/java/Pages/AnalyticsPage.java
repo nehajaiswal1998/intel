@@ -9,8 +9,8 @@ public class
 AnalyticsPage {
 
     WebDriver driver = null;
-
-    //xpath change by suwarna
+    
+  //xpath change by suwarna
     public static String AnalyticsPageURL = "https://alpha.neutrino-ai.com/#/home/analytics";
     public static By AnalyticsBtn = By.xpath("//*[@class='mat-nav-list mat-list-base side-bar-menue ng-star-inserted']//following::i[7]");
     By OrganizationStatistics =By.xpath("//span[text()='Project Statistics']");
@@ -51,8 +51,6 @@ AnalyticsPage {
     By OperatorPerformanceSection = By.xpath("//div[text()=' Operator Performance']");
     public static By AnalyticsPageDisplay= By.xpath("//div[@class='row ng-star-inserted']");
     public static By ProjectStatistics = By.xpath("//span[text()='Project Statistics']");
-
-
 
     //Constructor for Analytics Page.
     public AnalyticsPage(WebDriver driver) {

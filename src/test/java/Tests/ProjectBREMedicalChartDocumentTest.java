@@ -18,7 +18,7 @@ public class ProjectBREMedicalChartDocumentTest extends BasePage {
         BasePage.driverInit();
         BasePage.LoginTest();
     }
-    @AfterClass(enabled = false)
+    @AfterClass
     public void cleanUp() throws Exception {
         driver.quit();
     }
@@ -142,7 +142,7 @@ public class ProjectBREMedicalChartDocumentTest extends BasePage {
         ProjectBREMedicalChartDocumentPageObj.clickOnAddICD();
         Thread.sleep(3000);
         ProjectBREMedicalChartDocumentPageObj.enterICDCode(ReadProps.readAttr("ICD"));
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         ProjectBREMedicalChartDocumentPageObj.selectICDDisciptionDropdown();
         Thread.sleep(1000);
         ProjectBREMedicalChartDocumentPageObj.enterHCC(ReadProps.readAttr("HCC"));
