@@ -27,7 +27,7 @@ public class CreateUserPage extends BasePage
     public static   By CreatedTimeUser_Admin=By.xpath("//tbody[@role='rowgroup']/tr[1]/td[4]");
     By SortUser=By.xpath("//div[contains(text(),'Name ')]");
     By Password  = By.xpath("//input[@type='password']");
-    By PlatformUser = By.xpath("//td[contains(text(),' AutoSampleBB ')]");
+    By PlatformUser = By.xpath("//*[text()=' Create User ']//following::tr[2]/td[1]");  //change by suwarna
     By SelectUser = By.xpath("//tbody[@role='rowgroup']");
     By UserUpdated = By.xpath("//td[contains(text(),\""+ ReadProps.readAttr("ValidNameUP") +"\")]");
     //By AdminUser = By.xpath("//td[contains(text(),' Nirbhay ')]");//Change everytime before u run.
