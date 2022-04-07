@@ -170,7 +170,7 @@ public class CreateUpdateRolePlatformAdminTest extends BasePage
         CreateRolePageObj.ClickCreateRoleBtn();
         Thread.sleep(4000);
         AssertionsFunction.verifyTargetPageURL(create_role_url);
-        CreateRolePageObj.EnterRoleName(ReadProps.readAttr("RoleNamePA"));//Change everytime before u ran
+        CreateRolePageObj.EnterRoleName(ReadProps.readAttr("RoleNamePA"));
         Thread.sleep(2000);
         CreateRolePageObj.AddPermissionPlusBtn();
         Thread.sleep(2000);

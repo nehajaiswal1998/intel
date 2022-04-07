@@ -44,7 +44,7 @@ public class BasePage {
         driver = new ChromeDriver();
     }
 
-    @BeforeSuite
+ //   @BeforeSuite
     public static void updateObjectRepo() throws IOException, ConfigurationException {
         int exec_id = Integer.valueOf(ReadProps.readAttr("exec_id"));
         exec_id++;

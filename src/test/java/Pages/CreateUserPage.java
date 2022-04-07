@@ -1,5 +1,6 @@
 package Pages;
 import Base.BasePage;
+import Utilities.Functions;
 import Utilities.ReadProps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -73,7 +74,11 @@ public class CreateUserPage extends BasePage
     public void ClickUserBtn(){driver.findElement(UserBtn).click();}
     public  void ClickOnCancelBtn(){driver.findElement(CancelButton).click();}
     //public void ClickCancelBtn(){driver.findElement(CancelBtn).click();}
-    public void ClickCreateUserBtn(){driver.findElement(CreateUserBtn).click();}
+    //Wait added
+    public void ClickCreateUserBtn() throws InterruptedException {
+       // Functions.custome_wait(CreateUserBtn);
+        driver.findElement(CreateUserBtn).click();}
+
     public void ClickCreateBtn(){driver.findElement(CreateBtn).click();}
     public void EnterUserName(String text) {driver.findElement(EnterUserName).sendKeys(text);}
     public void EnterEmail(String text){driver.findElement(EnterEmail).sendKeys(text);}

@@ -5,6 +5,8 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
 import java.io.IOException;
@@ -42,6 +44,14 @@ public class Functions {
 //            return false;
 //        }
 //    }
+
+    public static void custome_wait(By element)
+    {
+        WebDriverWait wait = new WebDriverWait(BasePage.driver,30);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(element));
+    }
+
+
 
 
 
