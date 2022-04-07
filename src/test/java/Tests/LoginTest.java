@@ -5,6 +5,7 @@ import Pages.CreateUserPage;
 import Pages.LoginPage;
 import Pages.ProjectPage;
 import Utilities.AssertionsFunction;
+import Utilities.Functions;
 import Utilities.ReadProps;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
@@ -140,7 +141,7 @@ public class LoginTest extends BasePage {
         loginPageObjects.setPassword(ReadProps.readAttr("Password"));
         Thread.sleep(1000);
         loginPageObjects.clickLoginButton();
-        Thread.sleep(1500);
+        Functions.custom_wait(LoginPage.ErrorMsgInvalidData);
         loginPageObjects.VerifyAssertError1();
         Thread.sleep(2000);
     }
@@ -155,8 +156,8 @@ public class LoginTest extends BasePage {
         loginPageObjects.setPassword(ReadProps.readAttr("InvalidPassword"));
         Thread.sleep(1000);
         loginPageObjects.clickLoginButton();
-        Thread.sleep(1000);
-        loginPageObjects.VerifyAssertError1();
+       Functions.custom_wait(LoginPage.ErrorMsgInvalidData);
+       loginPageObjects.VerifyAssertError1();
         Thread.sleep(2000);
     }
 
@@ -188,7 +189,7 @@ public class LoginTest extends BasePage {
         loginPageObjects.clickLoginButton();
         Thread.sleep(15000);
         loginPageObjects.VerifyHomePage();
-        Thread.sleep(6000);
+        Thread.sleep(8000);
 
     }
 
@@ -220,11 +221,11 @@ public class LoginTest extends BasePage {
         userobj.SearchCreatedUser("AE Supervisor");
         Thread.sleep(2000);
         userobj.SelectUser();
-        Thread.sleep(2000);
+        Thread.sleep(3000);
         userobj.ClickDisableUser();
         Thread.sleep(4000);
         userobj.ClickUpdateUser();
-        Thread.sleep(6000);
+        Thread.sleep(8000);
         loginPageObjects.ClickLogoutBtn();
         Thread.sleep(6000);
         ProjectPageObj.EnterUsername(ReadProps.readAttr("SupervisorUser"));
@@ -232,8 +233,8 @@ public class LoginTest extends BasePage {
         loginPageObjects.setPassword(ReadProps.readAttr("SupervisorPwd"));
         Thread.sleep(2000);
         loginPageObjects.clickLoginButton();
-        Thread.sleep(800);
-       AssertionsFunction.verifyElementText("User is inactive. Please contact Administration",LoginPage.ErrorMsgDisableUser);
+        Functions.custom_wait(LoginPage.ErrorMsgDisableUser);
+        AssertionsFunction.verifyElementText("User is inactive. Please contact Administration",LoginPage.ErrorMsgDisableUser);
         Thread.sleep(4000);
         loginPageObjects.RefreshPage();
         Thread.sleep(4000);
@@ -251,18 +252,19 @@ public class LoginTest extends BasePage {
         userobj.ClickDisableUser();
         Thread.sleep(3000);
         userobj.ClickUpdateUser();
-        Thread.sleep(12000);
+        Thread.sleep(15000);
     }
 @Test(priority = 13)
     public static void disableProjectAccess() throws Exception
     {
 
+        Functions.custom_wait(ProjectPage.ProjectBtn);
         ProjectPageObj.ClickOnProjectBtn();
         Thread.sleep(8000);
         ProjectPageObj.SearchProjectForStatus();
-        Thread.sleep(6000);
+        Thread.sleep(8000);
         ProjectPageObj.ClickOnEditProject();
-        Thread.sleep(5000);
+        Thread.sleep(8000);
         ProjectPageObj.ClickOnStatusBtn();
         Thread.sleep(2000);
         ProjectPageObj.ClickOnUpdateProject();
@@ -291,12 +293,13 @@ public class LoginTest extends BasePage {
         loginPageObjects.NavigateBack();
         Thread.sleep(4000);
         loginPageObjects.VerifyAssertBack();
-        Thread.sleep(4000);
+        Thread.sleep(7000);
     }
 
     @Test(priority = 15)
     public static void logout_for_platform_admin() throws Exception {
         //TC 14.11 - Logout for Platform Admin.
+        Functions.custom_wait(LoginPage.Logout);
         loginPageObjects.ClickLogoutBtn();
         Thread.sleep(5000);
         loginPageObjects.VerifyAssertBack1();
@@ -373,15 +376,16 @@ public class LoginTest extends BasePage {
         userobj.ClickDisableUser();
         Thread.sleep(3000);
         userobj.ClickUpdateUser();
-        Thread.sleep(4000);
+        Thread.sleep(6000);
         loginPageObjects.ClickLogoutBtn();
         Thread.sleep(6000);
         ProjectPageObj.EnterUsername(ReadProps.readAttr("SupervisorUser"));
         Thread.sleep(2000);
         loginPageObjects.setPassword(ReadProps.readAttr("SupervisorPwd"));
-        Thread.sleep(2000);
+        Thread.sleep(4000);
         loginPageObjects.clickLoginButton();
-        Thread.sleep(700);
+       // Thread.sleep(700);
+        Functions.custom_wait(LoginPage.ErrorMsgDisableUser);
         AssertionsFunction.verifyElementText("User is inactive. Please contact Administration",LoginPage.ErrorMsgDisableUser);
         Thread.sleep(2000);
         loginPageObjects.RefreshPage();
@@ -413,7 +417,7 @@ public class LoginTest extends BasePage {
         ProjectPageObj.ClickOnProjectBtn();
         Thread.sleep(7000);
         ProjectPageObj.SearchProjectForStatus();
-        Thread.sleep(6000);
+        Thread.sleep(8000);
         ProjectPageObj.ClickOnEditProject();
         Thread.sleep(7000);
         ProjectPageObj.ClickOnStatusBtn();
