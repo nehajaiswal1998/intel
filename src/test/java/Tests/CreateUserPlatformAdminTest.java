@@ -2,6 +2,7 @@ package Tests;
 import Base.BasePage;
 import Pages.CreateUserPage;
 import Utilities.AssertionsFunction;
+import Utilities.Functions;
 import Utilities.ReadProps;
 import org.testng.Assert;
 import org.testng.annotations.*;
@@ -21,7 +22,7 @@ public class CreateUserPlatformAdminTest extends BasePage {
         BasePage.LoginTest();
     }
 
-    @AfterClass
+    @AfterClass(enabled = false)
     public void cleanUp() throws Exception {
         driver.quit();
     }
@@ -230,8 +231,9 @@ public class CreateUserPlatformAdminTest extends BasePage {
         UserPageObj.ClickActiveUser();
         Thread.sleep(2000);
         UserPageObj.ClickCreateBtn();
-        Thread.sleep(7000);
+        Thread.sleep(5000);
         AssertionsFunction.verifyTargetPageURL(UserPageObj.userTabUrl);
+
 
 
     }
