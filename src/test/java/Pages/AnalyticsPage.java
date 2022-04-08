@@ -9,7 +9,7 @@ public class
 AnalyticsPage {
 
     WebDriver driver = null;
-
+    
   //xpath change by suwarna
     public static String AnalyticsPageURL = "https://alpha.neutrino-ai.com/#/home/analytics";
     public static By AnalyticsBtn = By.xpath("//*[@class='mat-nav-list mat-list-base side-bar-menue ng-star-inserted']//following::i[7]");
@@ -57,23 +57,28 @@ AnalyticsPage {
         this.driver = driver;
     }
 
-    public void ClickAnalyticsBtn() {
+    public void ClickAnalyticsBtn() throws Exception {
+    	Thread.sleep(5000);
         driver.findElement(AnalyticsBtn).click();
     }
 
-    public void ClickOnSortByReceived() {
+    public void ClickOnSortByReceived() throws Exception {
+    	Thread.sleep(5000);
         driver.findElement(SortByReceived).click();
     }
 
-    public void ClickOnSortByDocuments() {
+    public void ClickOnSortByDocuments() throws Exception {
+    	Thread.sleep(5000);
         driver.findElement(SortByDocuments).click();
     }
 
-    public  void ClickOrganizationArrow(){
+    public  void ClickOrganizationArrow() throws Exception{
+    	Thread.sleep(5000);
         driver.findElement(OrganizationStatistics).click();
     }
 
-    public  void clickProjectStatisticsarrow(){
+    public  void clickProjectStatisticsarrow() throws Exception{
+    	Thread.sleep(5000);
         driver.findElement(ProjectStatistics).click();
     }
 

@@ -1,4 +1,5 @@
 package Tests;
+
 import Base.BasePage;
 import Pages.AnalyticsPage;
 import Utilities.AssertionsFunction;
@@ -10,6 +11,7 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 
 @Listeners(Utilities.TestListeners.class)
+
 public class AnalyticsTest extends BasePage
 {
     static AnalyticsPage AnalyticsPageObj;
@@ -175,14 +177,4 @@ public class AnalyticsTest extends BasePage
 
 
     }
-
-    @Test(priority=17)
-    public void verify_operator_performance_section() throws InterruptedException {
-        AnalyticsPageObj.VerifyOperatorPerformance();
-        Thread.sleep(3000);
-
-    }
-
-
-
 }
