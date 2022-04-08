@@ -13,10 +13,10 @@ public class LoginPage {
     By userName = By.xpath("//input[@formcontrolname='userName']");
     By password = By.xpath("//input[@formcontrolname='password']");
     By loginBtn = By.xpath("//button[@type='submit']");
-    By Logout = By.xpath("//span[@mattooltip='Logout']");
+    public static  By Logout = By.xpath("//span[@mattooltip='Logout']");
     By ErrorMsgBlankData = By.xpath("//span[contains (text(),'Please Enter Valid Data ...!')]");
     ////span[contains (text(),'Please Enter Valid Data ...!')]
-    By ErrorMsgInvalidData = By.xpath("//span[contains (text(),'Something Went Wrong ...!')]");
+    public static By ErrorMsgInvalidData = By.xpath("//span[contains (text(),'Something Went Wrong ...!')]");
     public static By ErrorMsgDisableUser = By.xpath("//span[text()='User is inactive. Please contact Administration']");
     public static String ErrorMsgIdPwdSame ="Password cannot be email Id";
     public static By ErrMsgIdPwdSame= By.xpath("//span[text()='Password cannot be email Id']");
