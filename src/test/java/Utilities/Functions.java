@@ -45,7 +45,7 @@ public class Functions {
 //        }
 //    }
 
-    public static void custome_wait(By element)
+    public static void custom_wait(By element)
     {
         WebDriverWait wait = new WebDriverWait(BasePage.driver,30);
         wait.until(ExpectedConditions.visibilityOfElementLocated(element));

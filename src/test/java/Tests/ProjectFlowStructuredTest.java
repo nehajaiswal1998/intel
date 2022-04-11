@@ -491,7 +491,7 @@ public class ProjectFlowStructuredTest extends BasePage {
         ProjectPageObj.ClickOnSelectRoleBtn();
         Thread.sleep(2000);
         ProjectPageObj.ClickOnCreate();
-        Thread.sleep(1000);
+        Thread.sleep(5000);
         ProjectPageObj.VerifyAssertForUser();
         Thread.sleep(2000);
 

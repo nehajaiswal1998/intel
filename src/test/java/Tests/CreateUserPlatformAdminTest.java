@@ -218,7 +218,7 @@ public class CreateUserPlatformAdminTest extends BasePage {
 
         }
     @Test(priority = 10)
-    public void create_userWith_valid_credential() throws InterruptedException, IOException {
+    public void create_userWith_valid_credential() throws Exception {
 
         // 5.8 Verify the Users functionality of the Platform Admin to Create User with Valid Details.
         UserPageObj.ClickCreateUserBtn();
