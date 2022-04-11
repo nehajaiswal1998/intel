@@ -90,7 +90,9 @@ public class CreateUserPage extends BasePage
 
     public  void SearchCreatedUser(String text){driver.findElement(SearchBtn).sendKeys(text);}
 
-    public  void SelectSearchedUserPA(){driver.findElement(PlatformUser).click();}
+    public  void SelectSearchedUserPA() throws InterruptedException {
+        Thread.sleep(5000);
+        driver.findElement(PlatformUser).click();}
     public  void SelectUser(){driver.findElement(SelectUser).click();}
     public  void SelectSearchedAdmin(){driver.findElement(AdminUser).click();}//change this value
 

@@ -247,6 +247,8 @@ public class ProjectBREMedicalChartDocumentPage {
     public void enterHCC(String text){driver.findElement(HCC).sendKeys(text);}
 
     public void selectICDDisciptionDropdown() throws InterruptedException {
+        Thread.sleep(2000);
+
         WebElement ICDDiscription=driver.findElement(By.xpath("//*[text()=' Description ']//following::span[3]"));
          ICDDiscription.click();
          Thread.sleep(2000);

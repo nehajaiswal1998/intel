@@ -106,7 +106,7 @@ public class ProjectPage   {
 
     By RoleManagementBtn = By.xpath("//i[@class='mat-tooltip-trigger fa fa-id-card m-0 side-icon ng-star-inserted']");
     By SearchRole = By.xpath("//input[@data-placeholder='Search']");
-    By EditRole = By.xpath("//span[contains(text(),' AutoAdminRole ')]");
+    By EditRole = By.xpath("//*[text()='Roles ']//following::span[1]");// updated
     By ActiveRole = By.xpath("//div[@class='mat-slide-toggle-thumb']");
     By ClickUpdateBtn = By.xpath("//span[contains(text(),'Update' )]");
     By ClickSearchBox = By.xpath("//input[@placeholder='Search']");
