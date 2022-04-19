@@ -27,25 +27,29 @@ public class LoginPage {
     }
 
     //Methods Declaration.
-
-
-    public void setPassword(String text) {
+    public void setPassword(String text) throws Exception{
+        Thread.sleep(2000);
         driver.findElement(password).sendKeys(text);
     }
 
-    public void clickLoginButton() {
+    public void clickLoginButton() throws Exception{
+        Thread.sleep(2000);
         driver.findElement(loginBtn).click();
     }
 
-    public void ClickLogoutBtn() {
+    public void ClickLogoutBtn() throws Exception{
+        Thread.sleep(2000);
         driver.findElement(Logout).click();
     }
 
-    public void ClearUserID() {
+    public void ClearUserID() throws Exception{
+
+        Thread.sleep(2000);
         driver.findElement(userName).clear();
     }
 
-    public void ClearPWD() {
+    public void ClearPWD() throws Exception{
+        Thread.sleep(2000);
         driver.findElement(password).clear();
     }
 

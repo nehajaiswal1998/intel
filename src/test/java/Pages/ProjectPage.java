@@ -174,182 +174,227 @@ public class ProjectPage   {
         AssertionsFunction.verifyTargetPageURL ("https://alpha.neutrino-ai.com/#/home/project-management/create-project");
     }
 
-    public void ClickOnProjectNameBtn(String text) {
+    public void ClickOnProjectNameBtn(String text) throws Exception{
+
+        Thread.sleep(2000);
         driver.findElement(ProjectName).sendKeys(text);
     }
 
-    public void ClickOnLeadBtn() {
+    public void ClickOnLeadBtn() throws Exception{
+
+        Thread.sleep(2000);
         driver.findElement(Lead).click();
     }
 
-    public void SelectPatientGraphics() {
+    public void SelectPatientGraphics() throws Exception{
+        Thread.sleep(2000);
         driver.findElement(PatientDemoGraphics).click();
     }
 
-    public void SelectHCCConditions() {
+    public void SelectHCCConditions() throws Exception{
+        Thread.sleep(2000);
         driver.findElement(HCCConditions).click();
     }
 
 
-    public void ClickOnAddEntity() {
+    public void ClickOnAddEntity() throws Exception{
+        Thread.sleep(2000);
         driver.findElement(AddEntity).click();
     }
 
-    public void ClickSearchLead(String text) {
+    public void ClickSearchLead(String text) throws Exception{
+        Thread.sleep(2000);
         driver.findElement(SearchLead).sendKeys(text);
     }
 
-    public void ClearSearchLead() {
+    public void ClearSearchLead() throws Exception{
+        Thread.sleep(2000);
         driver.findElement(SearchLead).clear();
     }
 
-    public void SelectOnLeadBtn() {
+    public void SelectOnLeadBtn() throws Exception{
+        Thread.sleep(2000);
         driver.findElement(SelectLead).click();
     }
 
-    public void SelectOnLeadSampleBtn() {
+    public void SelectOnLeadSampleBtn() throws Exception{
+        Thread.sleep(2000);
         driver.findElement(SelectLeadSample).click();
     }
 
-    public void SelectOnLeadAdminBtn() {
+    public void SelectOnLeadAdminBtn()throws Exception{
+        Thread.sleep(2000);
         driver.findElement(SelectLeadAdmin).click();
     }
 
 
-    public void ClickOnStartDateBtn() {
+    public void ClickOnStartDateBtn() throws Exception{
+        Thread.sleep(2000);
         driver.findElement(ClickStartDate).click();
     }
 
-    public void SelectStartDateBtn() {
+    public void SelectStartDateBtn()throws Exception{
+        Thread.sleep(2000);
         driver.findElement(SelectStartDate).click();
     }
 
-    public void ClickOnDocumentStructureBtn() {
+    public void ClickOnDocumentStructureBtn() throws Exception{
+        Thread.sleep(2000);
         driver.findElement(ClickDocumentStructure).click();
     }
 
-    public void SelectDocumentStructureBtn() {
+    public void SelectDocumentStructureBtn() throws Exception{
+        Thread.sleep(2000);
         driver.findElement(SelectStructure).click();
     }
 
 
-    public void SelectDocumentStructureMedicalBtn() {
+    public void SelectDocumentStructureMedicalBtn() throws Exception{
+        Thread.sleep(2000);
         driver.findElement(SelectMedical).click();
     }
 
 
-    public void SelectOnSemiStructure() {
+    public void SelectOnSemiStructure() throws Exception{
+        Thread.sleep(2000);
         driver.findElement(SelectSemiStructure).click();
     }
 
-    public void SelectOnFreeFormStructure() {
+    public void SelectOnFreeFormStructure() throws Exception{
+        Thread.sleep(2000);
         driver.findElement(SelectFreeForm).click();
     }
 
-    public void ClickOnProcessingEngineBtn() {
+    public void ClickOnProcessingEngineBtn() throws Exception{
+        Thread.sleep(2000);
         driver.findElement(ClickProcessingEngine).click();
     }
 
-    public void SelectOnProcessingEngineBtn() {
+    public void SelectOnProcessingEngineBtn() throws Exception{
+        Thread.sleep(2000);
         driver.findElement(SelectProcessingEngine).click();
     }
 
-    public void SelectOnProcessingEngineLowBtn() {
+    public void SelectOnProcessingEngineLowBtn() throws Exception{
+        Thread.sleep(2000);
         driver.findElement(SelectProcessingEngineNNLow).click();
     }
 
-    public void ClickOnStraightThroughProcessBtn() {
+    public void ClickOnStraightThroughProcessBtn() throws Exception{
+        Thread.sleep(2000);
         driver.findElement(StraightThroughProcess).click();
     }
 
-    public void ClickOnDocumentScoreBtn(String text) {
+    public void ClickOnDocumentScoreBtn(String text)throws Exception{
+        Thread.sleep(2000);
         driver.findElement(DocumentScore).sendKeys(text);
     }
 
-    public void ClickOnStatusBtn() {
+    public void ClickOnStatusBtn() throws Exception{
+        Thread.sleep(2000);
         driver.findElement(Status).click();
     }
 
-    public void ClickOnDocumentAutoAssignBtn() {
+    public void ClickOnDocumentAutoAssignBtn() throws Exception{
+        Thread.sleep(2000);
         driver.findElement(DocumentAutoAssign).click();
     }
 
-    public void ClickOnAddTemplateBtn() {
+    public void ClickOnAddTemplateBtn() throws Exception{
+        Thread.sleep(2000);
         driver.findElement(ClickAddTemplate).click();
     }
 
-    public void ClickOnAddFieldBtn() {
+    public void ClickOnAddFieldBtn() throws Exception{
+        Thread.sleep(2000);
         driver.findElement(AddFields).click();
     }
 
-    public void SelectFieldValue() {
+    public void SelectFieldValue() throws Exception{
+        Thread.sleep(2000);
         driver.findElement(SelectField).click();
     }
 
-    public void ClickOnRoleUserDisableEnable() {
+    public void ClickOnRoleUserDisableEnable() throws Exception{
+        Thread.sleep(2000);
         driver.findElement(RoleUserDisableEnable).click();
     }
 
-    public void ClickOnSupervisorRoleDisable() {
+    public void ClickOnSupervisorRoleDisable() throws Exception{
+        Thread.sleep(2000);
         driver.findElement(SupervisorRoleDisable).click();
     }
 
-    public void ClickOnTemplateBtn() {
+    public void ClickOnTemplateBtn() throws Exception{
+        Thread.sleep(2000);
         driver.findElement(SelectTemplate).click();
     }
 
-    public void ClickOnRolesBtn() {
+    public void ClickOnRolesBtn() throws Exception{
+        Thread.sleep(2000);
         driver.findElement(ClickRoles).click();
     }
 
-    public void ClickOnAddRoleBtn() {
+    public void ClickOnAddRoleBtn() throws Exception{
+        Thread.sleep(2000);
         driver.findElement(AddRoleAdmin).click();
     }
 
-    public void ClickOnSelectRoleBtn() {
+    public void ClickOnSelectRoleBtn() throws Exception{
+        Thread.sleep(2000);
         driver.findElement(SelectRoleAdmin).click();
     }
 
-    public void ClickOnSelectSupervisorRoleBtn() {
+    public void ClickOnSelectSupervisorRoleBtn() throws Exception{
+        Thread.sleep(2000);
         driver.findElement(SelectRoleSuperVisor).click();
     }
 
-    public void ClickUpdateBtn() {
+    public void ClickUpdateBtn() throws Exception{
+        Thread.sleep(2000);
         driver.findElement(ClickUpdateBtn).click();
     }
 
 
-    public void ClickOnAddUserBtn() {
+    public void ClickOnAddUserBtn() throws Exception{
+        Thread.sleep(2000);
         driver.findElement(AddUserAdmin).click();
     }
 
-    public void ClickOnAddUser() {
+    public void ClickOnAddUser() throws Exception{
+        Thread.sleep(2000);
         driver.findElement(AddUser).click();
     }
 
-    public void ClickOnSelectUserBtn() {
+    public void ClickOnSelectUserBtn() throws Exception{
+        Thread.sleep(2000);
         driver.findElement(SelectUserAdmin).click();
     }
 
 
-    public void ClickItemsPerPage() {
+    public void ClickItemsPerPage() throws Exception{
+        Thread.sleep(2000);
         driver.findElement(ItemsPerPage).click();
     }
 
-    public void SelectItemsPerPage() {
+    public void SelectItemsPerPage() throws Exception{
+        Thread.sleep(2000);
         driver.findElement(SelectItems).click();
     }
 
-    public void ClickNextPage() {
+    public void ClickNextPage() throws Exception{
+        Thread.sleep(2000);
         driver.findElement(NextPage).click();
     }
 
 
-    public void ClickRulesPage() {
+    public void ClickRulesPage() throws Exception{
+        Thread.sleep(2000);
         driver.findElement(RulesPage).click();
     }
 
-    public void ClickOnCreate()  {
+    public void ClickOnCreate()  throws Exception{
+        Thread.sleep(2000);
         driver.findElement(CreateButtonOnProjectPage).click();
     }
 
@@ -415,64 +460,79 @@ public class ProjectPage   {
 
 
 
-    public void ClickOnEndDate() {
+    public void ClickOnEndDate() throws Exception{
+        Thread.sleep(2000);
         driver.findElement(ClickEndDate).click();
     }
 
-    public void SelectEndDate() {
+    public void SelectEndDate() throws Exception{
+        Thread.sleep(2000);
         driver.findElement(SelectEndDate).click();
     }
 
-    public void TableStructure() {
+    public void TableStructure() throws Exception{
+        Thread.sleep(2000);
         driver.findElement(TableStructure).click();
     }
 
-    public void SearchProject() {
+    public void SearchProject() throws Exception{
+        Thread.sleep(2000);
         driver.findElement(SearchProject).sendKeys("QA-AutoProject-Structured10");
     }
 
-    public void SearchProjectAdmin() {
+    public void SearchProjectAdmin() throws Exception{
+        Thread.sleep(2000);
         driver.findElement(SearchProject).sendKeys("QA-AutoAdmin1");
     }
-    public void SearchProjectForStatus() {
+    public void SearchProjectForStatus() throws Exception{
+        Thread.sleep(2000);
         driver.findElement(SearchProject).sendKeys("QA-AutoAdminProject");
     }
 
 
-    public void ClickRoleManagementBtn() {
+    public void ClickRoleManagementBtn() throws Exception{
+        Thread.sleep(2000);
         driver.findElement(RoleManagementBtn).click();
     }
 
-    public void SearchCreatedRole(String text) {
+    public void SearchCreatedRole(String text)throws Exception{
+        Thread.sleep(2000);
         driver.findElement(SearchRole).sendKeys(text);
     }
 
-    public void ClickEditRole() {
+    public void ClickEditRole() throws Exception{
+        Thread.sleep(2000);
         driver.findElement(EditRole).click();
     }
 
-    public void ClickActiveRole() {
+    public void ClickActiveRole() throws Exception{
+        Thread.sleep(2000);
         driver.findElement(ActiveRole).click();
     }
 
-    public void ClickLogout() {
+    public void ClickLogout() throws Exception{
+        Thread.sleep(2000);
         driver.findElement(Logout).click();
     }
 
     //Admin Login
-    public void EnterUsername(String text) {
+    public void EnterUsername(String text) throws Exception{
+        Thread.sleep(2000);
         driver.findElement(Username).sendKeys(text);
     }
 
-    public void EnterPassword(String text) {
+    public void EnterPassword(String text) throws Exception{
+        Thread.sleep(2000);
         driver.findElement(Password).sendKeys(text);
     }
 
-    public void ClickLoginButton() {
+    public void ClickLoginButton() throws Exception{
+        Thread.sleep(2000);
         driver.findElement(LoginBtn).click();
     }
 
-    public void ClickOnEditProject() {
+    public void ClickOnEditProject() throws Exception{
+        Thread.sleep(2000);
         driver.findElement(EditProject).click();
     }
 
@@ -480,40 +540,54 @@ public class ProjectPage   {
         driver.findElement(UpdateProject).click();
     }
 
-    public void ClickOnUpdateProjectOnRulePage() {
+    public void ClickOnUpdateProjectOnRulePage() throws Exception{
+        Thread.sleep(2000);
         driver.findElement(UpdatePrjectOnRulePage).click();
     }
 
     // User Enable and disable
-    public void ClickUserBtn() {
+    public void ClickUserBtn() throws Exception{
+        Thread.sleep(2000);
         driver.findElement(UserBtn).click();
     }
 
-    public void SearchCreatedUser(String text) {
+    public void SearchCreatedUser(String text) throws Exception{
+        Thread.sleep(2000);
         driver.findElement(SearchBtn).sendKeys(text);
     }
 
-    public void SelectSearchedUser() {
+    public void SelectSearchedUser() throws Exception{
+        Thread.sleep(2000);
         driver.findElement(User).click();
     }
 
-    public void ClickDisableUser() {
+    public void ClickDisableUser() throws Exception{
+        Thread.sleep(2000);
         driver.findElement(DisableUser).click();
     }
 
-    public void ClickUpdateUser() {
+    public void ClickUpdateUser() throws Exception{
+        Thread.sleep(2000);
         driver.findElement(UpdateUser).click();
     }
 
-    public void ClickBackRulePage() {
+    public void ClickBackRulePage() throws Exception{
+        Thread.sleep(2000);
         driver.findElement(BackButtonRulePage).click();
     }
 
-    public void CLickBackDataPage() {
+    public void CLickBackDataPage() throws Exception{
+        Thread.sleep(2000);
         driver.findElement(BackButtonDataPage).click();
     }
-    public void ClickOnSearchBox(String text) {driver.findElement(ClickSearchBox).sendKeys(text);}
-    public void ClickEditProjectBtn(){ driver.findElement(EditProjectBtn).click();}
+    public void ClickOnSearchBox(String text)throws Exception{
+        Thread.sleep(2000);
+        driver.findElement(ClickSearchBox).sendKeys(text);
+    }
+    public void ClickEditProjectBtn()throws Exception{
+        Thread.sleep(2000);
+        driver.findElement(EditProjectBtn).click();
+    }
 
 
     public void verifyProjectCreated(String TupeOfProject) throws IOException {

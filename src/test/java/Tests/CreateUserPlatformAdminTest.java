@@ -206,7 +206,7 @@ public class CreateUserPlatformAdminTest extends BasePage {
 
 
     @Test(priority = 9) // below added
-        public void ClickOnCancelbutton_on_User_Creation_Page() throws InterruptedException {
+        public void ClickOnCancelbutton_on_User_Creation_Page() throws Exception {
         //TC 5.10 Verify functionality of Cancel button on User Creation Page.
             UserPageObj.ClickCreateUserBtn();
             Thread.sleep(2000);
@@ -238,7 +238,7 @@ public class CreateUserPlatformAdminTest extends BasePage {
 
     }
     @Test(priority = 11)
-    public void create_userWith_valid_credential_status_Disabled() throws InterruptedException, IOException {
+    public void create_userWith_valid_credential_status_Disabled() throws Exception {
         //TC 5.13 Verify the working of platform admin role for Create user button when "Active User" toggle button is disabled
         UserPageObj.ClickCreateUserBtn();
         Thread.sleep(2000);

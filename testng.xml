@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
-    <test verbose="2" preserve-order="true"
-          name="C:/Users/kishor_ghadge/IdeaProjects/IntilliDocBRE/IntilliDoc_Product_JAN2022">
+    <test verbose="2" preserve-order="true" name="C:/Users/NTS-suwarna/APRIL/IntilliDoc_Product_JAN2022">
+
         <classes>
             <class name="Tests.AnalyticsTest">
                 <methods>
@@ -22,7 +22,6 @@
                     <include name="select_monthly_data_on_Analytics_page"/>
                     <include name="select_weekly_data_on_Analytics_page"/>
                     <include name="select_daily_data_on_Analytics_page"/>
-                    <include name="verify_operator_performance_section"/>
                 </methods>
             </class>
             <class name="Tests.BREAppliedToProjectWithDataset">
@@ -272,6 +271,16 @@
                     <include name="verifyDeletandsaveEncounterDetails"/>
                 </methods>
             </class>
+            <class name="Tests.ProjectBREMedicalChartDocumentTest1">
+                <methods>
+                    <include name="verify_rejected_document_no_data_extracted_on_medical_chart"/>
+                    <include name="edit_encounter_detail_and_enter_invalid_npi_physician_on_medical_chart"/>
+                    <include name="run_rule_for_invalid_physicians_sign_on_medical_chart"/>
+                    <include name="verify_icd_on_medical_chart"/>
+                    <include name="save_without_hcc_comments_on_medical_chart"/>
+                    <include name="save_with_hcc_comments_on_medical_chart"/>
+                </methods>
+            </class>
             <class name="Tests.ProjectBREMedicalChartTest">
                 <methods>
                     <include name="check_all_functions_on_project_page"/>
@@ -280,6 +289,24 @@
                     <include name="add_action"/>
                     <include name="set_document_status_ready"/>
                     <include name="set_document_status_rejected"/>
+                </methods>
+            </class>
+            <class name="Tests.ProjectBRETest">
+                <methods>
+                    <include name="bre_applied_to_name_pass"/>
+                    <include name="bre_applied_to_name_fail"/>
+                    <include name="bre_applied_to_address_pass"/>
+                    <include name="bre_applied_to_address_fail"/>
+                    <include name="bre_applied_to_state_pass"/>
+                    <include name="bre_applied_to_state_fail"/>
+                </methods>
+            </class>
+            <class name="Tests.ProjectBRETest1">
+                <methods>
+                    <include name="bre_applied_to_patient_name"/>
+                    <include name="verify_replace_first"/>
+                    <include name="verify_replace_all"/>
+                    <include name="delete_created_rule"/>
                 </methods>
             </class>
             <class name="Tests.ProjectFlowFreeFormTest">
@@ -358,6 +385,143 @@
                     <include name="operator_role_access_analytics"/>
                 </methods>
             </class>
+            <class name="Tests.TC_For_Admin_User">
+                <methods>
+                    <include name="create_Structure_Type_Project_without_having_google_or_amazon_attachment_and_By_click_On_Create_Button"/>
+                    <include name="create_Free_Form_Type_Project_without_having_google_or_amazon_attachment_and_By_click_On_Create_Button"/>
+                    <include name="create_Medical_Chart_Type_Project_without_having_google_or_amazon_attachment_and_By_click_On_Create_Button"/>
+                    <include name="verify_project_name_field"/>
+                    <include name="verify_Lead_Filed"/>
+                    <include name="verify_Start_Date_Filed"/>
+                    <include name="verify_End_Date_Filed"/>
+                    <include name="verify_document_structure_type_Filed"/>
+                    <include name="verify_processing_Engine_filed_for_Structured_Project"/>
+                    <include name="verify_processing_Engine_filed_for_Semi_Structured_Project"/>
+                    <include name="verify_processing_Engine_For_Medical_Project"/>
+                    <include name="verify_processing_Engine_For_Free_From_Project"/>
+                    <include name="verify_Status_Field"/>
+                    <include name="verify_document_Auto_Assignment_Field"/>
+                    <include name="verify_straight_through_process_and_document_scrore_filed"/>
+                    <include name="verify_template_filed"/>
+                    <include name="verify_roles_filed"/>
+                    <include name="verify_project_page_url"/>
+                    <include name="create_project_with_all_blank_details_By_click_On_Create_Button"/>
+                    <include name="create_project_with_blank_template_details_By_click_On_Create_Button"/>
+                    <include name="create_project_with_blank_roles_details_By_click_On_Create_Button"/>
+                    <include name="create_project_with_blank_user_details_inside_the_roles_section_By_click_On_Create_Button"/>
+                    <include name="create_project_with_blank_processing_engine_details_By_click_On_Create_Button"/>
+                    <include name="create_project_with_disable_status_details_By_click_On_Create_Button"/>
+                    <include name="create_project_with_existing_project_name_By_click_On_Create_Button"/>
+                    <include name="verify_cancel_button_funationality_for_any_data"/>
+                    <include name="verify_error_Messages_for_empty_Project_Name_filed_and_lead_file_and_processing_engine"/>
+                    <include name="create_project_with_all_blank_details_By_click_On_Next_Button"/>
+                    <include name="create_project_with_blank_template_details_By_click_On_Next_Button"/>
+                    <include name="create_project_with_blank_roles_details_By_click_On_Next_Button"/>
+                    <include name="create_project_with_blank_user_details_inside_the_roles_section_By_click_On_Next_Button"/>
+                    <include name="create_project_with_blank_processing_engine_details_By_click_On_Next_Button"/>
+                    <include name="select_dates_from_calendar_application_without_changing_year_and_month"/>
+                    <include name="select_dates_from_calendar_application_with_changing_year_and_month"/>
+                    <include name="verify_delete_functionality_for_user_on_Roles_Section"/>
+                    <include name="create_Structure_Type_Project_having_google_drive_attachment_and_By_click_On_Create_Button"/>
+                    <include name="create_Structure_Type_Project_having_amazon_s3_attachment_and_By_click_On_Create_Button"/>
+                    <include name="create_Structure_Type_Project_having_google_drive_attachment_and_having_existing_projectName_and_By_click_On_Create_Button"/>
+                    <include name="create_Structure_Type_Project_having_amazon_s3_attachment_and_having_existing_projectName_and_By_click_On_Create_Button"/>
+                    <include name="verify_error_message_for_invalid_user_email_for_google_drive_section"/>
+                    <include name="verify_error_message_for_invalid_key_details_for_amazon_s3_section"/>
+                </methods>
+            </class>
+            <class name="Tests.TC_For_Operator_User">
+                <methods>
+                    <include name="create_Structure_Type_Project_without_having_google_or_amazon_attachment_and_By_click_On_Create_Button"/>
+                    <include name="create_Semi_Structure_Type_Project_without_having_google_or_amazon_attachment_and_By_click_On_Create_Button"/>
+                    <include name="create_Free_Form_Type_Project_without_having_google_or_amazon_attachment_and_By_click_On_Create_Button"/>
+                    <include name="create_Medical_Chart_Type_Project_without_having_google_or_amazon_attachment_and_By_click_On_Create_Button"/>
+                    <include name="verify_project_name_field"/>
+                    <include name="verify_Lead_Filed"/>
+                    <include name="verify_Start_Date_Filed"/>
+                    <include name="verify_End_Date_Filed"/>
+                    <include name="verify_document_structure_type_Filed"/>
+                    <include name="verify_processing_Engine_filed_for_Structured_Project"/>
+                    <include name="verify_processing_Engine_filed_for_Semi_Structured_Project"/>
+                    <include name="verify_processing_Engine_For_Medical_Project"/>
+                    <include name="verify_processing_Engine_For_Free_From_Project"/>
+                    <include name="verify_Status_Field"/>
+                    <include name="verify_document_Auto_Assignment_Field"/>
+                    <include name="verify_straight_through_process_and_document_scrore_filed"/>
+                    <include name="verify_template_filed"/>
+                    <include name="verify_roles_filed"/>
+                    <include name="verify_project_page_url"/>
+                    <include name="create_project_with_all_blank_details_By_click_On_Create_Button"/>
+                    <include name="create_project_with_blank_template_details_By_click_On_Create_Button"/>
+                    <include name="create_project_with_blank_roles_details_By_click_On_Create_Button"/>
+                    <include name="create_project_with_blank_user_details_inside_the_roles_section_By_click_On_Create_Button"/>
+                    <include name="create_project_with_blank_processing_engine_details_By_click_On_Create_Button"/>
+                    <include name="create_project_with_disable_status_details_By_click_On_Create_Button"/>
+                    <include name="create_project_with_existing_project_name_By_click_On_Create_Button"/>
+                    <include name="verify_cancel_button_funationality_for_any_data"/>
+                    <include name="verify_error_Messages_for_empty_Project_Name_filed_and_lead_file_and_processing_engine"/>
+                    <include name="create_project_with_all_blank_details_By_click_On_Next_Button"/>
+                    <include name="create_project_with_blank_template_details_By_click_On_Next_Button"/>
+                    <include name="create_project_with_blank_roles_details_By_click_On_Next_Button"/>
+                    <include name="create_project_with_blank_user_details_inside_the_roles_section_By_click_On_Next_Button"/>
+                    <include name="create_project_with_blank_processing_engine_details_By_click_On_Next_Button"/>
+                    <include name="select_dates_from_calendar_application_without_changing_year_and_month"/>
+                    <include name="select_dates_from_calendar_application_with_changing_year_and_month"/>
+                    <include name="verify_delete_functionality_for_user_on_Roles_Section"/>
+                    <include name="create_Structure_Type_Project_having_google_drive_attachment_and_By_click_On_Create_Button"/>
+                    <include name="create_Structure_Type_Project_having_amazon_s3_attachment_and_By_click_On_Create_Button"/>
+                    <include name="create_Structure_Type_Project_having_google_drive_attachment_and_having_existing_projectName_and_By_click_On_Create_Button"/>
+                    <include name="create_Structure_Type_Project_having_amazon_s3_attachment_and_having_existing_projectName_and_By_click_On_Create_Button"/>
+                    <include name="verify_error_message_for_invalid_user_email_for_google_drive_section"/>
+                    <include name="verify_error_message_for_invalid_key_details_for_amazon_s3_section"/>
+                </methods>
+            </class>
+            <class name="Tests.TC_Supervisor_User">
+                <methods>
+                    <include name="create_Structure_Type_Project_without_having_google_or_amazon_attachment_and_By_click_On_Create_Button"/>
+                    <include name="create_Semi_Structure_Type_Project_without_having_google_or_amazon_attachment_and_By_click_On_Create_Button"/>
+                    <include name="create_Free_Form_Type_Project_without_having_google_or_amazon_attachment_and_By_click_On_Create_Button"/>
+                    <include name="create_Medical_Chart_Type_Project_without_having_google_or_amazon_attachment_and_By_click_On_Create_Button"/>
+                    <include name="verify_project_name_field"/>
+                    <include name="verify_Lead_Filed"/>
+                    <include name="verify_Start_Date_Filed"/>
+                    <include name="verify_End_Date_Filed"/>
+                    <include name="verify_document_structure_type_Filed"/>
+                    <include name="verify_processing_Engine_filed_for_Structured_Project"/>
+                    <include name="verify_processing_Engine_filed_for_Semi_Structured_Project"/>
+                    <include name="verify_processing_Engine_For_Medical_Project"/>
+                    <include name="verify_processing_Engine_For_Free_From_Project"/>
+                    <include name="verify_Status_Field"/>
+                    <include name="verify_document_Auto_Assignment_Field"/>
+                    <include name="verify_straight_through_process_and_document_scrore_filed"/>
+                    <include name="verify_template_filed"/>
+                    <include name="verify_roles_filed"/>
+                    <include name="verify_project_page_url"/>
+                    <include name="create_project_with_all_blank_details_By_click_On_Create_Button"/>
+                    <include name="create_project_with_blank_template_details_By_click_On_Create_Button"/>
+                    <include name="create_project_with_blank_roles_details_By_click_On_Create_Button"/>
+                    <include name="create_project_with_blank_user_details_inside_the_roles_section_By_click_On_Create_Button"/>
+                    <include name="create_project_with_blank_processing_engine_details_By_click_On_Create_Button"/>
+                    <include name="create_project_with_disable_status_details_By_click_On_Create_Button"/>
+                    <include name="create_project_with_existing_project_name_By_click_On_Create_Button"/>
+                    <include name="verify_cancel_button_funationality_for_any_data"/>
+                    <include name="verify_error_Messages_for_empty_Project_Name_filed_and_lead_file_and_processing_engine"/>
+                    <include name="create_project_with_all_blank_details_By_click_On_Next_Button"/>
+                    <include name="create_project_with_blank_template_details_By_click_On_Next_Button"/>
+                    <include name="create_project_with_blank_roles_details_By_click_On_Next_Button"/>
+                    <include name="create_project_with_blank_user_details_inside_the_roles_section_By_click_On_Next_Button"/>
+                    <include name="create_project_with_blank_processing_engine_details_By_click_On_Next_Button"/>
+                    <include name="select_dates_from_calendar_application_without_changing_year_and_month"/>
+                    <include name="select_dates_from_calendar_application_with_changing_year_and_month"/>
+                    <include name="verify_delete_functionality_for_user_on_Roles_Section"/>
+                    <include name="create_Structure_Type_Project_having_google_drive_attachment_and_By_click_On_Create_Button"/>
+                    <include name="create_Structure_Type_Project_having_amazon_s3_attachment_and_By_click_On_Create_Button"/>
+                    <include name="create_Structure_Type_Project_having_google_drive_attachment_and_having_existing_projectName_and_By_click_On_Create_Button"/>
+                    <include name="create_Structure_Type_Project_having_amazon_s3_attachment_and_having_existing_projectName_and_By_click_On_Create_Button"/>
+                    <include name="verify_error_message_for_invalid_user_email_for_google_drive_section"/>
+                    <include name="verify_error_message_for_invalid_key_details_for_amazon_s3_section"/>
+                </methods>
+            </class>
             <class name="Tests.TemplateTest">
                 <methods>
                     <include name="create_template_with_invalid_name"/>
@@ -432,6 +596,7 @@
                     <include name="userUpdateValidData"/>
                 </methods>
             </class>
+
         </classes>
     </test>
 </suite>
