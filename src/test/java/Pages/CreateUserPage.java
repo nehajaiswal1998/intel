@@ -33,8 +33,8 @@ public class CreateUserPage extends BasePage
     By UserUpdated = By.xpath("//td[contains(text(),\""+ ReadProps.readAttr("ValidNameUP") +"\")]");
     //By AdminUser = By.xpath("//td[contains(text(),' Nirbhay ')]");                //Change everytime before u run.
     By AdminUser=By.xpath("//td[contains(text(),\""+ ReadProps.readAttr("AdminUserName") +"\")]");
-    By AdminUserExtra=By.xpath("//td[contains(text(),\""+ ReadProps.readAttr("UserName") +"\")]");
-    By AdminUserExtraForDisabled=By.xpath("//td[contains(text(),\""+ ReadProps.readAttr("UserNameDisabled") +"\")]");
+    By AdminUserExtra=By.xpath("//*[@class='mat-table cdk-table mat-sort']//following::tr[1]/td[1]");
+    By AdminUserExtraForDisabled=By.xpath("//*[@class='mat-table cdk-table mat-sort']//following::tr[1]/td[1]");
     By UpdatedTime = By.xpath("//tbody[@role='rowgroup']/tr[1]/td[3]");
     By CreatedTime = By.xpath("//tbody[@role='rowgroup']/tr[1]/td[4]");
     By logout = By.xpath("//span[@mattooltip='Logout']");
@@ -71,41 +71,105 @@ public class CreateUserPage extends BasePage
     public By getcreatedUser_withDisabledStatus(){return this.createdUser_withDisabledStatus;}
     public By getAdminUser(){return this.AdminUser;}
     public By GetcreatedUser() {return this.createdUser;}
-    public void ClickUserBtn(){driver.findElement(UserBtn).click();}
-    public  void ClickOnCancelBtn(){driver.findElement(CancelButton).click();}
+    public void ClickUserBtn() throws Exception
+    {
+        Thread.sleep(5000);
+        driver.findElement(UserBtn).click();
+    }
+    public  void ClickOnCancelBtn()throws Exception
+    {
+        Thread.sleep(2000);
+        driver.findElement(CancelButton).click();
+    }
     //public void ClickCancelBtn(){driver.findElement(CancelBtn).click();}
     //Wait added
     public void ClickCreateUserBtn() throws InterruptedException {
        // Functions.custome_wait(CreateUserBtn);
+        Thread.sleep(2000);
         driver.findElement(CreateUserBtn).click();}
 
-    public void ClickCreateBtn(){driver.findElement(CreateBtn).click();}
-    public void EnterUserName(String text) {driver.findElement(EnterUserName).sendKeys(text);}
-    public void EnterEmail(String text){driver.findElement(EnterEmail).sendKeys(text);}
+    public void ClickCreateBtn()throws Exception
+    {
+        Thread.sleep(2000);
+        driver.findElement(CreateBtn).click();
+    }
+    public void EnterUserName(String text) throws Exception
+    {
+        Thread.sleep(2000);
+        driver.findElement(EnterUserName).sendKeys(text);
+    }
+    public void EnterEmail(String text)throws Exception
+    {
+        Thread.sleep(2000);
+        driver.findElement(EnterEmail).sendKeys(text);
+    }
     public void ClickActiveUser() throws Exception   //change by suwarna
     {
     	Thread.sleep(5000);
     	driver.findElement(ActiveUser).click();
     	}
 
-    public  void SearchCreatedUser(String text){driver.findElement(SearchBtn).sendKeys(text);}
+    public  void SearchCreatedUser(String text)throws Exception
+    {
+        Thread.sleep(2000);
+        driver.findElement(SearchBtn).sendKeys(text);
+    }
 
     public  void SelectSearchedUserPA() throws InterruptedException {
         Thread.sleep(5000);
         driver.findElement(PlatformUser).click();}
-    public  void SelectUser(){driver.findElement(SelectUser).click();}
-    public  void SelectSearchedAdmin(){driver.findElement(AdminUser).click();}//change this value
+    public  void SelectUser()throws Exception
+    {
+        Thread.sleep(2000);
+        driver.findElement(SelectUser).click();}
+    public  void SelectSearchedAdmin()throws Exception
+    {
+        Thread.sleep(2000);
+        driver.findElement(AdminUser).click();}//change this value
 
-    public  void SelectSearchedUser(){driver.findElement(AdminUserExtraForDisabled).click();}
-    public  void SelectSearchedAdminUser(){driver.findElement(AdminUserExtra).click();}//change this value
+    public  void SelectSearchedUser()throws Exception
+    {
+        Thread.sleep(2000);
+        driver.findElement(AdminUserExtraForDisabled).click();
+    }
+    public  void SelectSearchedAdminUser()throws Exception
+    {
+        Thread.sleep(2000);
+        driver.findElement(AdminUserExtra).click();
+    }//change this value
     
-    public void ClickDisableUser(){driver.findElement(DisableUser).click();}
-    public void ClickEnableUser(){driver.findElement(DisableUser).click();}
-    public void ClickUpdateUser(){driver.findElement(UpdateUser).click();}
-    public void ClickOnSortUser(){driver.findElement(SortUser).click();}
-    public void ClickToClearName(){driver.findElement(EnterUserName).clear();}
-    public  void ClearPassword(){driver.findElement(Password).clear();}
-    public void EnterPassword(String text){driver.findElement(Password).sendKeys(text);}
+    public void ClickDisableUser()throws Exception
+    {
+        Thread.sleep(2000);
+        driver.findElement(DisableUser).click();
+    }
+    public void ClickEnableUser()throws Exception
+    {
+        Thread.sleep(2000);
+        driver.findElement(DisableUser).click();
+    }
+    public void ClickUpdateUser()throws Exception
+    {
+        Thread.sleep(2000);
+        driver.findElement(UpdateUser).click();}
+    public void ClickOnSortUser()throws Exception
+    {
+        Thread.sleep(2000);
+        driver.findElement(SortUser).click();}
+    public void ClickToClearName() throws Exception
+    {
+        Thread.sleep(2000);
+        driver.findElement(EnterUserName).clear();
+    }
+    public  void ClearPassword()throws Exception
+    {
+        Thread.sleep(2000);
+        driver.findElement(Password).clear();}
+    public void EnterPassword(String text)throws Exception
+    {
+        Thread.sleep(2000);
+        driver.findElement(Password).sendKeys(text);
+    }
     public  String errmsg="Please enter all the details before submitting.";
     public  By errmsgBlankDataCreateRoleClick=By.xpath("//span[contains(text(),'Please enter all the details before submitting.')]");
     public static By ErrMsgName = By.xpath("//mat-error[text()='Please enter only characters.']");
@@ -159,22 +223,30 @@ public class CreateUserPage extends BasePage
         softAssert.assertAll();
     }
 
-    public void LogOut()
+    public void LogOut()throws Exception
     {
+        Thread.sleep(2000);
         driver.findElement(logout).click();
     }
 
-    public void setUsername(String text) {
+    public void setUsername(String text) throws Exception
+    {
+        Thread.sleep(2000);
         driver.findElement(username).sendKeys(text);
     }
-    public void setPassword(String text) {
+    public void setPassword(String text)throws Exception
+    {
+        Thread.sleep(2000);
         driver.findElement(password).sendKeys(text);
     }
-    public void clickLoginButton() {
+    public void clickLoginButton() throws Exception
+    {
+        Thread.sleep(2000);
         driver.findElement(loginBtn).click();
     }
-    public void SelectUpdatedUser()
+    public void SelectUpdatedUser() throws Exception
     {
+        Thread.sleep(2000);
         driver.findElement(UserUpdated).click();
     }
 

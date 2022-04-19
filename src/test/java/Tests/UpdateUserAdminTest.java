@@ -26,7 +26,7 @@ public class UpdateUserAdminTest extends BasePage {
         driver.quit();
     }
     @Test(priority = 1)
-    public void UpdateUserAdminFlow() throws InterruptedException, IOException {
+    public void UpdateUserAdminFlow() throws Exception {
             driver.get(ReadProps.readAttr("URL"));
             driver.manage().window().maximize();
             Thread.sleep(8000);
@@ -47,7 +47,7 @@ public class UpdateUserAdminTest extends BasePage {
             Thread.sleep(2000);
     }
         @Test(priority = 2)
-        public void disable_user_update() throws InterruptedException, IOException {
+        public void disable_user_update() throws Exception {
                 //TC 22.2 Disable User and Update.
                 UserPageObj1.ClickDisableUser();
                 Thread.sleep(2000);
@@ -58,7 +58,7 @@ public class UpdateUserAdminTest extends BasePage {
                 Thread.sleep(2000);
         }
         @Test(priority = 3)
-        public void enable_user_update() throws InterruptedException, IOException {
+        public void enable_user_update() throws Exception {
                 //TC 22.3 Enable User and Update.
                 UserPageObj1.ClickEnableUser();
                 Thread.sleep(2000);
@@ -68,7 +68,7 @@ public class UpdateUserAdminTest extends BasePage {
 
         }
         @Test(priority = 4)
-        public void update_with_blank_name() throws InterruptedException, IOException {
+        public void update_with_blank_name() throws Exception {
                 //TC 22.4 Update with Blank Name.
                 UserPageObj1.SelectSearchedAdminUser();
                 Thread.sleep(2000);
@@ -83,7 +83,7 @@ public class UpdateUserAdminTest extends BasePage {
 
         }
         @Test(priority = 5)
-        public void update_with_invalid_username() throws InterruptedException, IOException {
+        public void update_with_invalid_username() throws Exception {
                 //TC 22.5 Update with Invalid UserName.
                 UserPageObj1.SelectSearchedAdminUser();
                 Thread.sleep(1000);
@@ -100,7 +100,7 @@ public class UpdateUserAdminTest extends BasePage {
 
         }
         @Test(priority = 6)
-        public void update_with_valid_username() throws InterruptedException, IOException {
+        public void update_with_valid_username() throws Exception {
             //TC 22.6 Update with Valid Name.
             UserPageObj1.SelectSearchedAdminUser();
             Thread.sleep(2000);
@@ -122,7 +122,7 @@ public class UpdateUserAdminTest extends BasePage {
 
         }
     @Test(priority = 7)
-        public  void Sorting_User() throws InterruptedException {
+        public  void Sorting_User() throws Exception {
             // 22.10 Sorting by Name, email,updated,created time
 
             UserPageObj1.ClickOnSortUser();

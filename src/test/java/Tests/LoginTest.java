@@ -274,7 +274,8 @@ public class LoginTest extends BasePage {
         AssertionsFunction.verifyElementPresent(ProjectPage.DisableProjectSearchMesage);
         Thread.sleep(1000);
         ProjectPageObj.TableStructure();
-        Thread.sleep(8000);ProjectPageObj.ClickOnEditProject();
+        Thread.sleep(8000);
+        ProjectPageObj.ClickOnEditProject();
         Thread.sleep(5000);
         ProjectPageObj.ClickOnStatusBtn();
         Thread.sleep(2000);
@@ -510,7 +511,7 @@ public class LoginTest extends BasePage {
     public static void login_with_invalid_username_and_password_for_operator() throws Exception {
         //TC 14.20 - Operator Role  Login with Invalid Username and Password.
         loginPageObjects.RefreshPage();
-        Thread.sleep(3000);
+             Thread.sleep(3000);
         ProjectPageObj.EnterUsername(ReadProps.readAttr("OperatorInvalidUser"));
         Thread.sleep(1000);
         loginPageObjects.setPassword(ReadProps.readAttr("OperatorInvalidPwd"));
