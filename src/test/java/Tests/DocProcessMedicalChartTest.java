@@ -18,7 +18,7 @@ public class DocProcessMedicalChartTest extends BasePage
         BasePage.driverInit();
         BasePage.LoginTest();
     }
-    @AfterClass
+    @AfterClass(enabled = false)
     public void cleanUp() throws Exception {
         driver.quit();
     }
@@ -79,7 +79,7 @@ public class DocProcessMedicalChartTest extends BasePage
         DocPageObj.ClickRefreshDocument();
         Thread.sleep(7000);
     }
-    @Test(priority = 4)
+  //  @Test(priority = 4)
     public void hide_unhide_analytics() throws Exception {
         //TC 8.4 Hide and UnHide Analytics.
         DocPageObj.ClickHideAnalytics();
@@ -87,7 +87,7 @@ public class DocProcessMedicalChartTest extends BasePage
         DocPageObj.ClickUnHideAnalytics();
         Thread.sleep(2000);
     }
-    @Test(priority = 5)
+ //   @Test(priority = 5)
     public void documents_filter() throws Exception {
         //TC 8.5 Documents filter.
         DocPageObj.ClickFilterDoc();
@@ -108,7 +108,7 @@ public class DocProcessMedicalChartTest extends BasePage
         r.keyPress(KeyEvent.VK_ESCAPE);
         Thread.sleep(2000);
     }
-    @Test(priority = 6)
+ //   @Test(priority = 6)
     public void sorting() throws Exception {
         //TC 8.6 sorting.
         DocPageObj.ClickDocSort();
@@ -127,7 +127,7 @@ public class DocProcessMedicalChartTest extends BasePage
         js.executeScript("window.scrollBy(0,5000)", "");
         Thread.sleep(4000);
     }
-    @Test(priority = 7)
+  //  @Test(priority = 7)
     public void items_page() throws Exception {
         //TC 8.7 Items Per Page.
         DocPageObj.ClickItemsPerPage();
@@ -137,7 +137,7 @@ public class DocProcessMedicalChartTest extends BasePage
         AssertionsFunction.verifyElementText("10",DocPageObj.ItemSelectedNumber );
         Thread.sleep(1000);
     }
-    @Test(priority = 8)
+   // @Test(priority = 8)
     public void next_page_previous_page_first_page_last_page() throws Exception {
         //TC 8.8 Next Page, Previous Page, Last Page and First Page.
         DocPageObj.ClickNextPage();
