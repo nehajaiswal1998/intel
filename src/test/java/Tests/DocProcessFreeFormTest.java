@@ -9,7 +9,7 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 @Listeners(Utilities.TestListeners.class)
 
-public class DocProcessFreeFormTest extends BasePage {
+public class    DocProcessFreeFormTest extends BasePage {
     static DocumentPage DocPageObj;
     @BeforeClass
     public void login() throws Exception {
