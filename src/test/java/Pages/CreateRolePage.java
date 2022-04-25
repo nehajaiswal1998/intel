@@ -149,13 +149,9 @@ public class CreateRolePage {
         driver.findElement(Logout).click();
     }
 
-    public void EnterUsername(String text) {
-        driver.findElement(Username).sendKeys(text);
-    }
+    public void EnterUsername(String text) {driver.findElement(Username).sendKeys(text);}
 
-    public void EnterPassword(String text) {
-        driver.findElement(Password).sendKeys(text);
-    }
+    public void EnterPassword(String text) {driver.findElement(Password).sendKeys(text);}
 
     public void ClickLoginButton() {
         driver.findElement(LoginBtn).click();

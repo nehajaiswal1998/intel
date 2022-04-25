@@ -3,6 +3,7 @@ import Base.BasePage;
 import Pages.DocumentPage;
 import Pages.ProjectBREMedicalChartDocumentPage;
 import Utilities.AssertionsFunction;
+import Utilities.LoginUser;
 import Utilities.ReadProps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -10,6 +11,8 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
+import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.io.IOException;
 
 @Listeners(Utilities.TestListeners.class)
@@ -21,7 +24,9 @@ public class ProjectBREMedicalChartDocumentTest extends BasePage {
     @BeforeClass
     public void login() throws Exception {
         BasePage.driverInit();
-        BasePage.LoginTest();
+        driver.get(ReadProps.readAttr("URL"));
+        driver.manage().window().maximize();
+        // BasePage.LoginTest();
     }
 
     @AfterClass(enabled = false)
@@ -31,6 +36,9 @@ public class ProjectBREMedicalChartDocumentTest extends BasePage {
 
     @Test(priority = 1)
     public void verify_edit_address_save_draft_Patient_Demographics() throws Exception {
+
+        LoginUser.login_users(driver, "pratiksha.bagal@neutrinotechlabs.com", "Pratiksha@12");
+        Thread.sleep(9000);
         DocPageObj = new DocumentPage(driver);
         ProjectBREMedicalChartDocumentPageObj = new ProjectBREMedicalChartDocumentPage(driver);
         Thread.sleep(5000);
@@ -41,20 +49,19 @@ public class ProjectBREMedicalChartDocumentTest extends BasePage {
         // TC 1 Verifying the Save Draft option for Patient Demographics.
         DocPageObj.ClickDropDownBtn();
         Thread.sleep(2000);
-
         //Search Medical Chart Project.
-        DocPageObj.ClickSearchProject(ReadProps.readAttr("MedicalChartProjectName"));
-        Thread.sleep(2000);
+
         DocPageObj.ClickSelectMedicalChartProject();
         Thread.sleep(2000);
 
         //Open Ready Document.
         ProjectBREMedicalChartDocumentPageObj.ClickOnReadyDocument();
         Thread.sleep(8000);
-        AssertionsFunction.verifyTargetPageURL(DocPageObj.ClickOnReadyDocumentUrl);
+        //AssertionsFunction.verifyTargetPageURL(DocPageObj.ClickOnReadyDocumentUrl);
         ProjectBREMedicalChartDocumentPageObj.ClickOnChartData();
         Thread.sleep(2000);
         Assert.assertTrue(AssertionsFunction.isPresent(DocPageObj.getpatientDemographics()));
+
         //Clear the Address.
 
         ProjectBREMedicalChartDocumentPageObj.ClickOnClearAddress();
@@ -65,16 +72,17 @@ public class ProjectBREMedicalChartDocumentTest extends BasePage {
         //Click on Save Draft.
         ProjectBREMedicalChartDocumentPageObj.ClickOnSaveDraft();
         Thread.sleep(6000);
-        AssertionsFunction.verifyTargetPageURL(DocPageObj.DocTabUrl);
-    } /////
+        //AssertionsFunction.verifyTargetPageURL(DocPageObj.DocTabUrl);
+    }
 
     @Test(priority = 2)
     public void verify_add_encounter_click_on_cancel() throws InterruptedException, IOException {
         // 2 Verify the Saved Data.
         //Open the Same Ready document.
+        Thread.sleep(2000);
         ProjectBREMedicalChartDocumentPageObj.ClickOnReadyDocument();
         Thread.sleep(8000);
-        AssertionsFunction.verifyTargetPageURL(DocPageObj.ClickOnReadyDocumentUrl);
+//        AssertionsFunction.verifyTargetPageURL(DocPageObj.ClickOnReadyDocumentUrl);
 
         // 2.1 verify add encounter click on cancel
         ProjectBREMedicalChartDocumentPageObj.ClickOnChartData();
@@ -210,7 +218,7 @@ public class ProjectBREMedicalChartDocumentTest extends BasePage {
         AssertionsFunction.verifyTargetPageURL(DocPageObj.DocTabUrl);
     }
 
-    // cardwise Document
+//    // cardwise Document
 
     @Test(priority = 8)
     public void verify_System_should_be_able_to_retrieve_the_ICD_codes_for_the_captured_diseases() throws InterruptedException, IOException {
@@ -226,6 +234,7 @@ public class ProjectBREMedicalChartDocumentTest extends BasePage {
         Assert.assertTrue(AssertionsFunction.isPresent(ProjectBREMedicalChartDocumentPageObj.getcreatedICD()));
         ProjectBREMedicalChartDocumentPageObj.clickLatestEncounter();
         driver.navigate().back();
+
     }
 
 
@@ -235,6 +244,8 @@ public class ProjectBREMedicalChartDocumentTest extends BasePage {
         Thread.sleep(2000);
         ProjectBREMedicalChartDocumentPageObj.clickOnItemPerPage();
         driver.navigate().refresh();
+        Thread.sleep(3000);
+
 
     }
 
@@ -253,33 +264,34 @@ public class ProjectBREMedicalChartDocumentTest extends BasePage {
         Thread.sleep(2000);
         Assert.assertTrue(AssertionsFunction.isPresent((ProjectBREMedicalChartDocumentPageObj.getcreatedEmail())));
         driver.navigate().back();
+        Thread.sleep(8000);
     }
 
 
     @Test(priority = 11)
     public void check_cancel_button() throws Exception {
-        /// IN-501 ?While opening the document of the type 'Medical Charts', which is in the processed state, which is in read only mode right now, only 'Cancel' button should be made available
-        Thread.sleep(2000);
-        ProjectBREMedicalChartDocumentPageObj.click_on_medicalProject();
-        Thread.sleep(3000);
-        ProjectBREMedicalChartDocumentPageObj.select_medical_project();
-        Thread.sleep(8000);
-        ProjectBREMedicalChartDocumentPageObj.clickOnPdf();
+
+
+        //Search Medical Chart Project.
+
+        ProjectBREMedicalChartDocumentPageObj.ClickOnReadyDocument();
         Thread.sleep(2000);
         ProjectBREMedicalChartDocumentPageObj.getCancelButton();
         Thread.sleep(2000);
         Assert.assertTrue(AssertionsFunction.isPresent((ProjectBREMedicalChartDocumentPageObj.getCancelButton())));
         driver.navigate().back();
+        Thread.sleep(3000);
     }
 
     @Test(priority = 12)
     public void without_adding_comment() throws Exception {
         //IN 626 Comments are mandatory at the diagnosis level, if the comments have not been provided for the valid(enabled) disease, under that circumstances, the medical charts should not be allowed to get submitted
-        Thread.sleep(5000);
-        ProjectBREMedicalChartDocumentPageObj.clickOnPdf();
+        ProjectBREMedicalChartDocumentPageObj.ClickOnReadyDocument();
         Thread.sleep(2000);
         ProjectBREMedicalChartDocumentPageObj.clickOnMedicalProjectChartData();
         Thread.sleep(2000);
+        ProjectBREMedicalChartDocumentPageObj.clickOnDiagnosis();
+        Thread.sleep(3000);
         ProjectBREMedicalChartDocumentPageObj.ClickOnTopEncounterDetail();
         Thread.sleep(2000);
         ProjectBREMedicalChartDocumentPageObj.ClickOnAddEncounterButton();
@@ -294,18 +306,20 @@ public class ProjectBREMedicalChartDocumentTest extends BasePage {
 
     @Test(priority = 13)
     public void System_should_open_rejected_document() throws Exception {
-        //
+        //IN-492 Rejected medical charts not loading
+        Thread.sleep(2000);
         ProjectBREMedicalChartDocumentPageObj.clickOnrejectedDocument();
         Thread.sleep(5000);
-        //
+        ProjectBREMedicalChartDocumentPageObj.clickOnImagename();
+        Thread.sleep(3000);
         driver.navigate().back();
+        Thread.sleep(8000);
+
     }
 
 
 }
 
-
-//14 r coverd
 
 
 

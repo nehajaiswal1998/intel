@@ -41,7 +41,7 @@ public class EditProfileTest extends BasePage {
         EditProfileObj.clickVisible();
         Thread.sleep(2000);
         loginPageObjects.clickLoginButton();
-        Thread.sleep(7000);
+        Thread.sleep(9000);
     }
     @Test(priority = 3)
     public void profile_icon() throws Exception {
