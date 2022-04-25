@@ -47,7 +47,7 @@ public class CreateUserPlatformAdminTest extends BasePage {
     @Test(priority = 2)
     public void valid_username_blank_password() throws Exception {
         //TC 5.2 inValid Username no enter emailId.
-        UserPageObj.EnterUserName(ReadProps.readAttr("InvalidUsernameU"));
+        UserPageObj.EnterExistingUserName_or_InvalidUserName(ReadProps.readAttr("InvalidUsernameU"));
         Thread.sleep(2000);
         UserPageObj.ClickCreateBtn();
         Thread.sleep(1000);
@@ -74,7 +74,7 @@ public class CreateUserPlatformAdminTest extends BasePage {
     @Test(priority = 4)
     public void invalid_username_blank_password() throws Exception {
         //TC 5.4 Invalid UserName Blank Password.
-        UserPageObj.EnterUserName(ReadProps.readAttr("InvalidUsernameU"));
+        UserPageObj.EnterExistingUserName_or_InvalidUserName(ReadProps.readAttr("InvalidUsernameU"));
         Thread.sleep(2000);
         UserPageObj.ClickCreateBtn();
         Thread.sleep(2000);
@@ -100,7 +100,7 @@ public class CreateUserPlatformAdminTest extends BasePage {
     @Test(priority = 6)
     public void invalid_credentials() throws Exception {
         //TC 5.6 Invalid Credentials.
-        UserPageObj.EnterUserName(ReadProps.readAttr("InvalidUsernameU"));
+        UserPageObj.EnterExistingUserName_or_InvalidUserName(ReadProps.readAttr("InvalidUsernameU"));
         Thread.sleep(2000);
         UserPageObj.EnterEmail(ReadProps.readAttr("InvalidEmailU"));
         Thread.sleep(2000);
@@ -115,7 +115,7 @@ public class CreateUserPlatformAdminTest extends BasePage {
     @Test(priority = 7)
     public void create_user_with_existing_username_password() throws Exception {
         //TC 5.7 Create User with Existing Username and Password.
-        UserPageObj.EnterUserName(ReadProps.readAttr("InvalidUsernameU"));
+        UserPageObj.EnterExistingUserName_or_InvalidUserName(ReadProps.readAttr("InvalidUsernameU"));
         Thread.sleep(2000);
         UserPageObj.EnterEmail(ReadProps.readAttr("InvalidEmailU"));
         Thread.sleep(2000);
@@ -223,7 +223,7 @@ public class CreateUserPlatformAdminTest extends BasePage {
         // 5.8 Verify the Users functionality of the Platform Admin to Create User with Valid Details.
         UserPageObj.ClickCreateUserBtn();
         Thread.sleep(2000);
-        UserPageObj.EnterUserName(ReadProps.readAttr("UserName")); // change this value
+        UserPageObj.EnterNewUserName(ReadProps.readAttr("UserName")); // change this value
         Thread.sleep(2000);
         UserPageObj.EnterEmail(ReadProps.readAttr("Useremail")); // change this value
         Thread.sleep(2000);
@@ -231,10 +231,7 @@ public class CreateUserPlatformAdminTest extends BasePage {
         UserPageObj.ClickActiveUser();
         Thread.sleep(2000);
         UserPageObj.ClickCreateBtn();
-        Thread.sleep(5000);
-        AssertionsFunction.verifyTargetPageURL(UserPageObj.userTabUrl);
-
-
+        Thread.sleep(7000);
 
     }
     @Test(priority = 11)
@@ -242,14 +239,14 @@ public class CreateUserPlatformAdminTest extends BasePage {
         //TC 5.13 Verify the working of platform admin role for Create user button when "Active User" toggle button is disabled
         UserPageObj.ClickCreateUserBtn();
         Thread.sleep(2000);
-        UserPageObj.EnterUserName(ReadProps.readAttr("UserNameDisabled"));// change this value
+        UserPageObj.EnterNewUserName(ReadProps.readAttr("UserNameDisabled"));// change this value
         Thread.sleep(2000);
         UserPageObj.EnterEmail(ReadProps.readAttr("UseremailDisabled"));// change this value
         Thread.sleep(2000);
         UserPageObj.ClickCreateBtn();
         Thread.sleep(5000);
         // Verify that created user by platform admin should display in available user list
-        Assert.assertTrue(AssertionsFunction.isPresent(UserPageObj.getAdminUserExtraForDisabled()));
+        Assert.assertTrue(AssertionsFunction.isPresent(UserPageObj.getUser()));
 
     }
     @Test(priority = 12)
@@ -260,16 +257,10 @@ public class CreateUserPlatformAdminTest extends BasePage {
         AssertionsFunction.verifyTargetPageURL(UserPageObj.userTabUrl);
         UserPageObj.SearchCreatedUser(ReadProps.readAttr("UserNameDisabled"));
         Thread.sleep(2000);
-        UserPageObj.SelectSearchedUser();
+        UserPageObj.selectSearchedUser();
         Thread.sleep(2000);
         UserPageObj.ClickOnCancelBtn();
         Thread.sleep(4000);
-        AssertionsFunction.verifyTargetPageURL(UserPageObj.userTabUrl);
-//        UserPageObj.SelectSearchedUser();
-//        Thread.sleep(2000);
-//        UserPageObj.ClickUpdateUser();
-//        Thread.sleep(5000);
-//        AssertionsFunction.verifyTargetPageURL(UserPageObj.userTabUrl);
         UserPageObj.LogOut();
         Thread.sleep(5000);
         AssertionsFunction.verifyTargetPageURL(UserPageObj.loginPageUrl);

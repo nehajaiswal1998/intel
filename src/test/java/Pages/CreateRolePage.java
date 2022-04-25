@@ -1,10 +1,9 @@
 package Pages;
-import Utilities.ReadProps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.testng.asserts.SoftAssert;
 
 import java.io.IOException;
+import java.util.Random;
 
 public class CreateRolePage {
 
@@ -14,7 +13,7 @@ public class CreateRolePage {
     public static By RoleManagementBtn = By.xpath("//i[@class='mat-tooltip-trigger fa fa-id-card m-0 side-icon ng-star-inserted']");
     public static By CreateRoleBtn = By.xpath("//span[contains(text(),'Create Role')]");
 
-    By ClickCreate = By.xpath("//span[contains(text(),'Create')]");
+    By ClickCreate = By.xpath("//*[text()= ' Create ']");
     public By RoleName = By.xpath("//input[@formcontrolname='role']");
     By ActiveRole = By.xpath("//div[@class='mat-slide-toggle-thumb']");
     By AddPermission = By.xpath(" //button[@class='mat-focus-indicator mat-raised-button mat-button-base mat-primary']");
@@ -22,9 +21,7 @@ public class CreateRolePage {
     By validationMsg=By.xpath("//*[text()='Only alphabets,digits,parenthesis and hyphens are allowed while giving a role name.']");
     By ClickCancel = By.xpath("//span[contains(text(),'Cancel')]");
     By SearchRole = By.xpath("//input[@data-placeholder='Search']");
-    By EditRole = By.xpath("//span[contains(text(),\""+ReadProps.readAttr("RoleName")+"\")]/following::button[@aria-label=\"edit role details\"]");
-    By EditRolePA = By.xpath("//span[contains(text(),\""+ ReadProps.readAttr("RoleNamePA")+"\")]");
-
+    By EditRole = By.xpath("//*[text()=' Action ']//following::tr[1]/td[1]"); //edit by suwarna  and work for all role selection
     By ProcessDocumentPermission = By.xpath("//span[contains(text(),' Process Document ')]");
     By ViewApiConfig=By.xpath("//span[text()=' View API Config ']");
     By CreateUserPermission = By.xpath("//span[contains(text(),'Create User')]");
@@ -45,7 +42,6 @@ public class CreateRolePage {
     By Username = By.xpath("//input[@formcontrolname='userName']");
     By Password = By.xpath("//input[@formcontrolname='password']");
     By search_created_role_element=By.xpath("//*[@mattooltipposition='below']");
-    By createdRole=By.xpath("//span[contains(text(),\""+ReadProps.readAttr("RoleName")+"\")]");
 
     public static By UpdatedTime = By.xpath("//tbody[@role='rowgroup']/tr[1]/td[3]");
     public static By CreatedTime = By.xpath("//tbody[@role='rowgroup']/tr[1]/td[4]");
@@ -62,12 +58,10 @@ public class CreateRolePage {
     public static String edit_role_url="https://alpha.neutrino-ai.com/#/home/role-management/edit-role/61b8747950fd017465189427";
     public static String errormsg="Please enter all the details before submitting.";
     public static String role_exist_error_msg="Role exist with name AutoAdminPA41";
-    public String RoleNamePA=ReadProps.readAttr("RoleNamePA");
     public By errormsg_roleExist_CreateRoleClick=By.xpath("//*[@class='mat-simple-snackbar ng-star-inserted']");
 
     public By getCreateUserPermission(){return this.CreateUserPermission;}
     public By getvalidationMsg(){return  this.validationMsg;}
-    public By getCreatedRole(){return this.createdRole;}
     public By getroleExist_errormsg(){
         return this.errormsg_roleExist_CreateRoleClick;
     }
@@ -85,8 +79,19 @@ public class CreateRolePage {
     public void ClickCreateRoleBtn() {
         driver.findElement(CreateRoleBtn).click();
     }
-    public void EnterRoleName(String text) {driver.findElement(RoleName).sendKeys(text);}
-    public void enterInvalidRoleName(){driver.findElement(RoleName).click();}
+
+    public void EnterNewRoleName(String roleName)
+    {
+        Random r = new Random();
+        char first_c = (char)(r.nextInt(26) + 'a');
+        char second_c = (char)(r.nextInt(26) + 'a');
+        driver.findElement(RoleName).sendKeys(roleName+first_c+second_c);
+    }
+
+    public void enterExistingRoleName_OrInvalidRoleName(String roleName)
+    {
+        driver.findElement(RoleName).click();
+    }
     public void AddPermissionPlusBtn() {driver.findElement(AddPermission).click();}
 
     public void SelectViewDocumentPermission() {
@@ -113,20 +118,17 @@ public class CreateRolePage {
         driver.findElement((ClickCancel)).click();
     }
 
-    public void ClickCreateButton() {
-        driver.findElement((ClickCreate)).click();
+    public void ClickCreateButton() throws Exception{
+        driver.findElement(ClickCreate).click();
     }
 
     public void SearchCreatedRole(String text) {
         driver.findElement(SearchRole).sendKeys(text);
     }
 
-    public void ClickEditRole() {
+    public void ClickEditRole()
+    {
         driver.findElement(EditRole).click();
-    }
-
-    public void ClickEditRole1() {
-        driver.findElement(EditRolePA).click();
     }
     public void ClickProcessDocPermission() {
         driver.findElement(ProcessDocumentPermission).click();

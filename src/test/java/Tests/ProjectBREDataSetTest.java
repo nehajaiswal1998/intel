@@ -178,7 +178,6 @@ public class ProjectBREDataSetTest extends BasePage {
             Thread.sleep(1000);
             ProjectBREDataSetPageObj.ClickOnFirstDataSetBox();
             Thread.sleep(5000);
-          //  ProjectBREPageObj.verifyElementPresent(ProjectBREPageObj.RightConditionPanelDisplay);
 
             //Document should be uploaded from backend to check the output.
 
