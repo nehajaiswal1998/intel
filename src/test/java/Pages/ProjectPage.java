@@ -116,7 +116,7 @@ public class ProjectPage   {
     By LoginBtn = By.xpath("//button[@type='submit']");
     By Username = By.xpath("//input[@formcontrolname='userName']");
     By Password = By.xpath("//input[@formcontrolname='password']");
-    By EditProject = By.xpath("//mat-icon[contains(text(),'create')]");
+    By EditProject = By.xpath("//*[text()=' Create Project ']//following::span[5]");
     By DeleteAttributeFieldName = By.xpath("//mat-table[@role='grid']/mat-row[1]/mat-cell[3]/button");
     public static By DeletedInvoiceAttribute = By.xpath("//*[@role='grid']/mat-row[1]");
     public static By DisableProjectSearchMesage = By.xpath("//*[text()='No Records Found !']");
@@ -484,9 +484,9 @@ public class ProjectPage   {
         Thread.sleep(2000);
         driver.findElement(SearchProject).sendKeys("QA-AutoAdmin1");
     }
-    public void SearchProjectForStatus() throws Exception{
+    public void SearchProjectForStatus(String projectName) throws Exception{
         Thread.sleep(2000);
-        driver.findElement(SearchProject).sendKeys("QA-AutoAdminProject");
+        driver.findElement(SearchProject).sendKeys(projectName);
     }
 
 

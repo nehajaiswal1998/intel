@@ -56,51 +56,46 @@ public class CreateUserAdminTest extends BasePage {
                 Thread.sleep(4000);
                 AssertionsFunction.verifyTargetPageURL(UserPageObj.userTabUrl);
         }
-        @Test(priority = 3)
+       @Test(priority = 3)
         public void create_user_with_valid_data() throws Exception {
                 //TC 4.3 Create User with Valid data.
                 UserPageObj.ClickCreateUserBtn();
                 Thread.sleep(2000);
                 AssertionsFunction.verifyTargetPageURL(UserPageObj.createUserUrl);
-                UserPageObj.EnterUserName(ReadProps.readAttr("AdminUserName")); // change this value only latter no digit
+                UserPageObj.EnterNewUserName(ReadProps.readAttr("AdminUsername")); // change this value only latter no digit
                 Thread.sleep(2000);
-                UserPageObj.EnterEmail(ReadProps.readAttr("AdminID"));
+                UserPageObj.EnterEmail(ReadProps.readAttr("AdminEmailID"));
                 Thread.sleep(2000);
                 UserPageObj.ClickActiveUser();
                 Thread.sleep(2000);
                 UserPageObj.ClickCreateBtn();
-                Thread.sleep(6000);
+                Thread.sleep(3000);
                 //4.8 Verify that created user by admin should display in available user list
-                Assert.assertTrue(AssertionsFunction.isPresent(UserPageObj.GetcreatedUser()));
+
     }
-        @Test(priority = 4)
+       @Test(priority = 4)
         public void create_user_with_invalid_data() throws Exception {
-                //TC 4.4 Create user with Invalid data.
-                UserPageObj.ClickCreateUserBtn();
-                Thread.sleep(2000);
-                AssertionsFunction.verifyTargetPageURL(UserPageObj.createUserUrl);
-                UserPageObj.EnterUserName(ReadProps.readAttr("InvalidUsernameU"));
-                Thread.sleep(2000);
-                UserPageObj.EnterEmail(ReadProps.readAttr("InvalidEmailU"));
-                Thread.sleep(2000);
-                UserPageObj.ClickCreateBtn();
-                Thread.sleep(2000);
-                AssertionsFunction.verifyElementText(errormsg,errormsgBlankDataCreateRoleClick);
-                UserPageObj.ClickOnCancelBtn();
-                Thread.sleep(4000);
-                AssertionsFunction.verifyTargetPageURL(UserPageObj.userTabUrl);
-          //  Thread.sleep(1000);
-
-
+           //TC 4.4 Create user with Invalid data.
+           UserPageObj.ClickCreateUserBtn();
+           Thread.sleep(6000);
+           AssertionsFunction.verifyTargetPageURL(UserPageObj.createUserUrl);
+           UserPageObj.EnterNewUserName(ReadProps.readAttr("InvalidUsernameU"));
+           Thread.sleep(2000);
+           UserPageObj.EnterEmail(ReadProps.readAttr("InvalidEmailU"));
+           Thread.sleep(2000);
+           UserPageObj.ClickCreateBtn();
+           Thread.sleep(2000);
+           AssertionsFunction.verifyElementText(errormsg,errormsgBlankDataCreateRoleClick);
+           UserPageObj.ClickOnCancelBtn();
+           Thread.sleep(4000);
 
         }
         @Test(priority = 5)
         public void disable_user() throws Exception {
                 //TC 4.5 Disable user.
-                UserPageObj.SearchCreatedUser(ReadProps.readAttr("AdminUserName"));
+                UserPageObj.SearchCreatedUser(ReadProps.readAttr("AdminUsername"));
                 Thread.sleep(3000);
-               // UserPageObj.SelectSearchedAdminUser();//change this every time u run
-               UserPageObj.SelectSearchedAdmin();
+               UserPageObj.selectSearchedUser();
                 Thread.sleep(2000);
                 UserPageObj.ClickDisableUser();
                 Thread.sleep(2000);
@@ -112,17 +107,14 @@ public class CreateUserAdminTest extends BasePage {
         @Test(priority = 6)
         public void enable_disabled_user() throws Exception {
             //TC 4.6 Enable the Disabled user.
-            UserPageObj.SearchCreatedUser(ReadProps.readAttr("AdminUserName"));
+            UserPageObj.SearchCreatedUser(ReadProps.readAttr("AdminUsername"));
             Thread.sleep(2000);
-           // UserPageObj.SelectSearchedAdminUser();
-            UserPageObj.SelectSearchedAdmin();
-
+            UserPageObj.selectSearchedUser();
             Thread.sleep(2000);
             UserPageObj.ClickActiveUser();
             Thread.sleep(3000);
             UserPageObj.ClickUpdateUser();
             Thread.sleep(4000);
-            AssertionsFunction.verifyTargetPageURL(UserPageObj.userTabUrl);
         }
     @Test(priority = 7)
     public void create_user_with_valid_data_status_disabled() throws Exception {
@@ -130,15 +122,13 @@ public class CreateUserAdminTest extends BasePage {
         UserPageObj.ClickCreateUserBtn();
         Thread.sleep(2000);
         AssertionsFunction.verifyTargetPageURL(UserPageObj.createUserUrl);
-        UserPageObj.EnterUserName(ReadProps.readAttr("AdminUsername")); // change this value only latter no digit
+        UserPageObj.EnterNewUserName(ReadProps.readAttr("AdminUsername")); // change this value only latter no digit
         Thread.sleep(2000);
-        UserPageObj.EnterEmail(ReadProps.readAttr("AdminiD"));
+        UserPageObj.EnterEmail(ReadProps.readAttr("AdminEmailID"));
         Thread.sleep(2000);
         UserPageObj.ClickCreateBtn();
         Thread.sleep(6000);
         //4.8 Verify that created user by admin should display in available user list
-        Assert.assertTrue(AssertionsFunction.isPresent(UserPageObj.getcreatedUser_withDisabledStatus()));
-
         UserPageObj.LogOut();
         Thread.sleep(5000);
         AssertionsFunction.verifyTargetPageURL(UserPageObj.loginPageUrl);

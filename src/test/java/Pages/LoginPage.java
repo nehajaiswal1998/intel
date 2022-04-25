@@ -93,7 +93,7 @@ public class LoginPage {
         driver.navigate().back();
     }
 
-    public void accessPermission(String TabName) throws InterruptedException {
+    public void accessPermission(String TabName) throws Exception {
         switch (TabName){
 
             case "User":
@@ -117,7 +117,7 @@ public class LoginPage {
                 AssertionsFunction.verifyElementPresent(CreateRolePage.RoleManagementBtn);
                 Thread.sleep(2000);
                 driver.findElement(CreateRolePage.RoleManagementBtn).click();
-                Thread.sleep(2000);
+                Thread.sleep(4000);
                 AssertionsFunction.verifyElementPresent(CreateRolePage.CreateRoleBtn);
                 Thread.sleep(4000);
                 driver.findElement(By.xpath("//tbody[@role='rowgroup']/tr[1]/td[5]")).click();

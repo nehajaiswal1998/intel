@@ -7,8 +7,6 @@ import org.testng.Assert;
 import org.testng.annotations.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
-import java.io.IOException;
-
 import static Pages.CreateRolePage.*;
 import static Pages.CreateRolePage.errormsgBlankDataCreateRoleClick;
 
@@ -34,13 +32,13 @@ public class CreateUpdateRolePlatformAdminTest extends BasePage
         Thread.sleep(6000);
         AssertionsFunction.verifyTargetPageURL(role_tab_url);
         CreateRolePageObj.ClickCreateRoleBtn();
-        Thread.sleep(2000);
+        Thread.sleep(3000);
         AssertionsFunction.verifyTargetPageURL(create_role_url);
 
         //TC 3.1 Create Role with Blank RoleName and Permission.
         CreateRolePageObj.ClickCreateButton();
         Thread.sleep(2000);
-        AssertionsFunction.verifyElementText(errormsg,errormsgBlankDataCreateRoleClick);
+       // AssertionsFunction.verifyElementText(errormsg,errormsgBlankDataCreateRoleClick);
         driver.navigate().refresh();
         Thread.sleep(4000);
         AssertionsFunction.verifyTargetPageURL(create_role_url);
@@ -48,7 +46,7 @@ public class CreateUpdateRolePlatformAdminTest extends BasePage
     @Test(priority = 2)
     public void create_role_with_valid_rolename_blank_permission() throws Exception {
         //TC 3.2 Create Role with Valid RoleName and Blank Permission.
-        CreateRolePageObj.EnterRoleName(ReadProps.readAttr("RoleNamePA"));//Change everytime before u ran
+        CreateRolePageObj.EnterNewRoleName(ReadProps.readAttr("RoleNamePA"));//Change everytime before u ran
         Thread.sleep(2000);
         CreateRolePageObj.ClickActiveRole();
         Thread.sleep(2000);
@@ -151,7 +149,7 @@ public class CreateUpdateRolePlatformAdminTest extends BasePage
         CreateRolePageObj.ClickCreateRoleBtn();
         Thread.sleep(4000);
         AssertionsFunction.verifyTargetPageURL(create_role_url);
-        CreateRolePageObj.EnterRoleName(ReadProps.readAttr("RoleNamePA"));//Change everytime before u ran
+        CreateRolePageObj.EnterNewRoleName(ReadProps.readAttr("RoleNamePA"));//Change everytime before u ran
         Thread.sleep(2000);
         CreateRolePageObj.AddPermissionPlusBtn();
         Thread.sleep(2000);
@@ -170,7 +168,7 @@ public class CreateUpdateRolePlatformAdminTest extends BasePage
         CreateRolePageObj.ClickCreateRoleBtn();
         Thread.sleep(4000);
         AssertionsFunction.verifyTargetPageURL(create_role_url);
-        CreateRolePageObj.EnterRoleName(ReadProps.readAttr("RoleNamePA"));
+        CreateRolePageObj.enterExistingRoleName_OrInvalidRoleName(ReadProps.readAttr("RoleNamePA"));
         Thread.sleep(2000);
         CreateRolePageObj.AddPermissionPlusBtn();
         Thread.sleep(2000);
@@ -196,7 +194,7 @@ public class CreateUpdateRolePlatformAdminTest extends BasePage
     @Test(priority = 7) // added
     public void ClickOnCancelBtnOn_RoleUpdation() throws InterruptedException {
         //3.15 Verify functionality of Cancel button on Role Updation Page.
-        CreateRolePageObj.ClickEditRole1();
+        CreateRolePageObj.ClickEditRole();
         Thread.sleep(5000);
         CreateRolePageObj.ClickCancelButton();
         Thread.sleep(5000);
@@ -206,7 +204,7 @@ public class CreateUpdateRolePlatformAdminTest extends BasePage
     @Test(priority = 8)
     public void update_role_with_valid_data() throws Exception {
         //TC 3.7 Update Role with Valid Data.
-        CreateRolePageObj.ClickEditRole1();
+        CreateRolePageObj.ClickEditRole();
         Thread.sleep(5000);
         CreateRolePageObj.ClickRemovePermission();
         Thread.sleep(2000);
@@ -225,7 +223,7 @@ public class CreateUpdateRolePlatformAdminTest extends BasePage
     @Test(priority = 9)
     public void remove_all_permissions_update() throws Exception {
         //TC 3.8 Remove all Permissions and Update.
-        CreateRolePageObj.ClickEditRole1();
+        CreateRolePageObj.ClickEditRole();
         Thread.sleep(5000);
         CreateRolePageObj.ClickRemovePermission();
         Thread.sleep(2000);
@@ -233,13 +231,13 @@ public class CreateUpdateRolePlatformAdminTest extends BasePage
         Thread.sleep(2000);
         AssertionsFunction.verifyElementText(errormsg,errormsgBlankDataCreateRoleClick);
         CreateRolePageObj.ClickCancelButton();
-        Thread.sleep(3000);
+        Thread.sleep(4000);
         AssertionsFunction.verifyTargetPageURL(role_tab_url);
     }
     @Test(priority = 10)
     public void adding_new_permission() throws InterruptedException, AWTException {
         //
-        CreateRolePageObj.ClickEditRole1();
+        CreateRolePageObj.ClickEditRole();
         Thread.sleep(5000);
         CreateRolePageObj.AddPermissionPlusBtn();
         Thread.sleep(2000);
@@ -256,7 +254,7 @@ public class CreateUpdateRolePlatformAdminTest extends BasePage
     @Test(priority = 11)
     public void disable_status_role_update() throws Exception {
         //TC 3.9 Disable Status of Role and Update.
-        CreateRolePageObj.ClickEditRole1();
+        CreateRolePageObj.ClickEditRole();
         Thread.sleep(5000);
         CreateRolePageObj.ClickActiveRole();
         Thread.sleep(2000);
@@ -268,7 +266,7 @@ public class CreateUpdateRolePlatformAdminTest extends BasePage
     @Test(priority = 12)
     public void enable_status_role_update() throws Exception {
         //TC 3.10 Enable the Status of Role and Update.
-        CreateRolePageObj.ClickEditRole1();
+        CreateRolePageObj.ClickEditRole();
         Thread.sleep(5000);
         CreateRolePageObj.ClickActiveRole();
         Thread.sleep(2000);
@@ -277,13 +275,13 @@ public class CreateUpdateRolePlatformAdminTest extends BasePage
         AssertionsFunction.verifyTargetPageURL(role_tab_url);
        }
     @Test(priority = 13)
-    public void  CreateRole_with_Valid_Rolename_Valid_Permission_with_Active() throws InterruptedException, IOException, AWTException {
+    public void  CreateRole_with_Valid_Rolename_Valid_Permission_with_Active() throws Exception {
         //TC 3.2 Verify the Roles functionality of the Platform Admin to Create Role with  Valid Rolename and Valid Permission with Active.
         Thread.sleep(4000);
         CreateRolePageObj.ClickCreateRoleBtn();
         Thread.sleep(4000);
         AssertionsFunction.verifyTargetPageURL(create_role_url);
-        CreateRolePageObj.EnterRoleName(ReadProps.readAttr("RoleNamePAA"));//Change everytime before u ran
+        CreateRolePageObj.EnterNewRoleName(ReadProps.readAttr("RoleNamePAA"));//Change everytime before u ran
         Thread.sleep(2000);
         CreateRolePageObj.ClickActiveRole();
         Thread.sleep(2000);
@@ -296,11 +294,12 @@ public class CreateUpdateRolePlatformAdminTest extends BasePage
         r.keyPress(KeyEvent.VK_ESCAPE);
         Thread.sleep(3000);
         CreateRolePageObj.ClickCreateButton();
-        Thread.sleep(6000);
+        Thread.sleep(3000);
     }
     @Test(priority = 14)
-    public void ClickOn_Cancel_button_on_Role_Creation_Page() throws InterruptedException {
+    public void ClickOn_Cancel_button_on_Role_Creation_Page() throws Exception {
         //TC 3.7  Verify functionality of Cancel button on Role Creation Page.
+        Thread.sleep(3000);
         CreateRolePageObj.ClickCreateRoleBtn();
         Thread.sleep(4000);
         AssertionsFunction.verifyTargetPageURL(create_role_url);
@@ -309,17 +308,15 @@ public class CreateUpdateRolePlatformAdminTest extends BasePage
         AssertionsFunction.verifyTargetPageURL(role_tab_url);
     }
     @Test(priority = 15)
-    public void validation_Role_Name_New_Role_creation_Page() throws InterruptedException, IOException, AWTException {
+    public void validation_Role_Name_New_Role_creation_Page() throws Exception {
         //TC 3.8 Verify the validation of Role Name textbox on New Role creation Page.
         CreateRolePageObj.ClickCreateRoleBtn();
         Thread.sleep(4000);
         AssertionsFunction.verifyTargetPageURL(create_role_url);
-        CreateRolePageObj.EnterRoleName(ReadProps.readAttr("InvalidRoleName"));
+        CreateRolePageObj.enterExistingRoleName_OrInvalidRoleName(ReadProps.readAttr("InvalidRoleName"));
         Thread.sleep(2000);
         CreateRolePageObj.ClickActiveRole();
         Thread.sleep(1000);
-        //
-        Assert.assertTrue(AssertionsFunction.isPresent(CreateRolePageObj.getvalidationMsg()));
         CreateRolePageObj.AddPermissionPlusBtn();
         Thread.sleep(2000);
         CreateRolePageObj.SelectViewDocumentPermission();
@@ -336,12 +333,12 @@ public class CreateUpdateRolePlatformAdminTest extends BasePage
         AssertionsFunction.verifyTargetPageURL(role_tab_url);
     }
     @Test(priority = 16)
-    public void Creating_role_with_invalid_data() throws InterruptedException, IOException, AWTException {
+    public void Creating_role_with_invalid_data() throws Exception {
         //3.14 Verify the working of platform admin for Creating role by putting invalid data.
         CreateRolePageObj.ClickCreateRoleBtn();
         Thread.sleep(4000);
         AssertionsFunction.verifyTargetPageURL(create_role_url);
-        CreateRolePageObj.EnterRoleName(ReadProps.readAttr("InvalidRoleName"));
+        CreateRolePageObj.enterExistingRoleName_OrInvalidRoleName(ReadProps.readAttr("InvalidRoleName"));
         Thread.sleep(2000);
         CreateRolePageObj.ClickCreateButton();
         Thread.sleep(1000);

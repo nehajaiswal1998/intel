@@ -1,6 +1,5 @@
 package Pages;
 import Base.BasePage;
-import Utilities.Functions;
 import Utilities.ReadProps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -9,6 +8,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.asserts.SoftAssert;
 
 import java.io.IOException;
+import java.util.Random;
 
 public class CreateUserPage extends BasePage
 {
@@ -28,13 +28,8 @@ public class CreateUserPage extends BasePage
     public static   By CreatedTimeUser_Admin=By.xpath("//tbody[@role='rowgroup']/tr[1]/td[4]");
     By SortUser=By.xpath("//div[contains(text(),'Name ')]");
     By Password  = By.xpath("//input[@type='password']");
-    By PlatformUser = By.xpath("//*[text()=' Create User ']//following::tr[2]/td[1]");  //change by suwarna
-    By SelectUser = By.xpath("//tbody[@role='rowgroup']");
-    By UserUpdated = By.xpath("//td[contains(text(),\""+ ReadProps.readAttr("ValidNameUP") +"\")]");
-    //By AdminUser = By.xpath("//td[contains(text(),' Nirbhay ')]");                //Change everytime before u run.
-    By AdminUser=By.xpath("//td[contains(text(),\""+ ReadProps.readAttr("AdminUserName") +"\")]");
-    By AdminUserExtra=By.xpath("//*[@class='mat-table cdk-table mat-sort']//following::tr[1]/td[1]");
-    By AdminUserExtraForDisabled=By.xpath("//*[@class='mat-table cdk-table mat-sort']//following::tr[1]/td[1]");
+    //By PlatformUser = By.xpath("//*[text()=' Create User ']//following::tr[2]/td[1]");  //change by suwarna
+    By SelectUser = By.xpath("//*[@class='mat-table cdk-table mat-sort']//following::tr[1]/td[1]");
     By UpdatedTime = By.xpath("//tbody[@role='rowgroup']/tr[1]/td[3]");
     By CreatedTime = By.xpath("//tbody[@role='rowgroup']/tr[1]/td[4]");
     By logout = By.xpath("//span[@mattooltip='Logout']");
@@ -66,10 +61,8 @@ public class CreateUserPage extends BasePage
     }
     public By getValidationEmailID(){return this.ValidationEmailID;}
     public By getValidationUserName(){return this.ValidationUserName;}
-    public By getAdminUserExtra(){return this.AdminUserExtra;}
-    public By getAdminUserExtraForDisabled(){return this.AdminUserExtraForDisabled;}
+    public By getUser(){return this.SelectUser;}
     public By getcreatedUser_withDisabledStatus(){return this.createdUser_withDisabledStatus;}
-    public By getAdminUser(){return this.AdminUser;}
     public By GetcreatedUser() {return this.createdUser;}
     public void ClickUserBtn() throws Exception
     {
@@ -93,15 +86,28 @@ public class CreateUserPage extends BasePage
         Thread.sleep(2000);
         driver.findElement(CreateBtn).click();
     }
-    public void EnterUserName(String text) throws Exception
+    public void EnterNewUserName(String userName) throws Exception
+    {
+        Random r=new Random();
+        char first_c = (char)(r.nextInt(26) + 'a');
+        char second_c = (char)(r.nextInt(26) + 'a');
+
+        Thread.sleep(2000);
+        driver.findElement(EnterUserName).sendKeys(userName+first_c+second_c);
+    }
+
+    public void EnterExistingUserName_or_InvalidUserName(String text) throws Exception
     {
         Thread.sleep(2000);
         driver.findElement(EnterUserName).sendKeys(text);
     }
-    public void EnterEmail(String text)throws Exception
+    public void EnterEmail(String emialID)throws Exception
     {
         Thread.sleep(2000);
-        driver.findElement(EnterEmail).sendKeys(text);
+        Random r=new Random();
+        char first_c = (char)(r.nextInt(26) + 'a');
+        char second_c = (char)(r.nextInt(26) + 'a');
+        driver.findElement(EnterEmail).sendKeys(first_c+second_c+emialID);
     }
     public void ClickActiveUser() throws Exception   //change by suwarna
     {
@@ -115,28 +121,11 @@ public class CreateUserPage extends BasePage
         driver.findElement(SearchBtn).sendKeys(text);
     }
 
-    public  void SelectSearchedUserPA() throws InterruptedException {
-        Thread.sleep(5000);
-        driver.findElement(PlatformUser).click();}
-    public  void SelectUser()throws Exception
+    public  void selectSearchedUser()throws Exception
     {
         Thread.sleep(2000);
-        driver.findElement(SelectUser).click();}
-    public  void SelectSearchedAdmin()throws Exception
-    {
-        Thread.sleep(2000);
-        driver.findElement(AdminUser).click();}//change this value
-
-    public  void SelectSearchedUser()throws Exception
-    {
-        Thread.sleep(2000);
-        driver.findElement(AdminUserExtraForDisabled).click();
+        driver.findElement(SelectUser).click();
     }
-    public  void SelectSearchedAdminUser()throws Exception
-    {
-        Thread.sleep(2000);
-        driver.findElement(AdminUserExtra).click();
-    }//change this value
     
     public void ClickDisableUser()throws Exception
     {
@@ -186,12 +175,6 @@ public class CreateUserPage extends BasePage
 
     SoftAssert softAssert = new SoftAssert();
 
-    public void CreateUserAssert() {
-        String[] User = driver.findElement(PlatformUser).getText().split(" ");
-        String ActualUser = User[1].trim();
-        String ExpectedUser = "AutoSampleBB";
-        softAssert.assertEquals(ActualUser, ExpectedUser);
-    }
     public void CreateTimeAssert()
     {
         String UpdateTime=driver.findElement(UpdatedTime).getText();
@@ -247,8 +230,7 @@ public class CreateUserPage extends BasePage
     public void SelectUpdatedUser() throws Exception
     {
         Thread.sleep(2000);
-        driver.findElement(UserUpdated).click();
+        driver.findElement(SelectUser).click();
     }
-
 
 }
