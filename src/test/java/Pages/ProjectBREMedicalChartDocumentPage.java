@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 import java.io.IOException;
 
@@ -12,21 +13,36 @@ public class ProjectBREMedicalChartDocumentPage {
     WebDriver driver = null;
 
     //Element Locators
+    By userName = By.xpath("//input[@formcontrolname='userName']");
+    By password = By.xpath("//input[@formcontrolname='password']");
+    By loginBtn = By.xpath("//button[@type='submit']");
+    By CheckProcessedDocument = By.xpath("//div[@role='listbox']/mat-option[3]");
+    By clickOnStatusButton=By.xpath("//thead[@role='rowgroup']//preceding::tr[1]/th[3]/div[1]/div[1]/button");
+
     By clickoneditencouter=By.xpath("//mat-tab-body/div[1]/div[1]/mat-accordion[1]/mat-expansion-panel[1]/div[1]/div[1]/div[1]/mat-table[1]/mat-row[2]/mat-cell[5]/button[1]/mat-icon[1]");
 
     By clickOnMedicalProject=By.xpath("//button[@class='mat-focus-indicator mat-menu-trigger white_bg mat-button mat-button-base mat-primary ng-star-inserted']");
+    By clickOnStructutrProject=By.xpath("//button[@class='mat-focus-indicator mat-menu-trigger white_bg mat-button mat-button-base mat-primary ng-star-inserted']");
 
-    By selectProject=By.xpath("//span[contains(text(),'medical project')]");
-    By OpenReadyDocument = By.xpath("//*[@class='mat-header-row cdk-header-row table-list-header secondary-background ng-star-inserted']//following::tr[1]/td[3]/button");
+    By selectProject=By.xpath("//span[contains(text(),'MedicalProjectNew')]");
+
+
+
+    By selectStructureProject=By.xpath("//span[contains(text(),' 735structured ')]");
+    By OpenReadyDocument = By.xpath("//*[@class='mat-header-row cdk-header-row table-list-header secondary-background ng-star-inserted']//following::span[contains(text(),'process.pdf ')]");
     By CancelButton=By.xpath("//span[contains(text(),'Cancel')]");
+    By ReleaseButton=By.xpath("//span[contains(text(),'Release')]");
+    By submitButton=By.xpath("//span[contains(text(),'Submit')]");
+    By RunRuleButton=By.xpath("//span[contains(text(),'Run Rule')]");
     By openMedicalReadyDocument=By.xpath("//*[@class='mat-header-row cdk-header-row table-list-header secondary-background ng-star-inserted']//following::tr[4]/td[3]/button");
     By OpenReadyDocumentICD = By.xpath("//span[contains(text(),'document (1).pdf')]");
     By OpenRejectedDocument = By.xpath("//span[contains(text(),'inputDocs.jpg')]");
     By ChartData = By.xpath("//mat-label[contains(text(),'Chart Data')]");
+    By ClickOnStructureChartData=By.xpath("//mat-label[contains(text(),'Data')]");
 
     //By Address = By.xpath("//div[@class='mat-form-field-infix ng-tns-c97-11']");
     By Address= By.xpath("//input[@pattern=\"^([a-zA-Z0-9,\\s])+([a-zA-Z0-9\\s()]+)*(-[()a-zA-Z0-9\\s]+)*$\"]");
-    By ClickOnRejectedDocument=By.xpath("//tbody[@role='rowgroup']/tr[1]/td[3]/button[1]");
+    By ClickOnRejectedDocument=By.xpath("//tbody[@role='rowgroup']//following::span[contains(text(),' t1if.tif ')]");
 
     By SaveDraft = By.xpath("//span[contains(text(),'Save Draft')]");
     By ChronicConditions = By.xpath("//div[contains(text(),' Chronic Conditions ')]");
@@ -83,14 +99,21 @@ public class ProjectBREMedicalChartDocumentPage {
     By addEncounterDetails = By.xpath("//*[text()='Cancel']//following::span[10]"); //+button
     By ICDDesctrionOption=By.xpath("//*[text()=' Description ']//following::span[3]//following::span[@class='mat-option-text']//following::span[text()=' Type 2 diabetes mellitus with ketoacidosis without coma']");
     //By createdCategory=By.xpath("//td[contains(text(),\""+ ReadProps.readAttr("DName")+"\")]");
-    By createdICD=By.xpath("(//span[text()='E1100'])[1]");
+    By createdICD=By.xpath("//span[text()='E1122'][1]");
+
     // By cratedEmail=By.xpath("//input[@class='mat-tooltip-trigger mat-input-element mat-form-field-autofill-control tooltip-input customEllipse ng-tns-c97-95 ng-pristine ng-valid cdk-text-field-autofill-monitored ng-touched']");
     By cratedEmail=By.xpath("//mat-cell[text()=' Email Address ']");
-
+    By clickOnActionButton=By.xpath("//tbody[@role='rowgroup']//preceding::span[contains(text(), ' process.pdf ')]//following::mat-icon[2]");
+    By ClickZoomIn = By.xpath("");
+    By ClickZoomOut = By.xpath("//*[@class='fa fa-search-minus']");
+    By imageName=By.xpath("//mat-label[@class='mat-tooltip-trigger float-left w-100 f-bold ellipsis font-17 ng-tns-c258-653']");
     By clickOnItemPage=By.xpath("//div[@class='mat-paginator-page-size-label']//following::div[6]");
     By PatientDemography=By.xpath("//div[text()='Patient Demographics']");
 
-    By OpenMedicalPdf=By.xpath("//tbody[@role='rowgroup']/tr[3]/td[3]");
+    By OpenMedicalPdf=By.xpath("//*[@class='mat-header-row cdk-header-row table-list-header secondary-background ng-star-inserted']//following::span[contains(text(),'  inputDocs_medical project_Hughes Nancy Jane1.pdf  ')]");
+    By zoomIN=By.xpath("(//button[@id='default-btn-id'])[3]");
+    By OpenStructurePdf=By.xpath("//*[@class='mat-header-row cdk-header-row table-list-header secondary-background ng-star-inserted']//following::span[contains(text(), 'structure 3.pdf ')]");
+    By ProcessedPdf=By.xpath("//*[@class='mat-header-row cdk-header-row table-list-header secondary-background ng-star-inserted']//following::span[contains(text(), ' struct re 4.pdf ')]");
     By OpenReadyMedicalPdf=By.xpath("//tbody[@role='rowgroup']/tr[7]/td[1]");
     By clickOnLatestEncouter=By.xpath("//mat-expansion-panel-header[@class='mat-expansion-panel-header mat-focus-indicator ng-tns-c158-867 ng-tns-c157-866 ng-star-inserted mat-expanded']//following::mat-expansion-panel-header[1]");
     By clickOnMedicalChartData=By.xpath("//mat-label[contains(text(),'Chart Data')]");
@@ -101,9 +124,31 @@ public class ProjectBREMedicalChartDocumentPage {
 
     //Methods
 
+    public  void enterUserName(String text){
+        driver.findElement(userName).sendKeys(text);
+    }
 
+    public  void enterPassword(String text){
+        driver.findElement(password).sendKeys(text);
+    }
+
+    public  void clickOnLoginButton(){
+        driver.findElement(loginBtn).click();
+    }
+    public void CheckProcessedDocument(){
+        driver.findElement(CheckProcessedDocument).click();
+    }
+
+    public  void clickOnStatusButton(){
+        driver.findElement(clickOnStatusButton).click();
+    }
     public By getcreatedICD(){return this.createdICD;}
     public  By getcreatedEmail(){return  this.cratedEmail;}
+    public  void clickOnActionButton(){
+        driver.findElement(clickOnActionButton).click();
+    }
+    public void clickOnImagename(){
+        Assert.assertTrue(driver.findElement(By.xpath("//mat-label[contains(text(),'t1if.tif')]")).isDisplayed());}
 
     public By getendDate(){return  this.endDate;}
     public By getnpnNum(){return this.npnNum;}
@@ -113,6 +158,9 @@ public class ProjectBREMedicalChartDocumentPage {
     public  void click_on_medicalProject(){
         driver.findElement(clickOnMedicalProject).click();
 
+    }
+    public  void click_on_structure_project(){
+        driver.findElement(clickOnStructutrProject).click();
     }
 
     public void ClickOnPickICDCode() {
@@ -131,6 +179,11 @@ public class ProjectBREMedicalChartDocumentPage {
     public  void ClickOnMedicalDocument(){driver.findElement(openMedicalReadyDocument).click();}
 
     public By getCancelButton(){ return  this.CancelButton;}
+    public By getReleaseButton(){ return  this.ReleaseButton;}
+    public By getsubmitButton(){ return  this.submitButton;}
+    public By getRunRuleButton(){ return  this.RunRuleButton;}
+
+
 //    public void click_On_Window(){
 //        driver.findElement(windowWidth).click();
 //    }
@@ -162,11 +215,21 @@ public class ProjectBREMedicalChartDocumentPage {
     public  void clickOnPdf(){
         driver.findElement(OpenMedicalPdf).click();
     }
+    public  void clickOnstructurePdf(){
+        driver.findElement(OpenStructurePdf).click();
+
+    }
+    public  void clickOnProcessedPdf(){
+        driver.findElement(ProcessedPdf).click();
+    }
     public  void clickOnMedicalPdf(){
         driver.findElement(OpenReadyMedicalPdf).click();
     }
     public void select_medical_project(){
         driver.findElement(selectProject).click();
+    }
+    public void select_structure_project(){
+        driver.findElement(selectStructureProject).click();
     }
     public void ClickOnReadyDocumentICD1() {
         driver.findElement(OpenReadyDocumentICD1).click();
@@ -182,6 +245,7 @@ public class ProjectBREMedicalChartDocumentPage {
     }
 
     public void ClickOnChartData() {driver.findElement(ChartData).click();}
+    public  void  ClickOnStructureChartData(){driver.findElement(ClickOnStructureChartData).click();}
     public  void  clickOnMedicalProjectChartData()
     {driver.findElement(clickOnMedicalChartData).click();}
 
@@ -205,6 +269,12 @@ public class ProjectBREMedicalChartDocumentPage {
     public void ClickOnDiagnosisTab() {
         driver.findElement(diagnosis_Tab).click();
     }
+    public void verifyUI()
+    {
+        String actual_page = driver.getCurrentUrl();
+        String expected_page="https://alpha.neutrino-ai.com/#/home/documents/processed-forms?faxPageId=61ee411f70d5f50479efa7c4&imageName=structure%203.pdf&type=pdf&_st=Ready";
+        Assert.assertEquals(actual_page, expected_page);
+    }
 
     public void ClickOnAddChronicCondition() {
         driver.findElement(AddDiagnosisDetails).click();
@@ -214,6 +284,9 @@ public class ProjectBREMedicalChartDocumentPage {
     public void clearNPINUM(){driver.findElement(NPINumber).clear();}
     public void ClickOnEnterNPI(String text) {
         driver.findElement(NPINumber).sendKeys(text);
+    }
+    public  void zoomIN(){
+        driver.findElement(zoomIN).click();
     }
 
 
