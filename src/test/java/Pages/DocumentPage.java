@@ -17,7 +17,7 @@ public class DocumentPage   {
     By SearchBox = By.xpath("//input[@data-placeholder='Search']");
     public static By SelectStructuredProject = By.xpath("//span[contains(text(),'QA-AutoProject-Structured')]");
     public static By SelectSemiStructuredProject = By.xpath("//span[contains(text(),'QA-AutoProject-SemiStructured')]");
-    public static By SelectFreeFormProject = By.xpath("//span[contains(text(),'free form 558')]");
+    public static By SelectFreeFormProject = By.xpath("//span[contains(text(),'QA-AutoProject-FreeForm')]");
     public static By SelectMedicalChartProject = By.xpath("//span[contains(text(),'MedicalChart ')]");    By SelectMedicalChartProjectICD = By.xpath("//span[contains(text(),'J17012022')]");
     By SearchDocument = By.xpath("//mat-icon[contains(text(),'search')]");
     By CancelDoc2 = By.xpath("//span[contains(text(),'Cancel')]");

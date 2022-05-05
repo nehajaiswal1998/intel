@@ -122,7 +122,7 @@ public class ProjectFlowMedicalChart extends BasePage {
         AssertionsFunction.verifyElementSelected(ProjectPageObj.SelectUserAdmin);
         Robot r = new Robot();
         r.keyPress(KeyEvent.VK_ESCAPE);
-        Thread.sleep(4000);
+        Thread.sleep(5000);
     }
 
     @Test(priority = 6)

@@ -19,6 +19,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
 
 public class BasePage {
@@ -42,6 +43,7 @@ public class BasePage {
         String projectPath = System.getProperty("user.dir");
         System.setProperty("webdriver.chrome.driver", projectPath + ".\\Drivers\\chromedriver.exe");
         driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
    // @BeforeSuite

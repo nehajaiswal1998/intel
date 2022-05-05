@@ -6,13 +6,18 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.concurrent.TimeUnit;
+
 public class Custome_Wait 
 {
 	public static void wait(WebDriver driver,WebElement element)
 	{
-	WebDriverWait wait = new WebDriverWait(driver,30);
-	wait.until(ExpectedConditions.elementToBeClickable(element));
+		driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
 
+		WebDriverWait wait = new WebDriverWait(driver,40);
+		wait.until(ExpectedConditions.visibilityOf(element));
+
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 	}
 
 }

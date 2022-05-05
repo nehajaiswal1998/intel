@@ -14,6 +14,7 @@ import org.testng.annotations.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
+import java.util.Date;
 
 @Listeners(Utilities.TestListeners.class)
 
@@ -270,8 +271,7 @@ public class ProjectBREMedicalChartDocumentTest extends BasePage {
 
     @Test(priority = 11)
     public void check_cancel_button() throws Exception {
-
-
+        //IN 501 ?While opening the document of the type 'Medical Charts', which is in the processed state, which is in read only mode right now, only 'Cancel' button should be made available
         //Search Medical Chart Project.
 
         ProjectBREMedicalChartDocumentPageObj.ClickOnReadyDocument();
@@ -281,6 +281,8 @@ public class ProjectBREMedicalChartDocumentTest extends BasePage {
         Assert.assertTrue(AssertionsFunction.isPresent((ProjectBREMedicalChartDocumentPageObj.getCancelButton())));
         driver.navigate().back();
         Thread.sleep(3000);
+
+
     }
 
     @Test(priority = 12)
@@ -317,8 +319,235 @@ public class ProjectBREMedicalChartDocumentTest extends BasePage {
 
     }
 
+    @Test(priority =14)
+    public void Verify_provider_details() throws  Exception {
+//  IN720 ??The system should be capable of verifying the medical charts based on the valid provider's signature (as in their qualifications) which will be available in the enterprise datasets.
+        ///IN 180??The system should be capable of verifying the medical charts based on the valid provider's signature (as in their qualifications) which will be available in the enterprise datasets.
+        ProjectBREMedicalChartDocumentPageObj.ClickOnReadyDocument();
+        Thread.sleep(2000);
+        ProjectBREMedicalChartDocumentPageObj.ClickOnChartData();
+        Thread.sleep(2000);
+        ProjectBREMedicalChartDocumentPageObj.clickOnDiagnosis();
+        Thread.sleep(2000);
+        ProjectBREMedicalChartDocumentPageObj.clickLatestEncounter();
+        Thread.sleep(1000);
+        driver.navigate().back();
+        Thread.sleep(12000);
+    }
 
+
+
+    @Test(priority = 15)
+    public  void Check_the_comment() throws  Exception{
+        //IN 646 Refinement of the comments at the run time
+        ProjectBREMedicalChartDocumentPageObj.ClickOnReadyDocument();
+        Thread.sleep(2000);
+        ProjectBREMedicalChartDocumentPageObj.clickOnMedicalProjectChartData();
+        Thread.sleep(2000);
+        ProjectBREMedicalChartDocumentPageObj.clickOnDiagnosis();
+        Thread.sleep(3000);
+        ProjectBREMedicalChartDocumentPageObj.ClickOnTopEncounterDetail();
+        Thread.sleep(2000);
+        ProjectBREMedicalChartDocumentPageObj.clickOnEditEncounter();
+        Thread.sleep(2000);
+        ProjectBREMedicalChartDocumentPageObj.clickOnSave();
+        // need add assertion for error msg
+        Thread.sleep(4000);
+        driver.navigate().back();
+        Thread.sleep(10000);
+
+    }
+
+    @Test(priority =16 )
+    public void check_chart_flag_options() throws  Exception {
+        //IN 620There should be facility to add the comments at the medical chart level
+        ProjectBREMedicalChartDocumentPageObj.clickOnReadyDocument();
+        Thread.sleep(3000);
+        ProjectBREMedicalChartDocumentPageObj.clickOnChartFlags();
+        Thread.sleep(2000);
+        driver.navigate().back();
+        Thread.sleep(7000);
+
+
+    }
+    @Test(priority = 17)
+    public  void ICD_code_should_highlighted() throws  Exception{
+        //IN 624 If the Operator is entering an invalid ICD codes, then the system should highlight the entered ICD code is wrong
+        Thread.sleep(50000);
+        ProjectBREMedicalChartDocumentPageObj.clickonDropDown();
+        Thread.sleep(3000);
+        ProjectBREMedicalChartDocumentPageObj .ClickOnProjectNameBtn(ReadProps.readAttr("New"));
+        Thread.sleep(2000);
+        ProjectBREMedicalChartDocumentPageObj.clickonProjectName();
+        Thread.sleep(2000);
+        ProjectBREMedicalChartDocumentPageObj.clickOnReadyDocument();
+        Thread.sleep(2000);
+        ProjectBREMedicalChartDocumentPageObj.ClickOnChartData();
+        Thread.sleep(2000);
+        ProjectBREMedicalChartDocumentPageObj.clickOnDiagnosis();
+        Thread.sleep(2000);
+        ProjectBREMedicalChartDocumentPageObj.clickOnAddEncounter();
+        Thread.sleep(1000);
+        ProjectBREMedicalChartDocumentPageObj.clickOnEnterNPI(ReadProps.readAttr("NPINumber"));
+        Thread.sleep(2000);
+        ProjectBREMedicalChartDocumentPageObj.ClickOnEnterPhysicianName(ReadProps.readAttr("PhysicianName"));
+        Thread.sleep(2000);
+        ProjectBREMedicalChartDocumentPageObj.ClickOnEnterStarDate(ReadProps.readAttr("StartDate"));//Change this Date
+        Thread.sleep(1000);
+        ProjectBREMedicalChartDocumentPageObj.ClickOnEnterEndDate(ReadProps.readAttr("EndDate"));//Change this Date
+        Thread.sleep(2000);
+        ProjectBREMedicalChartDocumentPageObj.clickOnSaveDiagonis();
+        Thread.sleep(2000);
+        ProjectBREMedicalChartDocumentPageObj.clickLatestEncounter();
+        Thread.sleep(1000);
+        ProjectBREMedicalChartDocumentPageObj.clickOnAddHCCorNonHCCplusBtn();
+        Thread.sleep(1000);
+        ProjectBREMedicalChartDocumentPageObj.enterDiagnosisForHCC();
+        Thread.sleep(2000);
+
+        ProjectBREMedicalChartDocumentPageObj.selectCommentDropdown();
+        Thread.sleep(3000);
+        ProjectBREMedicalChartDocumentPageObj.clickOnAddICD();
+
+        ProjectBREMedicalChartDocumentPageObj.enterICDCode(ReadProps.readAttr("icd"));
+        driver.navigate().back();
+        Thread.sleep(7000);
+    }
+
+
+    @Test(priority = 18)
+    public  void Add_third_character_ICD_codes () throws  Exception{
+        //IN 624 If the Operator is entering an invalid ICD codes, then the system should highlight the entered ICD code is wrong
+        //IN 713 only 1 page number per DOS will be displayed, remaining page numbers should be hidden for that particular diagnosis in that encounter
+        ProjectBREMedicalChartDocumentPageObj.clickOnReadyDocument();
+        Thread.sleep(2000);
+        ProjectBREMedicalChartDocumentPageObj.ClickOnChartData();
+        Thread.sleep(2000);
+        ProjectBREMedicalChartDocumentPageObj.clickOnDiagnosis();
+        Thread.sleep(2000);
+        ProjectBREMedicalChartDocumentPageObj.clickOnAddEncounter();
+        Thread.sleep(1000);
+        ProjectBREMedicalChartDocumentPageObj.clickOnEnterNPI(ReadProps.readAttr("NPINumber"));
+        Thread.sleep(2000);
+        ProjectBREMedicalChartDocumentPageObj.ClickOnEnterPhysicianName(ReadProps.readAttr("PhysicianName"));
+        Thread.sleep(2000);
+        ProjectBREMedicalChartDocumentPageObj.ClickOnEnterStarDate(ReadProps.readAttr("StartDate"));//Change this Date
+        Thread.sleep(1000);
+        ProjectBREMedicalChartDocumentPageObj.ClickOnEnterEndDate(ReadProps.readAttr("EndDate"));//Change this Date
+        Thread.sleep(2000);
+        ProjectBREMedicalChartDocumentPageObj.clickOnSaveDiagonis();
+        Thread.sleep(2000);
+        ProjectBREMedicalChartDocumentPageObj.clickLatestEncounter();
+        Thread.sleep(1000);
+        ProjectBREMedicalChartDocumentPageObj.clickOnAddHCCorNonHCCplusBtn();
+        Thread.sleep(1000);
+        ProjectBREMedicalChartDocumentPageObj.enterDiagnosisForHCC();
+        Thread.sleep(2000);
+        ProjectBREMedicalChartDocumentPageObj.selectCommentDropdown();
+        Thread.sleep(3000);
+
+        ProjectBREMedicalChartDocumentPageObj.clickOnAddICD();
+
+        ProjectBREMedicalChartDocumentPageObj.enterICDCode(ReadProps.readAttr("icdnew"));
+        Thread.sleep(7000);
+        Actions actions = new Actions(driver);
+        WebElement subMenu = driver.findElement(By.xpath("//*[text()=' Description ']//following::span[3]"));//To mouseover on sub menu
+        actions.moveToElement(subMenu);//build()- used to compile all the actions into a single step
+        Thread.sleep(5000);
+        ProjectBREMedicalChartDocumentPageObj.enterHCC(ReadProps.readAttr("HCC"));
+        Thread.sleep(1000);
+        ProjectBREMedicalChartDocumentPageObj.clickOnsaveBtnHCC();
+        Thread.sleep(3000);
+
+        driver.navigate().back();
+        Thread.sleep(7000);    }
+
+
+
+
+
+    @Test(priority = 19)
+    public void  Verify_family_disease_and_diagnosis () throws  Exception{
+        //IN557 only 1 page number per DOS will be displayed, remaining page numbers should be hidden for that particular diagnosis in that encounter
+        ProjectBREMedicalChartDocumentPageObj.clickOnReadyNewDocument();
+        Thread.sleep(2000);
+        ProjectBREMedicalChartDocumentPageObj.ClickOnChartData();
+        Thread.sleep(2000);
+        ProjectBREMedicalChartDocumentPageObj.clickOnDiagnosis();
+        Thread.sleep(2000);
+        ProjectBREMedicalChartDocumentPageObj.clickLatestEncounter();
+        Thread.sleep(2000);
+        Assert.assertTrue(AssertionsFunction.isPresent(ProjectBREMedicalChartDocumentPageObj.getDiagnosisName()));
+        Thread.sleep(2000);
+        driver.navigate().back();
+        Thread.sleep(7000);    }
+
+
+    @Test(priority = 20)
+    public void  Verify_HCC_Code() throws  Exception{
+//IN 182 Based on the ICD codes fetched by the system, the system should be able to capture the HCC codes.
+        ProjectBREMedicalChartDocumentPageObj.clickOnReadyNewDocument();
+        Thread.sleep(2000);
+        ProjectBREMedicalChartDocumentPageObj.ClickOnChartData();
+        Thread.sleep(2000);
+        ProjectBREMedicalChartDocumentPageObj.clickOnDiagnosis();
+        Thread.sleep(2000);
+        ProjectBREMedicalChartDocumentPageObj.clickLatestEncounter();
+        Thread.sleep(2000);
+        Assert.assertTrue(AssertionsFunction.isPresent(ProjectBREMedicalChartDocumentPageObj.getNewCreatedICD()));
+        Assert.assertTrue(AssertionsFunction.isPresent(ProjectBREMedicalChartDocumentPageObj.getHcccode()));
+        Thread.sleep(2000);
+        driver.navigate().back();
+        Thread.sleep(7000);    }
+
+
+    @Test(priority = 21)
+    public void verify_filed_of_patient_Demographics_for_medical_project() throws IOException, InterruptedException {
+        ///IN 616 For the document of the type 'Medical Charts', the user should have the ability to add the patient demographics manually, if some of the demographics has not been fetched by the system
+        ProjectBREMedicalChartDocumentPageObj.clickOnReadyNewDocument();
+        Thread.sleep(8000);
+        ProjectBREMedicalChartDocumentPageObj.ClickOnChartData();
+        Thread.sleep(2000);
+        ProjectBREMedicalChartDocumentPageObj.ClickOnPatientDemography();
+        Thread.sleep(2000);
+        Assert.assertTrue(AssertionsFunction.isPresent(ProjectBREMedicalChartDocumentPageObj.getAgeAttribute()));
+        Assert.assertTrue(AssertionsFunction.isPresent(ProjectBREMedicalChartDocumentPageObj.getBirthDate()));
+        Assert.assertTrue(AssertionsFunction.isPresent(ProjectBREMedicalChartDocumentPageObj.getEmail_address()));
+        driver.navigate().back();
+        Thread.sleep(5000);
+    }
+
+    @Test(priority = 22)
+    public void  Enter_ICD_codes_for_empty_Diagnosis() throws  Exception{
+//IN591 Training of ICD codes model using datasets
+        ProjectBREMedicalChartDocumentPageObj.clickOnReadyNewDocument();
+        Thread.sleep(2000);
+        ProjectBREMedicalChartDocumentPageObj.ClickOnChartData();
+        Thread.sleep(2000);
+        ProjectBREMedicalChartDocumentPageObj.clickOnDiagnosis();
+        Thread.sleep(2000);
+        ProjectBREMedicalChartDocumentPageObj.clickLatestEncounter();
+        Thread.sleep(2000);
+        ProjectBREMedicalChartDocumentPageObj.clickOnAddHCCorNonHCCplusBtn();
+        Thread.sleep(2000);
+        ProjectBREMedicalChartDocumentPageObj.clickOnAddICD();
+        Thread.sleep(2000);
+        ProjectBREMedicalChartDocumentPageObj.enterICDCode(ReadProps.readAttr("ICD"));
+        Thread.sleep(7000);
+        Actions actions = new Actions(driver);
+        WebElement subMenu = driver.findElement(By.xpath("//*[text()=' Description ']//following::span[3]"));//To mouseover on sub menu
+        actions.moveToElement(subMenu);//build()- used to compile all the actions into a single step
+        actions.click().build().perform();
+        Thread.sleep(5000);
+        ProjectBREMedicalChartDocumentPageObj.enterHCC(ReadProps.readAttr("HCC"));
+        Thread.sleep(1000);
+        ProjectBREMedicalChartDocumentPageObj.clickOnsaveBtnHCC();
+        Thread.sleep(3000);
+        driver.navigate().back();
+        Thread.sleep(7000);    }
 }
+
+
 
 
 
