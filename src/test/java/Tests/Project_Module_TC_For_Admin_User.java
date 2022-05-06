@@ -44,7 +44,7 @@ public class Project_Module_TC_For_Admin_User
 		
 	}
 
-	/*@Test
+	@Test
 	public void create_Semi_Structure_Type_Project_without_having_google_or_amazon_attachment_and_By_click_On_Create_Button() throws Exception
 	{
 		driver=Browser_Launch.browser_launch("https://alpha.neutrino-ai.com/#/home");

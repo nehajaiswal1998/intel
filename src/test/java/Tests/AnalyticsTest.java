@@ -132,7 +132,7 @@ public class AnalyticsTest extends BasePage
         Thread.sleep(1000);
         AnalyticsPageObj.ClickSelectProject();
         Thread.sleep(3000);
-        AssertionsFunction.verifyElementText("QA-AutoProject-Structured",AnalyticsPage.ProjectSelected);
+        AssertionsFunction.verifyElementText("1008structure",AnalyticsPage.ProjectSelected);
         Thread.sleep(2000);
 
     }
