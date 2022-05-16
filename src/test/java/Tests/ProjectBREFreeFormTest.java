@@ -7,6 +7,8 @@ import  Pages.ProjectBREFreeFormPage;
 import Pages.ProjectBREMedicalChartDocumentPage;
 import Utilities.LoginUser;
 import Utilities.ReadProps;
+import org.openqa.selenium.By;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
@@ -24,8 +26,9 @@ public class ProjectBREFreeFormTest  extends BasePage {
         driver.manage().window().maximize();
 
     }
-    @AfterClass(enabled = false)
-    public void cleanUp() throws Exception {
+    @AfterClass
+    public void cleanUp() throws Exception
+    {
         driver.quit();
     }
     @Test(priority = 1)
@@ -39,7 +42,6 @@ public class ProjectBREFreeFormTest  extends BasePage {
         Thread.sleep(5000);
         DocPageObj.ClickDocumentBtn();
         Thread.sleep(6000);
-        //AssertionsFunction.verifyTargetPageURL(DocPageObj.DocTabUrl);
         ProjectBREFreeFormPageobj.click_on_search_project();
         Thread.sleep(3000);
         ProjectBREFreeFormPageobj.select_free_form_project();
@@ -49,19 +51,29 @@ public class ProjectBREFreeFormTest  extends BasePage {
         ProjectBREFreeFormPageobj.clickonAddAttribute();
         ProjectBREFreeFormPageobj.selectAttribute();
         r.keyPress(KeyEvent.VK_ESCAPE);
-        Thread.sleep(5000);
+        Actions act=new Actions(driver);
+        act.click(driver.findElement(By.xpath("//*[text()='Rejected']"))).build().perform();
+        Thread.sleep(4000);
         ProjectBREFreeFormPageobj.AddButton();
         ProjectBREFreeFormPageobj.enterAge();
         ProjectBREFreeFormPageobj.clickOnSubmit();
-        Thread.sleep(5000);
-        driver.navigate().back();
+        Thread.sleep(2000);
+
+        DocPageObj.ClickDocumentBtn();
+        Thread.sleep(6000);
+        ProjectBREFreeFormPageobj.click_on_search_project();
+        Thread.sleep(3000);
+        ProjectBREFreeFormPageobj.select_free_form_project();
+        Thread.sleep(8000);
+
         ProjectBREFreeFormPageobj.clickOnStatusButton();
         ProjectBREFreeFormPageobj.CheckProcessedDocument();
-        r.keyPress(KeyEvent.VK_ESCAPE);
         Thread.sleep(5000);
-        ProjectBREFreeFormPageobj.clickOnProcessedPdf();
+        /*ProjectBREFreeFormPageobj.clickOnProcessedPdf();
+        Thread.sleep(2000);
         ProjectBREFreeFormPageobj.clickOnchartData();
-        ProjectBREFreeFormPageobj.clickonAddAttribute();
+        Thread.sleep(2000);
+        ProjectBREFreeFormPageobj.clickonAddAttribute();*/
 
 
     }

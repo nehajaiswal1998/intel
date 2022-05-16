@@ -10,15 +10,17 @@ public class ProjectFlowStructuredTest1 extends BasePage {
         BasePage.driverInit();
         BasePage.LoginTest();
     }
-    @AfterClass
-    public void cleanUp() throws Exception {
-        driver.quit();
+   @AfterClass
+    public void cleanUp() throws Exception
+    {
+    driver.quit();
     }
     @Test(priority = 1)
     public void disable_active_project_on_Project_page() throws Exception {
 
             ProjectFlowStructuredPage1 ProjectPageObj = new ProjectFlowStructuredPage1(driver);
             //TC 1.1 Disable Project.
+            Thread.sleep(4000);
             ProjectPageObj.TableStructure();
             Thread.sleep(4000);
             ProjectPageObj.ClickOnSearchBox(ReadProps.readAttr("Project"));
@@ -48,5 +50,4 @@ public class ProjectFlowStructuredTest1 extends BasePage {
             Thread.sleep(1000);
             ProjectPageObj.ClickUpdateBtn();
             Thread.sleep(5000);
-
         }  }

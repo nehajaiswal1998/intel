@@ -4,6 +4,7 @@ import Base.BasePage;
 import Pages.CreateUserPage;
 import Utilities.AssertionsFunction;
 import Utilities.Functions;
+import Utilities.LoginUser;
 import Utilities.ReadProps;
 import org.testng.annotations.*;
 
@@ -18,35 +19,25 @@ public class UpdateUserPlatformAdminTest extends BasePage {
         BasePage.LoginTest();
     }
 
-    @AfterClass
-    public void cleanUp() throws Exception {
-        driver.quit();
+@AfterClass
+    public void cleanUp() throws Exception
+    {
+    driver.quit();
     }
 
     @Test(priority = 1)
     public void update_user_enable_disable() throws Exception {
         UserPageObj1 = new CreateUserPage(driver);
-        Thread.sleep(5000);
-        UserPageObj1.ClickUserBtn();
-        Thread.sleep(5000);
-        AssertionsFunction.verifyTargetPageURL(UserPageObj1.userTabUrl);
+        UserPageObj1.clickOnUserMenu();
         //TC 23.1 Update User enable, disable.
         UserPageObj1.SearchCreatedUser(ReadProps.readAttr("Username"));
-        Thread.sleep(2000);
         UserPageObj1.selectSearchedUser();
-        Thread.sleep(1000);
-        UserPageObj1.ClickDisableUser();
-        Thread.sleep(2000);
-        UserPageObj1.ClickUpdateUser();
-        Thread.sleep(5000);
+        UserPageObj1.ClickOnEnableOrDisableUserSelectionToggle();
+        UserPageObj1.clickOnUpdateUserButton();
         UserPageObj1.SearchCreatedUser(ReadProps.readAttr("Username"));
-        Thread.sleep(1000);
         UserPageObj1.selectSearchedUser();
-        Thread.sleep(1000);
-        UserPageObj1.ClickEnableUser();
-        Thread.sleep(2000);
-        UserPageObj1.ClickUpdateUser();
-        Thread.sleep(10000);
+        UserPageObj1.ClickOnEnableOrDisableUserSelectionToggle();
+        UserPageObj1.clickOnUpdateUserButton();
 
     }
 
@@ -54,30 +45,20 @@ public class UpdateUserPlatformAdminTest extends BasePage {
     public void blank_name_valid_password() throws Exception {
         //TC 23.2 Blank Name and Valid Password.
         UserPageObj1.selectSearchedUser();
-        Thread.sleep(1000);
-        UserPageObj1.ClickToClearName();
-        Thread.sleep(2000);
-        UserPageObj1.ClickUpdateUser();
-        Thread.sleep(2000);
+        UserPageObj1.clearUserName();
+        UserPageObj1.clickOnUpdateUserButton();
         UserPageObj1.ClickOnCancelBtn();
-        Thread.sleep(10000);
     }
 
     @Test(priority = 3)
     public void blank_username_invalid_password() throws Exception {
         //TC 23.3 Blank UserName and Invalid Password.
         UserPageObj1.selectSearchedUser();
-        Thread.sleep(1000);
-        UserPageObj1.ClickToClearName();
-        Thread.sleep(2000);
-        UserPageObj1.ClearPassword();
-        Thread.sleep(3000);
-        UserPageObj1.EnterPassword(ReadProps.readAttr("pwd"));
-        Thread.sleep(2000);
-        UserPageObj1.ClickUpdateUser();
-        Thread.sleep(500);
+        UserPageObj1.clearUserName();
+        UserPageObj1.clearUserPassword();
+        UserPageObj1.enterUserPassword(ReadProps.readAttr("pwd"));
+        UserPageObj1.clickOnUpdateUserButton();
         UserPageObj1.ClickOnCancelBtn();
-        Thread.sleep(5000);
 
     }
 
@@ -85,64 +66,42 @@ public class UpdateUserPlatformAdminTest extends BasePage {
     public void invalid_name_blank_password() throws Exception {
         //TC 23.4 Invalid Name Blank Password.
         UserPageObj1.SearchCreatedUser(ReadProps.readAttr("Username"));
-        Thread.sleep(2000);
         UserPageObj1.selectSearchedUser();
-        Thread.sleep(1000);
-        UserPageObj1.ClickToClearName();
-        Thread.sleep(2000);
+        UserPageObj1.clearUserName();
         UserPageObj1.EnterNewUserName(ReadProps.readAttr("EnterName"));
-        Thread.sleep(2000);
-        UserPageObj1.ClearPassword();
-        Thread.sleep(3000);
-        UserPageObj1.ClickUpdateUser();
-        Thread.sleep(3000);
+        UserPageObj1.clearUserPassword();
+        UserPageObj1.clickOnUpdateUserButton();
         UserPageObj1.ClickOnCancelBtn();
-        Thread.sleep(10000);
     }
 
     @Test(priority = 5)
     public void blank_username_blank_password() throws Exception {
         //TC 23.5 Blank UserName Blank Password.
         UserPageObj1.selectSearchedUser();
-        Thread.sleep(3000);
-        UserPageObj1.ClickToClearName();
-        Thread.sleep(3000);
-        UserPageObj1.ClearPassword();
-        Thread.sleep(3000);
-        UserPageObj1.ClickUpdateUser();
-       Thread.sleep(2000);
+        UserPageObj1.clearUserName();
+        UserPageObj1.clearUserPassword();
+        UserPageObj1.clickOnUpdateUserButton();
         UserPageObj1.ClickOnCancelBtn();
-        Thread.sleep(5000);
     }
 
     @Test(priority = 6)
     public void invalid_username_invalid_password() throws Exception {
         //TC 23.6 Invalid UserName Invalid Password.
         UserPageObj1.selectSearchedUser();
-        Thread.sleep(1000);
-        UserPageObj1.ClickToClearName();
-        Thread.sleep(3000);
+        UserPageObj1.clearUserName();
         UserPageObj1.EnterNewUserName(ReadProps.readAttr("EnterName"));
-        Thread.sleep(2000);
-        UserPageObj1.ClearPassword();
-        Thread.sleep(2000);
-        UserPageObj1.EnterPassword(ReadProps.readAttr("pwd"));
-        Thread.sleep(2000);
-        UserPageObj1.ClickUpdateUser();
-        Thread.sleep(2000);
+        UserPageObj1.clearUserPassword();
+        UserPageObj1.enterUserPassword(ReadProps.readAttr("pwd"));
+        UserPageObj1.clickOnUpdateUserButton();
         UserPageObj1.ClickOnCancelBtn();
-        Thread.sleep(10000);
     }
 
     @Test(priority = 7)
     public void valid_name_and_blank_password() throws Exception {
         //TC 23.7 Valid Name and Blank password.//Not showing error by Automation
         UserPageObj1.selectSearchedUser();
-        Thread.sleep(4000);
-        UserPageObj1.ClearPassword();
-        Thread.sleep(6000);
-        UserPageObj1.ClickUpdateUser();
-        Thread.sleep(2000);
+        UserPageObj1.clearUserPassword();
+        UserPageObj1.clickOnUpdateUserButton();
     }
 
 
@@ -150,39 +109,27 @@ public class UpdateUserPlatformAdminTest extends BasePage {
     public void password_field_contains_alphabet_digit_special_char() throws Exception {
         //TC 23.9 The password field should only contain alphabets, digits, and special characters.
         UserPageObj1.selectSearchedUser();
-        Thread.sleep(1000);
-        UserPageObj1.ClearPassword();
-        Thread.sleep(3000);
-        UserPageObj1.EnterPassword(ReadProps.readAttr("SpecialCharPwd"));
-        Thread.sleep(2000);
-        UserPageObj1.ClickUpdateUser();
-        Thread.sleep(10000);
+        UserPageObj1.clearUserPassword();
+        UserPageObj1.enterUserPassword(ReadProps.readAttr("SpecialCharPwd"));
+        UserPageObj1.clickOnUpdateUserButton();
     }
 
     @Test(priority = 9)
     public void password_field_must_have_at_least_one_upper_lower_alphabet() throws Exception {
         //TC 23.10 The password field must have at least 1 uppercase and 1 lowercase alphabet.
         UserPageObj1.selectSearchedUser();
-        Thread.sleep(2000);
-        UserPageObj1.ClearPassword();
-        Thread.sleep(3000);
-        UserPageObj1.EnterPassword(ReadProps.readAttr("UpperLowerCasePwd"));
-        Thread.sleep(2000);
-        UserPageObj1.ClickUpdateUser();
-        Thread.sleep(10000);
+        UserPageObj1.clearUserPassword();
+        UserPageObj1.enterUserPassword(ReadProps.readAttr("UpperLowerCasePwd"));
+        UserPageObj1.clickOnUpdateUserButton();
     }
 
     @Test(priority = 10)
     public void password_field_must_have_length_to_be_minimum_eight() throws Exception {
         //TC 23.11 The password field length has to be minimum 8.
         UserPageObj1.selectSearchedUser();
-        Thread.sleep(2000);
-        UserPageObj1.ClearPassword();
-        Thread.sleep(3000);
-        UserPageObj1.EnterPassword(ReadProps.readAttr("UpperLowerCasePwd"));
-        Thread.sleep(2000);
-        UserPageObj1.ClickUpdateUser();
-        Thread.sleep(10000);
+        UserPageObj1.clearUserPassword();
+        UserPageObj1.enterUserPassword(ReadProps.readAttr("UpperLowerCasePwd"));
+        UserPageObj1.clickOnUpdateUserButton();
 
     }
 
@@ -190,13 +137,9 @@ public class UpdateUserPlatformAdminTest extends BasePage {
     public void password_field_length_max_length_twelve() throws Exception {
         //TC 23.12 The password field length has to be maximum 12.
         UserPageObj1.selectSearchedUser();
-        Thread.sleep(2000);
-        UserPageObj1.ClearPassword();
-        Thread.sleep(3000);
-        UserPageObj1.EnterPassword(ReadProps.readAttr("MaxLimit"));
-        Thread.sleep(2000);
-        UserPageObj1.ClickUpdateUser();
-        Thread.sleep(10000);
+        UserPageObj1.clearUserPassword();
+        UserPageObj1.enterUserPassword(ReadProps.readAttr("MaxLimit"));
+        UserPageObj1.clickOnUpdateUserButton();
 
     }
 
@@ -204,13 +147,9 @@ public class UpdateUserPlatformAdminTest extends BasePage {
     public void only_alphabets() throws Exception {
         //TC 23.13 Only Alphabets.
         UserPageObj1.selectSearchedUser();
-        Thread.sleep(2000);
-        UserPageObj1.ClearPassword();
-        Thread.sleep(3000);
-        UserPageObj1.EnterPassword(ReadProps.readAttr("OnlyAlphabets"));
-        Thread.sleep(3000);
-        UserPageObj1.ClickUpdateUser();
-        Thread.sleep(10000);
+        UserPageObj1.clearUserPassword();
+        UserPageObj1.enterUserPassword(ReadProps.readAttr("OnlyAlphabets"));
+        UserPageObj1.clickOnUpdateUserButton();
     }
 
     @Test(priority = 13)
@@ -219,17 +158,10 @@ public class UpdateUserPlatformAdminTest extends BasePage {
 
         //Only Digits
         UserPageObj1.selectSearchedUser();
-        Thread.sleep(2000);
-        UserPageObj1.ClearPassword();
-        Thread.sleep(3000);
-        UserPageObj1.EnterPassword(ReadProps.readAttr("OnlyDigits"));
-        Thread.sleep(2000);
-        UserPageObj1.ClickUpdateUser();
-        Thread.sleep(2000);
-        AssertionsFunction.verifyElementText(UserPageObj1.errmsg, UserPageObj1.errmsgBlankDataCreateRoleClick);
-        Thread.sleep(2000);
+        UserPageObj1.clearUserPassword();
+        UserPageObj1.enterUserPassword(ReadProps.readAttr("OnlyDigits"));
+        UserPageObj1.clickOnUpdateUserButton();
         UserPageObj1.ClickOnCancelBtn();
-        Thread.sleep(4000);
     }
 
     @Test(priority = 14)
@@ -238,35 +170,24 @@ public class UpdateUserPlatformAdminTest extends BasePage {
 
         //Only SpecialCharacter
         UserPageObj1.selectSearchedUser();
-        Thread.sleep(1000);
-        UserPageObj1.ClearPassword();
-        Thread.sleep(2000);
-        UserPageObj1.EnterPassword(ReadProps.readAttr("OnlySpecialChar"));
-        Thread.sleep(2000);
-        UserPageObj1.ClickUpdateUser();
-        Thread.sleep(3000);
+        UserPageObj1.clearUserPassword();
+        UserPageObj1.enterUserPassword(ReadProps.readAttr("OnlySpecialChar"));
+        UserPageObj1.clickOnUpdateUserButton();
         UserPageObj1.ClickOnCancelBtn();
-        Thread.sleep(4000);
 
     }
 
 
     @Test(priority = 15)
 
-    public void password_field_onlyUpperCase() throws Exception {
-
-
+    public void password_field_onlyUpperCase() throws Exception
+    {
         //Only UpperCase
         UserPageObj1.selectSearchedUser();
-        Thread.sleep(1000);
-        UserPageObj1.ClearPassword();
-        Thread.sleep(3000);
-        UserPageObj1.EnterPassword(ReadProps.readAttr("OnlyUpperCase"));
-        Thread.sleep(2000);
-        UserPageObj1.ClickUpdateUser();
-        Thread.sleep(2000);
+        UserPageObj1.clearUserPassword();
+        UserPageObj1.enterUserPassword(ReadProps.readAttr("OnlyUpperCase"));
+        UserPageObj1.clickOnUpdateUserButton();
         UserPageObj1.ClickOnCancelBtn();
-        Thread.sleep(4000);
 
     }
 
@@ -276,15 +197,10 @@ public class UpdateUserPlatformAdminTest extends BasePage {
 
         //Only LowerCase
         UserPageObj1.selectSearchedUser();
-        Thread.sleep(1000);
-        UserPageObj1.ClearPassword();
-        Thread.sleep(3000);
-        UserPageObj1.EnterPassword(ReadProps.readAttr("OnlyLowerCase"));
-        Thread.sleep(2000);
-        UserPageObj1.ClickUpdateUser();
-        Thread.sleep(2000);
+        UserPageObj1.clearUserPassword();
+        UserPageObj1.enterUserPassword(ReadProps.readAttr("OnlyLowerCase"));
+        UserPageObj1.clickOnUpdateUserButton();
         UserPageObj1.ClickOnCancelBtn();
-        Thread.sleep(4000);
     }
 
     @Test(priority = 17)
@@ -294,20 +210,16 @@ public class UpdateUserPlatformAdminTest extends BasePage {
 
         // Only LessLowerLimit  less than minimum password length 7
         UserPageObj1.selectSearchedUser();
-        Thread.sleep(1000);
-        UserPageObj1.ClearPassword();
-        Thread.sleep(3000);
-        UserPageObj1.EnterPassword(ReadProps.readAttr("LessLowerLimit"));
-        Thread.sleep(2000);
-        UserPageObj1.ClickUpdateUser();
-        Thread.sleep(2000);
+        UserPageObj1.clearUserPassword();
+        UserPageObj1.enterUserPassword(ReadProps.readAttr("LessLowerLimit"));
+        UserPageObj1.clickOnUpdateUserButton();
 
     }
 
     @Test(priority = 18)
-    public void cancelUpdate() throws Exception {
+    public void cancelUpdate() throws Exception
+    {
         UserPageObj1.ClickOnCancelBtn();
-        Thread.sleep(6000);
     }
 
 
@@ -317,39 +229,24 @@ public class UpdateUserPlatformAdminTest extends BasePage {
 
         //Valid Update scenario required
         UserPageObj1.selectSearchedUser();
-        Thread.sleep(3000);
-        UserPageObj1.ClickToClearName();
-        Thread.sleep(5000);
+        UserPageObj1.clearUserName();
         UserPageObj1.EnterNewUserName(ReadProps.readAttr("ValidNameUP"));
-        Thread.sleep(2000);
-        UserPageObj1.ClearPassword();
-        Thread.sleep(2000);
-        UserPageObj1.EnterPassword(ReadProps.readAttr("ValidPWDUP"));
-        Thread.sleep(2000);
-        UserPageObj1.ClickUpdateUser();
-        Thread.sleep(6000);
+        UserPageObj1.clearUserPassword();
+        UserPageObj1.enterUserPassword(ReadProps.readAttr("ValidPWDUP"));
+        UserPageObj1.clickOnUpdateUserButton();
 
         //Remove update for script maintained only
         UserPageObj1.SearchCreatedUser(ReadProps.readAttr("ValidNameUP"));
-        Thread.sleep(2000);
-        UserPageObj1.SelectUpdatedUser();
-        Thread.sleep(1000);
-        UserPageObj1.ClickToClearName();
-        Thread.sleep(2000);
+        UserPageObj1.selectSearchedUser();
+        UserPageObj1.clearUserName();
         UserPageObj1.EnterNewUserName(ReadProps.readAttr("Username"));
-        Thread.sleep(2000);
-        UserPageObj1.ClearPassword();
-        Thread.sleep(2000);
-        UserPageObj1.EnterPassword(ReadProps.readAttr("ValidPWD"));
-        Thread.sleep(2000);
-        UserPageObj1.ClickUpdateUser();
-        Thread.sleep(4000);
+        UserPageObj1.clearUserPassword();
+        UserPageObj1.enterUserPassword(ReadProps.readAttr("ValidPWD"));
+        UserPageObj1.clickOnUpdateUserButton();
         String expectedDate = Functions.getCurrentDate();
         System.out.println("expectedDate="+expectedDate);
-        System.out.println("driver.findElement(UserCreatedTime).getText()="+driver.findElement(CreateUserPage.UserCreatedTime).getText());
-        Thread.sleep(2000);
-        UserPageObj1.LogOut();
-
+        System.out.println(UserPageObj1.getUpdatedTimeAndDate());
+        LoginUser.logoutUser(driver);
     }
 
 }

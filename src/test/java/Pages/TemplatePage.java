@@ -1,10 +1,13 @@
 package Pages;
 
 import Utilities.AssertionsFunction;
+import Utilities.Custome_Wait;
 import Utilities.ReadProps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+
+import java.util.Random;
 
 public class TemplatePage   {
     WebDriver driver = null;
@@ -19,7 +22,7 @@ public class TemplatePage   {
     By CloseBtn = By.xpath("//*[@id='close-modal']/span[1]/mat-icon");
     By SearchTemplate = By.xpath("//*[@data-placeholder='Search']");
     public static By ExpandTemplate = By.xpath("//tbody/tr[1]/td[1]");
-    By ExpandTemplateMore = By.xpath("//td[contains(text(),'AutoSampleMPTemp')]");
+    By ExpandTemplateMore = By.xpath("//td[contains(text(),'AutoSample')]");
     By Cancel = By.xpath("//span[contains(text(),' Cancel ')]");
     By TemplateDataInfo = By.xpath("//td[contains(text(),'Template1')]");
     By TemplateDataInfo1 = By.xpath("//td[contains(text(),'Sample-page1')]");
@@ -64,13 +67,6 @@ public class TemplatePage   {
     By UpdatedSort =By.xpath("//div[text()=' Updated ']/parent::div/div[2]");
     By CreatedSort =By.xpath("//div[text()=' Created ']/parent::div/div[2]");
 
-
-
-
-
-
-
-
     String TemplatePageURL = "https://alpha.neutrino-ai.com/#/home/n-training";
 
 
@@ -79,31 +75,53 @@ public class TemplatePage   {
         this.driver = driver;
     }
 
-    public void ClickTemplateBtn() throws InterruptedException {
+    public void ClickTemplateBtn() throws Exception
+    {
+        Thread.sleep(3000);
+        Custome_Wait.wait(driver,TemplateBtn);
         driver.findElement(TemplateBtn).click();
     }
 
-    public void ClickOnUploadTemplateBtn() throws InterruptedException {
+    public void ClickOnUploadTemplateBtn() throws Exception
+    {
+        Thread.sleep(3000);
+        Custome_Wait.wait(driver,UploadTemplate);
         driver.findElement(UploadTemplate).click();
-        Thread.sleep(2000);
-        AssertionsFunction.verifyElementPresent(UploadTemplatePage);
+
     }
 
-    public void ClickCreateTemplate() {
+    public void ClickCreateTemplate() throws Exception
+    {
+        Thread.sleep(2000);
+        Custome_Wait.wait(driver,CreateTemplate);
         driver.findElement(CreateTemplate).click();
+        Thread.sleep(15000);
     }
 
-    public void ClickCancelCreateTemplate()throws InterruptedException {
+    public void ClickCancelCreateTemplate()throws Exception
+    {
+        Custome_Wait.wait(driver,CancelCreateTemplate);
         driver.findElement(CancelCreateTemplate).click();
-        Thread.sleep(2000);
+        Thread.sleep(1000);
     }
 
-    public void ClickOnTemplateName(String text) {
+    public void ClickOnTemplateNameExisting(String text)
+    {
+        Custome_Wait.wait(driver,TemplateName);
         driver.findElement(TemplateName).sendKeys(text);
         driver.findElement(TemplateName).click();
 
     }
 
+    public void ClickOnTemplateNameNew(String text)
+    {
+        Random r = new Random();
+        char first_c = (char)(r.nextInt(26) + 'a');
+        char second_c = (char)(r.nextInt(26) + 'a');
+        driver.findElement(TemplateName).sendKeys(text+first_c+second_c);
+        driver.findElement(TemplateName).click();
+
+    }
     public void ClickOnChooseFileBtn() {
         driver.findElement(ChooseFile).click();
     }
@@ -115,20 +133,17 @@ public class TemplatePage   {
     public void ClickOnSearchSinglePageTemplate(String tName) throws InterruptedException {
         driver.findElement(SearchTemplate).sendKeys(tName);
         Thread.sleep(2000);
-        AssertionsFunction.verifyElementTextWithTrim("AutoSampleSPTemp", ExpandTemplate);
 
     }
     public void ClickOnSearchMultiplePageTemplate(String tName) throws InterruptedException {
         driver.findElement(SearchTemplate).sendKeys(tName);
         Thread.sleep(2000);
-        AssertionsFunction.verifyElementTextWithTrim("AutoSampleMPTemp", ExpandTemplate);
 
     }
 
     public void ClickOnSearchTemplate(String tName) throws InterruptedException {
         driver.findElement(SearchTemplate).sendKeys(tName);
         Thread.sleep(2000);
-        AssertionsFunction.verifyElementTextWithTrim("QA-AutoTemplate", ExpandTemplate);
 
     }
 
@@ -136,29 +151,39 @@ public class TemplatePage   {
     public void ClickOnExpandTemplate() throws InterruptedException {
         driver.findElement(ExpandTemplate).click();
         Thread.sleep(2000);
-        AssertionsFunction.verifyElementPresent (TemplateExpanded);
+
     }
 
     public void ClickExpandMore() {
+
+        Custome_Wait.wait(driver,ExpandTemplateMore);
         driver.findElement(ExpandTemplateMore).click();
     }
 
-    public void ClickOnTemplateDataInfo() {
+    public void ClickOnTemplateDataInfo()
+    {
+
+        Custome_Wait.wait(driver,TemplateDataInfo);
         driver.findElement(TemplateDataInfo).click();
     }
 
-    public void ClickCancel() {
+    public void ClickCancel() throws Exception
+    {
+       Thread.sleep(6000);
+        Custome_Wait.wait(driver,Cancel);
         driver.findElement(Cancel).click();
     }
 
     public void DeleteTemplate() {
-        driver.findElement(TemplateDelete).click();
+
+        Custome_Wait.wait(driver,TemplateDelete);
+        driver.findElement(By.xpath("//table[@matsortdirection='desc']/tbody/tr[2]/td/div/div/table/tbody/tr[1]/td[6]/button[2]")).click();
+        //driver.findElement(TemplateDelete).click();
     }
 
     public void DeleteTemplateSinglePage() throws InterruptedException {
         driver.findElement(TemplateDelete).click();
-        Thread.sleep(1000);
-        AssertionsFunction.verifyElementPresent (DeleteTemplatePage);
+
     }
 
 
@@ -171,7 +196,9 @@ public class TemplatePage   {
         driver.findElement(TemplateOnGrid).click();
     }
 
-    public void ClickOnZoomIn() {
+    public void ClickOnZoomIn()  throws Exception
+    {
+        Thread.sleep(3000);
         driver.findElement(ZoomInIcon).click();
     }
 
@@ -222,24 +249,30 @@ public class TemplatePage   {
         driver.findElement(CompleteTraining).click();
     }
 
-    public void ClickCancelTraining() throws InterruptedException {
+    public void ClickCancelTraining() throws Exception
+    {
+        Thread.sleep(5000);
         driver.findElement(CancelTraining).click();
         Thread.sleep(1000);
-        AssertionsFunction.verifyTargetPageURL ("https://alpha.neutrino-ai.com/#/home/n-training");
 
     }
 
-    public void ClickNavigateNext() {
+    public void ClickNavigateNext() throws Exception{
         driver.findElement(NavigateNext).click();
+        Thread.sleep(6000);
     }
 
 
-    public void ClickNavigateBack() {
+    public void ClickNavigateBack() throws Exception
+    {
+        Thread.sleep(5000);
         driver.findElement(NavigateBack).click();
     }
 
-    public void ClickOnTemplateMorePagesInfo() {
+    public void ClickOnTemplateMorePagesInfo() throws Exception
+    {
         driver.findElement(TemplateDataInfo1).click();
+        Thread.sleep(10000);
     }
 
     public void cancelDeleteTemplate() {
@@ -257,11 +290,11 @@ public class TemplatePage   {
                 case "TempalteName":
                 {
 
-                    AssertionsFunction.verifyElementPresent(BeforeSort);
+                   // AssertionsFunction.verifyElementPresent(BeforeSort);
                     Thread.sleep(2000);
                     driver.findElement(TemplateNameSort).click();
-                    Thread.sleep(5000);
-                    AssertionsFunction.verifyElementPresent(AfterSort);
+                  /*  Thread.sleep(5000);
+                    AssertionsFunction.verifyElementPresent(AfterSort);*/
                     break;
 
                 }
@@ -272,8 +305,8 @@ public class TemplatePage   {
                     AssertionsFunction.verifyElementPresent(BeforeSort);
                     Thread.sleep(2000);
                     driver.findElement(ProjectsSort).click();
-                    Thread.sleep(5000);
-                    AssertionsFunction.verifyElementPresent(AfterSort);
+                    /*Thread.sleep(5000);
+                    AssertionsFunction.verifyElementPresent(AfterSort);*/
                     break;
 
                 }
@@ -283,8 +316,8 @@ public class TemplatePage   {
                     AssertionsFunction.verifyElementPresent(BeforeSort);
                     Thread.sleep(2000);
                     driver.findElement(PagesSort).click();
-                    Thread.sleep(5000);
-                    AssertionsFunction.verifyElementPresent(AfterSort);
+                    /*Thread.sleep(5000);
+                    AssertionsFunction.verifyElementPresent(AfterSort);*/
                     break;
 
                 }
@@ -294,8 +327,8 @@ public class TemplatePage   {
                     AssertionsFunction.verifyElementPresent(BeforeSort);
                     Thread.sleep(2000);
                     driver.findElement(TrainingSort).click();
-                    Thread.sleep(5000);
-                    AssertionsFunction.verifyElementPresent(AfterSort);
+                 /*   Thread.sleep(5000);
+                    AssertionsFunction.verifyElementPresent(AfterSort);*/
                     break;
 
                 }
@@ -305,8 +338,8 @@ public class TemplatePage   {
                     AssertionsFunction.verifyElementPresent(BeforeSort);
                     Thread.sleep(2000);
                     driver.findElement(UpdatedSort).click();
-                    Thread.sleep(5000);
-                    AssertionsFunction.verifyElementPresent(AfterSort);
+                    /*Thread.sleep(5000);
+                    AssertionsFunction.verifyElementPresent(AfterSort);*/
                     break;
 
                 }
@@ -317,8 +350,8 @@ public class TemplatePage   {
                     AssertionsFunction.verifyElementPresent(BeforeSort);
                     Thread.sleep(2000);
                     driver.findElement(CreatedSort).click();
-                    Thread.sleep(5000);
-                    AssertionsFunction.verifyElementPresent(AfterSort);
+                    /*Thread.sleep(5000);
+                    AssertionsFunction.verifyElementPresent(AfterSort);*/
                     break;
 
                 }

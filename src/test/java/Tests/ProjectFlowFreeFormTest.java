@@ -21,9 +21,11 @@ public class ProjectFlowFreeFormTest extends BasePage {
         BasePage.driverInit();
         BasePage.LoginTest();
     }
-    @AfterClass
-    public void cleanUp() throws Exception {
-        driver.quit();
+   @AfterClass
+    public void cleanUp() throws Exception
+    {
+
+    driver.quit();
     }
     @Test(priority = 1)
     public void create_project_without_adding_attributes_and_role() throws Exception {
@@ -129,6 +131,5 @@ public class ProjectFlowFreeFormTest extends BasePage {
             Thread.sleep(15000);
             ProjectPageObj.verifyProjectCreated("FreeFormProject");
             Thread.sleep(2000);
-
         }
 }

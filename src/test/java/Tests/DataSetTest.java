@@ -17,9 +17,10 @@ public class DataSetTest extends BasePage {
         BasePage.driverInit();
         BasePage.LoginTest();
     }
-    @AfterClass
-    public void cleanUp() throws Exception {
-        driver.quit();
+   @AfterClass
+    public void cleanUp() throws Exception
+    {
+    driver.quit();
     }
     @Test(priority = 1)
     public void create_category_with_blank_name() throws Exception {

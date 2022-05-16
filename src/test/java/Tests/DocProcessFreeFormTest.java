@@ -18,23 +18,23 @@ public class    DocProcessFreeFormTest extends BasePage {
         BasePage.driverInit();
         BasePage.LoginTest();
     }
-    @AfterClass(enabled = false)
-    public void cleanUp() throws Exception {
-        driver.quit();
+   @AfterClass
+    public void cleanUp() throws Exception
+    {
+    driver.quit();
     }
     @Test(priority = 1)
     public void search_project() throws Exception {
         Robot r = new Robot();
         DocPageObj = new DocumentPage(driver);
         DocPageObj.ClickDocumentBtn();
-        Custome_Wait.wait(driver,driver.findElement(By.xpath("//table[@class='mat-table cdk-table mat-sort']//following::th[8]")));
         //TC 7.1 Search Project.
         DocPageObj.ClickDropDownBtn();
         Thread.sleep(1000);
 
         DocPageObj.ClickSearchProject(ReadProps.readAttr("FreeFormProjectName"));
+        Thread.sleep(5000);
         DocPageObj.ClickSelectFreeFormProject();
-        Custome_Wait.wait(driver,driver.findElement(By.xpath("//span[contains(text(),'QA-AutoProject-FreeForm')]")));
         AssertionsFunction.verifyElementText(ReadProps.readAttr("FreeFormProjectName"),DocPageObj.SelectFreeFormProject);
         DocPageObj.ClickStatusFilter();
         DocPageObj.ClickCheckProcessed();
@@ -46,12 +46,10 @@ public class    DocProcessFreeFormTest extends BasePage {
         //TC 7.2 SearchBox Document.
         DocPageObj.ClickSearchBox("Pfizer");
         DocPageObj.ClickSearchDocument();
-        Custome_Wait.wait(driver,driver.findElement(By.xpath("//span[text()=' Pfizer36.jpg ']//following::td[2]")));
-        AssertionsFunction.verifyElementText("Rejected",DocPageObj.StatusOfDoc);
+         AssertionsFunction.verifyElementText("Rejected",DocPageObj.StatusOfDoc);
         DocPageObj.ClickClearSearch();
         DocPageObj.ClickSearchBox("AN - OOLU2604599081.pdf");
         DocPageObj.ClickSearchDocument();
-        Custome_Wait.wait(driver,driver.findElement(By.xpath("//span[text()=' AN - OOLU2604599081.pdf ']")));
         AssertionsFunction.verifyElementPresent(DocPageObj.SearchedDocument);
         AssertionsFunction.verifyElementText("Processed",DocPageObj.StatusOfDoc);
     }
@@ -62,7 +60,6 @@ public class    DocProcessFreeFormTest extends BasePage {
         Thread.sleep(1000);
        // Custome_Wait.wait(driver,driver.findElement(By.xpath("//span[contains(text(),'Cancel')]//preceding::span[1]")));
         DocPageObj.ClickCancelDoc2();
-        Custome_Wait.wait(driver,driver.findElement(By.xpath("//span[text()=' AN - OOLU2604599081.pdf ']")));
         AssertionsFunction.verifyTargetPageURL(DocPageObj.DocumentPageURL);
 
     }

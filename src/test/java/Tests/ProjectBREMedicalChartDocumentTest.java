@@ -30,9 +30,11 @@ public class ProjectBREMedicalChartDocumentTest extends BasePage {
         // BasePage.LoginTest();
     }
 
-    @AfterClass(enabled = false)
-    public void cleanUp() throws Exception {
-        driver.quit();
+   @AfterClass
+    public void cleanUp() throws Exception
+    {
+
+    driver.quit();
     }
 
     @Test(priority = 1)
@@ -348,17 +350,17 @@ public class ProjectBREMedicalChartDocumentTest extends BasePage {
         Thread.sleep(3000);
         ProjectBREMedicalChartDocumentPageObj.ClickOnTopEncounterDetail();
         Thread.sleep(2000);
-        ProjectBREMedicalChartDocumentPageObj.clickOnEditEncounter();
+       /* ProjectBREMedicalChartDocumentPageObj.clickOnEditEncounter();
         Thread.sleep(2000);
         ProjectBREMedicalChartDocumentPageObj.clickOnSave();
         // need add assertion for error msg
         Thread.sleep(4000);
         driver.navigate().back();
-        Thread.sleep(10000);
+        Thread.sleep(10000);*/
 
     }
 
-    @Test(priority =16 )
+   /* @Test(priority =16 )
     public void check_chart_flag_options() throws  Exception {
         //IN 620There should be facility to add the comments at the medical chart level
         ProjectBREMedicalChartDocumentPageObj.clickOnReadyDocument();
@@ -544,7 +546,7 @@ public class ProjectBREMedicalChartDocumentTest extends BasePage {
         ProjectBREMedicalChartDocumentPageObj.clickOnsaveBtnHCC();
         Thread.sleep(3000);
         driver.navigate().back();
-        Thread.sleep(7000);    }
+        Thread.sleep(7000);    }*/
 }
 
 

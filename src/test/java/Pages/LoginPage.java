@@ -1,72 +1,106 @@
 package Pages;
 
 import Utilities.AssertionsFunction;
+import Utilities.Custome_Wait;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
-import org.testng.asserts.SoftAssert;
 
 public class LoginPage {
 
     WebDriver driver = null;
 
-    By userName = By.xpath("//input[@formcontrolname='userName']");
-    By password = By.xpath("//input[@formcontrolname='password']");
-    By loginBtn = By.xpath("//button[@type='submit']");
-    public static  By Logout = By.xpath("//span[@mattooltip='Logout']");
-    By ErrorMsgBlankData = By.xpath("//span[contains (text(),'Please Enter Valid Data ...!')]");
-    ////span[contains (text(),'Please Enter Valid Data ...!')]
-    public static By ErrorMsgInvalidData = By.xpath("//span[contains (text(),'Something Went Wrong ...!')]");
-    public static By ErrorMsgDisableUser = By.xpath("//span[text()='User is inactive. Please contact Administration']");
-    public static String ErrorMsgIdPwdSame ="Password cannot be email Id";
-    public static By ErrMsgIdPwdSame= By.xpath("//span[text()='Password cannot be email Id']");
+    @FindBy (xpath="//label[text()='Email Id']//following::input[1]")
+    WebElement userName;
+    @FindBy (xpath="//input[@formcontrolname='password']")
+    WebElement password;
+    @FindBy (xpath="//button[@type='submit']")
+    WebElement loginBtn;
+    @FindBy (xpath="//span[@mattooltip='Logout']")
+    WebElement Logout;
+    @FindBy (xpath="//span[contains (text(),'Please Enter Valid Data ...!')]")
+    WebElement ErrorMsgInvalidData;
+    @FindBy (xpath="//span[contains (text(),'Something Went Wrong ...!')]")
+    WebElement ErrorMsgDisableUser;
+    @FindBy (xpath="//span[text()='User is inactive. Please contact Administration']")
+    WebElement ErrorMsgIdPwdSame;
+    @FindBy (xpath="//span[text()='Password cannot be email Id']")
+    WebElement ErrMsgIdPwdSame;
+
+    @FindBy (xpath="//span[contains (text(),'Please Enter Valid Data ...!')]")
+    WebElement ErrorMsgBlankData;
 
     //Constructor
-    public LoginPage(WebDriver driver) {
+    public LoginPage(WebDriver driver)
+    {
         this.driver = driver;
+        PageFactory.initElements(driver,this);
+    }
+
+    public void EnterUsername(String text) throws Exception
+    {
+        Custome_Wait.waitElement(driver,userName);
+        driver.navigate().refresh();
+        userName.sendKeys(text);
     }
 
     //Methods Declaration.
     public void setPassword(String text) throws Exception{
-        Thread.sleep(2000);
-        driver.findElement(password).sendKeys(text);
+        Custome_Wait.waitElement(driver,password);
+        password.sendKeys(text);
     }
 
-    public void clickLoginButton() throws Exception{
-        Thread.sleep(2000);
-        driver.findElement(loginBtn).click();
+    public void clickLoginButtonForValidInput() throws Exception
+    {
+        Custome_Wait.waitElement(driver,loginBtn);
+        loginBtn.click();
+        Thread.sleep(15000);
     }
 
-    public void ClickLogoutBtn() throws Exception{
-        Thread.sleep(2000);
-        driver.findElement(Logout).click();
+    public void clickOnLoginButtonForInvalidInput() throws Exception
+    {
+        Custome_Wait.waitElement(driver,loginBtn);
+        loginBtn.click();
+    }
+    public void ClickLogoutBtn() throws Exception
+    {
+        Thread.sleep(5000);
+        Custome_Wait.waitElement(driver,Logout);
+        Logout.click();
+        Thread.sleep(5000);
+
     }
 
     public void ClearUserID() throws Exception{
 
-        Thread.sleep(2000);
-        driver.findElement(userName).clear();
+
+        userName.clear();
     }
 
     public void ClearPWD() throws Exception{
-        Thread.sleep(2000);
-        driver.findElement(password).clear();
+
+        password.clear();
     }
 
     public void VerifyAssertError() {
-        String actual_msg = driver.findElement(ErrorMsgBlankData).getText();
+
+        String actual_msg = ErrorMsgBlankData.getText();
         String expect = "Please Enter Valid Data ...!";
         Assert.assertEquals(actual_msg, expect);
     }
     public void VerifyAssertError1() {
-        String actual_msg = driver.findElement(ErrorMsgInvalidData).getText();
+        String actual_msg = ErrorMsgInvalidData.getText();
         String expect = "Something Went Wrong ...!";
         Assert.assertEquals(actual_msg, expect);
     }
-    public void VerifyHomePage() { // url changehttps://alpha.neutrino-ai.com/#/home
+    public void VerifyHomePage() throws Exception{ // url changehttps://alpha.neutrino-ai.com/#/home
         String actual_page = driver.getCurrentUrl();
         String expected_page = "https://alpha.neutrino-ai.com/#/home/project-management";
         Assert.assertEquals(actual_page, expected_page);
+
     }
     public void VerifyHomePage1() { // added
         String actual_page = driver.getCurrentUrl();
@@ -83,9 +117,10 @@ public class LoginPage {
         String expected_page = "https://alpha.neutrino-ai.com/#/login";
         Assert.assertEquals(actual_page, expected_page);
     }
-    public void RefreshPage()
+    public void RefreshPage() throws Exception
     {
         driver.navigate().refresh();
+        Thread.sleep(3000);
     }
 
     public void NavigateBack()
@@ -96,18 +131,13 @@ public class LoginPage {
     public void accessPermission(String TabName) throws Exception {
         switch (TabName){
 
+
+
             case "User":
             {
-                AssertionsFunction.verifyElementPresent(CreateUserPage.UserBtn);
-                Thread.sleep(2000);
+                Thread.sleep(3000);
                 driver.findElement(CreateUserPage.UserBtn).click();
-                Thread.sleep(5000);
-                AssertionsFunction.verifyElementPresent(CreateUserPage.CreateUserBtn);
-                Thread.sleep(4000);
-                driver.findElement(By.xpath("//tbody[@role='rowgroup']/tr[1]/td[5]")).click();
-                Thread.sleep(4000);
-                AssertionsFunction.verifyElementPresent(CreateUserPage.UpdateUser);
-                Thread.sleep(1000);
+                driver.findElement(By.xpath("//*[text()=' Action ']//following::tr[1]/td[1]")).click();
                 break;
 
             }
@@ -115,15 +145,15 @@ public class LoginPage {
             case "Role":
             {
                 AssertionsFunction.verifyElementPresent(CreateRolePage.RoleManagementBtn);
-                Thread.sleep(2000);
                 driver.findElement(CreateRolePage.RoleManagementBtn).click();
-                Thread.sleep(4000);
+
+                Custome_Wait.waitElement(driver,driver.findElement(By.xpath("//*[text()='Roles ']")));
                 AssertionsFunction.verifyElementPresent(CreateRolePage.CreateRoleBtn);
-                Thread.sleep(4000);
+
                 driver.findElement(By.xpath("//tbody[@role='rowgroup']/tr[1]/td[5]")).click();
-                Thread.sleep(4000);
+
                 AssertionsFunction.verifyElementPresent(CreateRolePage.ClickUpdateBtn);
-                Thread.sleep(1000);
+
                 break;
 
             }
@@ -131,53 +161,44 @@ public class LoginPage {
             case "Templates":
             {
                 AssertionsFunction.verifyElementPresent(TemplatePage.TemplateBtn);
-                Thread.sleep(2000);
                 driver.findElement(TemplatePage.TemplateBtn).click();
-                Thread.sleep(8000);
+                Custome_Wait.waitElement(driver,driver.findElement(By.xpath("//*[text()=' Templates ']")));
                 AssertionsFunction.verifyElementPresent(TemplatePage.UploadTemplate);
-                Thread.sleep(1000);
                 break;
             }
 
             case "Dataset":
             {
+
                 AssertionsFunction.verifyElementPresent(DatasetPage.DatasetBtn);
-                Thread.sleep(2000);
                 driver.findElement(DatasetPage.DatasetBtn).click();
-                Thread.sleep(6000);
+                Custome_Wait.waitElement(driver,driver.findElement(By.xpath("//*[text()=' Category ']")));
                 AssertionsFunction.verifyElementPresent(DatasetPage.AddCategoryBtn);
-                Thread.sleep(1000);
                 break;
             }
             case "Projects":
             {
                 AssertionsFunction.verifyElementPresent(ProjectPage.ProjectBtn);
-                Thread.sleep(2000);
                 driver.findElement(ProjectPage.ProjectBtn).click();
-                Thread.sleep(8000);
+                Custome_Wait.waitElement(driver,driver.findElement(By.xpath("//*[@class='mat-icon notranslate docStIconPos material-icons mat-icon-no-color']")));
                 AssertionsFunction.verifyElementPresent(ProjectPage.CreateProject);
-                Thread.sleep(1000);
                 break;
             }
 
             case "Documents":
             {
                 AssertionsFunction.verifyElementPresent(DocumentPage.DocumentBtn);
-                Thread.sleep(2000);
                 driver.findElement(DocumentPage.DocumentBtn).click();
-                Thread.sleep(10000);
+                Custome_Wait.waitElement(driver,driver.findElement(By.xpath("//*[text()=' Documents ']")));
                 AssertionsFunction.verifyElementPresent(DocumentPage.DocumentTable);
-                Thread.sleep(1000);
                 break;
             }
             case "Analytics":
             {
                 AssertionsFunction.verifyElementPresent(AnalyticsPage.AnalyticsBtn);
-                Thread.sleep(2000);
                 driver.findElement(AnalyticsPage.AnalyticsBtn).click();
-                Thread.sleep(8000);
+                Custome_Wait.waitElement(driver,driver.findElement(By.xpath("//*[text()='Project Statistics']")));
                 AssertionsFunction.verifyElementPresent(AnalyticsPage.AnalyticsPageDisplay);
-                Thread.sleep(1000);
                 break;
             }
             default:
@@ -185,7 +206,7 @@ public class LoginPage {
                 System.out.println("Wrong Tab Name Entered");
             }
 
-    }
+        }
     }
 
 

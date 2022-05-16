@@ -24,12 +24,12 @@ public class ProjectBREFreeFormPage {
     By submitbtn=By.xpath("//span[contains(text(),'Submit')]");
     By submitbtn2=By.xpath("(//div[@class='modal-footer'])//button[1]");
     By Age=By.xpath("(//span[contains(text(),'Age')])");
-    By Add=By.xpath("//span[contains( text(),' Add ')]");
-    By clickOnProcessedPdf=By.xpath("(//span[contains(text(),' MD - MiscInformation - 2621820318 -  - LIBRE - - CA- NEW - 12-28-2020.tif ')])[1]");
+    By Add=By.xpath("//*[text()=' Add ']");
+    By clickOnProcessedPdf=By.xpath("//*[text()=' Type ']//following::tr[1]/td[4]");
     public  void clickOnProcessedPdf(){
         driver.findElement(clickOnProcessedPdf).click();
     }
-    By clickOnStatusButton = By.xpath("//thead[@role='rowgroup']//preceding::tr[1]/th[3]/div[1]/div[1]/button");
+    By clickOnStatusButton = By.xpath("//*[text()=' Status ']//following::span[1]/mat-icon");
 
     public ProjectBREFreeFormPage(WebDriver driver) throws Exception {
         this.driver = driver;

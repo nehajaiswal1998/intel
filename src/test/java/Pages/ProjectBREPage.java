@@ -104,7 +104,7 @@ public class ProjectBREPage extends AssertionsFunction {
     By Entity = By.xpath("//span[contains(text(),'Entity')]//parent::div");
 
     By PatientDemoGraphics = By.xpath("//span[contains(text(),'PatientDemographics')]/parent::mat-option");
-     public static By AttributeDropDown = By.xpath("//*[starts-with(@class,'mat-select-placeholder mat-select-min-line ng-tns')]/following::span[132]");
+    public static By AttributeDropDown = By.xpath("//*[starts-with(@class,'mat-select-placeholder mat-select-min-line ng-tns')]/following::span[132]");
 
     By PatientNameAttributes = By.xpath("(//span[contains(text(),'Patient Name')])[2]");
     By OperatorDropDown = By.xpath("//*[starts-with(@class,'mat-select-placeholder mat-select-min-line ng-tns')]/following::span[135]");

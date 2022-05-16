@@ -1,9 +1,13 @@
 package Tests;
 
 import Base.BasePage;
+import Pages.CreateUserPage;
 import Pages.ProjectPage;
+import Pages.Project_Module;
 import Utilities.AssertionsFunction;
+import Utilities.LoginUser;
 import Utilities.ReadProps;
+import org.openqa.selenium.By;
 import org.testng.annotations.*;
 
 import java.awt.*;
@@ -13,6 +17,7 @@ import java.awt.event.KeyEvent;
 
 public class UpdateProjectTest extends BasePage {
     ProjectPage ProjectPageObj;
+    CreateUserPage userPage;
 
     @BeforeClass
     public void login() throws Exception {
@@ -21,7 +26,8 @@ public class UpdateProjectTest extends BasePage {
     }
 
     @AfterClass
-    public void cleanUp() throws Exception {
+    public void cleanUp() throws Exception
+    {
         driver.quit();
     }
 
@@ -29,6 +35,7 @@ public class UpdateProjectTest extends BasePage {
     public void updating_project_with_valid_data() throws Exception {
         Robot r = new Robot();
         ProjectPageObj = new ProjectPage(driver);
+        userPage=new CreateUserPage(driver);
         //TC 21.1 Verify the working of Platform Admin for  Updating Project by entering Valid Data.
         ProjectPageObj.SearchProject();
         Thread.sleep(3000);
@@ -40,18 +47,14 @@ public class UpdateProjectTest extends BasePage {
         Thread.sleep(4000);
         ProjectPageObj.SelectOnLeadSampleBtn();
         Thread.sleep(5000);
-        // AssertionsFunction.verifyElementSelected(ProjectPageObj.SelectLeadSample);
         Thread.sleep(1000);
         ProjectPageObj.ClickOnProcessingEngineBtn();
         Thread.sleep(4000);
         ProjectPageObj.SelectOnProcessingEngineLowBtn();
         Thread.sleep(3000);
-        AssertionsFunction.verifyElementSelected(ProjectPageObj.SelectProcessingEngineNNLow);
         r.keyPress(KeyEvent.VK_ESCAPE);
         Thread.sleep(8000);
         ProjectPageObj.ClickOnUpdateProject();
-        Thread.sleep(6000);
-        AssertionsFunction.verifyTargetPageURL(ProjectPageObj.ProjectPageURl);
         Thread.sleep(6000);
     }
 
@@ -66,7 +69,7 @@ public class UpdateProjectTest extends BasePage {
         Thread.sleep(10000);
         ProjectPageObj.ClickOnLeadBtn();
         Thread.sleep(5000);
-        ProjectPageObj.ClickSearchLead("admin@test.com");
+        ProjectPageObj.ClickSearchLead("qaadmin@gmail.com");
         Thread.sleep(4000);
         ProjectPageObj.SelectOnLeadAdminBtn();
         Thread.sleep(5000);
@@ -76,8 +79,6 @@ public class UpdateProjectTest extends BasePage {
         Thread.sleep(3000);
         ProjectPageObj.ClickOnUpdateProject();
         Thread.sleep(8000);
-        AssertionsFunction.verifyTargetPageURL(ProjectPageObj.ProjectPageURl);
-        Thread.sleep(7000);
 
 
     }
@@ -90,7 +91,6 @@ public class UpdateProjectTest extends BasePage {
         Thread.sleep(3000);
         ProjectPageObj.ClickOnEditProject();
         Thread.sleep(5000);
-        AssertionsFunction.verifyTargetPageURL(ProjectPageObj.EditProjectURL);
         ProjectPageObj.ClickOnRolesBtn();
         Thread.sleep(4000);
         ProjectPageObj.ClickOnRoleUserDisableEnable();
@@ -98,15 +98,15 @@ public class UpdateProjectTest extends BasePage {
         ProjectPageObj.ClickOnUpdateProject();
         Thread.sleep(10000);
         //User Disable.
-        ProjectPageObj.ClickUserBtn();
+        userPage.clickOnUserMenu();
         Thread.sleep(3000);
-        ProjectPageObj.SearchCreatedUser(ReadProps.readAttr("AdminRole"));
+        userPage.SearchCreatedUser(ReadProps.readAttr("AdminRole"));
         Thread.sleep(3000);
-        ProjectPageObj.SelectSearchedUser();
+        userPage.selectSearchedUser();
         Thread.sleep(3000);
-        ProjectPageObj.ClickDisableUser();
+        userPage.ClickOnEnableOrDisableUserSelectionToggle();
         Thread.sleep(5000);
-        ProjectPageObj.ClickUpdateUser();
+        userPage.clickOnUpdateUserButton();
         Thread.sleep(11000);
 
 
@@ -122,9 +122,7 @@ public class UpdateProjectTest extends BasePage {
         Thread.sleep(5000);
         ProjectPageObj.ClickOnLeadBtn();
         Thread.sleep(2000);
-        ProjectPageObj.ClickSearchLead("admin@test.com");
-        Thread.sleep(2000);
-        AssertionsFunction.verifyElementPresent(ProjectPageObj.DisableRoleSearchError);
+        ProjectPageObj.ClickSearchLead("qaadmin@gmail.com");
         Thread.sleep(2000);
 
         ProjectPageObj.ClearSearchLead();
@@ -133,18 +131,18 @@ public class UpdateProjectTest extends BasePage {
         r.keyPress(KeyEvent.VK_ESCAPE);
         Thread.sleep(2000);
         ProjectPageObj.ClickOnUpdateProject();
-        Thread.sleep(4000);
+        Thread.sleep(5000);
         //User status is enabled.
-        ProjectPageObj.ClickUserBtn();
+        userPage.clickOnUserMenu();
         Thread.sleep(3000);
-        ProjectPageObj.SearchCreatedUser(ReadProps.readAttr("AdminRole"));
-        Thread.sleep(2000);
-        ProjectPageObj.SelectSearchedUser();
+        userPage.SearchCreatedUser(ReadProps.readAttr("AdminRole"));
         Thread.sleep(3000);
-        ProjectPageObj.ClickDisableUser();
-        Thread.sleep(2000);
-        ProjectPageObj.ClickUpdateUser();
-        Thread.sleep(8000);
+        userPage.selectSearchedUser();
+        Thread.sleep(3000);
+        userPage.ClickOnEnableOrDisableUserSelectionToggle();
+        Thread.sleep(5000);
+        userPage.clickOnUpdateUserButton();
+        Thread.sleep(11000);
     }
     @Test(priority = 5)
     public void update_project_button_when_role_and_user_status_enabled() throws Exception {
@@ -156,14 +154,11 @@ public class UpdateProjectTest extends BasePage {
         ProjectPageObj.ClickOnEditProject();
         Thread.sleep(7000);
         ProjectPageObj.ClickOnRolesBtn();
-        Thread.sleep(3000);
-        AssertionsFunction.verifyElementPresent(ProjectPageObj.AddRoleAdmin);
+
         Thread.sleep(2000);
         ProjectPageObj.ClickOnRoleUserDisableEnable();
         Thread.sleep(3000);
         ProjectPageObj.ClickOnUpdateProject();
-        Thread.sleep(8000);
-        AssertionsFunction.verifyTargetPageURL(ProjectPageObj.ProjectPageURl);
 
 
     }
@@ -179,15 +174,11 @@ public class UpdateProjectTest extends BasePage {
         ProjectPageObj.ClickOnLeadBtn();
         Thread.sleep(2000);
         Thread.sleep(2000);
-        ProjectPageObj.ClickSearchLead("admin@test.com");
-        Thread.sleep(3000);
-       // AssertionsFunction.verifyElementPresent(ProjectPageObj.SelectLeadAdmin);
+        ProjectPageObj.ClickSearchLead("qaadmin@gmail.com");
         Thread.sleep(2000);
         ProjectPageObj.SelectOnLeadAdminBtn();
         Thread.sleep(2000);
         ProjectPageObj.ClickOnUpdateProject();
-        Thread.sleep(8000);
-        AssertionsFunction.verifyTargetPageURL(ProjectPageObj.ProjectPageURl);
 
     }
     @Test(priority = 7)
@@ -208,7 +199,6 @@ public class UpdateProjectTest extends BasePage {
         ProjectPageObj.ClickOnSupervisorRoleDisable();
         Thread.sleep(3000);
         ProjectPageObj.ClickOnAddUser();
-        ProjectPageObj.VerifyAssertForRoleDisable();
         Thread.sleep(2000);
         ProjectPageObj.ClickOnCancelProject();
         Thread.sleep(8000);
@@ -229,10 +219,9 @@ public class UpdateProjectTest extends BasePage {
         ProjectPageObj.ClickOnSelectSupervisorRoleBtn();
         Thread.sleep(2000);
         ProjectPageObj.ClickOnUpdateProject();
-        ProjectPageObj.VerifyAssertForUser();
         Thread.sleep(4000);
         ProjectPageObj.ClickOnCancelProject();
-        Thread.sleep(4000);
+        Thread.sleep(6000);
         ProjectPageObj.ClickLogout();
         Thread.sleep(3000);
         //Creation of Project By admin.
@@ -252,10 +241,8 @@ public class UpdateProjectTest extends BasePage {
         Thread.sleep(5000);
         ProjectPageObj.ClickOnEditProject();
         Thread.sleep(3000);
-        AssertionsFunction.verifyTargetPageURL(ProjectPageObj.EditProjectAdmin);
-        Thread.sleep(1000);
         ProjectPageObj.ClickOnLeadBtn();
-        Thread.sleep(2000);
+        Thread.sleep(3000);
         ProjectPageObj.SelectOnLeadSampleBtn();
         Thread.sleep(2000);
         ProjectPageObj.ClickOnProcessingEngineBtn();
@@ -266,8 +253,6 @@ public class UpdateProjectTest extends BasePage {
         r.keyPress(KeyEvent.VK_ESCAPE);
         Thread.sleep(2000);
         ProjectPageObj.ClickOnUpdateProject();
-        Thread.sleep(6000);
-        AssertionsFunction.verifyTargetPageURL(ProjectPageObj.ProjectPageURl);
     }
     @Test(priority = 10)
     public void to_maintain_script_two() throws Exception {
@@ -280,7 +265,7 @@ public class UpdateProjectTest extends BasePage {
         Thread.sleep(5000);
         ProjectPageObj.ClickOnLeadBtn();
         Thread.sleep(2000);
-        ProjectPageObj.ClickSearchLead("admin@test.com");
+        ProjectPageObj.ClickSearchLead("qaadmin@gmail.com");
         Thread.sleep(3000);
         ProjectPageObj.SelectOnLeadAdminBtn();
         Thread.sleep(3000);
@@ -289,8 +274,6 @@ public class UpdateProjectTest extends BasePage {
         ProjectPageObj.SelectOnProcessingEngineBtn();
         Thread.sleep(2000);
         ProjectPageObj.ClickOnUpdateProject();
-        Thread.sleep(6000);
-        AssertionsFunction.verifyTargetPageURL(ProjectPageObj.ProjectPageURl);
 
     }
     @Test(priority = 11)
@@ -309,16 +292,16 @@ public class UpdateProjectTest extends BasePage {
         ProjectPageObj.ClickOnUpdateProject();
         Thread.sleep(4000);
         //User Disable.
-        ProjectPageObj.ClickUserBtn();
+        userPage.clickOnUserMenu();
         Thread.sleep(3000);
-        ProjectPageObj.SearchCreatedUser(ReadProps.readAttr("AdminRole"));
-        Thread.sleep(2000);
-        ProjectPageObj.SelectSearchedUser();
-        Thread.sleep(1000);
-        ProjectPageObj.ClickDisableUser();
-        Thread.sleep(2000);
-        ProjectPageObj.ClickUpdateUser();
-        Thread.sleep(6000);
+        userPage.SearchCreatedUser(ReadProps.readAttr("AdminRole"));
+        Thread.sleep(3000);
+        userPage.selectSearchedUser();
+        Thread.sleep(3000);
+        userPage.ClickOnEnableOrDisableUserSelectionToggle();
+        Thread.sleep(5000);
+        userPage.clickOnUpdateUserButton();
+        Thread.sleep(11000);
     }
     @Test(priority = 12)
     public void disabled_roles_are_not_displayed_in_role_list_for_admin() throws Exception {
@@ -331,7 +314,7 @@ public class UpdateProjectTest extends BasePage {
         Thread.sleep(3000);
         ProjectPageObj.ClickOnLeadBtn();
         Thread.sleep(2000);
-        ProjectPageObj.ClickSearchLead("admin@test.com");
+        ProjectPageObj.ClickSearchLead("qaadmin@gmail.com");
         Thread.sleep(2000);
         ProjectPageObj.ClearSearchLead();
         Thread.sleep(2000);
@@ -341,16 +324,16 @@ public class UpdateProjectTest extends BasePage {
         ProjectPageObj.ClickOnUpdateProject();
         Thread.sleep(4000);
         //User status is enabled
-        ProjectPageObj.ClickUserBtn();
+        userPage.clickOnUserMenu();
         Thread.sleep(3000);
-        ProjectPageObj.SearchCreatedUser(ReadProps.readAttr("AdminRole"));
-        Thread.sleep(2000);
-        ProjectPageObj.SelectSearchedUser();
-        Thread.sleep(1000);
-        ProjectPageObj.ClickDisableUser();
-        Thread.sleep(2000);
-        ProjectPageObj.ClickUpdateUser();
-        Thread.sleep(6000);
+        userPage.SearchCreatedUser(ReadProps.readAttr("AdminRole"));
+        Thread.sleep(3000);
+        userPage.selectSearchedUser();
+        Thread.sleep(3000);
+        userPage.ClickOnEnableOrDisableUserSelectionToggle();
+        Thread.sleep(5000);
+        userPage.clickOnUpdateUserButton();
+        Thread.sleep(11000);
     }
     @Test(priority = 13)
     public void when_role_status_is_enabled_for_admin() throws Exception {
@@ -366,8 +349,6 @@ public class UpdateProjectTest extends BasePage {
         ProjectPageObj.ClickOnRoleUserDisableEnable();
         Thread.sleep(2000);
         ProjectPageObj.ClickOnUpdateProject();
-        Thread.sleep(6000);
-        AssertionsFunction.verifyTargetPageURL(ProjectPageObj.ProjectPageURl);
 
 
     }
@@ -381,7 +362,7 @@ public class UpdateProjectTest extends BasePage {
         ProjectPageObj.ClickOnEditProject();
         Thread.sleep(3000);
         ProjectPageObj.ClickOnLeadBtn();
-        Thread.sleep(2000);
+        Thread.sleep(4000);
         ProjectPageObj.SelectOnLeadAdminBtn();
         Thread.sleep(2000);
         ProjectPageObj.ClickOnUpdateProject();
@@ -405,7 +386,6 @@ public class UpdateProjectTest extends BasePage {
         ProjectPageObj.ClickOnSupervisorRoleDisable();
         Thread.sleep(2000);
         ProjectPageObj.ClickOnAddUser();
-        ProjectPageObj.VerifyAssertForRoleDisable();
         Thread.sleep(2000);
         ProjectPageObj.ClickOnCancelProject();
         Thread.sleep(6000);
@@ -426,8 +406,6 @@ public class UpdateProjectTest extends BasePage {
         ProjectPageObj.ClickOnSelectSupervisorRoleBtn();
         Thread.sleep(2000);
         ProjectPageObj.ClickOnUpdateProject();
-        ProjectPageObj.VerifyAssertForUser();
-        Thread.sleep(4000);
         ProjectPageObj.ClickOnCancelProject();
         Thread.sleep(6000);
     }
@@ -465,5 +443,3 @@ public class UpdateProjectTest extends BasePage {
 
     }
 }
-
-

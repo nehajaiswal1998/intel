@@ -22,9 +22,11 @@ public class DocProcessStructuredTest extends BasePage {
         BasePage.LoginTest();
     }
 
-    @AfterClass
-    public void cleanUp() throws Exception {
-        driver.quit();
+   @AfterClass
+    public void cleanUp() throws Exception
+    {
+
+    driver.quit();
     }
 
     @Test(priority = 1)
@@ -224,7 +226,6 @@ public class DocProcessStructuredTest extends BasePage {
         Thread.sleep(2000);
         DocPageObj.verifytooltipOnHoverOnDocumentName();
         Thread.sleep(2000);
-
     }
 
 

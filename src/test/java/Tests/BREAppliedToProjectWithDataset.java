@@ -16,9 +16,10 @@ public class BREAppliedToProjectWithDataset extends BasePage {
         BasePage.driverInit();
         BasePage.LoginTest();
     }
-    @AfterClass
-    public void cleanUp() throws Exception {
-        driver.quit();
+   @AfterClass
+    public void cleanUp() throws Exception
+    {
+    driver.quit();
     }
     @Test(priority = 1)
     public void bre_applied_to_name_using_dataset_fail() throws Exception {
@@ -81,7 +82,7 @@ public class BREAppliedToProjectWithDataset extends BasePage {
             js.executeScript("window.scrollBy(0,-1000)", "");
             Thread.sleep(2000);
             js.executeScript("window.scrollBy(0,1000)", "");
-            Thread.sleep(1000);
+            Thread.sleep(6000);
             ProjectPageObj.ClickNextPage();
             Thread.sleep(2000);
             //Navigate to Data Page.
@@ -181,6 +182,7 @@ public class BREAppliedToProjectWithDataset extends BasePage {
           //  ProjectBREPageObj.verifyElementPresent(ProjectBREPageObj.RightConditionPanelDisplay);
 
             //Document should be uploaded from backend to check the output.
+           
 
         }
         }

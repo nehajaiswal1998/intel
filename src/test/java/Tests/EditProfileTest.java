@@ -15,9 +15,11 @@ public class EditProfileTest extends BasePage {
     public void login() throws Exception {
         BasePage.driverInit();
     }
-    @AfterClass
-    public void cleanUp() throws Exception {
-        driver.quit();
+   @AfterClass
+    public void cleanUp() throws Exception
+    {
+
+    driver.quit();
     }
     @Test(priority = 1)
     public void visible_password_on() throws Exception {
@@ -40,7 +42,7 @@ public class EditProfileTest extends BasePage {
         //TC 11.2 Visible Password Off.
         EditProfileObj.clickVisible();
         Thread.sleep(2000);
-        loginPageObjects.clickLoginButton();
+        loginPageObjects.clickLoginButtonForValidInput();
         Thread.sleep(9000);
     }
     @Test(priority = 3)
@@ -85,6 +87,5 @@ public class EditProfileTest extends BasePage {
         Thread.sleep(3000);
         EditProfileObj.SaveButton();
         Thread.sleep(2000);
-
      }
     }

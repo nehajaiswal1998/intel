@@ -26,8 +26,6 @@ public class ProjectBREMedicalChartDocumentPage {
 
     By selectProject=By.xpath("//span[contains(text(),'MedicalProjectNew')]");
 
-
-
     By selectStructureProject=By.xpath("//span[contains(text(),' 735structured ')]");
     By OpenReadyDocument = By.xpath("//*[@class='mat-header-row cdk-header-row table-list-header secondary-background ng-star-inserted']//following::span[contains(text(),'process.pdf ')]");
     By CancelButton=By.xpath("//span[contains(text(),'Cancel')]");
