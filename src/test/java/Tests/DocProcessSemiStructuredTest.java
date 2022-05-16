@@ -18,9 +18,10 @@ public class DocProcessSemiStructuredTest extends BasePage {
         BasePage.driverInit();
         BasePage.LoginTest();
     }
-    @AfterClass
-    public void cleanUp() throws Exception {
-        driver.quit();
+   @AfterClass
+    public void cleanUp() throws Exception
+    {
+    driver.quit();
     }
     @Test(priority = 1)
     public void search_project() throws Exception {

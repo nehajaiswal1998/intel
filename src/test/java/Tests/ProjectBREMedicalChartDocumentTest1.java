@@ -11,9 +11,11 @@ public class ProjectBREMedicalChartDocumentTest1 extends BasePage {
         BasePage.driverInit();
         BasePage.LoginTest();
     }
-    @AfterClass
-    public void cleanUp() throws Exception {
-        driver.quit();
+   @AfterClass
+    public void cleanUp() throws Exception
+    {
+
+    driver.quit();
     }
     @Test(priority = 1)
     public void verify_rejected_document_no_data_extracted_on_medical_chart() throws Exception { //Object Creation.
@@ -140,7 +142,8 @@ public class ProjectBREMedicalChartDocumentTest1 extends BasePage {
         ProjectBREMedicalChartDocumentPageObj.ClickOnSaveEditDiagnosisDetails();
         Thread.sleep(2000);
         ProjectBREMedicalChartDocumentPageObj.ClickOnCancelButtonICD();
-        Thread.sleep(2000); }
+        Thread.sleep(2000);
+    }
 }
 
 

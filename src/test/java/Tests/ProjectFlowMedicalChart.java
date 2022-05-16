@@ -20,9 +20,10 @@ public class ProjectFlowMedicalChart extends BasePage {
         BasePage.LoginTest();
     }
 
-    @AfterClass
-    public void cleanUp() throws Exception {
-        driver.quit();
+   @AfterClass
+    public void cleanUp() throws Exception
+    {
+    driver.quit();
     }
 
     @Test(priority = 1)
@@ -147,6 +148,5 @@ public class ProjectFlowMedicalChart extends BasePage {
         Thread.sleep(15000);
         ProjectPageObj.verifyProjectCreated("MedicalChartProject");
         Thread.sleep(2000);
-
     }
 }

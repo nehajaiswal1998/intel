@@ -22,9 +22,10 @@ public class ProjectFlowSemiStructureTest extends BasePage {
         BasePage.LoginTest();
     }
 
-    @AfterClass
-    public void cleanUp() throws Exception {
-        driver.quit();
+   @AfterClass
+    public void cleanUp() throws Exception
+    {
+    driver.quit();
     }
 
     @Test(priority = 1)

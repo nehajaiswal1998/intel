@@ -17,7 +17,7 @@ public class DatasetPage {
 
         By ActionBtn = By.xpath("//tbody/tr[1]/td[5]/div[1]/button[1]/span[1]/mat-icon[1]");
 
-        By SearchBox = By.xpath("//input[@data-placeholder='Search']");        //driver.clear();
+        By SearchBox = By.xpath("//input[@data-placeholder='Search']");
         By ExpandDataset1 = By.xpath("//tbody/tr[1]/td[1]");
         By NameOptionValidationDropdown = By.xpath("//span[contains(text(),' Name ')]");
         By DatasetFile = By.xpath("//td[contains(text(),'contacts_to_import.csv')]");

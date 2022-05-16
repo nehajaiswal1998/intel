@@ -28,9 +28,10 @@ public class ProjectBREStructureChartDocumentTest extends BasePage {
         // BasePage.LoginTest();
     }
 
-    @AfterClass(enabled = false)
-    public void cleanUp() throws Exception {
-        driver.quit();
+   @AfterClass
+    public void cleanUp() throws Exception
+    {
+    driver.quit();
     }
 
 
@@ -48,8 +49,7 @@ public class ProjectBREStructureChartDocumentTest extends BasePage {
         Thread.sleep(6000);
         ProjectBREStructureChartDocumentPageobj.clickOnstructurePdf();
         Thread.sleep(2000);
-        ProjectBREStructureChartDocumentPageobj.verifyUI();
-        Thread.sleep(2000);
+
         //Search Medical Chart Project
         driver.navigate().back();
         Thread.sleep(8000);
@@ -89,7 +89,7 @@ public class ProjectBREStructureChartDocumentTest extends BasePage {
 ///471 AIML Engine multithreading bug fix
         Thread.sleep(5000);
         ProjectBREStructureChartDocumentPageobj.clickOnProcessedPdf();
-        Thread.sleep(40000);
+        Thread.sleep(20000);
 
         ProjectBREStructureChartDocumentPageobj.clickOnStructureChartData();
         Assert.assertFalse(AssertionsFunction.isPresent((ProjectBREStructureChartDocumentPageobj.getEmail())));
@@ -224,11 +224,7 @@ public class ProjectBREStructureChartDocumentTest extends BasePage {
         Thread.sleep(2000);
         ProjectBREStructureChartDocumentPageobj.overOnProjectName();
         Thread.sleep(2000);
-
     }
-
-
-
 }
 
 

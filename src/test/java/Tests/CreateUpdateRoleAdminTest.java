@@ -3,6 +3,7 @@ import Base.BasePage;
 import Pages.CreateRolePage;
 import Utilities.AssertionsFunction;
 import Utilities.Functions;
+import Utilities.LoginUser;
 import Utilities.ReadProps;
 import org.testng.Assert;
 import org.testng.annotations.*;
@@ -17,97 +18,57 @@ public class CreateUpdateRoleAdminTest extends BasePage {
     public void login() throws Exception {
         BasePage.driverInit();
     }
-    @AfterClass
-    public void cleanUp() throws Exception {
-        driver.quit();
+   @AfterClass
+    public void cleanUp() throws Exception
+    {
+
+    driver.quit();
     }
     @Test(priority = 1)
     public void login_with_valid_details() throws Exception {
         driver.get(ReadProps.readAttr("URL"));
         driver.manage().window().maximize();
-        Thread.sleep(9000);
         CreateRolePageObj = new CreateRolePage(driver);
         //TC 2.1 Login with Valid Admin details.
-        CreateRolePageObj.EnterUsername(ReadProps.readAttr("AdminUser"));
-        Thread.sleep(1000);
-        CreateRolePageObj.EnterPassword(ReadProps.readAttr("AdminPwd"));
-        Thread.sleep(1000);
-        CreateRolePageObj.ClickLoginButton();
-        Thread.sleep(8000);
-        AssertionsFunction.verifyTargetPageURL(homepage_url);
-        CreateRolePageObj.ClickRoleManagementBtn();
-        Thread.sleep(6000);
-        AssertionsFunction.verifyTargetPageURL(role_tab_url);
-        CreateRolePageObj.ClickCreateRoleBtn();
-        Thread.sleep(4000);
-        AssertionsFunction.verifyTargetPageURL(create_role_url);
+        LoginUser.login_users(driver,ReadProps.readAttr("AdminUser"),ReadProps.readAttr("AdminPwd"));
+        CreateRolePageObj.clickOnRoleMenu();
+        CreateRolePageObj.clickOnCreateRoleButton();
 
    }
-    @Test(priority = 2)
+   @Test(priority = 2)
     public void blank_role_name_permission() throws Exception {
         //TC 2.2 Blank RoleName and Permission.
-        CreateRolePageObj.ClickCreateButton();
-        Thread.sleep(2000);
-        Thread.sleep(2000);
-        driver.navigate().refresh();
-        Thread.sleep(4000);
-        AssertionsFunction.verifyTargetPageURL(create_role_url);
+        CreateRolePageObj.clickOnCreateButton();
     }
     @Test(priority = 3)
     public void valid_role_name_blank_permission() throws Exception {
         //TC 2.3 Valid RoleName and Blank Permission.
-        CreateRolePageObj.EnterNewRoleName(ReadProps.readAttr("RoleName"));//Change everytime before u ran
-        Thread.sleep(2000);
-        CreateRolePageObj.ClickActiveRole();
-        Thread.sleep(2000);
-        CreateRolePageObj.ClickCreateButton();
-        Thread.sleep(2000);
-        Thread.sleep(3000);
-        driver.navigate().refresh();
-        Thread.sleep(4000);
-        AssertionsFunction.verifyTargetPageURL(create_role_url);
+        CreateRolePageObj.enterNewRoleName(ReadProps.readAttr("RoleName"));//Change everytime before u ran
+        CreateRolePageObj.activeOrInactiveRoleButton();
+        CreateRolePageObj.clickOnCreateButton();
 
     }
     @Test(priority = 4)
     public void blank_role_name_valid_permission() throws Exception {
         //TC 2.4 Blank RoleName and Valid Permission.
-        CreateRolePageObj.ClickActiveRole();
-        Thread.sleep(2000);
-        CreateRolePageObj.AddPermissionPlusBtn();
-        Thread.sleep(2000);
+        driver.navigate().refresh();
+        CreateRolePageObj.activeOrInactiveRoleButton();
+        CreateRolePageObj.clickOnAddPermissionButton("View Document");
         CreateRolePageObj.SelectViewDocumentPermission();
-        Thread.sleep(2000);
-        Robot r = new Robot();
-        r.keyPress(KeyEvent.VK_ESCAPE);
-        Thread.sleep(2000);
-        CreateRolePageObj.ClickCreateButton();
-        Thread.sleep(3000);
-        CreateRolePageObj.ClickCancelButton();
-        Thread.sleep(3000);
-        AssertionsFunction.verifyTargetPageURL(role_tab_url);
+        CreateRolePageObj.clickOnCreateButton();
+        CreateRolePageObj.clickOnCancelButton();
 
 
     }
     @Test(priority = 5)
     public void valid_role_and_permission() throws Exception {
         //TC 2.5 Valid Role and Valid Permission.
-        CreateRolePageObj.ClickCreateRoleBtn();
-        Thread.sleep(2000);
-        AssertionsFunction.verifyTargetPageURL(create_role_url);
-        CreateRolePageObj.ClickActiveRole();
-        Thread.sleep(2000);
-        CreateRolePageObj.EnterNewRoleName(ReadProps.readAttr("RoleName"));//Change everytime before u run
-        Thread.sleep(2000);
-        CreateRolePageObj.AddPermissionPlusBtn();
-        Thread.sleep(2000);
-        CreateRolePageObj.ClickProcessDocPermission();
-        Assert.assertTrue(AssertionsFunction.isPresent(CreateRolePageObj.getProcessDocumentPermission()));
-        Thread.sleep(2000);
-        Robot r = new Robot();
-        r.keyPress(KeyEvent.VK_ESCAPE);
-        Thread.sleep(3000);
-        CreateRolePageObj.ClickCreateButton();
-        Thread.sleep(4000);
+        driver.navigate().refresh();
+        CreateRolePageObj.activeOrInactiveRoleButton();
+        CreateRolePageObj.enterNewRoleName(ReadProps.readAttr("RoleName"));//Change everytime before u run
+        CreateRolePageObj.clickOnAddPermissionButton("View Document");
+        CreateRolePageObj.SelectViewDocumentPermission();
+        CreateRolePageObj.clickOnCreateButton();
         String expectedDate = Functions.getCurrentDate();
         System.out.println("expectedDate="+expectedDate);
         System.out.println("driver.findElement(CreatedTime).getText()="+driver.findElement(CreatedTime).getText());
@@ -116,55 +77,28 @@ public class CreateUpdateRoleAdminTest extends BasePage {
     @Test(priority = 6)
     public void create_role_with_existing_rolename() throws Exception {
         //TC 2.6 Create Role with Existing Role Name.
-        CreateRolePageObj.ClickCreateRoleBtn();
-        Thread.sleep(2000);
-        AssertionsFunction.verifyTargetPageURL(create_role_url);
-        CreateRolePageObj.ClickActiveRole();
-        Thread.sleep(2000);
-        CreateRolePageObj.enterExistingRoleName_OrInvalidRoleName(ReadProps.readAttr("RoleName"));//Change everytime before u ran
-        Thread.sleep(2000);
-        CreateRolePageObj.AddPermissionPlusBtn();
-        Thread.sleep(2000);
-        CreateRolePageObj.ClickProcessDocPermission();
-        Thread.sleep(2000);
-        Assert.assertTrue(AssertionsFunction.isPresent(CreateRolePageObj.getProcessDocumentPermission()));
-        Robot r = new Robot();
-        r.keyPress(KeyEvent.VK_ESCAPE);
-        Thread.sleep(3000);
-        CreateRolePageObj.ClickCreateButton();
-        Thread.sleep(2000);
-        CreateRolePageObj.ClickCancelButton();
-        Thread.sleep(2000);
-        AssertionsFunction.verifyTargetPageURL(role_tab_url);
+        CreateRolePageObj.clickOnCreateRoleButton();
+        CreateRolePageObj.activeOrInactiveRoleButton();
+        CreateRolePageObj.enterExistingRoleNameOrInvalidRoleName(ReadProps.readAttr("RoleName"));//Change everytime before u ran
+        CreateRolePageObj.clickOnAddPermissionButton("View Document");
+        CreateRolePageObj.SelectViewDocumentPermission();
+        CreateRolePageObj.clickOnCreateButton();
+        CreateRolePageObj.clickOnCancelButton();
     }
    @Test(priority = 7)
     public void search_created_role() throws Exception {
         //TC 2.7 Search the Created Role or not
-        CreateRolePageObj.SearchCreatedRole(ReadProps.readAttr("RoleName"));//Change everytime before u ran
-        Thread.sleep(3000);
+        CreateRolePageObj.searchCreatedRole(ReadProps.readAttr("RoleName"));
     }
     @Test(priority = 8)
     public void update_role_with_valid_data() throws Exception {
         //TC 2.8 Update Role with Valid Data.
-        CreateRolePageObj.ClickEditRole();
-        Thread.sleep(5000);
-        CreateRolePageObj.AddPermissionPlusBtn();
-        Thread.sleep(2000);
-        CreateRolePageObj.ClickProcessDocPermission();
-        Thread.sleep(2000);
-        Assert.assertTrue(AssertionsFunction.isPresent(CreateRolePageObj.getProcessDocumentPermission()));
-        CreateRolePageObj.SelectViewDocumentPermission();
-        Thread.sleep(2000);
-        Robot r = new Robot();
-        r.keyPress(KeyEvent.VK_ESCAPE);
-        Thread.sleep(3000);
+        CreateRolePageObj.clickOnEditRole();
+        CreateRolePageObj.clickOnAddPermissionButton("Update Project");
+        CreateRolePageObj.SelectUpdateProject();
         CreateRolePageObj.ClickUpdateBtn();
         String expectedDate = Functions.getCurrentDate();
-        Thread.sleep(5000);
-        AssertionsFunction.verifyTargetPageURL(role_tab_url);
-
         // verify Created and Updated Time date diff After Updation
-
         System.out.println("expectedDate="+expectedDate);
         System.out.println("driver.findElement(UpdatedTime).getText()="+driver.findElement(UpdatedTime).getText());
 
@@ -173,103 +107,61 @@ public class CreateUpdateRoleAdminTest extends BasePage {
     @Test(priority = 9)
     public void remove_all_permissions() throws Exception {
         //TC 2.9 Remove All Permissions and Update.
-        CreateRolePageObj.ClickEditRole();
-        Thread.sleep(3000);
+        CreateRolePageObj.clickOnEditRole();
         CreateRolePageObj.ClickRemovePermission();
-        Thread.sleep(2000);
         CreateRolePageObj.ClickUpdateBtn();
-        Thread.sleep(1000);
-        //AssertionsFunction.verifyElementText(errormsg,errormsgBlankDataCreateRoleClick);
-        Thread.sleep(3000);
-        CreateRolePageObj.ClickCancelButton();
-        Thread.sleep(5000);
-        AssertionsFunction.verifyTargetPageURL(role_tab_url);
-        Thread.sleep(1000);
+        CreateRolePageObj.clickOnCancelButton();
 
     }
     @Test(priority = 10)
     public void disable_the_status_of_role_update() throws Exception {
         //TC 2.10 Disable the Status of Role and Update.
-        CreateRolePageObj.ClickEditRole();
-        Thread.sleep(5000);
-        CreateRolePageObj.ClickActiveRole();
-        Thread.sleep(2000);
+        CreateRolePageObj.clickOnEditRole();
+        CreateRolePageObj.activeOrInactiveRoleButton();
         CreateRolePageObj.ClickUpdateBtn();
-        Thread.sleep(4000);
-        AssertionsFunction.verifyTargetPageURL(role_tab_url);
-        Thread.sleep(2000);
 
     }
     @Test(priority = 11)
     public void enable_status_role_update() throws Exception {
             //TC 2.11 Enable the Status of Role and Update.
-            CreateRolePageObj.ClickEditRole();
-            Thread.sleep(5000);
-            CreateRolePageObj.ClickActiveRole();
-            Thread.sleep(2000);
+            CreateRolePageObj.clickOnEditRole();
+            CreateRolePageObj.activeOrInactiveRoleButton();
             CreateRolePageObj.ClickUpdateBtn();
-            Thread.sleep(4000);
     }
     @Test(priority = 13)
     public void Creating_role_invalid_data_in_RoleName_Permissions() throws Exception {
         //TC-3.2 Verify the working of admin for Creating role by putting invalid data in Role name, blank Permissions
-        CreateRolePageObj.ClickCreateRoleBtn();
-        Thread.sleep(4000);
-        AssertionsFunction.verifyTargetPageURL(create_role_url);
-        CreateRolePageObj.enterExistingRoleName_OrInvalidRoleName(ReadProps.readAttr("InvalidRoleName"));
-        CreateRolePageObj.ClickActiveRole();
-        Thread.sleep(2000);
-        CreateRolePageObj.ClickCreateButton();
-        Thread.sleep(1000);
-        //AssertionsFunction.verifyElementText(errormsg,errormsgBlankDataCreateRoleClick);
-        CreateRolePageObj.ClickCancelButton();
-        Thread.sleep(4000);
-        AssertionsFunction.verifyTargetPageURL(role_tab_url);
+        CreateRolePageObj.clickOnCreateRoleButton();
+        CreateRolePageObj.enterExistingRoleNameOrInvalidRoleName(ReadProps.readAttr("InvalidRoleName"));
+        CreateRolePageObj.activeOrInactiveRoleButton();
+        CreateRolePageObj.clickOnCreateButton();
+        CreateRolePageObj.clickOnCancelButton();
     }
     @Test(priority = 14)
     public void Creating_role_invalid_data_with_disabled_status() throws Exception {
        //TC 3.5 Verify the working of admin for Create role button when user status is disabled
-        CreateRolePageObj.ClickCreateRoleBtn();
-        Thread.sleep(4000);
-        AssertionsFunction.verifyTargetPageURL(create_role_url);
-        CreateRolePageObj.enterExistingRoleName_OrInvalidRoleName(ReadProps.readAttr("InvalidRoleName"));
-        Thread.sleep(1000);
-        CreateRolePageObj.AddPermissionPlusBtn();
-        Thread.sleep(2000);
-        CreateRolePageObj.ClickProcessDocPermission();
-        Thread.sleep(2000);
-        Assert.assertTrue(AssertionsFunction.isPresent(CreateRolePageObj.getProcessDocumentPermission()));
-        Robot r = new Robot();
-        r.keyPress(KeyEvent.VK_ESCAPE);
-        Thread.sleep(3000);
-        CreateRolePageObj.ClickCreateButton();
-        Thread.sleep(1000);
-        //AssertionsFunction.verifyElementText(errormsg,errormsgBlankDataCreateRoleClick);
-        CreateRolePageObj.ClickCancelButton();
-        Thread.sleep(4000);
-        AssertionsFunction.verifyTargetPageURL(role_tab_url);
+        CreateRolePageObj.enterExistingRoleNameOrInvalidRoleName(ReadProps.readAttr("InvalidRoleName"));
+        CreateRolePageObj.clickOnAddPermissionButton("Update User");
+        CreateRolePageObj.SelectUpdateUser();
+        CreateRolePageObj.activeOrInactiveRoleButton();
+        CreateRolePageObj.clickOnCreateButton();
+        CreateRolePageObj.clickOnCancelButton();
+        driver.navigate().refresh();
     }
     @Test(priority = 15)
-    public void Updating_role_invalid_data_RolenamePermissions() throws Exception {
+    public void Updating_role_invalid_data_RolenamePermissions() throws Exception
+    {
         //TC 4.2  Verify the working of admin for Updating the role by putting invalid data in Role name,Permissions
-        CreateRolePageObj.ClickEditRole();
-        Thread.sleep(5000);
-        CreateRolePageObj.enterExistingRoleName_OrInvalidRoleName(ReadProps.readAttr("InvalidRoleName"));
-        Assert.assertTrue(AssertionsFunction.is_Enabled(CreateRolePageObj.RoleName));
-        CreateRolePageObj.ClickUpdateBtn();
-        Thread.sleep(4000);
-        AssertionsFunction.verifyTargetPageURL(role_tab_url);
+        CreateRolePageObj.enterExistingRoleNameOrInvalidRoleName(ReadProps.readAttr("InvalidRoleName"));
+        CreateRolePageObj.clickOnCreateButton();
     }
     @Test(priority = 16)
-    public void Sorting_role() throws InterruptedException {
+    public void Sorting_role() throws Exception
+    {
         //TC 6.1 Sorting by role, permission,updated,created
-        CreateRolePageObj.ClickSortRoleBtn();
-        Thread.sleep(1000);
-
-        CreateRolePageObj.ClickLogout();
-        Thread.sleep(4000);
-        AssertionsFunction.verifyTargetPageURL(loginPage_url);
-
+        CreateRolePageObj.clickOnRoleMenu();
+        CreateRolePageObj.clickOnSortButton();
+        LoginUser.logoutUser(driver);
 
     }
 

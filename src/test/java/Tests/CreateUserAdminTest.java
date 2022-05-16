@@ -3,6 +3,7 @@ import Base.BasePage;
 import Pages.CreateUserPage;
 import Utilities.AssertionsFunction;
 import Utilities.Functions;
+import Utilities.LoginUser;
 import Utilities.ReadProps;
 import com.google.cloud.storage.Acl;
 import org.testng.Assert;
@@ -15,61 +16,41 @@ import static Pages.CreateRolePage.*;
 public class CreateUserAdminTest extends BasePage {
         static CreateUserPage UserPageObj;
         @BeforeClass
-    public void login() throws Exception {
+    public void driverinit() throws Exception {
         BasePage.driverInit();
     }
-    @AfterClass
-    public void cleanUp() throws Exception {
-        driver.quit();
+   @AfterClass
+    public void cleanUp() throws Exception
+    {
+    driver.quit();
     }
     @Test(priority = 1)
     public void valid_login_with_admin_credentials() throws Exception {
             driver.get(ReadProps.readAttr("URL"));
             driver.manage().window().maximize();
-            Thread.sleep(8000);
             UserPageObj = new CreateUserPage(driver);
             //TC 4.1 Valid Login with Admin credentials.
-            UserPageObj.setUsername(ReadProps.readAttr("AdminUser"));
-            Thread.sleep(2000);
-            UserPageObj.setPassword(ReadProps.readAttr("AdminPwd"));
-            Thread.sleep(2000);
-            UserPageObj.clickLoginButton();
-            Thread.sleep(15000);
-            AssertionsFunction.verifyTargetPageURL(UserPageObj.loginHoempPageUrl);
+            LoginUser.login_users(driver, "di-admin@neutrinotechsystems.com", "Nts#admin@123");
             UserPageObj.ProfileIconClick();
-            Thread.sleep(8000);
-            AssertionsFunction.verifyElementText(UserPageObj.UserText,UserPageObj.actualUserName);
+
+
     }
      @Test(priority = 2)
         public void create_user_with_blank_data() throws Exception {
                 //TC 4.2 Create User with Blank data.
-                UserPageObj.DoubleClickUserBtn();
-                Thread.sleep(4000);
-                AssertionsFunction.verifyTargetPageURL(UserPageObj.userTabUrl);
+                UserPageObj.clickOnUserMenu();
                 UserPageObj.ClickCreateUserBtn();
-                Thread.sleep(2000);
-                AssertionsFunction.verifyTargetPageURL(UserPageObj.createUserUrl);
                 UserPageObj.ClickCreateBtn();
-                Thread.sleep(1000);
-                AssertionsFunction.verifyElementText(errormsg,errormsgBlankDataCreateRoleClick);
                 UserPageObj.ClickOnCancelBtn();
-                Thread.sleep(4000);
-                AssertionsFunction.verifyTargetPageURL(UserPageObj.userTabUrl);
         }
-       @Test(priority = 3)
+      @Test(priority = 3)
         public void create_user_with_valid_data() throws Exception {
                 //TC 4.3 Create User with Valid data.
                 UserPageObj.ClickCreateUserBtn();
-                Thread.sleep(2000);
-                AssertionsFunction.verifyTargetPageURL(UserPageObj.createUserUrl);
-                UserPageObj.EnterNewUserName(ReadProps.readAttr("AdminUsername")); // change this value only latter no digit
-                Thread.sleep(2000);
+                UserPageObj.EnterNewUserName(ReadProps.readAttr("AdminUsername"));
                 UserPageObj.EnterEmail(ReadProps.readAttr("AdminEmailID"));
-                Thread.sleep(2000);
-                UserPageObj.ClickActiveUser();
-                Thread.sleep(2000);
+                UserPageObj.ClickOnEnableOrDisableUserSelectionToggle();
                 UserPageObj.ClickCreateBtn();
-                Thread.sleep(3000);
                 //4.8 Verify that created user by admin should display in available user list
 
     }
@@ -77,61 +58,37 @@ public class CreateUserAdminTest extends BasePage {
         public void create_user_with_invalid_data() throws Exception {
            //TC 4.4 Create user with Invalid data.
            UserPageObj.ClickCreateUserBtn();
-           Thread.sleep(6000);
-           AssertionsFunction.verifyTargetPageURL(UserPageObj.createUserUrl);
            UserPageObj.EnterNewUserName(ReadProps.readAttr("InvalidUsernameU"));
-           Thread.sleep(2000);
            UserPageObj.EnterEmail(ReadProps.readAttr("InvalidEmailU"));
-           Thread.sleep(2000);
            UserPageObj.ClickCreateBtn();
-           Thread.sleep(2000);
-           AssertionsFunction.verifyElementText(errormsg,errormsgBlankDataCreateRoleClick);
            UserPageObj.ClickOnCancelBtn();
-           Thread.sleep(4000);
 
         }
         @Test(priority = 5)
         public void disable_user() throws Exception {
                 //TC 4.5 Disable user.
                 UserPageObj.SearchCreatedUser(ReadProps.readAttr("AdminUsername"));
-                Thread.sleep(3000);
                UserPageObj.selectSearchedUser();
-                Thread.sleep(2000);
-                UserPageObj.ClickDisableUser();
-                Thread.sleep(2000);
-                UserPageObj.ClickUpdateUser();
-                Thread.sleep(4000);
-                AssertionsFunction.verifyTargetPageURL(UserPageObj.userTabUrl);
+                UserPageObj.ClickOnEnableOrDisableUserSelectionToggle();
+                UserPageObj.clickOnUpdateUserButton();
 
         }
         @Test(priority = 6)
         public void enable_disabled_user() throws Exception {
             //TC 4.6 Enable the Disabled user.
             UserPageObj.SearchCreatedUser(ReadProps.readAttr("AdminUsername"));
-            Thread.sleep(2000);
             UserPageObj.selectSearchedUser();
-            Thread.sleep(2000);
-            UserPageObj.ClickActiveUser();
-            Thread.sleep(3000);
-            UserPageObj.ClickUpdateUser();
-            Thread.sleep(4000);
+            UserPageObj.ClickOnEnableOrDisableUserSelectionToggle();
+            UserPageObj.clickOnUpdateUserButton();
         }
     @Test(priority = 7)
     public void create_user_with_valid_data_status_disabled() throws Exception {
             //4.7 Verify the working of admin role for Create user button when user status is disabled
         UserPageObj.ClickCreateUserBtn();
-        Thread.sleep(2000);
-        AssertionsFunction.verifyTargetPageURL(UserPageObj.createUserUrl);
-        UserPageObj.EnterNewUserName(ReadProps.readAttr("AdminUsername")); // change this value only latter no digit
-        Thread.sleep(2000);
+        UserPageObj.EnterNewUserName(ReadProps.readAttr("AdminUsername"));
         UserPageObj.EnterEmail(ReadProps.readAttr("AdminEmailID"));
-        Thread.sleep(2000);
         UserPageObj.ClickCreateBtn();
-        Thread.sleep(6000);
         //4.8 Verify that created user by admin should display in available user list
-        UserPageObj.LogOut();
-        Thread.sleep(5000);
-        AssertionsFunction.verifyTargetPageURL(UserPageObj.loginPageUrl);
 
     }
    }

@@ -36,23 +36,24 @@ public class BasePage {
         driver.manage().window().maximize();
         ProjectPageObj.EnterUsername(ReadProps.readAttr("UserID"));
         loginPageObjects.setPassword(ReadProps.readAttr("Password"));
-        loginPageObjects.clickLoginButton();
-        Thread.sleep(15000);
+        loginPageObjects.clickLoginButtonForValidInput();
+        Thread.sleep(10000);
     }
     public static void driverInit() throws Exception {
         String projectPath = System.getProperty("user.dir");
         System.setProperty("webdriver.chrome.driver", projectPath + ".\\Drivers\\chromedriver.exe");
         driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
     }
 
-   // @BeforeSuite
+
+    @BeforeSuite
     public static void updateObjectRepo() throws IOException, ConfigurationException {
         int exec_id = Integer.valueOf(ReadProps.readAttr("exec_id"));
         exec_id++;
         PropertiesConfiguration config = new PropertiesConfiguration("Object_Repository.properties");
         config.setProperty("exec_id", String.valueOf(exec_id));
-       // config.setProperty("AdminUserName", "AutoAdminUser"+ exec_id);
+        // config.setProperty("AdminUserName", "AutoAdminUser"+ exec_id);
         config.setProperty("AdminID", config.getProperty("AdminUserName")+"@test.com");
         config.setProperty("RoleName", "AutoAdmin"+ exec_id);
         config.setProperty("RoleNamePA", "AutoAdminPA"+ exec_id);
@@ -67,5 +68,7 @@ public class BasePage {
         config.setProperty("EndDate", config.getProperty("StartDate"));
         config.save();}
 
-    }
+
+
+}
 

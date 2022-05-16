@@ -20,10 +20,11 @@ public class BREAppliedToProjectWithoutDataset extends BasePage {
                 BasePage.driverInit();
                 BasePage.LoginTest();
         }
-        @AfterClass
-        public void cleanUp() throws Exception {
-                driver.quit();
-        }
+       @AfterClass
+    public void cleanUp() throws Exception
+    {
+    driver.quit();
+    }
         @Test(priority = 1)
         public void enterProjecPagetData() throws Exception {
                 Robot r = new Robot();
@@ -470,5 +471,6 @@ public class BREAppliedToProjectWithoutDataset extends BasePage {
                 Thread.sleep(2000);
                 //Add Create Method here to complete the flow before executing in TestNG.
                 //Upload the Document in this Project for the Results.
+
         }
 }

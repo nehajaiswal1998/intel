@@ -29,7 +29,7 @@ public class ProjectBRESemiStructurePage {
     By OpenSemiStructurePdf=By.xpath("//*[@class='mat-header-row cdk-header-row table-list-header secondary-background ng-star-inserted']//following::span[contains(text(), ' MD - ProgressNotes  -1137768581 -  - LIBRE -- IL - NEW - 12-2-2020.tif')]");
     By CheckProcessedDocument = By.xpath("//div[@role='listbox']/mat-option[3]");
     By processedStatus=By.xpath("//span[contains(text(),'Cancel')]//following::mat-label[2]");
-    By RejectedDocument=By.xpath("//span[contains(text(),' MD - InboundRX -2746121966 -  - LIBRE -  -  NEW  - TN- 12-15-2020.tif ')]");
+    By RejectedDocument=By.xpath("//*[text()=' Type ']//following::tr[1]/td[4]");
 
     public ProjectBRESemiStructurePage(WebDriver driver) {
         this.driver = driver;

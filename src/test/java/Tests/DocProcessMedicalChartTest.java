@@ -20,22 +20,21 @@ public class DocProcessMedicalChartTest extends BasePage
         BasePage.driverInit();
         BasePage.LoginTest();
     }
-    @AfterClass(enabled = false)
-    public void cleanUp() throws Exception {
-        driver.quit();
+   @AfterClass
+    public void cleanUp() throws Exception
+    {
+    driver.quit();
     }
     @Test(priority = 1)
     public void search_project() throws Exception {
         Robot r = new Robot();
         DocPageObj = new DocumentPage(driver);
         DocPageObj.ClickDocumentBtn();
-        Custome_Wait.wait(driver,driver.findElement(By.xpath("//table[@class='mat-table cdk-table mat-sort']//following::th[8]")));
 
         //TC 8.1 Search Project.
         DocPageObj.ClickDropDownBtn();
         DocPageObj.ClickSearchProject(ReadProps.readAttr("MedicalChartProjectName"));
-        Custome_Wait.wait(driver,driver.findElement(By.xpath("//span[text()=' QA-AutoProject-MedicalChart ']")));
-        DocPageObj.ClickSelectMedicalChartProject();
+         DocPageObj.ClickSelectMedicalChartProject();
       //  Thread.sleep(3000);
         AssertionsFunction.verifyElementText(ReadProps.readAttr("MedicalChartProjectName"),DocPageObj.SelectMedicalChartProject);
         DocPageObj.ClickStatusFilter();
@@ -58,7 +57,7 @@ public class DocProcessMedicalChartTest extends BasePage
      //   Custome_Wait.wait(driver, driver.findElement(By.xpath("//div[@class='col-md-6 pr-4 ng-tns-c278-31']")));
         DocPageObj.ClickOnChartLevelFlagsBtn();
        // Thread.sleep(2000);
-        Custome_Wait.wait(driver, driver.findElement(By.xpath("//span[contains(text(),' Non-HCC ')]")));
+
         DocPageObj.selectNONHCCBtn();
        // Thread.sleep(2000);
         DocPageObj.ClickOnChartLevelFlagsBtn();
@@ -67,21 +66,16 @@ public class DocProcessMedicalChartTest extends BasePage
       //  Thread.sleep(2000);
         DocPageObj.ClickOnChartLevelFlagsBtn();
        // Thread.sleep(2000);
-        Custome_Wait.wait(driver, driver.findElement(By.xpath("//span[contains(text(),' Non-HCC ')]")));
+
         DocPageObj.selectPatientNameMismatchBtn();
        // Thread.sleep(2000);
         DocPageObj.ClickExpansionPanel();
        // Thread.sleep(2000);
         DocPageObj.ClickCancelDoc2();
-       // Thread.sleep(5000);
-        Custome_Wait.wait(driver, driver.findElement(By.xpath("//div[@class='col-md-6 pr-4 ng-tns-c278-31']")));
+        Thread.sleep(5000);
 
-        AssertionsFunction.verifyTargetPageURL(DocPageObj.DocumentPageURL);
-      //  Thread.sleep(2000);
         DocPageObj.ClickRefreshDocument();
-       // Thread.sleep(7000);
-        Custome_Wait.wait(driver, driver.findElement(By.xpath("//div[@class='col-md-6 pr-4 ng-tns-c278-31']")));
-
+        Thread.sleep(7000);
     }
   //  @Test(priority = 4)
     public void hide_unhide_analytics() throws Exception {

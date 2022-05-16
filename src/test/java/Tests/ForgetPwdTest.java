@@ -12,9 +12,11 @@ public class ForgetPwdTest extends BasePage {
     public void login() throws Exception {
         BasePage.driverInit();
     }
-    @AfterClass(enabled = false)
-    public void cleanUp() throws Exception {
-        driver.quit();
+   @AfterClass
+    public void cleanUp() throws Exception
+    {
+
+    driver.quit();
     }
     @Test(priority = 1)
     public void click_on_cancel_button_on_forgot_password() throws Exception {
@@ -84,5 +86,4 @@ public class ForgetPwdTest extends BasePage {
             FwdPwdObj.ClickCancelBtn();
             Thread.sleep(4000);
             AssertionsFunction.verifyTargetPageURL(FwdPwdObj.loginPageUrl);
-
     }}
